@@ -1,11 +1,3 @@
-fig:nice-fig
-tab:nice-tab
-about
-usage
-render-book
-preview-book
-hello-bookdown
-a-section
-cross
-chapters-and-sub-chapters
-captioned-figures-and-tables
+introduction
+hello-1
+hello-2
