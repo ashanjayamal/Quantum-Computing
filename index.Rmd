@@ -1,18 +1,38 @@
 --- 
-title: "Introduction to Quantum Computing "
+title: 'Introduction to Quantum Computing '
 author: "Ashan Jayamal"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
-url: https://ashanjayamal.github.io/Quantum-Computing/
-# cover-image: path to the social sharing image like images/cover.jpg
+bibliography:
+- book.bib
+- packages.bib
+url: "https://ashanjayamal.github.io/Quantum-Computing/"
 description: |
   This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::gitbook,
   set in the _output.yml file.
-link-citations: yes
-github-repo: rstudio/bookdown-demo
+  The HTML output format for this example is bookdown::gitbook,
+link-citations: true
+github-repo: "rstudio/bookdown-demo"
+
+  
 ---
 
 # Introduction
+
+## The problem setting
+
+I order to design quantum algorithms we need to know how to execute
+functions on a quantum computer. In particular, we are interested in
+functions that take a (binary) number, and output a truth value (i.e.,
+\({0, 1}\). That is, functions of the form \(f : {0, 1}n → {0, 1}\)
+
+Let us consider the following problem: There is a univariate function $f$, defined over the binary alphabet $0,1,$ with output range in the same alphabet $0,1$. I.e., $f:\{0,1\}\rightarrow \{0,1\}$.
+
+
+We are given a function:
+ \[f : \{0,1\} \to \{0,1\}\]
+ Our goal is to determine whether $f$ is:
+- Constant: $f (0) = f(1)$ (same output for both inputs) 
+- Balanced: $f (0)= f(1) $(different outputs for each input) 
+
