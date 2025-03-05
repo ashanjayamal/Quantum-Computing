@@ -1,6 +1,15 @@
 # An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour
 
-## Simple Problem
+## The problem setting
+
+I order to design quantum algorithms we need to know how to execute
+functions on a quantum computer. In particular, we are interested in
+functions that take a (binary) number, and output a truth value (i.e.,
+\({0, 1}\). That is, functions of the form \(f : {0, 1}n → {0, 1}\)
+
+Let us consider the following problem: There is a univariate function $f$, defined over the binary alphabet $0,1,$ with output range in the same alphabet $0,1$. I.e., $f:\{0,1\}\rightarrow \{0,1\}$.
+
+
 
 We are given a function:  
 **\[f : \{0,1\} \to \{0,1\}\]**
@@ -98,15 +107,15 @@ The function \( f \) is promised to be either:
 
 
 - **Dirac Notation** (Ket):  
-  \[ |v⟩ = \begin{bmatrix} a \\ b \end{bmatrix} .\]  
+  \[ |v\rangle  = \begin{bmatrix} a \\ b \end{bmatrix} .\]  
 
 - **Inner Product**:  
-  The standard inner product on \( \mathbb{C}^2 \) is  the function   \( ⟨\cdot|\cdot ⟩:\mathbb{C}^2\to\mathbb{C}\) defined by:
-  \[ ⟨v|w⟩ = \overline{a}c + \overline{b}d \]
-  for all \( |v⟩ = \begin{bmatrix} a \\ b \end{bmatrix} \) and \( |w⟩ = \begin{bmatrix} c \\ d \end{bmatrix}\).  
+  The standard inner product on \( \mathbb{C}^2 \) is  the function   \( \langle \cdot|\cdot \rangle :\mathbb{C}^2\to\mathbb{C}\) defined by:
+  \[ \langle v|w\rangle  = \overline{a}c + \overline{b}d \]
+  for all \( |v\rangle  = \begin{bmatrix} a \\ b \end{bmatrix} \) and \( |w\rangle  = \begin{bmatrix} c \\ d \end{bmatrix}\).  
 
 - **Norm**:  
-  \( \| |v⟩ \| = \sqrt{⟨v|v⟩} \).
+  \( \| |v\rangle  \| = \sqrt{\langle v|v\rangle } \).
   
   
 
@@ -114,50 +123,54 @@ The function \( f \) is promised to be either:
 
 1. **Inner Product Properties**:  
    - Conjugate linear in the first entry:  
-     \[ ⟨v + \lambda v'|w⟩ = ⟨v|w⟩ + \overline{\lambda}⟨v'|w⟩ .\]  
+     \[ \langle v + \lambda v'|w\rangle  = \langle v|w\rangle  + \overline{\lambda}\langle v'|w\rangle  .\]  
    - Linear in the second entry:  
-     \[ ⟨v|w + \lambda w'⟩ = ⟨v|w⟩ + \lambda⟨v|w'⟩ .\]  
+     \[ \langle v|w + \lambda w'\rangle  = \langle v|w\rangle  + \lambda\langle v|w'\rangle  .\]  
 
 2. **Orthogonality**:  
-   Vectors \( |v⟩, |w⟩ ∈ \mathbb{C}^2 \) are orthogonal if \( ⟨v|w⟩ = 0 \).  
+   Vectors \( |v\rangle , |w\rangle  ∈ \mathbb{C}^2 \) are orthogonal if \( \langle v|w\rangle  = 0 \).  
 
 3. **Orthonormal Basis**:  
-   A set of vectors \( \{|e_1⟩, |e_2⟩\} \) is an orthonormal basis if \( ⟨e_i|e_j⟩ = δ_{ij} \).  
-   For any \( |v⟩ ∈ \mathbb{C}^2 \), \[ |v⟩ = a|e_1⟩ + b|e_2⟩, \]
-   for some \(a,b \in  \mathbb{C}^2\) and moreover \( a = ⟨e_1|v⟩ \) and \( b = ⟨e_2|v⟩ \).  
+   A set of vectors \( \{|e_1\rangle , |e_2\rangle \} \) is an orthonormal basis if \[ \langle e_i|e_j\rangle  = δ_{ij}=
+   \begin{cases}
+   1 & \text{ if } i \neq j\\
+   0 & \text{ if } i = j\
+   \end{cases}.\]  
+   For any \( |v\rangle  ∈ \mathbb{C}^2 \), \[ |v\rangle  = a|e_1\rangle  + b|e_2\rangle , \]
+   for some \(a,b \in  \mathbb{C}^2\) and moreover \( a = \langle e_1|v\rangle  \) and \( b = \langle e_2|v\rangle  \).  
 
 
 
 ```{example,name='Orthonormal Basis'}
 
 1. **Standard Basis**:  
-   \( |0⟩ = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \), \( |1⟩ = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \).  
+   \( |0\rangle  = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \), \( |1\rangle  = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \).  
 
 2. **Hadamard Basis**:  
-   \( |+⟩ = \frac{1}{\sqrt{2}}(|0⟩ + |1⟩) \), \( |−⟩ = \frac{1}{\sqrt{2}}(|0⟩ − |1⟩) \).  
+   \( |+\rangle  = \frac{1}{\sqrt{2}}(|0\rangle  + |1\rangle ) \), \( |−\rangle  = \frac{1}{\sqrt{2}}(|0\rangle  − |1\rangle ) \).  
 ```
 
-- Consider  \( |w⟩ = \begin{bmatrix}1 \\ 2 \end{bmatrix} \), and now if \( ⟨+|w⟩ = x \), \( ⟨−|w⟩ = y \), then \[ |w⟩ = x|+⟩ + y|−⟩ .\]  
+- Consider  \( |w\rangle  = \begin{bmatrix}1 \\ 2 \end{bmatrix} \), and now if \( \langle +|w\rangle  = x \), \( \langle −|w\rangle  = y \), then \[ |w\rangle  = x|+\rangle  + y|−\rangle  .\]  
 
 
 
-### Matrices as Linear Operators
+#### Matrices as Linear Operators
 
 - A \( 2 \times 2 \) complex matrix \( A \) acts on \( \mathbb{C}^2 \) as a linear operator via multiplication:  
-  \( A|v⟩ = |w⟩ \).  
+  \[ A|v\rangle  = |w\rangle .\]  
 
 - **Properties**:  
   - Linearity:  
-    \( A(|v⟩ + |w⟩) = A|v⟩ + A|w⟩ \),  
-    \( A(c|v⟩) = cA|v⟩ \) (for scalar \( c \)).  
+    - \( A(|v\rangle  + |w\rangle ) = A|v\rangle  + A|w\rangle  \),  
+    - \( A(c|v\rangle ) = cA|v\rangle  \) (for scalar \( c \)).  
 
 - **Hermitian Adjoint (Conjugate Transpose)**:  
-  Given \( A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \),  
-  \( A^\dagger = \begin{bmatrix} \overline{a} & \overline{c} \\ \overline{b} & \overline{d} \end{bmatrix} \).  
+  Given \[ A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} ,\]  
+  \[ A^\dagger = \begin{bmatrix} \overline{a} & \overline{c} \\ \overline{b} & \overline{d} \end{bmatrix}. \]  
 
----
 
-### Types of Matrices Considered in Quantum Computing
+
+#### Types of Matrices Considered in Quantum Computing
 
 1. **Self-Adjoint Matrix**: \( H^\dagger = H \).  
    Example:  
@@ -166,65 +179,72 @@ The function \( f \) is promised to be either:
 2. **Unitary Matrix**: \( U^\dagger U = UU^\dagger = I \).  
    Example:  
    \( U = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ -1 & 1 \end{bmatrix} \),  
-   \( U^\dagger = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix} \).  
+   \( U^\dagger = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix} \).Then,
+   \[U U^\dagger=  \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ -1 & 1 \end{bmatrix} \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix}=I\]
 
 3. **Projection Matrix**: \( P^2 = P \) and \( P^\dagger = P \).  
    Example:  
    \( P = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} \).  
+Then,
+\[ P^2=\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}=\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}=P \]
+and,
+\[ P^\dagger=\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}=P \]
+Thus, \(P\) is projection
 
----
+### Linear Functionals and Bra Notation
 
-## Linear Functionals and Bra Notation
+```{definition}
+A linear functional is a map \( f : \mathbb{C}^2 → \mathbb{C} \) satisfying:  
+  \[ f(α|v\rangle  + |w\rangle ) = αf(|v\rangle ) + f(|w\rangle ). \]  
+```
 
-- **Definition**: A linear functional is a map \( f : \mathbb{C}^2 → \mathbb{C} \) satisfying:  
-  \( f(α|v⟩ + |w⟩) = αf(|v⟩) + f(|w⟩) \).  
+```{definition}
+ \(\{f : \mathbb{C}^2 →\mathbb{C}: f is linear\}\) is called the dual space of \(\mathbb{C}^2\).  
+```
+
 
 - **Bra Notation**:  
-  Each \( |w⟩ ∈ \mathbb{C}^2 \) has an associated **bra** \( ⟨w| \), defined as:  
-  \( |v⟩ → ⟨w|v⟩ \) for all \( |v⟩ ∈ \mathbb{C}^2 \).  
+  Each \( |w\rangle  ∈ \mathbb{C}^2 \) has an associated **bra** \( \langle w| \), defined as:  
+  \( |v\rangle  → \langle w|v\rangle  \) for all \( |v\rangle  ∈ \mathbb{C}^2 \).  
 
-  Example: If \( |+⟩ = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix} \), its corresponding bra is:  
-  \( ⟨+| = \frac{1}{\sqrt{2}} (1, 1) \).  
+```{example}
+If \( |+\rangle  = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix} \), its corresponding bra is:  
+  \[ \langle +| = \frac{1}{\sqrt{2}} (1, 1) .\]  
+```
 
----
 
 ## Outer Product and Projection Operators
 
 - **Outer Product**:  
-  Given \( |ϕ⟩, |ψ⟩ ∈ \mathbb{C}^2 \), the outer product \( |ϕ⟩⟨ψ| \) is the operator defined by:  
-  \( (|ϕ⟩⟨ψ|)|v⟩ = ⟨ψ|v⟩|ϕ⟩ \).  
+  Given \( |ϕ\rangle , |ψ\rangle  ∈ \mathbb{C}^2 \), the outer product \( |ϕ\rangle \langle ψ| \) is the operator defined by:  
+  \[ (|ϕ\rangle \langle ψ|)|v\rangle  = \langle ψ|v\rangle |ϕ\rangle.\]  
 
-  In matrix form, if \( |ϕ⟩ = \begin{bmatrix} a \\ b \end{bmatrix} \), \( |ψ⟩ = \begin{bmatrix} c \\ d \end{bmatrix} \):  
-  \( |ϕ⟩⟨ψ| = \begin{bmatrix} a \\ b \end{bmatrix} \begin{bmatrix} \overline{c} & \overline{d} \end{bmatrix} = \begin{bmatrix} a\overline{c} & a\overline{d} \\ b\overline{c} & b\overline{d} \end{bmatrix} \).  
+  In matrix form, if \( |ϕ\rangle  = \begin{bmatrix} a \\ b \end{bmatrix} \), \( |ψ\rangle  = \begin{bmatrix} c \\ d \end{bmatrix} \):  
+  \[ |ϕ\rangle \langle ψ| = \begin{bmatrix} a \\ b \end{bmatrix} \begin{bmatrix} \overline{c} & \overline{d} \end{bmatrix} = \begin{bmatrix} a\overline{c} & a\overline{d} \\ b\overline{c} & b\overline{d} \end{bmatrix} .\]  
 
 - **Projection**:  
-  If \( |ϕ⟩ = |ψ⟩ \), we get a projection:  
-  \( P = |ψ⟩⟨ψ| \), satisfying \( P^2 = P \).  
+  If \( |ϕ\rangle  = |ψ\rangle  \), we get a projection:  
+  \( P = |ψ\rangle \langle ψ| \), satisfying \( P^2 = P \).  
 
-  Example: For the plus state \( |+⟩ = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix} \):  
-  \( |+⟩⟨+| = \frac{1}{2} \begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix} \).
+````{example} For the plus state \( |+\rangle  = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix} \):  
+  \( |+\rangle \langle +| = \frac{1}{2} \begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix} \).
 
-## Outer Product and Projection Operators
 
-### Key Points:
+
 - **Outer Product**: When taking the outer product of a ket with the bra of itself (i.e., \(|\phi\rangle = |\psi\rangle\)), the result is a **projection** on the space spanned by the vector.
   
   \[
-  P = |\psi\rangle \langle \psi|
+  P = |\psi\rangle \langle \psi|\text{ This satisfies: }  P^2 = P
   \]
 
-  This satisfies:
-
-  \[
-  P^2 = P
-  \]
-
-- **Example**: For \(|+\rangle = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}\),
+```{example}
+For \(|+\rangle = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}\),
 
   \[
   |+\rangle \langle +| = \frac{1}{2} 
   \begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix}
   \]
+```
 
 ### Takeaways:
 1. Outer products generalize linear maps of rank one.
@@ -233,7 +253,7 @@ The function \( f \) is promised to be either:
 
 ---
 
-## Back to Quantum Computing...
+
 
 ## Qubits: Data in Quantum Computing
 
@@ -251,7 +271,7 @@ Where:
 - \(|0\rangle = \begin{bmatrix} 1 \\ 0 \end{bmatrix}\)
 - \(|1\rangle = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\)
 
----
+
 
 ## Why Unit Vectors?
 
@@ -266,38 +286,56 @@ Probabilities must sum to \(1\). For a qubit:
 \]
 
 ### The Born Rule:
-Upon measurement:
-- \(\text{Pr}(\text{Outcome } |0\rangle) = |\alpha|^2\)
-- \(\text{Pr}(\text{Outcome } |1\rangle) = |\beta|^2\)
 
----
+- Upon measurement:
+
+\[(\text{Pr}(\text{Outcome } |0\rangle) = |\alpha|^2\)~,~
+(\text{Pr}(\text{Outcome } |1\rangle) = |\beta|^2\]
+
+The qubit collapses to the observed basis state with these  probabilitie
+
 
 ## Bloch Sphere Representation of Qubit States
 
-### Representation:
-A general single-qubit state is a unit vector in \(\mathbb{C}^2\):
+-  A general single-qubit state is a unit vector in \(\mathbb{C}^2\):
+\[ |ψ\rangle = α|0\rangle+β|\rangle\], 
+where \(α,β ∈\mathbb{C}, |α|^2 +|β|^2 = 1.\)
+- Any such state can be written in the form:
 \[
 |\psi\rangle = \cos\frac{\theta}{2} |0\rangle + e^{i\phi} \sin\frac{\theta}{2} |1\rangle
 \]
 
 Where:
-- \(\theta \in [0, \pi]\): Weight of \(|0\rangle\) and \(|1\rangle\)
-- \(\phi \in [0, 2\pi)\): Relative phase between \(|0\rangle\) and \(|1\rangle\)
 
-### Bloch Sphere Mapping:
+  - \(\theta \in [0, \pi]\): Weight of \(|0\rangle\) and \(|1\rangle\)
+  - \(\phi \in [0, 2\pi)\): Relative phase between \(|0\rangle\) and \(|1\rangle\)
+
+- The angles \((θ,ϕ)\) define a unique point on the unit sphere in \(\mathbb{R}^3.\)
+
+
 The state \(|\psi\rangle\) maps to a point \(\mathbf{r}\) on the unit sphere:
 \[
 \mathbf{r} = (\langle \sigma_x \rangle, \langle \sigma_y \rangle, \langle \sigma_z \rangle)
 \]
 
 Where:
+
 - \(\langle \sigma_x \rangle = \sin\theta \cos\phi\)
 - \(\langle \sigma_y \rangle = \sin\theta \sin\phi\)
 - \(\langle \sigma_z \rangle = \cos\theta\)
 
-Global phase (\(e^{i\gamma}\)) does not affect the Bloch sphere representation.
+This defines a one-to-one correspondence between quantum states
+ (up to a global phase) (\(e^{i\gamma}|\psi\)) and points on the unit sphere.
+ 
+```{remark}
+The global phase does not change the Bloch sphere  representation. That is, states differing by a global phase represent 
+ the same physical qubit state.
+```
 
----
+
+![source: Wikipedia ](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Bloch_sphere.svg/800px-Bloch_sphere.svg.png){width=60%}
+
+
 
 ## Quantum Gates: Processing Quantum Data
 
@@ -309,15 +347,28 @@ Global phase (\(e^{i\gamma}\)) does not affect the Bloch sphere representation.
 - **Reversible**: Quantum mechanics laws are reversible.
 - **Norm-Preserving**: Probabilities must sum to \(1\).
 
-### Definition:
+```{definition}
 A quantum gate is a \(2 \times 2\) **unitary matrix** \(U\) satisfying:
 \[
 U^\dagger U = I
 \]
+```
 
----
+Here’s the updated table with two columns, focusing on the Classical NOT Gate and Quantum Phase Gate (\(R_\phi\)):
 
-## Classical and Quantum Gates
+| **Classical NOT Gate**                                         | **Quantum Phase Gate (\(R_\phi\))**                                                                 |
+|----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+|**Input**:|
+| **Matrix:** \(\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\)   | **Matrix:** \(\begin{bmatrix} 1 & 0 \\ 0 & e^{i\phi} \end{bmatrix}\)                               |
+| **Action:** \(\text{NOT}(|0\rangle) = |1\rangle\), \(\text{NOT}(|1\rangle) = |0\rangle\) | **Action:** \(R_\phi (\alpha|0\rangle + \beta|1\rangle) = \alpha|0\rangle + \beta e^{i\phi} |1\rangle\) |
+
+
+
+
+
+
+
+
 
 ### Classical NOT Gate:
 Matrix:
@@ -359,6 +410,13 @@ R_\phi (\alpha|0\rangle + \beta|1\rangle) = \alpha|0\rangle + \beta e^{i\phi} |1
 ### Quantum Universal Gates:
 - **Definition**: A set of quantum gates is universal if any unitary operation can be approximated to arbitrary accuracy.
 
+### Why is Universality Important?
+- Just like classical computing can be built from a small set of universal
+ gates, quantum computing relies on universal gates to perform any
+ computation.
+- The ability to approximate any unitary transformation is crucial for
+ building general-purpose quantum computers
+
 ### Examples (Single-Qubit Case):
 1. \(\{H, S, X\}\): Hadamard, Phase, Bit flip
 2. \(\{H, R_z(\theta), X\}\): Hadamard, Z-axis rotation, Bit flip
@@ -368,10 +426,11 @@ R_\phi (\alpha|0\rangle + \beta|1\rangle) = \alpha|0\rangle + \beta e^{i\phi} |1
 
 
 
+Later, we disscued each gate separetely.
 
-## Quantum Computing Notes
 
-## Hadamard Gate
+### Hadamard Gate
+
 The Hadamard gate creates superposition by transforming basis states.
 
 **Matrix Representation**:  
@@ -382,7 +441,7 @@ The Hadamard gate creates superposition by transforming basis states.
 \end{pmatrix} \]  
 
 **Action on Basis States**:  
-\[ H|0⟩ = \frac{|0⟩ + |1⟩}{\sqrt{2}}, \quad H|1⟩ = \frac{|0⟩ - |1⟩}{\sqrt{2}} \]
+\[ H|0\rangle  = \frac{|0\rangle  + |1\rangle }{\sqrt{2}}, \quad H|1\rangle  = \frac{|0\rangle  - |1\rangle }{\sqrt{2}} \]
 
 ---
 
@@ -397,7 +456,7 @@ The phase gate introduces a phase shift of \( \pi/2 \).
 \end{pmatrix} \]  
 
 **Action on Basis States**:  
-\[ S|0⟩ = |0⟩, \quad S|1⟩ = i|1⟩ \]
+\[ S|0\rangle  = |0\rangle , \quad S|1\rangle  = i|1\rangle  \]
 
 ---
 
@@ -412,8 +471,8 @@ e^{-i\theta/2} & 0 \\
 \end{pmatrix} \]  
 
 **Action on Basis States**:  
-\[ R_z(\theta)|0⟩ = e^{-i\theta/2}|0⟩ \]  
-\[ R_z(\theta)|1⟩ = e^{i\theta/2}|1⟩ \]
+\[ R_z(\theta)|0\rangle  = e^{-i\theta/2}|0\rangle  \]  
+\[ R_z(\theta)|1\rangle  = e^{i\theta/2}|1\rangle  \]
 
 ---
 
@@ -428,15 +487,15 @@ The \( R_y(\theta) \) gate represents a rotation by an angle \( \theta \) around
 \end{pmatrix} \]  
 
 **Action on Basis States**:  
-\[ R_y(\theta)|0⟩ = \cos(\theta/2)|0⟩ + \sin(\theta/2)|1⟩ \]  
-\[ R_y(\theta)|1⟩ = -\sin(\theta/2)|0⟩ + \cos(\theta/2)|1⟩ \]
+\[ R_y(\theta)|0\rangle  = \cos(\theta/2)|0\rangle  + \sin(\theta/2)|1\rangle  \]  
+\[ R_y(\theta)|1\rangle  = -\sin(\theta/2)|0\rangle  + \cos(\theta/2)|1\rangle  \]
 
 ---
 
 ## Pauli Gates: X, Y, and Z
 
 ### Pauli-X (Bit-Flip Gate)
-Swaps \( |0⟩ \) and \( |1⟩ \), analogous to a classical NOT gate.
+Swaps \( |0\rangle  \) and \( |1\rangle  \), analogous to a classical NOT gate.
 
 **Matrix Representation**:  
 \[ X =  
@@ -446,7 +505,7 @@ Swaps \( |0⟩ \) and \( |1⟩ \), analogous to a classical NOT gate.
 \end{pmatrix} \]  
 
 **Action on Basis States**:  
-\[ X|0⟩ = |1⟩, \quad X|1⟩ = |0⟩ \]
+\[ X|0\rangle  = |1\rangle , \quad X|1\rangle  = |0\rangle  \]
 
 ### Pauli-Y Gate
 Combines bit-flip and phase-flip operations.
@@ -459,10 +518,10 @@ i & 0
 \end{pmatrix} \]  
 
 **Action on Basis States**:  
-\[ Y|0⟩ = i|1⟩, \quad Y|1⟩ = -i|0⟩ \]
+\[ Y|0\rangle  = i|1\rangle , \quad Y|1\rangle  = -i|0\rangle  \]
 
 ### Pauli-Z (Phase-Flip Gate)
-Leaves \( |0⟩ \) unchanged but flips the phase of \( |1⟩ \).
+Leaves \( |0\rangle  \) unchanged but flips the phase of \( |1\rangle  \).
 
 **Matrix Representation**:  
 \[ Z =  
@@ -472,7 +531,7 @@ Leaves \( |0⟩ \) unchanged but flips the phase of \( |1⟩ \).
 \end{pmatrix} \]  
 
 **Action on Basis States**:  
-\[ Z|0⟩ = |0⟩, \quad Z|1⟩ = -|1⟩ \]
+\[ Z|0\rangle  = |0\rangle , \quad Z|1\rangle  = -|1\rangle  \]
 
 ---
 
@@ -498,48 +557,48 @@ Leaves \( |0⟩ \) unchanged but flips the phase of \( |1⟩ \).
 ---
 
 ## Formal Definition of Quantum Measurement
-Let \( |ψ⟩ \) be a quantum state and \( \{P_i\} \) a set of projection operators:
+Let \( |ψ\rangle  \) be a quantum state and \( \{P_i\} \) a set of projection operators:
 
 1. **Probability of Outcome \( i \)**:  
-   \[ p(i) = \langle ψ|P_i|ψ⟩ \]
+   \[ p(i) = \langle ψ|P_i|ψ\rangle  \]
 
 2. **Post-Measurement State (if Outcome \( i \) Occurs)**:  
-   \[ |ψ_i⟩ = \frac{P_i |ψ⟩}{\sqrt{p(i)}} \]
+   \[ |ψ_i\rangle  = \frac{P_i |ψ\rangle }{\sqrt{p(i)}} \]
 
 3. **Projection Operators**:  
-   \[ P_i = |ϕ_i⟩⟨ϕ_i|, \quad \sum_i P_i = I \]
+   \[ P_i = |ϕ_i\rangle \langle ϕ_i|, \quad \sum_i P_i = I \]
 
 ---
 
 ## Example: Measurement in an Orthogonal Basis
 ### Initial State:
-\[ |ψ⟩ = α|0⟩ + β|1⟩ \]
+\[ |ψ\rangle  = α|0\rangle  + β|1\rangle  \]
 
-### Measurement in Computational Basis (\( |0⟩, |1⟩ \)):
+### Measurement in Computational Basis (\( |0\rangle , |1\rangle  \)):
 - **Projection Operators**:  
-  \[ P_0 = |0⟩⟨0|, \quad P_1 = |1⟩⟨1| \]
+  \[ P_0 = |0\rangle \langle 0|, \quad P_1 = |1\rangle \langle 1| \]
 
-- **Probability of Measuring \( |0⟩ \)**:  
+- **Probability of Measuring \( |0\rangle  \)**:  
   \[ p(0) = |α|^2 \]  
-  Post-Measurement State: \( |0⟩ \)
+  Post-Measurement State: \( |0\rangle  \)
 
-- **Probability of Measuring \( |1⟩ \)**:  
+- **Probability of Measuring \( |1\rangle  \)**:  
   \[ p(1) = |β|^2 \]  
-  Post-Measurement State: \( |1⟩ \)
+  Post-Measurement State: \( |1\rangle  \)
 
 ---
 
-## Measurement in the \( |+⟩ \) and \( |-⟩ \) Basis
+## Measurement in the \( |+\rangle  \) and \( |-\rangle  \) Basis
 ### Given State:  
-\[ |ψ⟩ = \sqrt{0.75}|0⟩ + \sqrt{0.25}|1⟩ \]
+\[ |ψ\rangle  = \sqrt{0.75}|0\rangle  + \sqrt{0.25}|1\rangle  \]
 
 ### Overlaps:
-- \( \langle+|ψ⟩ = \frac{1}{\sqrt{2}}(\sqrt{0.75} + \sqrt{0.25}) \approx 0.96 \)  
-- \( \langle-|ψ⟩ = \frac{1}{\sqrt{2}}(\sqrt{0.75} - \sqrt{0.25}) \approx 0.25 \)
+- \( \langle+|ψ\rangle  = \frac{1}{\sqrt{2}}(\sqrt{0.75} + \sqrt{0.25}) \approx 0.96 \)  
+- \( \langle-|ψ\rangle  = \frac{1}{\sqrt{2}}(\sqrt{0.75} - \sqrt{0.25}) \approx 0.25 \)
 
 ### Measurement Probabilities:
-- \( P(|+⟩) = |\langle+|ψ⟩|^2 \approx 0.93 \)  
-- \( P(|-⟩) = |\langle-|ψ⟩|^2 \approx 0.07 \)
+- \( P(|+\rangle ) = |\langle+|ψ\rangle |^2 \approx 0.93 \)  
+- \( P(|-\rangle ) = |\langle-|ψ\rangle |^2 \approx 0.07 \)
 
 ## The Deutsch Problem
 
