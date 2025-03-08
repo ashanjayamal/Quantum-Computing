@@ -1,10 +1,17 @@
-exm:unnamed-chunk-1
-def:unnamed-chunk-2
-def:unnamed-chunk-3
+exm:unnamed-chunk-2
+exm:unnamed-chunk-3
 exm:unnamed-chunk-4
-exm:unnamed-chunk-5
-def:unnamed-chunk-7
-introduction
+def:unnamed-chunk-5
+def:unnamed-chunk-6
+exm:unnamed-chunk-7
+exm:unnamed-chunk-8
+def:unnamed-chunk-10
+quantum-computing-a-journey-into-the-atomic-world
+quntum-effects
+superposition
+measurement
+unitary-evolution
+entanglement
 an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour
 the-problem-setting
 classical-solution
@@ -71,7 +78,7 @@ quantum-goal
 deutsch-algorithm-key-steps
 encoding-function-behavior-via-phase-change
 apply-hadamard-transform-interference
-measurement
+measurement-1
 the-quantum-approach
 quantum-circuit-for-the-deutsch-algorithm
 explanation
@@ -86,4 +93,3 @@ summary-of-measurement-effects
 entangled-state-1
 separable-state-1
 physical-interpretation-1
-this-is-just-an-extra-page.

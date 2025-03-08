@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to Quantum Computing</title>
+  <title>Chapter 2 Quntum Effects | Introduction to Quantum Computing</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
 The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to Quantum Computing" />
+  <meta property="og:title" content="Chapter 2 Quntum Effects | Introduction to Quantum Computing" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to Quantum Computing" />
+  <meta name="twitter:title" content="Chapter 2 Quntum Effects | Introduction to Quantum Computing" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
@@ -36,8 +36,8 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="quntum-effects.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -218,34 +218,166 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introduction to Quantum Computing</h1>
-<p class="author"><em>Ashan Jayamal</em></p>
-<p class="date"><em>2025-03-08</em></p>
+<div id="quntum-effects" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Quntum Effects<a href="quntum-effects.html#quntum-effects" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="superposition" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Superposition<a href="quntum-effects.html#superposition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A pure state in quantum mechanics is represented in terms of a normalised vector is <span class="math inline">\(|\psi\rangle\)</span> in a complex inner product space <span class="math inline">\(\mathcal{H}\)</span> (called Hilbert space).</p>
+<p>The notation <span class="math inline">\(|\psi\rangle\)</span> is used for quantum states, represented by column vectors, and it is called a <strong>ket</strong> vector; while the conjugate transpose of the <span class="math inline">\(|\psi\rangle\)</span> is called the <strong>bra</strong> vector <span class="math inline">\((\langle\psi|)\)</span>, leading to bra-ket, known as <strong>Dirac notation</strong>.</p>
+<p>Inner product <span class="math inline">\((\psi,\phi)\)</span> is expressed as <span class="math inline">\(\langle\psi|\phi\rangle\)</span>. Accordingly, the normalisation condition can be stated as <span class="math inline">\(\langle\psi|\psi\rangle = 1\)</span>.</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">ket vector</th>
+<th align="center">bra vector</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(| \psi \rangle = \begin{pmatrix} a \\ b \end{pmatrix}\)</span></td>
+<td align="center"><span class="math inline">\(\langle\psi| = \begin{pmatrix} \bar{a} &amp; \bar{b} \end{pmatrix}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="remark">
+<p><span id="unlabeled-div-1" class="remark"><em>Remark</em>. </span><span class="math display">\[\langle \psi_1 | \psi_2 \rangle = \overline{\langle \psi_2 | \psi_1 \rangle}\]</span></p>
 </div>
-<div id="quantum-computing-a-journey-into-the-atomic-world" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Quantum Computing: A Journey into the Atomic World<a href="index.html#quantum-computing-a-journey-into-the-atomic-world" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Accordingly, it is possible to handle inner and outer products conveniently.</p>
+<p><span class="math display">\[| \psi \rangle \langle \phi | = \begin{pmatrix} a\bar{c} &amp; a \bar{d} \\ b\bar{c} &amp; b \bar{d} \end{pmatrix}\]</span>
+where <span class="math inline">\(| \psi \rangle = \begin{pmatrix} a \\ b \end{pmatrix}\)</span> and
+<span class="math inline">\(| \phi \rangle = \begin{pmatrix} c \\ d \end{pmatrix}\)</span></p>
+<p>We refer to the Euclidean norm when defining the sizes of vectors. That is, <span class="math display">\[|| \psi || = | \langle \psi | \psi \rangle |.\]</span></p>
+<p>If the two states <span class="math inline">\(|\psi_1\rangle\)</span> and <span class="math inline">\(|\psi_2\rangle\)</span> are physical states of the system, then their linear superposition <span class="math inline">\(c_1 |\psi_1\rangle + c_2 |\psi_1\rangle\)</span> is also a possible state of the same system, where <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span> are complex numbers satisfying <span class="math inline">\(| c_1 |^2 + | c_2 |^2 = 1\)</span>.</p>
+<p>This is called the <strong>superposition principle</strong>, and is extendable to any number of states, by considering appropriate basis states.</p>
+<p>Consider an electron that has either spin up or down. We now state the states with respect to the basis up <span class="math inline">\(|↑\rangle\)</span> and down <span class="math inline">\(|↓\rangle\)</span> states.</p>
 <div class="float">
-<img src="https://informationage-production.s3.amazonaws.com/uploads/2024/09/GettyImages-2156615862.jpg" alt="Resourse: www.information-age.com" />
-<div class="figcaption">Resourse: www.information-age.com</div>
+<img src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-030-61601-4_4/MediaObjects/490703_1_En_4_Fig1_HTML.png" alt="Resource: Hughes, Ciaran, et al. Quantum computing for the quantum curious. Springer Nature, 2021." />
+<div class="figcaption">Resource: Hughes, Ciaran, et al. <em>Quantum computing for the quantum curious</em>. Springer Nature, 2021.</div>
 </div>
-<p>As circuit components continue to shrink, reaching the atomic realm of energy and matter, the influence of quantum effects has become increasingly significant. Rather than viewing these effects as challenges, researchers recognized their potential to enable more efficient computations.</p>
-<p>In the early 1980s, both Paul Benioff and Richard Feynman independently proposed quantum models of computation. These pioneering ideas demonstrated how quantum mechanics could be applied to computing, laying the groundwork for a new paradigm.</p>
-<p>The limitations of classical computers, bound by conventional models, drove researchers to explore quantum computing more deeply. Over the decades, this unconventional approach has garnered significant attention due to remarkable theoretical and experimental advancements.</p>
-<p>Quantum computing aims to solve complex computational problems efficiently by harnessing the power of quantum effects, such as superposition and entanglement. Today, it represents a bold step forward in the quest for revolutionary technologies that transcend the boundaries of classical computation.</p>
-<div class="float">
-<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*N3CWuTrxr-tg27I2_9Xrmw.png" alt="Resource: Quantumpedia" />
-<div class="figcaption">Resource: Quantumpedia</div>
+<p>A possible state of the electron
+<span class="math display">\[| \psi \rangle = \sqrt{\frac{2}{3}} | ↑ \rangle + \frac{i}{\sqrt{3}} | ↓ \rangle\]</span>
+because
+<span class="math inline">\(\left| \sqrt{\frac{2}{3}} \right|^2 + \left| \frac{i}{\sqrt{3}} \right|^2 = \frac{2}{3} + \frac{1}{3} = 1\)</span></p>
 </div>
+<div id="measurement" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Measurement<a href="quntum-effects.html#measurement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In quantum mechanics, there is an operator corresponding to each dynamical observable of classical physics, such as position, momentum, spin, etc. This operator is mathematically expressed by a Hermitian matrix acting on the Hilbert space <span class="math inline">\(\mathcal{H}\)</span>.</p>
+<p>Let <span class="math inline">\(a\)</span> be an observable and <span class="math inline">\(A\)</span> be the corresponding Hermitian operator acting on the Hilbert space <span class="math inline">\(\mathcal{H}\)</span>. When <span class="math inline">\(a\)</span> is measured, one of the eigenvalues of <span class="math inline">\(A\)</span> is obtained, and the system suddenly changes to the corresponding eigenstate.</p>
+<p>Eigenvalues of Hermitian matrices are real and eigenvectors corresponding to different eigenvalues are orthogonal. The system collapses to state <span class="math inline">\(|\lambda_1\rangle\)</span> and we obtain the eigenvalue <span class="math inline">\(\lambda_1\)</span>:
+<span class="math display">\[c_1|\lambda_1\rangle + c_2|\lambda_2\rangle \rightarrow |\lambda_1\rangle\]</span></p>
+<p>Or, to state <span class="math inline">\(|\lambda_2\rangle\)</span> and we obtain the eigenvalue <span class="math inline">\(\lambda_2\)</span>:
+<span class="math display">\[c_1|\lambda_1\rangle + c_2|\lambda_2\rangle \rightarrow |\lambda_2\rangle\]</span></p>
+<p><img src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-030-61601-4_4/MediaObjects/490703_1_En_4_Fig1_HTML.png" /></p>
+<p><span class="math display">\[|↑\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix},
+|↓\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix}.\]</span></p>
+<p>Corresponding spin operator (Hermitian matrix) (Pauli z-matrix):
+<span class="math inline">\(\sigma_z = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix}\)</span></p>
+<p>Eigenstates <span class="math inline">\(|↑\rangle\)</span> and <span class="math inline">\(|↓\rangle\)</span>, with eigenvalues <span class="math inline">\(\pm 1\)</span>:
+<span class="math display">\[\sigma_z|↑\rangle = |↑\rangle,\sigma_z|↓\rangle = -|↓\rangle\]</span></p>
+<p>A quantum measurement is described by a set of measurement operators <span class="math inline">\(\{M_a\}\)</span>, which operate on the state of the system. Consider:
+<span class="math inline">\(|\psi\rangle = c_1|\lambda_1\rangle + c_2|\lambda_2\rangle\)</span>.</p>
+<p>The probability of collapsing to state <span class="math inline">\(|\lambda_i\rangle\)</span> is given by <span class="math inline">\(|c_i|^2\)</span>.</p>
+<p>Note that <span class="math inline">\(|c_1|^2 + |c_2|^2 = 1\)</span>.Therefore, <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span> are called probability amplitudes.</p>
+<div class="example">
+<p><span id="exm:unnamed-chunk-2" class="example"><strong>Example 2.1  </strong></span><img src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-030-61601-4_4/MediaObjects/490703_1_En_4_Fig1_HTML.png" /></p>
+<p>Consider
+<span class="math display">\[\psi\rangle = \frac{2}{3}|↑\rangle + \frac{i}{3}|↓\rangle\]</span></p>
+<ul>
+<li>Probability of collapsing to spin-up: <span class="math inline">\(\frac{2}{3}\)</span></li>
+<li>Probability of collapsing to spin-down: <span class="math inline">\(\frac{1}{3}\)</span></li>
+</ul>
+</div>
+<p>This is also stated as follows in another approach: Consider an experimental setup which is described by an observable <span class="math inline">\(a\)</span> (with corresponding Hermitian operator <span class="math inline">\(A\)</span>) to be measured and state <span class="math inline">\(|\psi\rangle\)</span> of the system. Then the expectation value <span class="math inline">\(⟨A\rangle\)</span> of <span class="math inline">\(a\)</span> after measurements with respect to a state <span class="math inline">\(|\psi\rangle\)</span> is given by:
+<span class="math inline">\(⟨A\rangle =\langle\psi|A|\psi\rangle\)</span>.</p>
+<div class="example">
+<p><span id="exm:unnamed-chunk-3" class="example"><strong>Example 2.2  </strong></span>Calculating the expectation value of <span class="math inline">\(\sigma_z\)</span> (Pauli <span class="math inline">\(z\)</span>-matrix) for the given state:
+<span class="math display">\[
+|\psi\rangle = \sqrt{\frac{2}{3}} |0\rangle + \frac{i}{\sqrt{3}} |1\rangle.
+\]</span>
+Then,
+<span class="math display">\[
+   |\psi\rangle = \sqrt{\frac{2}{3}}
+   \begin{pmatrix}
+   1 \\
+   0
+   \end{pmatrix}
+   + \frac{i}{\sqrt{3}}
+   \begin{pmatrix}
+   0 \\
+   1
+   \end{pmatrix}
+   =
+   \begin{pmatrix}
+   \sqrt{\frac{2}{3}} \\
+   \frac{i}{\sqrt{3}}
+   \end{pmatrix}.
+   \]</span>
+<span class="math display">\[\sigma_z|\psi\rangle=
+   \begin{pmatrix}
+   1 &amp; 0 \\
+   0 &amp; -1
+   \end{pmatrix}
+   \begin{pmatrix}
+   \sqrt{\frac{2}{3}} \\
+   \frac{i}{\sqrt{3}}
+   \end{pmatrix}
+   =
+   \begin{pmatrix}
+   \sqrt{\frac{2}{3}} \\
+   -\frac{i}{\sqrt{3}}
+   \end{pmatrix}.
+   \]</span></p>
+<p><span class="math display">\[
+   \langle \psi | =
+   \begin{pmatrix}
+   \sqrt{\frac{2}{3}} &amp; -\frac{i}{\sqrt{3}}
+   \end{pmatrix}.
+   \]</span>
+So,
+<span class="math display">\[
+   \langle \psi |\sigma_z|\psi\rangle
+   =
+   \begin{pmatrix}
+   \sqrt{\frac{2}{3}} &amp; -\frac{i}{\sqrt{3}}
+   \end{pmatrix}
+   \begin{pmatrix}
+   \sqrt{\frac{2}{3}} \\
+   -\frac{i}{\sqrt{3}}
+   \end{pmatrix}=\frac{2}{3} + \frac{1}{3} = 1.
+   \]</span>
+Henece, <span class="math display">\[\text{The expectation value of } \sigma_z =
+\langle \sigma_z \rangle = 1.
+\]</span></p>
+</div>
+<p>Measurement can be regarded as an operation that is possible to perform with respect to any orthonormal basis. The following basis is called the Hadamard basis:
+<span class="math inline">\(|+\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle\)</span>
+<span class="math inline">\(|−\rangle = \frac{1}{\sqrt{2}}|1 − \frac{1}{\sqrt{2}}|1\rangle\)</span></p>
+<p><span class="math inline">\(|\psi\rangle = \frac{2}{3}|0\rangle + \frac{i}{3}|1\rangle\)</span></p>
+<p>What happens if this is measured with respect to the Hadamard basis?</p>
+<p>Hadamard basis:
+<span class="math inline">\(|+\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle\)</span>
+<span class="math inline">\(|−\rangle = \frac{1}{\sqrt{2}}|0\rangle − \frac{1}{\sqrt{2}}|1\rangle\)</span></p>
+<p>Let me know if you need any further adjustments or have more questions!</p>
+</div>
+<div id="unitary-evolution" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Unitary Evolution<a href="quntum-effects.html#unitary-evolution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="entanglement" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Entanglement<a href="quntum-effects.html#entanglement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="quntum-effects.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -276,7 +408,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/index.Rmd",
+"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/01-intro.Rmd",
 "text": "Edit"
 },
 "history": {
