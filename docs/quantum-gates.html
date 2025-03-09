@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to Quantum Computing</title>
+  <title>Chapter 3 Quantum Gates | Introduction to Quantum Computing</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
 The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to Quantum Computing" />
+  <meta property="og:title" content="Chapter 3 Quantum Gates | Introduction to Quantum Computing" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to Quantum Computing" />
+  <meta name="twitter:title" content="Chapter 3 Quantum Gates | Introduction to Quantum Computing" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
@@ -36,8 +36,8 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="quntum-effects.html"/>
+<link rel="prev" href="quntum-effects.html"/>
+<link rel="next" href="deutschs.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -225,34 +225,214 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introduction to Quantum Computing</h1>
-<p class="author"><em>Ashan Jayamal</em></p>
-<p class="date"><em>2025-03-09</em></p>
+<div id="quantum-gates" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Quantum Gates<a href="quantum-gates.html#quantum-gates" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Action of an arbitrary single qubit quantum gate:</p>
+<p><img src="fig/fig7.png" /></p>
+<p><strong>Notation</strong>:
+<img src="fig/fig8.png" /></p>
+<p><strong>Outer Product Notation</strong>:</p>
+<p>Suppose a single-qubit quantum gate <span class="math inline">\(A\)</span> transforms <span class="math inline">\(|0\rangle\)</span> into <span class="math inline">\(|\psi_0\rangle\)</span> and <span class="math inline">\(|1\rangle\)</span> into <span class="math inline">\(|\psi_1\rangle\)</span>. Then the outer product representation of <span class="math inline">\(A\)</span> is given by:</p>
+<p><span class="math display">\[
+A = |\psi_0\rangle\langle 0| + |\psi_1\rangle\langle 1|.
+\]</span></p>
+<div id="hadamard-gate" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Hadamard gate<a href="quantum-gates.html#hadamard-gate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Hadamard gate is of particular importance, as it enables Hadamard transformation.</p>
+<p>The Hadamard gate is represented as:</p>
+<p><span class="math display">\[
+H = \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 &amp; 1 \\
+1 &amp; -1
+\end{pmatrix}
+\]</span></p>
+<p>The Hadamard gate transforms basis states as follows:</p>
+<p><span class="math display" id="eq:eq2" id="eq:eq1">\[
+\begin{eqnarray}
+H|0\rangle &amp;=&amp; \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 &amp; 1 \\
+1 &amp; -1
+\end{pmatrix}
+\begin{pmatrix}
+1 \\
+0
+\end{pmatrix}
+= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+1
+\end{pmatrix}
+= \frac{1}{\sqrt{2}} (|0\rangle + |1\rangle)\tag{3.1}\\
+H|1\rangle &amp;=&amp; \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 &amp; 1 \\
+1 &amp; -1
+\end{pmatrix}
+\begin{pmatrix}
+0 \\
+1
+\end{pmatrix}
+= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+-1
+\end{pmatrix}
+= \frac{1}{\sqrt{2}} (|0\rangle - |1\rangle)\tag{3.2}
+\end{eqnarray}
+\]</span></p>
+<p>The computational basis <span class="math inline">\(\{|0\rangle, |1\rangle\}\)</span> is mapped to the Hadamard basis ({|+,|-)</p>
+<p><img src="fig/fig9.png" /></p>
+<p>Hadamard gate is often used in quantum algorithms to make equal superposition of states.</p>
+<p><img src="fig/fig10.png" /></p>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-6" class="exercise"><strong>Exercise 3.1  </strong></span>What is the outer product representation of the Hadamard gate?</p>
 </div>
-<div id="quantum-computing-a-journey-into-the-atomic-world" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Quantum Computing: A Journey into the Atomic World<a href="index.html#quantum-computing-a-journey-into-the-atomic-world" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="float">
-<img src="https://informationage-production.s3.amazonaws.com/uploads/2024/09/GettyImages-2156615862.jpg" alt="Resourse: www.information-age.com" />
-<div class="figcaption">Resourse: www.information-age.com</div>
+<p><strong>Solution</strong><br />
+</p>
+<p>The outer product representation of the Hadamard gate can be expressible as:</p>
+<p><span class="math display">\[
+H|x\rangle=|+\rangle + \langle 0| + |-\rangle\langle 1|
+\]</span></p>
+<p>Further, By <a href="quantum-gates.html#eq:eq1">(3.1)</a> and <a href="quantum-gates.html#eq:eq2">(3.2)</a> we get,</p>
+<p><span class="math display">\[
+H|x\rangle=\frac{1}{\sqrt{2}} \big(|0\rangle + (-1)^x |1\rangle\big)
+\]</span></p>
+<p>In compact form, the action of Hadamard gate can be
+expressed as
+<span class="math display">\[
+H=\frac{1}{\sqrt{2}}\sum_{x,y\in\{0,1\}}(-1)^{xy} |x\rangle  \langle y|.
+\]</span></p>
 </div>
-<p>As circuit components continue to shrink, reaching the atomic realm of energy and matter, the influence of quantum effects has become increasingly significant. Rather than viewing these effects as challenges, researchers recognized their potential to enable more efficient computations.</p>
-<p>In the early 1980s, both Paul Benioff and Richard Feynman independently proposed quantum models of computation. These pioneering ideas demonstrated how quantum mechanics could be applied to computing, laying the groundwork for a new paradigm.</p>
-<p>The limitations of classical computers, bound by conventional models, drove researchers to explore quantum computing more deeply. Over the decades, this unconventional approach has garnered significant attention due to remarkable theoretical and experimental advancements.</p>
-<p>Quantum computing aims to solve complex computational problems efficiently by harnessing the power of quantum effects, such as superposition and entanglement. Today, it represents a bold step forward in the quest for revolutionary technologies that transcend the boundaries of classical computation.</p>
-<div class="float">
-<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*N3CWuTrxr-tg27I2_9Xrmw.png" alt="Resource: Quantumpedia" />
-<div class="figcaption">Resource: Quantumpedia</div>
+<div id="pauli-gates" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Pauli gates<a href="quantum-gates.html#pauli-gates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As in classical gates, there is a in quantum computing.</p>
+<p>The role of a quantum NOT gate is transforming <span class="math inline">\(|0\rangle\)</span> into <span class="math inline">\(|1\rangle\)</span> and <span class="math inline">\(|1\rangle\)</span> to <span class="math inline">\(|0\rangle\)</span>.</p>
+<p>It turns out that the Pauli x-matrix does this task. Therefore, the corresponding gate is called as well.</p>
+<p><span class="math display">\[
+X = \sigma_x = \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix}
+\]</span></p>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-7" class="exercise"><strong>Exercise 3.2  </strong></span>What is the Outer-product representation of the Pauli <span class="math inline">\(X\)</span>-gate?</p>
 </div>
+<p><strong>Solution</strong>:<br />
+<span class="math display">\[
+\sigma_x= |0\rangle\langle 1| + |1\rangle\langle 0|.
+\]</span></p>
+<p>The other Pauli matrices are also used as quantum gates, defining the Pauli Y-gate and Pauli Z-gate as follows:</p>
+<p><span class="math display">\[
+Y = \sigma_y =
+\begin{pmatrix}
+0 &amp; -i \\
+i &amp; 0
+\end{pmatrix}
+\]</span>
+<img src="fig/fig12.png" /></p>
+<p><span class="math display">\[
+Z = \sigma_z =
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; -1
+\end{pmatrix}
+\]</span></p>
+<p><img src="fig/fig11.png" />
+## Phase flip</p>
+<p>Recall that the global phase is not physically significant, and we are interested in changing the local phase. It is possible to define a phase flip gate performing the following operations:</p>
+<p><span class="math display">\[
+\begin{aligned}
+|0\rangle &amp;\rightarrow |0\rangle \\
+|1\rangle &amp;\rightarrow e^{i\phi} |1\rangle
+\end{aligned}
+\]</span></p>
+<p>That is:</p>
+<p><span class="math display">\[
+P(\phi) = \begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; e^{i\phi}
+\end{pmatrix}.
+\]</span></p>
+<p>Two commonly used phase flip gates are:</p>
+<p><span class="math display">\[
+S = P\left(\frac{\pi}{2}\right) = \begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; e^{\frac{pi}{2}}
+\end{pmatrix}=
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; i
+\end{pmatrix}
+\]</span>
+<img src="fig/fig13.png" /></p>
+<p><span class="math display">\[
+T = P\left(\frac{\pi}{4}\right) = \begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; e^{i\frac{\pi}{4}}
+\end{pmatrix}
+\]</span></p>
+<p><img src="fig/fig14.png" /></p>
+</div>
+<div id="cnot-gate" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> CNOT gate<a href="quantum-gates.html#cnot-gate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>CNOT is a two-qubit gate. Controlled operations play a key role in multi-qubit gates.</p>
+<p>The CNOT gate is the most commonly used two-qubit controlled operation. The state of the first qubit controls whether the second qubit will be flipped or not. The first qubit is referred to as the , and the second qubit is called the .</p>
+<p>The required transformation can be written in Dirac notation as follows:</p>
+<p><span class="math display">\[
+\begin{eqnarray}
+|0\rangle|0\rangle &amp; \rightarrow &amp; |0\rangle|0\rangle, \\
+|0\rangle|1\rangle &amp; \rightarrow &amp; |0\rangle|1\rangle, \\
+|1\rangle|0\rangle &amp; \rightarrow &amp; |1\rangle|1\rangle, \\
+|1\rangle|1\rangle &amp; \rightarrow &amp; |1\rangle|0\rangle.
+\end{eqnarray}
+\]</span></p>
+<p><strong>Diagram</strong>:<br />
+<img src="fig/fig15.png" /></p>
+<p>The matrix representation of the CNOT gate is:</p>
+<p><span class="math display">\[
+\text{CNOT} =
+\begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 0
+\end{pmatrix}.
+\]</span></p>
+<p>The CNOT gate helps to create entangled states.</p>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-8" class="exercise"><strong>Exercise 3.3  </strong></span><img src="fig/fig16.png" /></p>
+<p>Show that the output state of the above circuit is the entangled state:</p>
+<p><span class="math display">\[
+\frac{1}{\sqrt{2}} \big(|00\rangle + |11\rangle\big).
+\]</span></p>
+</div>
+<p>Note that the action on separable states is as follows:</p>
+<p><span class="math display">\[
+(A \otimes B)(|a\rangle \otimes |b\rangle) = (A|a\rangle) \otimes (B|b\rangle
+\]</span></p>
+<p><strong>Solution</strong><br />
+</p>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-9" class="exercise"><strong>Exercise 3.4  </strong></span>Find the output
+<img src="fig/fig17.png" /></p>
+</div>
+<p><strong>Solution</strong><br />
+</p>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-10" class="exercise"><strong>Exercise 3.5  </strong></span>Find the output
+<img src="fig/fig18.png" /></p>
+</div>
+<p><strong>Solution</strong><br />
+</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="quntum-effects.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="quntum-effects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="deutschs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -283,7 +463,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/index.Rmd",
+"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/02-QC-Gates.Rmd",
 "text": "Edit"
 },
 "history": {

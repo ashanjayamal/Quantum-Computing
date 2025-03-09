@@ -14,11 +14,5 @@ bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
-html_document:     
-  includes:       
-  in_header: head.html
-output: 
-  html_document:
-    self_contained: false
-    includes:
-      in_header: head.html
+
+

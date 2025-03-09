@@ -1,5 +1,3 @@
-
-
 # An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour
 
 ## The problem setting
@@ -757,6 +755,7 @@ Let \( |ψ\rangle  \) be a quantum state and \( \{P_i\} \) a set of projection o
 - Separable states behave independently.
 
 ---
+
 
 
 

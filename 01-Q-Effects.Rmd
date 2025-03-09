@@ -161,23 +161,89 @@ Henece, \[\text{The expectation value of } \sigma_z =
 ```
 
 Measurement can be regarded as an operation that is possible to perform with respect to any orthonormal basis. The following basis is called the Hadamard basis:
-$|+\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle$
-$|−\rangle = \frac{1}{\sqrt{2}}|1 − \frac{1}{\sqrt{2}}|1\rangle$
+\[|+\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle\]
+\[|−\rangle = \frac{1}{\sqrt{2}}|1 − \rangle  \frac{1}{\sqrt{2}}|1\rangle\]
 
 
+```{exercise}
+![](https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-030-61601-4_4/MediaObjects/490703_1_En_4_Fig1_HTML.png)
 
-
-$|\psi\rangle = \frac{2}{3}|0\rangle + \frac{i}{3}|1\rangle$
+\[|\psi\rangle = \frac{2}{3}|0\rangle + \frac{i}{3}|1\rangle\]
 
 What happens if this is measured with respect to the Hadamard basis?
-
-Hadamard basis:
-$|+\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle$
-$|−\rangle = \frac{1}{\sqrt{2}}|0\rangle − \frac{1}{\sqrt{2}}|1\rangle$
+```
 
 
-Let me know if you need any further adjustments or have more questions!
+![](fig/fig2.jpg)
+**Solution**: \
+We can obtain easily 
+\[
+\begin{eqnarray}
+|0\rangle&=\frac{1}{\sqrt{2}}\left(|+\rangle+|+\rangle\right)\\
+|1\rangle&=\frac{1}{\sqrt{2}}\left(|+\rangle+|-\rangle\right)\\
+\end{eqnarray}
+\]
+Then,
+\[
+\begin{eqnarray}
+|\psi\rangle
+&=&\frac{2}{3}|0\rangle + \frac{i}{3}|1\rangle\\
+&=&\frac{2}{3}\left(\frac{1}{\sqrt{2}}\left(|+\rangle+|-\rangle\right)\right)+
+\frac{i}{3}\left(\frac{1}{\sqrt{2}}\left(|+\rangle-|-\rangle\right)\right)\\
+&=&\frac{1}{\sqrt{2}}\left(\frac{2+i}{3}|+\rangle+\frac{2-i}{3}|-\rangle\right)\\
+&=&\frac{2+i}{3\sqrt{2}}|+\rangle+\frac{2-i}{3\sqrt{2}}|-\rangle
+\end{eqnarray}
+\]
+
 
 
 ## Unitary Evolution
+<!---
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Erwin_Schr%C3%B6dinger_%281933%29.jpg" alt="Erwin Schrödinger (Resource:Wikipidia)" style="float: right; width: 20%;" />
+--->
+
+![Erwin Schrödinger (Resource:Wikipidia)](https://upload.wikimedia.org/wikipedia/commons/2/2e/Erwin_Schr%C3%B6dinger_%281933%29.jpg)
+
+
+The time evolution of a closed quantum system is governed by the Schrödinger equation:
+$$i\hbar \frac{d}{dt}|\psi(t)⟩ = H|\psi(t)⟩$$
+where:
+- \( \hbar \) is the reduced Planck's constant.
+- \( H \) is the Hamiltonian of the system (a Hermitian operator).
+
+
+
+
+
+```{remark} 
+The following is **a** solution to the Schrödinger equation:
+\[|\psi(t_2)\rangle = e^{\frac{i H}{\hbar} (t_1 - t_2)} |\psi(t_1)\rangle.\]
+```
+
+Note that \( e^{\frac{i H}{\hbar} (t_1 - t_2)} \) is a unitary.
+
+**Verfication**\
+![](fig/fig3.jpg){width=50%}
+![](fig/fig4.jpg){width=50%}
+
+This leads to the notion of unitary evolution of a quantum system. The gate model of quantum computing is based on this idea. A quantum gate is a unitary matrix, acting on a quantum state, called a qubit.
+![](fig/fig5.png)
+
+
 ## Entanglement
+
+Consider a quantum system consisting of two components; one in a Hilbert space $\mathcal{H}_1$ and the other in another Hilbert space $\mathcal{H}_2$. Then the system as a whole is in Hilbert space $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2$.
+
+\[
+|\psi\rangle =\sum_{i,j}c_{i,j}|e_{1,j}\rangle \otimes |e_{2,j}\rangle
+\]
+
+,where
+
+- \(|\psi\rangle   \): Composite state
+- \(|e_{1,j}\rangle\):  Orthonormal basis for \(\mathcal{H}_1\) 
+- \(|e_{2,j}\rangle\): Orthonormal basis for  \(\mathcal{H}_2\) 
+
+|single qubit|![](fig/fig6.png)|\(|\uparrow\rangle=|0\rangle=\begin{pmatrix}1\\0\end{pmatrix}\)|\(|\downarrow\rangle=|1\rangle=\begin{pmatrix}0\\1\end{pmatrix}\)|
+|-----------------|-----------------------------------------------------|-------------------------------------------------------|
+
