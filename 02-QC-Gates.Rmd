@@ -296,6 +296,8 @@ Find the output
 ```
 
 **Solution**\
+![](fig/fig23.jpg)
+
 
 ```{exercise}
 Find the output
@@ -303,5 +305,5 @@ Find the output
 ```
 
 **Solution**\
-
+![](fig/fig24.jpg)
 

@@ -9,12 +9,13 @@ exr:unnamed-chunk-8
 exr:unnamed-chunk-9
 exr:unnamed-chunk-10
 exr:unnamed-chunk-11
-exm:unnamed-chunk-12
-def:unnamed-chunk-13
-def:unnamed-chunk-14
-exm:unnamed-chunk-15
-exm:unnamed-chunk-16
-def:unnamed-chunk-18
+exm:unnamed-chunk-21
+exm:unnamed-chunk-24
+def:unnamed-chunk-25
+def:unnamed-chunk-26
+exm:unnamed-chunk-27
+exm:unnamed-chunk-28
+def:unnamed-chunk-30
 quantum-computing-a-journey-into-the-atomic-world
 quntum-effects
 superposition
@@ -27,6 +28,7 @@ pauli-gates
 cnot-gate
 deutschs
 classical-solution
+quantum-computing-with-qiskit
 an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour
 the-problem-setting
 classical-solution-1
@@ -108,5 +110,3 @@ summary-of-measurement-effects
 entangled-state-1
 separable-state-1
 physical-interpretation-1
-exr:unnamed-chunk-1
-phase-flip

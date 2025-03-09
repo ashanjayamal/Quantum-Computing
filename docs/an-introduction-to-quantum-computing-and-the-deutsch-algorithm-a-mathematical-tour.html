@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour | Introduction to Quantum Computing</title>
+  <title>Chapter 6 An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour | Introduction to Quantum Computing</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
 The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour | Introduction to Quantum Computing" />
+  <meta property="og:title" content="Chapter 6 An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour | Introduction to Quantum Computing" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour | Introduction to Quantum Computing" />
+  <meta name="twitter:title" content="Chapter 6 An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour | Introduction to Quantum Computing" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
@@ -36,7 +36,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="deutschs.html"/>
+<link rel="prev" href="quantum-computing-with-qiskit.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -60,6 +60,70 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -97,112 +161,113 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.3</b> CNOT gate</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="deutschs.html"><a href="deutschs.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s</a></li>
-<li class="chapter" data-level="5" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><i class="fa fa-check"></i><b>5</b> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour</a>
+<li class="chapter" data-level="5" data-path="quantum-computing-with-qiskit.html"><a href="quantum-computing-with-qiskit.html"><i class="fa fa-check"></i><b>5</b> Quantum Computing with Qiskit</a></li>
+<li class="chapter" data-level="6" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><i class="fa fa-check"></i><b>6</b> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-problem-setting"><i class="fa fa-check"></i><b>5.1</b> The problem setting</a></li>
-<li class="chapter" data-level="5.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-solution-1"><i class="fa fa-check"></i><b>5.2</b> Classical Solution</a></li>
-<li class="chapter" data-level="5.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-computing-a-high-level-interpretation"><i class="fa fa-check"></i><b>5.3</b> Quantum Computing: A High-Level Interpretation</a>
+<li class="chapter" data-level="6.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-problem-setting"><i class="fa fa-check"></i><b>6.1</b> The problem setting</a></li>
+<li class="chapter" data-level="6.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-solution-1"><i class="fa fa-check"></i><b>6.2</b> Classical Solution</a></li>
+<li class="chapter" data-level="6.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-computing-a-high-level-interpretation"><i class="fa fa-check"></i><b>6.3</b> Quantum Computing: A High-Level Interpretation</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-process-of-computing"><i class="fa fa-check"></i><b>5.3.1</b> The Process of Computing</a></li>
+<li class="chapter" data-level="6.3.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-process-of-computing"><i class="fa fa-check"></i><b>6.3.1</b> The Process of Computing</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-quantum-twist-a-new-way-to-compute"><i class="fa fa-check"></i><b>5.4</b> The Quantum Twist – A New Way to Compute</a></li>
-<li class="chapter" data-level="5.5" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#qubits-vs.-bits"><i class="fa fa-check"></i><b>5.5</b> Qubits vs. Bits</a>
+<li class="chapter" data-level="6.4" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-quantum-twist-a-new-way-to-compute"><i class="fa fa-check"></i><b>6.4</b> The Quantum Twist – A New Way to Compute</a></li>
+<li class="chapter" data-level="6.5" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#qubits-vs.-bits"><i class="fa fa-check"></i><b>6.5</b> Qubits vs. Bits</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#takeaway"><i class="fa fa-check"></i><b>5.5.1</b> Takeaway</a></li>
+<li class="chapter" data-level="6.5.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#takeaway"><i class="fa fa-check"></i><b>6.5.1</b> Takeaway</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#mathematical-background-and-notations"><i class="fa fa-check"></i><b>5.6</b> Mathematical Background and Notations</a>
+<li class="chapter" data-level="6.6" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#mathematical-background-and-notations"><i class="fa fa-check"></i><b>6.6</b> Mathematical Background and Notations</a>
 <ul>
-<li class="chapter" data-level="5.6.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#complex-hilbert-space-mathbbc2"><i class="fa fa-check"></i><b>5.6.1</b> Complex Hilbert Space <span class="math inline">\(\mathbb{C}^2\)</span></a></li>
-<li class="chapter" data-level="5.6.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#linear-functionals-and-bra-notation"><i class="fa fa-check"></i><b>5.6.2</b> Linear Functionals and Bra Notation</a></li>
+<li class="chapter" data-level="6.6.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#complex-hilbert-space-mathbbc2"><i class="fa fa-check"></i><b>6.6.1</b> Complex Hilbert Space <span class="math inline">\(\mathbb{C}^2\)</span></a></li>
+<li class="chapter" data-level="6.6.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#linear-functionals-and-bra-notation"><i class="fa fa-check"></i><b>6.6.2</b> Linear Functionals and Bra Notation</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#outer-product-and-projection-operators"><i class="fa fa-check"></i><b>5.7</b> Outer Product and Projection Operators</a>
+<li class="chapter" data-level="6.7" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#outer-product-and-projection-operators"><i class="fa fa-check"></i><b>6.7</b> Outer Product and Projection Operators</a>
 <ul>
-<li class="chapter" data-level="5.7.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#takeaways"><i class="fa fa-check"></i><b>5.7.1</b> Takeaways:</a></li>
+<li class="chapter" data-level="6.7.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#takeaways"><i class="fa fa-check"></i><b>6.7.1</b> Takeaways:</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#qubits-data-in-quantum-computing"><i class="fa fa-check"></i><b>5.8</b> Qubits: Data in Quantum Computing</a>
+<li class="chapter" data-level="6.8" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#qubits-data-in-quantum-computing"><i class="fa fa-check"></i><b>6.8</b> Qubits: Data in Quantum Computing</a>
 <ul>
-<li class="chapter" data-level="5.8.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#intuitive-notion"><i class="fa fa-check"></i><b>5.8.1</b> Intuitive Notion:</a></li>
-<li class="chapter" data-level="5.8.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#mathematical-definition"><i class="fa fa-check"></i><b>5.8.2</b> Mathematical Definition:</a></li>
+<li class="chapter" data-level="6.8.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#intuitive-notion"><i class="fa fa-check"></i><b>6.8.1</b> Intuitive Notion:</a></li>
+<li class="chapter" data-level="6.8.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#mathematical-definition"><i class="fa fa-check"></i><b>6.8.2</b> Mathematical Definition:</a></li>
 </ul></li>
-<li class="chapter" data-level="5.9" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#why-unit-vectors"><i class="fa fa-check"></i><b>5.9</b> Why Unit Vectors?</a>
+<li class="chapter" data-level="6.9" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#why-unit-vectors"><i class="fa fa-check"></i><b>6.9</b> Why Unit Vectors?</a>
 <ul>
-<li class="chapter" data-level="5.9.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#a-probabilistic-system"><i class="fa fa-check"></i><b>5.9.1</b> A Probabilistic System:</a></li>
-<li class="chapter" data-level="5.9.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#normalization-condition"><i class="fa fa-check"></i><b>5.9.2</b> Normalization Condition:</a></li>
-<li class="chapter" data-level="5.9.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-born-rule"><i class="fa fa-check"></i><b>5.9.3</b> The Born Rule:</a></li>
+<li class="chapter" data-level="6.9.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#a-probabilistic-system"><i class="fa fa-check"></i><b>6.9.1</b> A Probabilistic System:</a></li>
+<li class="chapter" data-level="6.9.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#normalization-condition"><i class="fa fa-check"></i><b>6.9.2</b> Normalization Condition:</a></li>
+<li class="chapter" data-level="6.9.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-born-rule"><i class="fa fa-check"></i><b>6.9.3</b> The Born Rule:</a></li>
 </ul></li>
-<li class="chapter" data-level="5.10" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#bloch-sphere-representation-of-qubit-states"><i class="fa fa-check"></i><b>5.10</b> Bloch Sphere Representation of Qubit States</a></li>
-<li class="chapter" data-level="5.11" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-gates-processing-quantum-data"><i class="fa fa-check"></i><b>5.11</b> Quantum Gates: Processing Quantum Data</a>
+<li class="chapter" data-level="6.10" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#bloch-sphere-representation-of-qubit-states"><i class="fa fa-check"></i><b>6.10</b> Bloch Sphere Representation of Qubit States</a></li>
+<li class="chapter" data-level="6.11" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-gates-processing-quantum-data"><i class="fa fa-check"></i><b>6.11</b> Quantum Gates: Processing Quantum Data</a>
 <ul>
-<li class="chapter" data-level="5.11.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-vs.-quantum"><i class="fa fa-check"></i><b>5.11.1</b> Classical vs. Quantum:</a></li>
-<li class="chapter" data-level="5.11.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#why-unitary-matrices"><i class="fa fa-check"></i><b>5.11.2</b> Why Unitary Matrices?</a></li>
-<li class="chapter" data-level="5.11.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-not-gate"><i class="fa fa-check"></i><b>5.11.3</b> Classical NOT Gate:</a></li>
-<li class="chapter" data-level="5.11.4" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-phase-gate-r_phi"><i class="fa fa-check"></i><b>5.11.4</b> Quantum Phase Gate (<span class="math inline">\(R_\phi\)</span>):</a></li>
+<li class="chapter" data-level="6.11.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-vs.-quantum"><i class="fa fa-check"></i><b>6.11.1</b> Classical vs. Quantum:</a></li>
+<li class="chapter" data-level="6.11.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#why-unitary-matrices"><i class="fa fa-check"></i><b>6.11.2</b> Why Unitary Matrices?</a></li>
+<li class="chapter" data-level="6.11.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-not-gate"><i class="fa fa-check"></i><b>6.11.3</b> Classical NOT Gate:</a></li>
+<li class="chapter" data-level="6.11.4" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-phase-gate-r_phi"><i class="fa fa-check"></i><b>6.11.4</b> Quantum Phase Gate (<span class="math inline">\(R_\phi\)</span>):</a></li>
 </ul></li>
-<li class="chapter" data-level="5.12" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#universal-gate-sets"><i class="fa fa-check"></i><b>5.12</b> Universal Gate Sets</a>
+<li class="chapter" data-level="6.12" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#universal-gate-sets"><i class="fa fa-check"></i><b>6.12</b> Universal Gate Sets</a>
 <ul>
-<li class="chapter" data-level="5.12.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-universal-gates"><i class="fa fa-check"></i><b>5.12.1</b> Classical Universal Gates:</a></li>
-<li class="chapter" data-level="5.12.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-universal-gates"><i class="fa fa-check"></i><b>5.12.2</b> Quantum Universal Gates:</a></li>
-<li class="chapter" data-level="5.12.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#why-is-universality-important"><i class="fa fa-check"></i><b>5.12.3</b> Why is Universality Important?</a></li>
-<li class="chapter" data-level="5.12.4" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#examples-single-qubit-case"><i class="fa fa-check"></i><b>5.12.4</b> Examples (Single-Qubit Case):</a></li>
-<li class="chapter" data-level="5.12.5" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#hadamard-gate-1"><i class="fa fa-check"></i><b>5.12.5</b> Hadamard Gate</a></li>
+<li class="chapter" data-level="6.12.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-universal-gates"><i class="fa fa-check"></i><b>6.12.1</b> Classical Universal Gates:</a></li>
+<li class="chapter" data-level="6.12.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-universal-gates"><i class="fa fa-check"></i><b>6.12.2</b> Quantum Universal Gates:</a></li>
+<li class="chapter" data-level="6.12.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#why-is-universality-important"><i class="fa fa-check"></i><b>6.12.3</b> Why is Universality Important?</a></li>
+<li class="chapter" data-level="6.12.4" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#examples-single-qubit-case"><i class="fa fa-check"></i><b>6.12.4</b> Examples (Single-Qubit Case):</a></li>
+<li class="chapter" data-level="6.12.5" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#hadamard-gate-1"><i class="fa fa-check"></i><b>6.12.5</b> Hadamard Gate</a></li>
 </ul></li>
-<li class="chapter" data-level="5.13" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#phase-gate-s-gate"><i class="fa fa-check"></i><b>5.13</b> Phase Gate (S Gate)</a></li>
-<li class="chapter" data-level="5.14" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#arbitrary-phase-shift-r_ztheta-gate"><i class="fa fa-check"></i><b>5.14</b> Arbitrary Phase Shift: <span class="math inline">\(R_z(\theta)\)</span> Gate</a></li>
-<li class="chapter" data-level="5.15" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#r_ytheta-gate"><i class="fa fa-check"></i><b>5.15</b> <span class="math inline">\(R_y(\theta)\)</span> Gate</a></li>
-<li class="chapter" data-level="5.16" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-gates-x-y-and-z"><i class="fa fa-check"></i><b>5.16</b> Pauli Gates: X, Y, and Z</a>
+<li class="chapter" data-level="6.13" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#phase-gate-s-gate"><i class="fa fa-check"></i><b>6.13</b> Phase Gate (S Gate)</a></li>
+<li class="chapter" data-level="6.14" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#arbitrary-phase-shift-r_ztheta-gate"><i class="fa fa-check"></i><b>6.14</b> Arbitrary Phase Shift: <span class="math inline">\(R_z(\theta)\)</span> Gate</a></li>
+<li class="chapter" data-level="6.15" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#r_ytheta-gate"><i class="fa fa-check"></i><b>6.15</b> <span class="math inline">\(R_y(\theta)\)</span> Gate</a></li>
+<li class="chapter" data-level="6.16" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-gates-x-y-and-z"><i class="fa fa-check"></i><b>6.16</b> Pauli Gates: X, Y, and Z</a>
 <ul>
-<li class="chapter" data-level="5.16.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-x-bit-flip-gate"><i class="fa fa-check"></i><b>5.16.1</b> Pauli-X (Bit-Flip Gate)</a></li>
-<li class="chapter" data-level="5.16.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-y-gate"><i class="fa fa-check"></i><b>5.16.2</b> Pauli-Y Gate</a></li>
-<li class="chapter" data-level="5.16.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-z-phase-flip-gate"><i class="fa fa-check"></i><b>5.16.3</b> Pauli-Z (Phase-Flip Gate)</a></li>
+<li class="chapter" data-level="6.16.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-x-bit-flip-gate"><i class="fa fa-check"></i><b>6.16.1</b> Pauli-X (Bit-Flip Gate)</a></li>
+<li class="chapter" data-level="6.16.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-y-gate"><i class="fa fa-check"></i><b>6.16.2</b> Pauli-Y Gate</a></li>
+<li class="chapter" data-level="6.16.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-z-phase-flip-gate"><i class="fa fa-check"></i><b>6.16.3</b> Pauli-Z (Phase-Flip Gate)</a></li>
 </ul></li>
-<li class="chapter" data-level="5.17" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-measurement-capturing-information"><i class="fa fa-check"></i><b>5.17</b> Quantum Measurement: Capturing Information</a>
+<li class="chapter" data-level="6.17" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-measurement-capturing-information"><i class="fa fa-check"></i><b>6.17</b> Quantum Measurement: Capturing Information</a>
 <ul>
-<li class="chapter" data-level="5.17.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#key-idea"><i class="fa fa-check"></i><b>5.17.1</b> Key Idea</a></li>
+<li class="chapter" data-level="6.17.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#key-idea"><i class="fa fa-check"></i><b>6.17.1</b> Key Idea</a></li>
 </ul></li>
-<li class="chapter" data-level="5.18" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#nature-of-quantum-measurement"><i class="fa fa-check"></i><b>5.18</b> Nature of Quantum Measurement</a>
+<li class="chapter" data-level="6.18" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#nature-of-quantum-measurement"><i class="fa fa-check"></i><b>6.18</b> Nature of Quantum Measurement</a>
 <ul>
-<li class="chapter" data-level="5.18.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#physical-interpretation"><i class="fa fa-check"></i><b>5.18.1</b> Physical Interpretation</a></li>
-<li class="chapter" data-level="5.18.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#mathematical-representation"><i class="fa fa-check"></i><b>5.18.2</b> Mathematical Representation</a></li>
+<li class="chapter" data-level="6.18.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#physical-interpretation"><i class="fa fa-check"></i><b>6.18.1</b> Physical Interpretation</a></li>
+<li class="chapter" data-level="6.18.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#mathematical-representation"><i class="fa fa-check"></i><b>6.18.2</b> Mathematical Representation</a></li>
 </ul></li>
-<li class="chapter" data-level="5.19" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#formal-definition-of-quantum-measurement"><i class="fa fa-check"></i><b>5.19</b> Formal Definition of Quantum Measurement</a></li>
-<li class="chapter" data-level="5.20" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#example-measurement-in-an-orthogonal-basis"><i class="fa fa-check"></i><b>5.20</b> Example: Measurement in an Orthogonal Basis</a>
+<li class="chapter" data-level="6.19" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#formal-definition-of-quantum-measurement"><i class="fa fa-check"></i><b>6.19</b> Formal Definition of Quantum Measurement</a></li>
+<li class="chapter" data-level="6.20" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#example-measurement-in-an-orthogonal-basis"><i class="fa fa-check"></i><b>6.20</b> Example: Measurement in an Orthogonal Basis</a>
 <ul>
-<li class="chapter" data-level="5.20.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#initial-state"><i class="fa fa-check"></i><b>5.20.1</b> Initial State:</a></li>
-<li class="chapter" data-level="5.20.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-in-computational-basis-0rangle-1rangle"><i class="fa fa-check"></i><b>5.20.2</b> Measurement in Computational Basis (<span class="math inline">\(|0\rangle , |1\rangle\)</span>):</a></li>
+<li class="chapter" data-level="6.20.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#initial-state"><i class="fa fa-check"></i><b>6.20.1</b> Initial State:</a></li>
+<li class="chapter" data-level="6.20.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-in-computational-basis-0rangle-1rangle"><i class="fa fa-check"></i><b>6.20.2</b> Measurement in Computational Basis (<span class="math inline">\(|0\rangle , |1\rangle\)</span>):</a></li>
 </ul></li>
-<li class="chapter" data-level="5.21" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-in-the-rangle-and--rangle-basis"><i class="fa fa-check"></i><b>5.21</b> Measurement in the <span class="math inline">\(|+\rangle\)</span> and <span class="math inline">\(|-\rangle\)</span> Basis</a>
+<li class="chapter" data-level="6.21" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-in-the-rangle-and--rangle-basis"><i class="fa fa-check"></i><b>6.21</b> Measurement in the <span class="math inline">\(|+\rangle\)</span> and <span class="math inline">\(|-\rangle\)</span> Basis</a>
 <ul>
-<li class="chapter" data-level="5.21.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#given-state"><i class="fa fa-check"></i><b>5.21.1</b> Given State:</a></li>
-<li class="chapter" data-level="5.21.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#overlaps"><i class="fa fa-check"></i><b>5.21.2</b> Overlaps:</a></li>
-<li class="chapter" data-level="5.21.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-probabilities"><i class="fa fa-check"></i><b>5.21.3</b> Measurement Probabilities:</a></li>
+<li class="chapter" data-level="6.21.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#given-state"><i class="fa fa-check"></i><b>6.21.1</b> Given State:</a></li>
+<li class="chapter" data-level="6.21.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#overlaps"><i class="fa fa-check"></i><b>6.21.2</b> Overlaps:</a></li>
+<li class="chapter" data-level="6.21.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-probabilities"><i class="fa fa-check"></i><b>6.21.3</b> Measurement Probabilities:</a></li>
 </ul></li>
-<li class="chapter" data-level="5.22" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-deutsch-problem"><i class="fa fa-check"></i><b>5.22</b> The Deutsch Problem</a>
+<li class="chapter" data-level="6.22" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-deutsch-problem"><i class="fa fa-check"></i><b>6.22</b> The Deutsch Problem</a>
 <ul>
-<li class="chapter" data-level="5.22.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#problem"><i class="fa fa-check"></i><b>5.22.1</b> Problem:</a></li>
-<li class="chapter" data-level="5.22.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-approach"><i class="fa fa-check"></i><b>5.22.2</b> Classical Approach:</a></li>
-<li class="chapter" data-level="5.22.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-goal"><i class="fa fa-check"></i><b>5.22.3</b> Quantum Goal:</a></li>
+<li class="chapter" data-level="6.22.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#problem"><i class="fa fa-check"></i><b>6.22.1</b> Problem:</a></li>
+<li class="chapter" data-level="6.22.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-approach"><i class="fa fa-check"></i><b>6.22.2</b> Classical Approach:</a></li>
+<li class="chapter" data-level="6.22.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-goal"><i class="fa fa-check"></i><b>6.22.3</b> Quantum Goal:</a></li>
 </ul></li>
-<li class="chapter" data-level="5.23" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#deutsch-algorithm-key-steps"><i class="fa fa-check"></i><b>5.23</b> Deutsch Algorithm: Key Steps</a></li>
-<li class="chapter" data-level="5.24" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#encoding-function-behavior-via-phase-change"><i class="fa fa-check"></i><b>5.24</b> Encoding Function Behavior via Phase Change</a></li>
-<li class="chapter" data-level="5.25" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#apply-hadamard-transform-interference"><i class="fa fa-check"></i><b>5.25</b> Apply Hadamard Transform (Interference)</a></li>
-<li class="chapter" data-level="5.26" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-1"><i class="fa fa-check"></i><b>5.26</b> Measurement</a></li>
-<li class="chapter" data-level="5.27" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-quantum-approach"><i class="fa fa-check"></i><b>5.27</b> The Quantum Approach</a></li>
-<li class="chapter" data-level="5.28" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-circuit-for-the-deutsch-algorithm"><i class="fa fa-check"></i><b>5.28</b> Quantum Circuit for the Deutsch Algorithm</a>
+<li class="chapter" data-level="6.23" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#deutsch-algorithm-key-steps"><i class="fa fa-check"></i><b>6.23</b> Deutsch Algorithm: Key Steps</a></li>
+<li class="chapter" data-level="6.24" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#encoding-function-behavior-via-phase-change"><i class="fa fa-check"></i><b>6.24</b> Encoding Function Behavior via Phase Change</a></li>
+<li class="chapter" data-level="6.25" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#apply-hadamard-transform-interference"><i class="fa fa-check"></i><b>6.25</b> Apply Hadamard Transform (Interference)</a></li>
+<li class="chapter" data-level="6.26" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-1"><i class="fa fa-check"></i><b>6.26</b> Measurement</a></li>
+<li class="chapter" data-level="6.27" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-quantum-approach"><i class="fa fa-check"></i><b>6.27</b> The Quantum Approach</a></li>
+<li class="chapter" data-level="6.28" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-circuit-for-the-deutsch-algorithm"><i class="fa fa-check"></i><b>6.28</b> Quantum Circuit for the Deutsch Algorithm</a>
 <ul>
-<li class="chapter" data-level="5.28.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#explanation"><i class="fa fa-check"></i><b>5.28.1</b> Explanation:</a></li>
+<li class="chapter" data-level="6.28.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#explanation"><i class="fa fa-check"></i><b>6.28.1</b> Explanation:</a></li>
 </ul></li>
-<li class="chapter" data-level="5.29" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#multi-qubit-systems-quantum-entanglement-and-higher-dimensional-extensions"><i class="fa fa-check"></i><b>5.29</b> Multi-Qubit Systems, Quantum Entanglement, and Higher-Dimensional Extensions</a>
+<li class="chapter" data-level="6.29" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#multi-qubit-systems-quantum-entanglement-and-higher-dimensional-extensions"><i class="fa fa-check"></i><b>6.29</b> Multi-Qubit Systems, Quantum Entanglement, and Higher-Dimensional Extensions</a>
 <ul>
-<li class="chapter" data-level="5.29.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#two-qubit-state-space"><i class="fa fa-check"></i><b>5.29.1</b> Two-Qubit State Space</a></li>
-<li class="chapter" data-level="5.29.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#basis-elements"><i class="fa fa-check"></i><b>5.29.2</b> Basis Elements:</a></li>
-<li class="chapter" data-level="5.29.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#entanglement-and-physical-interpretation"><i class="fa fa-check"></i><b>5.29.3</b> Entanglement and Physical Interpretation</a></li>
-<li class="chapter" data-level="5.29.4" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-effects"><i class="fa fa-check"></i><b>5.29.4</b> Measurement Effects</a></li>
+<li class="chapter" data-level="6.29.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#two-qubit-state-space"><i class="fa fa-check"></i><b>6.29.1</b> Two-Qubit State Space</a></li>
+<li class="chapter" data-level="6.29.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#basis-elements"><i class="fa fa-check"></i><b>6.29.2</b> Basis Elements:</a></li>
+<li class="chapter" data-level="6.29.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#entanglement-and-physical-interpretation"><i class="fa fa-check"></i><b>6.29.3</b> Entanglement and Physical Interpretation</a></li>
+<li class="chapter" data-level="6.29.4" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-effects"><i class="fa fa-check"></i><b>6.29.4</b> Measurement Effects</a></li>
 </ul></li>
-<li class="chapter" data-level="5.30" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#summary-of-measurement-effects"><i class="fa fa-check"></i><b>5.30</b> Summary of Measurement Effects</a>
+<li class="chapter" data-level="6.30" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#summary-of-measurement-effects"><i class="fa fa-check"></i><b>6.30</b> Summary of Measurement Effects</a>
 <ul>
-<li class="chapter" data-level="5.30.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#entangled-state-1"><i class="fa fa-check"></i><b>5.30.1</b> <strong>Entangled State:</strong></a></li>
-<li class="chapter" data-level="5.30.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#separable-state-1"><i class="fa fa-check"></i><b>5.30.2</b> <strong>Separable State:</strong></a></li>
-<li class="chapter" data-level="5.30.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#physical-interpretation-1"><i class="fa fa-check"></i><b>5.30.3</b> <strong>Physical Interpretation:</strong></a></li>
+<li class="chapter" data-level="6.30.1" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#entangled-state-1"><i class="fa fa-check"></i><b>6.30.1</b> <strong>Entangled State:</strong></a></li>
+<li class="chapter" data-level="6.30.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#separable-state-1"><i class="fa fa-check"></i><b>6.30.2</b> <strong>Separable State:</strong></a></li>
+<li class="chapter" data-level="6.30.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#physical-interpretation-1"><i class="fa fa-check"></i><b>6.30.3</b> <strong>Physical Interpretation:</strong></a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -225,10 +290,10 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter 5</span> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="the-problem-setting" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> The problem setting<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-problem-setting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="the-problem-setting" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> The problem setting<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-problem-setting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>I order to design quantum algorithms we need to know how to execute
 functions on a quantum computer. In particular, we are interested in
 functions that take a (binary) number, and output a truth value (i.e.,
@@ -240,10 +305,10 @@ functions that take a (binary) number, and output a truth value (i.e.,
 - <strong>Constant</strong>: <span class="math inline">\(f(0) = f(1)\)</span> (same output for both inputs)?<br />
 - <strong>Balanced</strong>: <span class="math inline">\(f(0) \neq f(1)\)</span> (different outputs for each input)?</p>
 </div>
-<div id="classical-solution-1" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Classical Solution<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-solution-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="classical-algorithm-for-the-deutsch-problem-n-1" class="section level4 hasAnchor" number="5.2.0.1">
-<h4><span class="header-section-number">5.2.0.1</span> Classical Algorithm for the Deutsch Problem (<span class="math inline">\(n = 1\)</span>)<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-algorithm-for-the-deutsch-problem-n-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="classical-solution-1" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Classical Solution<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-solution-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="classical-algorithm-for-the-deutsch-problem-n-1" class="section level4 hasAnchor" number="6.2.0.1">
+<h4><span class="header-section-number">6.2.0.1</span> Classical Algorithm for the Deutsch Problem (<span class="math inline">\(n = 1\)</span>)<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-algorithm-for-the-deutsch-problem-n-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>Algorithm 1: Classical Algorithm for the Deutsch Problem (<span class="math inline">\(n = 1\)</span>)</strong></p>
 <p><strong>Require</strong>: A black-box function <span class="math inline">\(f : {0,1} → {0,1}\)</span></p>
 <ol style="list-style-type: decimal">
@@ -276,8 +341,8 @@ functions that take a (binary) number, and output a truth value (i.e.,
 </ul>
 <hr />
 </div>
-<div id="classical-algorithm-for-the-deutsch-problem-general-case" class="section level4 hasAnchor" number="5.2.0.2">
-<h4><span class="header-section-number">5.2.0.2</span> Classical Algorithm for the Deutsch Problem (General Case)<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-algorithm-for-the-deutsch-problem-general-case" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="classical-algorithm-for-the-deutsch-problem-general-case" class="section level4 hasAnchor" number="6.2.0.2">
+<h4><span class="header-section-number">6.2.0.2</span> Classical Algorithm for the Deutsch Problem (General Case)<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-algorithm-for-the-deutsch-problem-general-case" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Suppose we are given a black-box function:<br />
 <span class="math display">\[f : \{0,1\}ⁿ → \{0,1\}\]</span></p>
 <p>The function <span class="math inline">\(f\)</span> is promised to be either:<br />
@@ -289,21 +354,21 @@ functions that take a (binary) number, and output a truth value (i.e.,
 <p><strong>Goal</strong>: Determine whether <span class="math inline">\(f\)</span> is constant or balanced <strong>using the fewest possible queries</strong> (function evaluations).</p>
 </div>
 </div>
-<div id="quantum-computing-a-high-level-interpretation" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Quantum Computing: A High-Level Interpretation<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-computing-a-high-level-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="the-process-of-computing" class="section level3 hasAnchor" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> The Process of Computing<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-process-of-computing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="quantum-computing-a-high-level-interpretation" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Quantum Computing: A High-Level Interpretation<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-computing-a-high-level-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-process-of-computing" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> The Process of Computing<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-process-of-computing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Key Idea</strong>: Computing is about encoding information and transforming it under the rules of physics.</p>
-<div id="classical-computing" class="section level4 hasAnchor" number="5.3.1.1">
-<h4><span class="header-section-number">5.3.1.1</span> Classical Computing<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-computing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="classical-computing" class="section level4 hasAnchor" number="6.3.1.1">
+<h4><span class="header-section-number">6.3.1.1</span> Classical Computing<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-computing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li><strong>Data Encoding</strong>: Information stored as bits (0s and 1s).<br />
 </li>
 <li><strong>Processing</strong>: Logical gates manipulate bits according to classical physics.</li>
 </ul>
 </div>
-<div id="quantum-computing" class="section level4 hasAnchor" number="5.3.1.2">
-<h4><span class="header-section-number">5.3.1.2</span> Quantum Computing<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-computing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="quantum-computing" class="section level4 hasAnchor" number="6.3.1.2">
+<h4><span class="header-section-number">6.3.1.2</span> Quantum Computing<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-computing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li><strong>Data Encoding</strong>: Information stored in quantum states.<br />
 </li>
@@ -314,11 +379,11 @@ functions that take a (binary) number, and output a truth value (i.e.,
 </div>
 </div>
 </div>
-<div id="the-quantum-twist-a-new-way-to-compute" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> The Quantum Twist – A New Way to Compute<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-quantum-twist-a-new-way-to-compute" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-quantum-twist-a-new-way-to-compute" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> The Quantum Twist – A New Way to Compute<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-quantum-twist-a-new-way-to-compute" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="qubits-vs.-bits" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Qubits vs. Bits<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#qubits-vs.-bits" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="qubits-vs.-bits" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Qubits vs. Bits<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#qubits-vs.-bits" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><strong>Classical Bit</strong>: A classical bit is either 0 or 1.<br />
 </li>
@@ -335,8 +400,8 @@ functions that take a (binary) number, and output a truth value (i.e.,
 <li><strong>Measurement affects the outcome</strong>!</li>
 </ul></li>
 </ul>
-<div id="takeaway" class="section level3 hasAnchor" number="5.5.1">
-<h3><span class="header-section-number">5.5.1</span> Takeaway<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#takeaway" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="takeaway" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Takeaway<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#takeaway" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>The challenge and goal is to harness quantum properties for efficient computation.<br />
 </li>
@@ -344,10 +409,10 @@ functions that take a (binary) number, and output a truth value (i.e.,
 </ul>
 </div>
 </div>
-<div id="mathematical-background-and-notations" class="section level2 hasAnchor" number="5.6">
-<h2><span class="header-section-number">5.6</span> Mathematical Background and Notations<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#mathematical-background-and-notations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="complex-hilbert-space-mathbbc2" class="section level3 hasAnchor" number="5.6.1">
-<h3><span class="header-section-number">5.6.1</span> Complex Hilbert Space <span class="math inline">\(\mathbb{C}^2\)</span><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#complex-hilbert-space-mathbbc2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="mathematical-background-and-notations" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Mathematical Background and Notations<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#mathematical-background-and-notations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="complex-hilbert-space-mathbbc2" class="section level3 hasAnchor" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> Complex Hilbert Space <span class="math inline">\(\mathbb{C}^2\)</span><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#complex-hilbert-space-mathbbc2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>Let <span class="math inline">\(\mathbb{C}^2\)</span> be the set of all <span class="math inline">\(2 \times 1\)</span> complex vectors:<br />
 <span class="math display">\[
@@ -362,8 +427,8 @@ for all <span class="math inline">\(|v\rangle  = \begin{bmatrix} a \\ b \end{bma
 <li><p><strong>Norm</strong>:<br />
 <span class="math inline">\(\| |v\rangle  \| = \sqrt{\langle v|v\rangle }\)</span>.</p></li>
 </ul>
-<div id="properties-and-terminologies" class="section level4 hasAnchor" number="5.6.1.1">
-<h4><span class="header-section-number">5.6.1.1</span> Properties and Terminologies<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#properties-and-terminologies" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="properties-and-terminologies" class="section level4 hasAnchor" number="6.6.1.1">
+<h4><span class="header-section-number">6.6.1.1</span> Properties and Terminologies<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#properties-and-terminologies" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li><p><strong>Inner Product Properties</strong>:</p>
 <ul>
@@ -385,7 +450,7 @@ For any <span class="math inline">\(|v\rangle  ∈ \mathbb{C}^2\)</span>, <span 
 for some <span class="math inline">\(a,b \in  \mathbb{C}^2\)</span> and moreover <span class="math inline">\(a = \langle e_1|v\rangle\)</span> and <span class="math inline">\(b = \langle e_2|v\rangle\)</span>.</p></li>
 </ol>
 <div class="example">
-<p><span id="exm:unnamed-chunk-12" class="example"><strong>Example 5.1  (Orthonormal Basis) </strong></span></p>
+<p><span id="exm:unnamed-chunk-24" class="example"><strong>Example 6.1  (Orthonormal Basis) </strong></span></p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Standard Basis</strong>:<br />
 <span class="math inline">\(|0\rangle  = \begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span>, <span class="math inline">\(|1\rangle  = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\)</span>.</p></li>
@@ -398,8 +463,8 @@ for some <span class="math inline">\(a,b \in  \mathbb{C}^2\)</span> and moreover
 <li>Consider <span class="math inline">\(|w\rangle  = \begin{bmatrix}1 \\ 2 \end{bmatrix}\)</span>, and now if <span class="math inline">\(\langle +|w\rangle  = x\)</span>, <span class="math inline">\(\langle −|w\rangle  = y\)</span>, then <span class="math display">\[ |w\rangle  = x|+\rangle  + y|−\rangle  .\]</span></li>
 </ul>
 </div>
-<div id="matrices-as-linear-operators" class="section level4 hasAnchor" number="5.6.1.2">
-<h4><span class="header-section-number">5.6.1.2</span> Matrices as Linear Operators<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#matrices-as-linear-operators" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="matrices-as-linear-operators" class="section level4 hasAnchor" number="6.6.1.2">
+<h4><span class="header-section-number">6.6.1.2</span> Matrices as Linear Operators<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#matrices-as-linear-operators" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li><p>A <span class="math inline">\(2 \times 2\)</span> complex matrix <span class="math inline">\(A\)</span> acts on <span class="math inline">\(\mathbb{C}^2\)</span> as a linear operator via multiplication:<br />
 <span class="math display">\[ A|v\rangle  = |w\rangle .\]</span></p></li>
@@ -417,8 +482,8 @@ Given <span class="math display">\[ A = \begin{bmatrix} a &amp; b \\ c &amp; d \
 <span class="math display">\[ A^\dagger = \begin{bmatrix} \overline{a} &amp; \overline{c} \\ \overline{b} &amp; \overline{d} \end{bmatrix}. \]</span></p></li>
 </ul>
 </div>
-<div id="types-of-matrices-considered-in-quantum-computing" class="section level4 hasAnchor" number="5.6.1.3">
-<h4><span class="header-section-number">5.6.1.3</span> Types of Matrices Considered in Quantum Computing<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#types-of-matrices-considered-in-quantum-computing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="types-of-matrices-considered-in-quantum-computing" class="section level4 hasAnchor" number="6.6.1.3">
+<h4><span class="header-section-number">6.6.1.3</span> Types of Matrices Considered in Quantum Computing<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#types-of-matrices-considered-in-quantum-computing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li><p><strong>Self-Adjoint Matrix</strong>: <span class="math inline">\(H^\dagger = H\)</span>.<br />
 Example:<br />
@@ -439,14 +504,14 @@ Thus, <span class="math inline">\(P\)</span> is projection</p></li>
 </ol>
 </div>
 </div>
-<div id="linear-functionals-and-bra-notation" class="section level3 hasAnchor" number="5.6.2">
-<h3><span class="header-section-number">5.6.2</span> Linear Functionals and Bra Notation<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#linear-functionals-and-bra-notation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="linear-functionals-and-bra-notation" class="section level3 hasAnchor" number="6.6.2">
+<h3><span class="header-section-number">6.6.2</span> Linear Functionals and Bra Notation<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#linear-functionals-and-bra-notation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="definition">
-<p><span id="def:unnamed-chunk-13" class="definition"><strong>Definition 5.1  </strong></span>A linear functional is a map <span class="math inline">\(f : \mathbb{C}^2 → \mathbb{C}\)</span> satisfying:<br />
+<p><span id="def:unnamed-chunk-25" class="definition"><strong>Definition 6.1  </strong></span>A linear functional is a map <span class="math inline">\(f : \mathbb{C}^2 → \mathbb{C}\)</span> satisfying:<br />
 <span class="math display">\[ f(α|v\rangle  + |w\rangle ) = αf(|v\rangle ) + f(|w\rangle ). \]</span></p>
 </div>
 <div class="definition">
-<p><span id="def:unnamed-chunk-14" class="definition"><strong>Definition 5.2  </strong></span><span class="math inline">\(\{f : \mathbb{C}^2 →\mathbb{C}: f is linear\}\)</span> is called the dual space of <span class="math inline">\(\mathbb{C}^2\)</span>.</p>
+<p><span id="def:unnamed-chunk-26" class="definition"><strong>Definition 6.2  </strong></span><span class="math inline">\(\{f : \mathbb{C}^2 →\mathbb{C}: f is linear\}\)</span> is called the dual space of <span class="math inline">\(\mathbb{C}^2\)</span>.</p>
 </div>
 <ul>
 <li><strong>Bra Notation</strong>:<br />
@@ -454,13 +519,13 @@ Each <span class="math inline">\(|w\rangle  ∈ \mathbb{C}^2\)</span> has an ass
 <span class="math inline">\(|v\rangle  → \langle w|v\rangle\)</span> for all <span class="math inline">\(|v\rangle  ∈ \mathbb{C}^2\)</span>.</li>
 </ul>
 <div class="example">
-<p><span id="exm:unnamed-chunk-15" class="example"><strong>Example 5.2  </strong></span>If <span class="math inline">\(|+\rangle  = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span>, its corresponding bra is:<br />
+<p><span id="exm:unnamed-chunk-27" class="example"><strong>Example 6.2  </strong></span>If <span class="math inline">\(|+\rangle  = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span>, its corresponding bra is:<br />
 <span class="math display">\[ \langle +| = \frac{1}{\sqrt{2}} (1, 1) .\]</span></p>
 </div>
 </div>
 </div>
-<div id="outer-product-and-projection-operators" class="section level2 hasAnchor" number="5.7">
-<h2><span class="header-section-number">5.7</span> Outer Product and Projection Operators<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#outer-product-and-projection-operators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="outer-product-and-projection-operators" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Outer Product and Projection Operators<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#outer-product-and-projection-operators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p><strong>Outer Product</strong>:<br />
 Given <span class="math inline">\(|ϕ\rangle , |ψ\rangle  ∈ \mathbb{C}^2\)</span>, the outer product <span class="math inline">\(|ϕ\rangle \langle ψ|\)</span> is the operator defined by:<br />
@@ -480,14 +545,14 @@ P = |\psi\rangle \langle \psi|\text{ This satisfies: }  P^2 = P
 \]</span></p></li>
 </ul>
 <div class="example">
-<p><span id="exm:unnamed-chunk-16" class="example"><strong>Example 5.3  </strong></span>For <span class="math inline">\(|+\rangle = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span>,</p>
+<p><span id="exm:unnamed-chunk-28" class="example"><strong>Example 6.3  </strong></span>For <span class="math inline">\(|+\rangle = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span>,</p>
 <p><span class="math display">\[
   |+\rangle \langle +| = \frac{1}{2}
   \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 1 \end{bmatrix}
   \]</span></p>
 </div>
-<div id="takeaways" class="section level3 hasAnchor" number="5.7.1">
-<h3><span class="header-section-number">5.7.1</span> Takeaways:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#takeaways" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="takeaways" class="section level3 hasAnchor" number="6.7.1">
+<h3><span class="header-section-number">6.7.1</span> Takeaways:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#takeaways" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Outer products generalize linear maps of rank one.</li>
 <li>Special case: <span class="math inline">\(|\psi\rangle \langle \psi|\)</span> defines a <strong>one-dimensional projection operator</strong>.</li>
@@ -496,17 +561,17 @@ P = |\psi\rangle \langle \psi|\text{ This satisfies: }  P^2 = P
 <hr />
 </div>
 </div>
-<div id="qubits-data-in-quantum-computing" class="section level2 hasAnchor" number="5.8">
-<h2><span class="header-section-number">5.8</span> Qubits: Data in Quantum Computing<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#qubits-data-in-quantum-computing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="intuitive-notion" class="section level3 hasAnchor" number="5.8.1">
-<h3><span class="header-section-number">5.8.1</span> Intuitive Notion:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#intuitive-notion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="qubits-data-in-quantum-computing" class="section level2 hasAnchor" number="6.8">
+<h2><span class="header-section-number">6.8</span> Qubits: Data in Quantum Computing<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#qubits-data-in-quantum-computing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="intuitive-notion" class="section level3 hasAnchor" number="6.8.1">
+<h3><span class="header-section-number">6.8.1</span> Intuitive Notion:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#intuitive-notion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>Classical Computing</strong>: Bits encode information as <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>.</li>
 <li><strong>Quantum Computing</strong>: Qubits encode information as a <strong>superposition</strong> of <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, enabling the processing of multiple possibilities simultaneously.</li>
 </ul>
 </div>
-<div id="mathematical-definition" class="section level3 hasAnchor" number="5.8.2">
-<h3><span class="header-section-number">5.8.2</span> Mathematical Definition:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#mathematical-definition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="mathematical-definition" class="section level3 hasAnchor" number="6.8.2">
+<h3><span class="header-section-number">6.8.2</span> Mathematical Definition:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#mathematical-definition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A qubit is a <strong>unit vector</strong> in <span class="math inline">\(\mathbb{C}^2\)</span>:
 <span class="math display">\[
 |\psi\rangle = \alpha|0\rangle + \beta|1\rangle, \quad \alpha, \beta \in \mathbb{C}, \quad |\alpha|^2 + |\beta|^2 = 1
@@ -516,24 +581,24 @@ P = |\psi\rangle \langle \psi|\text{ This satisfies: }  P^2 = P
 - <span class="math inline">\(|1\rangle = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\)</span></p>
 </div>
 </div>
-<div id="why-unit-vectors" class="section level2 hasAnchor" number="5.9">
-<h2><span class="header-section-number">5.9</span> Why Unit Vectors?<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#why-unit-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="a-probabilistic-system" class="section level3 hasAnchor" number="5.9.1">
-<h3><span class="header-section-number">5.9.1</span> A Probabilistic System:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#a-probabilistic-system" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="why-unit-vectors" class="section level2 hasAnchor" number="6.9">
+<h2><span class="header-section-number">6.9</span> Why Unit Vectors?<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#why-unit-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="a-probabilistic-system" class="section level3 hasAnchor" number="6.9.1">
+<h3><span class="header-section-number">6.9.1</span> A Probabilistic System:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#a-probabilistic-system" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>A qubit represents a <strong>superposition</strong> of classical outcomes.</li>
 <li>Measurement outcomes are <strong>probabilistic</strong>, not deterministic.</li>
 </ul>
 </div>
-<div id="normalization-condition" class="section level3 hasAnchor" number="5.9.2">
-<h3><span class="header-section-number">5.9.2</span> Normalization Condition:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#normalization-condition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="normalization-condition" class="section level3 hasAnchor" number="6.9.2">
+<h3><span class="header-section-number">6.9.2</span> Normalization Condition:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#normalization-condition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Probabilities must sum to <span class="math inline">\(1\)</span>. For a qubit:
 <span class="math display">\[
 |\alpha|^2 + |\beta|^2 = 1
 \]</span></p>
 </div>
-<div id="the-born-rule" class="section level3 hasAnchor" number="5.9.3">
-<h3><span class="header-section-number">5.9.3</span> The Born Rule:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-born-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="the-born-rule" class="section level3 hasAnchor" number="6.9.3">
+<h3><span class="header-section-number">6.9.3</span> The Born Rule:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-born-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Upon measurement:</li>
 </ul>
@@ -542,8 +607,8 @@ P = |\psi\rangle \langle \psi|\text{ This satisfies: }  P^2 = P
 <p>The qubit collapses to the observed basis state with these probabilitie</p>
 </div>
 </div>
-<div id="bloch-sphere-representation-of-qubit-states" class="section level2 hasAnchor" number="5.10">
-<h2><span class="header-section-number">5.10</span> Bloch Sphere Representation of Qubit States<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#bloch-sphere-representation-of-qubit-states" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="bloch-sphere-representation-of-qubit-states" class="section level2 hasAnchor" number="6.10">
+<h2><span class="header-section-number">6.10</span> Bloch Sphere Representation of Qubit States<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#bloch-sphere-representation-of-qubit-states" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>A general single-qubit state is a unit vector in <span class="math inline">\(\mathbb{C}^2\)</span>:
 <span class="math display">\[ |ψ\rangle = α|0\rangle+β|\rangle\]</span>,
@@ -580,23 +645,23 @@ the same physical qubit state.</p>
 <div class="figcaption">source: Wikipedia</div>
 </div>
 </div>
-<div id="quantum-gates-processing-quantum-data" class="section level2 hasAnchor" number="5.11">
-<h2><span class="header-section-number">5.11</span> Quantum Gates: Processing Quantum Data<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-gates-processing-quantum-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="classical-vs.-quantum" class="section level3 hasAnchor" number="5.11.1">
-<h3><span class="header-section-number">5.11.1</span> Classical vs. Quantum:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-vs.-quantum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="quantum-gates-processing-quantum-data" class="section level2 hasAnchor" number="6.11">
+<h2><span class="header-section-number">6.11</span> Quantum Gates: Processing Quantum Data<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-gates-processing-quantum-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="classical-vs.-quantum" class="section level3 hasAnchor" number="6.11.1">
+<h3><span class="header-section-number">6.11.1</span> Classical vs. Quantum:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-vs.-quantum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>Classical Gates</strong>: Perform logical operations (e.g., AND, OR, NOT).</li>
 <li><strong>Quantum Gates</strong>: Perform transformations on qubits using <strong>unitary operations</strong>.</li>
 </ul>
 </div>
-<div id="why-unitary-matrices" class="section level3 hasAnchor" number="5.11.2">
-<h3><span class="header-section-number">5.11.2</span> Why Unitary Matrices?<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#why-unitary-matrices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="why-unitary-matrices" class="section level3 hasAnchor" number="6.11.2">
+<h3><span class="header-section-number">6.11.2</span> Why Unitary Matrices?<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#why-unitary-matrices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>Reversible</strong>: Quantum mechanics laws are reversible.</li>
 <li><strong>Norm-Preserving</strong>: Probabilities must sum to <span class="math inline">\(1\)</span>.</li>
 </ul>
 <div class="definition">
-<p><span id="def:unnamed-chunk-18" class="definition"><strong>Definition 5.3  </strong></span>A quantum gate is a <span class="math inline">\(2 \times 2\)</span> <strong>unitary matrix</strong> <span class="math inline">\(U\)</span> satisfying:
+<p><span id="def:unnamed-chunk-30" class="definition"><strong>Definition 6.3  </strong></span>A quantum gate is a <span class="math inline">\(2 \times 2\)</span> <strong>unitary matrix</strong> <span class="math inline">\(U\)</span> satisfying:
 <span class="math display">\[
 U^\dagger U = I
 \]</span></p>
@@ -629,8 +694,8 @@ U^\dagger U = I
 </tbody>
 </table>
 </div>
-<div id="classical-not-gate" class="section level3 hasAnchor" number="5.11.3">
-<h3><span class="header-section-number">5.11.3</span> Classical NOT Gate:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-not-gate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="classical-not-gate" class="section level3 hasAnchor" number="6.11.3">
+<h3><span class="header-section-number">6.11.3</span> Classical NOT Gate:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-not-gate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Matrix:
 <span class="math display">\[
 \text{NOT} =
@@ -643,8 +708,8 @@ U^\dagger U = I
 - <span class="math inline">\(\text{NOT}(|0\rangle) = |1\rangle\)</span>
 - <span class="math inline">\(\text{NOT}(|1\rangle) = |0\rangle\)</span></p>
 </div>
-<div id="quantum-phase-gate-r_phi" class="section level3 hasAnchor" number="5.11.4">
-<h3><span class="header-section-number">5.11.4</span> Quantum Phase Gate (<span class="math inline">\(R_\phi\)</span>):<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-phase-gate-r_phi" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="quantum-phase-gate-r_phi" class="section level3 hasAnchor" number="6.11.4">
+<h3><span class="header-section-number">6.11.4</span> Quantum Phase Gate (<span class="math inline">\(R_\phi\)</span>):<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-phase-gate-r_phi" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Matrix:
 <span class="math display">\[
 R_\phi =
@@ -660,23 +725,23 @@ R_\phi (\alpha|0\rangle + \beta|1\rangle) = \alpha|0\rangle + \beta e^{i\phi} |1
 <hr />
 </div>
 </div>
-<div id="universal-gate-sets" class="section level2 hasAnchor" number="5.12">
-<h2><span class="header-section-number">5.12</span> Universal Gate Sets<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#universal-gate-sets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="classical-universal-gates" class="section level3 hasAnchor" number="5.12.1">
-<h3><span class="header-section-number">5.12.1</span> Classical Universal Gates:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-universal-gates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="universal-gate-sets" class="section level2 hasAnchor" number="6.12">
+<h2><span class="header-section-number">6.12</span> Universal Gate Sets<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#universal-gate-sets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="classical-universal-gates" class="section level3 hasAnchor" number="6.12.1">
+<h3><span class="header-section-number">6.12.1</span> Classical Universal Gates:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-universal-gates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>Definition</strong>: A set of gates is universal if it can implement any Boolean function.</li>
 <li>Example: AND, OR, NOT (or NAND alone).</li>
 </ul>
 </div>
-<div id="quantum-universal-gates" class="section level3 hasAnchor" number="5.12.2">
-<h3><span class="header-section-number">5.12.2</span> Quantum Universal Gates:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-universal-gates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="quantum-universal-gates" class="section level3 hasAnchor" number="6.12.2">
+<h3><span class="header-section-number">6.12.2</span> Quantum Universal Gates:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-universal-gates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>Definition</strong>: A set of quantum gates is universal if any unitary operation can be approximated to arbitrary accuracy.</li>
 </ul>
 </div>
-<div id="why-is-universality-important" class="section level3 hasAnchor" number="5.12.3">
-<h3><span class="header-section-number">5.12.3</span> Why is Universality Important?<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#why-is-universality-important" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="why-is-universality-important" class="section level3 hasAnchor" number="6.12.3">
+<h3><span class="header-section-number">6.12.3</span> Why is Universality Important?<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#why-is-universality-important" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Just like classical computing can be built from a small set of universal
 gates, quantum computing relies on universal gates to perform any
@@ -685,8 +750,8 @@ computation.</li>
 building general-purpose quantum computers</li>
 </ul>
 </div>
-<div id="examples-single-qubit-case" class="section level3 hasAnchor" number="5.12.4">
-<h3><span class="header-section-number">5.12.4</span> Examples (Single-Qubit Case):<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#examples-single-qubit-case" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="examples-single-qubit-case" class="section level3 hasAnchor" number="6.12.4">
+<h3><span class="header-section-number">6.12.4</span> Examples (Single-Qubit Case):<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#examples-single-qubit-case" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\{H, S, X\}\)</span>: Hadamard, Phase, Bit flip</li>
 <li><span class="math inline">\(\{H, R_z(\theta), X\}\)</span>: Hadamard, Z-axis rotation, Bit flip</li>
@@ -696,8 +761,8 @@ building general-purpose quantum computers</li>
 </ol>
 <p>Later, we disscued each gate separetely.</p>
 </div>
-<div id="hadamard-gate-1" class="section level3 hasAnchor" number="5.12.5">
-<h3><span class="header-section-number">5.12.5</span> Hadamard Gate<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#hadamard-gate-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="hadamard-gate-1" class="section level3 hasAnchor" number="6.12.5">
+<h3><span class="header-section-number">6.12.5</span> Hadamard Gate<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#hadamard-gate-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Hadamard gate creates superposition by transforming basis states.</p>
 <p><strong>Matrix Representation</strong>:<br />
 <span class="math display">\[ H = \frac{1}{\sqrt{2}}  
@@ -710,8 +775,8 @@ building general-purpose quantum computers</li>
 <hr />
 </div>
 </div>
-<div id="phase-gate-s-gate" class="section level2 hasAnchor" number="5.13">
-<h2><span class="header-section-number">5.13</span> Phase Gate (S Gate)<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#phase-gate-s-gate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="phase-gate-s-gate" class="section level2 hasAnchor" number="6.13">
+<h2><span class="header-section-number">6.13</span> Phase Gate (S Gate)<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#phase-gate-s-gate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The phase gate introduces a phase shift of <span class="math inline">\(\pi/2\)</span>.</p>
 <p><strong>Matrix Representation</strong>:<br />
 <span class="math display">\[ S =  
@@ -723,8 +788,8 @@ building general-purpose quantum computers</li>
 <span class="math display">\[ S|0\rangle  = |0\rangle , \quad S|1\rangle  = i|1\rangle  \]</span></p>
 <hr />
 </div>
-<div id="arbitrary-phase-shift-r_ztheta-gate" class="section level2 hasAnchor" number="5.14">
-<h2><span class="header-section-number">5.14</span> Arbitrary Phase Shift: <span class="math inline">\(R_z(\theta)\)</span> Gate<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#arbitrary-phase-shift-r_ztheta-gate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="arbitrary-phase-shift-r_ztheta-gate" class="section level2 hasAnchor" number="6.14">
+<h2><span class="header-section-number">6.14</span> Arbitrary Phase Shift: <span class="math inline">\(R_z(\theta)\)</span> Gate<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#arbitrary-phase-shift-r_ztheta-gate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This gate applies an arbitrary phase rotation around the z-axis.</p>
 <p><strong>Matrix Representation</strong>:<br />
 <span class="math display">\[ R_z(\theta) =  
@@ -737,8 +802,8 @@ e^{-i\theta/2} &amp; 0 \\
 <span class="math display">\[ R_z(\theta)|1\rangle  = e^{i\theta/2}|1\rangle  \]</span></p>
 <hr />
 </div>
-<div id="r_ytheta-gate" class="section level2 hasAnchor" number="5.15">
-<h2><span class="header-section-number">5.15</span> <span class="math inline">\(R_y(\theta)\)</span> Gate<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#r_ytheta-gate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="r_ytheta-gate" class="section level2 hasAnchor" number="6.15">
+<h2><span class="header-section-number">6.15</span> <span class="math inline">\(R_y(\theta)\)</span> Gate<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#r_ytheta-gate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <span class="math inline">\(R_y(\theta)\)</span> gate represents a rotation by an angle <span class="math inline">\(\theta\)</span> around the y-axis on the Bloch sphere.</p>
 <p><strong>Matrix Representation</strong>:<br />
 <span class="math display">\[ R_y(\theta) =  
@@ -751,10 +816,10 @@ e^{-i\theta/2} &amp; 0 \\
 <span class="math display">\[ R_y(\theta)|1\rangle  = -\sin(\theta/2)|0\rangle  + \cos(\theta/2)|1\rangle  \]</span></p>
 <hr />
 </div>
-<div id="pauli-gates-x-y-and-z" class="section level2 hasAnchor" number="5.16">
-<h2><span class="header-section-number">5.16</span> Pauli Gates: X, Y, and Z<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-gates-x-y-and-z" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="pauli-x-bit-flip-gate" class="section level3 hasAnchor" number="5.16.1">
-<h3><span class="header-section-number">5.16.1</span> Pauli-X (Bit-Flip Gate)<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-x-bit-flip-gate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="pauli-gates-x-y-and-z" class="section level2 hasAnchor" number="6.16">
+<h2><span class="header-section-number">6.16</span> Pauli Gates: X, Y, and Z<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-gates-x-y-and-z" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="pauli-x-bit-flip-gate" class="section level3 hasAnchor" number="6.16.1">
+<h3><span class="header-section-number">6.16.1</span> Pauli-X (Bit-Flip Gate)<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-x-bit-flip-gate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Swaps <span class="math inline">\(|0\rangle\)</span> and <span class="math inline">\(|1\rangle\)</span>, analogous to a classical NOT gate.</p>
 <p><strong>Matrix Representation</strong>:<br />
 <span class="math display">\[ X =  
@@ -765,8 +830,8 @@ e^{-i\theta/2} &amp; 0 \\
 <p><strong>Action on Basis States</strong>:<br />
 <span class="math display">\[ X|0\rangle  = |1\rangle , \quad X|1\rangle  = |0\rangle  \]</span></p>
 </div>
-<div id="pauli-y-gate" class="section level3 hasAnchor" number="5.16.2">
-<h3><span class="header-section-number">5.16.2</span> Pauli-Y Gate<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-y-gate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="pauli-y-gate" class="section level3 hasAnchor" number="6.16.2">
+<h3><span class="header-section-number">6.16.2</span> Pauli-Y Gate<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-y-gate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Combines bit-flip and phase-flip operations.</p>
 <p><strong>Matrix Representation</strong>:<br />
 <span class="math display">\[ Y =  
@@ -777,8 +842,8 @@ i &amp; 0
 <p><strong>Action on Basis States</strong>:<br />
 <span class="math display">\[ Y|0\rangle  = i|1\rangle , \quad Y|1\rangle  = -i|0\rangle  \]</span></p>
 </div>
-<div id="pauli-z-phase-flip-gate" class="section level3 hasAnchor" number="5.16.3">
-<h3><span class="header-section-number">5.16.3</span> Pauli-Z (Phase-Flip Gate)<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-z-phase-flip-gate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="pauli-z-phase-flip-gate" class="section level3 hasAnchor" number="6.16.3">
+<h3><span class="header-section-number">6.16.3</span> Pauli-Z (Phase-Flip Gate)<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#pauli-z-phase-flip-gate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Leaves <span class="math inline">\(|0\rangle\)</span> unchanged but flips the phase of <span class="math inline">\(|1\rangle\)</span>.</p>
 <p><strong>Matrix Representation</strong>:<br />
 <span class="math display">\[ Z =  
@@ -791,10 +856,10 @@ i &amp; 0
 <hr />
 </div>
 </div>
-<div id="quantum-measurement-capturing-information" class="section level2 hasAnchor" number="5.17">
-<h2><span class="header-section-number">5.17</span> Quantum Measurement: Capturing Information<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-measurement-capturing-information" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="key-idea" class="section level3 hasAnchor" number="5.17.1">
-<h3><span class="header-section-number">5.17.1</span> Key Idea<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#key-idea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="quantum-measurement-capturing-information" class="section level2 hasAnchor" number="6.17">
+<h2><span class="header-section-number">6.17</span> Quantum Measurement: Capturing Information<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-measurement-capturing-information" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="key-idea" class="section level3 hasAnchor" number="6.17.1">
+<h3><span class="header-section-number">6.17.1</span> Key Idea<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#key-idea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>In quantum computing, measurement extracts information from a quantum state, but the process is <strong>probabilistic</strong> and alters the state.</li>
 <li>Classical measurement gives a deterministic outcome without changing the system.</li>
@@ -803,18 +868,18 @@ i &amp; 0
 <hr />
 </div>
 </div>
-<div id="nature-of-quantum-measurement" class="section level2 hasAnchor" number="5.18">
-<h2><span class="header-section-number">5.18</span> Nature of Quantum Measurement<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#nature-of-quantum-measurement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="physical-interpretation" class="section level3 hasAnchor" number="5.18.1">
-<h3><span class="header-section-number">5.18.1</span> Physical Interpretation<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#physical-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="nature-of-quantum-measurement" class="section level2 hasAnchor" number="6.18">
+<h2><span class="header-section-number">6.18</span> Nature of Quantum Measurement<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#nature-of-quantum-measurement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="physical-interpretation" class="section level3 hasAnchor" number="6.18.1">
+<h3><span class="header-section-number">6.18.1</span> Physical Interpretation<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#physical-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Measurement corresponds to observing a physical property (e.g., spin direction, polarization).</li>
 <li>Before measurement, the system exists in a superposition of states.</li>
 <li>Measurement collapses the superposition to one of the possible outcomes.</li>
 </ul>
 </div>
-<div id="mathematical-representation" class="section level3 hasAnchor" number="5.18.2">
-<h3><span class="header-section-number">5.18.2</span> Mathematical Representation<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#mathematical-representation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="mathematical-representation" class="section level3 hasAnchor" number="6.18.2">
+<h3><span class="header-section-number">6.18.2</span> Mathematical Representation<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#mathematical-representation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Measurement is modeled using <strong>projection operators</strong> <span class="math inline">\(P_i\)</span>.<br />
 </li>
@@ -825,8 +890,8 @@ i &amp; 0
 <hr />
 </div>
 </div>
-<div id="formal-definition-of-quantum-measurement" class="section level2 hasAnchor" number="5.19">
-<h2><span class="header-section-number">5.19</span> Formal Definition of Quantum Measurement<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#formal-definition-of-quantum-measurement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="formal-definition-of-quantum-measurement" class="section level2 hasAnchor" number="6.19">
+<h2><span class="header-section-number">6.19</span> Formal Definition of Quantum Measurement<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#formal-definition-of-quantum-measurement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let <span class="math inline">\(|ψ\rangle\)</span> be a quantum state and <span class="math inline">\(\{P_i\}\)</span> a set of projection operators:</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Probability of Outcome <span class="math inline">\(i\)</span></strong>:<br />
@@ -838,14 +903,14 @@ i &amp; 0
 </ol>
 <hr />
 </div>
-<div id="example-measurement-in-an-orthogonal-basis" class="section level2 hasAnchor" number="5.20">
-<h2><span class="header-section-number">5.20</span> Example: Measurement in an Orthogonal Basis<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#example-measurement-in-an-orthogonal-basis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="initial-state" class="section level3 hasAnchor" number="5.20.1">
-<h3><span class="header-section-number">5.20.1</span> Initial State:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#initial-state" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="example-measurement-in-an-orthogonal-basis" class="section level2 hasAnchor" number="6.20">
+<h2><span class="header-section-number">6.20</span> Example: Measurement in an Orthogonal Basis<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#example-measurement-in-an-orthogonal-basis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="initial-state" class="section level3 hasAnchor" number="6.20.1">
+<h3><span class="header-section-number">6.20.1</span> Initial State:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#initial-state" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span class="math display">\[ |ψ\rangle  = α|0\rangle  + β|1\rangle  \]</span></p>
 </div>
-<div id="measurement-in-computational-basis-0rangle-1rangle" class="section level3 hasAnchor" number="5.20.2">
-<h3><span class="header-section-number">5.20.2</span> Measurement in Computational Basis (<span class="math inline">\(|0\rangle , |1\rangle\)</span>):<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-in-computational-basis-0rangle-1rangle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="measurement-in-computational-basis-0rangle-1rangle" class="section level3 hasAnchor" number="6.20.2">
+<h3><span class="header-section-number">6.20.2</span> Measurement in Computational Basis (<span class="math inline">\(|0\rangle , |1\rangle\)</span>):<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-in-computational-basis-0rangle-1rangle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p><strong>Projection Operators</strong>:<br />
 <span class="math display">\[ P_0 = |0\rangle \langle 0|, \quad P_1 = |1\rangle \langle 1| \]</span></p></li>
@@ -859,22 +924,22 @@ Post-Measurement State: <span class="math inline">\(|1\rangle\)</span></p></li>
 <hr />
 </div>
 </div>
-<div id="measurement-in-the-rangle-and--rangle-basis" class="section level2 hasAnchor" number="5.21">
-<h2><span class="header-section-number">5.21</span> Measurement in the <span class="math inline">\(|+\rangle\)</span> and <span class="math inline">\(|-\rangle\)</span> Basis<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-in-the-rangle-and--rangle-basis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="given-state" class="section level3 hasAnchor" number="5.21.1">
-<h3><span class="header-section-number">5.21.1</span> Given State:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#given-state" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="measurement-in-the-rangle-and--rangle-basis" class="section level2 hasAnchor" number="6.21">
+<h2><span class="header-section-number">6.21</span> Measurement in the <span class="math inline">\(|+\rangle\)</span> and <span class="math inline">\(|-\rangle\)</span> Basis<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-in-the-rangle-and--rangle-basis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="given-state" class="section level3 hasAnchor" number="6.21.1">
+<h3><span class="header-section-number">6.21.1</span> Given State:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#given-state" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span class="math display">\[ |ψ\rangle  = \sqrt{0.75}|0\rangle  + \sqrt{0.25}|1\rangle  \]</span></p>
 </div>
-<div id="overlaps" class="section level3 hasAnchor" number="5.21.2">
-<h3><span class="header-section-number">5.21.2</span> Overlaps:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#overlaps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="overlaps" class="section level3 hasAnchor" number="6.21.2">
+<h3><span class="header-section-number">6.21.2</span> Overlaps:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#overlaps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><span class="math inline">\(\langle+|ψ\rangle  = \frac{1}{\sqrt{2}}(\sqrt{0.75} + \sqrt{0.25}) \approx 0.96\)</span><br />
 </li>
 <li><span class="math inline">\(\langle-|ψ\rangle  = \frac{1}{\sqrt{2}}(\sqrt{0.75} - \sqrt{0.25}) \approx 0.25\)</span></li>
 </ul>
 </div>
-<div id="measurement-probabilities" class="section level3 hasAnchor" number="5.21.3">
-<h3><span class="header-section-number">5.21.3</span> Measurement Probabilities:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="measurement-probabilities" class="section level3 hasAnchor" number="6.21.3">
+<h3><span class="header-section-number">6.21.3</span> Measurement Probabilities:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><span class="math inline">\(P(|+\rangle ) = |\langle+|ψ\rangle |^2 \approx 0.93\)</span><br />
 </li>
@@ -882,31 +947,31 @@ Post-Measurement State: <span class="math inline">\(|1\rangle\)</span></p></li>
 </ul>
 </div>
 </div>
-<div id="the-deutsch-problem" class="section level2 hasAnchor" number="5.22">
-<h2><span class="header-section-number">5.22</span> The Deutsch Problem<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-deutsch-problem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="problem" class="section level3 hasAnchor" number="5.22.1">
-<h3><span class="header-section-number">5.22.1</span> Problem:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#problem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="the-deutsch-problem" class="section level2 hasAnchor" number="6.22">
+<h2><span class="header-section-number">6.22</span> The Deutsch Problem<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-deutsch-problem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="problem" class="section level3 hasAnchor" number="6.22.1">
+<h3><span class="header-section-number">6.22.1</span> Problem:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#problem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>Given:</strong> A function <span class="math inline">\(f : \{0,1\} \to \{0,1\}\)</span>.</li>
 <li><strong>Task:</strong> Determine if <span class="math inline">\(f\)</span> is constant or balanced.</li>
 </ul>
 </div>
-<div id="classical-approach" class="section level3 hasAnchor" number="5.22.2">
-<h3><span class="header-section-number">5.22.2</span> Classical Approach:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-approach" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="classical-approach" class="section level3 hasAnchor" number="6.22.2">
+<h3><span class="header-section-number">6.22.2</span> Classical Approach:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#classical-approach" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Requires <strong>two function evaluations</strong> in the worst case.</li>
 </ul>
 </div>
-<div id="quantum-goal" class="section level3 hasAnchor" number="5.22.3">
-<h3><span class="header-section-number">5.22.3</span> Quantum Goal:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-goal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="quantum-goal" class="section level3 hasAnchor" number="6.22.3">
+<h3><span class="header-section-number">6.22.3</span> Quantum Goal:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-goal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Use quantum computing to determine this in <strong>a single function call</strong>!</li>
 </ul>
 <hr />
 </div>
 </div>
-<div id="deutsch-algorithm-key-steps" class="section level2 hasAnchor" number="5.23">
-<h2><span class="header-section-number">5.23</span> Deutsch Algorithm: Key Steps<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#deutsch-algorithm-key-steps" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="deutsch-algorithm-key-steps" class="section level2 hasAnchor" number="6.23">
+<h2><span class="header-section-number">6.23</span> Deutsch Algorithm: Key Steps<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#deutsch-algorithm-key-steps" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><strong>Input:</strong>
 <ul>
@@ -935,8 +1000,8 @@ U_f |x, y\rangle = |x, y \oplus f(x)\rangle
 </ol>
 <hr />
 </div>
-<div id="encoding-function-behavior-via-phase-change" class="section level2 hasAnchor" number="5.24">
-<h2><span class="header-section-number">5.24</span> Encoding Function Behavior via Phase Change<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#encoding-function-behavior-via-phase-change" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="encoding-function-behavior-via-phase-change" class="section level2 hasAnchor" number="6.24">
+<h2><span class="header-section-number">6.24</span> Encoding Function Behavior via Phase Change<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#encoding-function-behavior-via-phase-change" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Rewrite the second qubit in terms of a phase:
 <span class="math display">\[
@@ -946,8 +1011,8 @@ U_f (H \otimes H)|0,1\rangle = \frac{1}{\sqrt{2}}(|0\rangle + (-1)^{f(1) \oplus 
 </ul>
 <hr />
 </div>
-<div id="apply-hadamard-transform-interference" class="section level2 hasAnchor" number="5.25">
-<h2><span class="header-section-number">5.25</span> Apply Hadamard Transform (Interference)<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#apply-hadamard-transform-interference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="apply-hadamard-transform-interference" class="section level2 hasAnchor" number="6.25">
+<h2><span class="header-section-number">6.25</span> Apply Hadamard Transform (Interference)<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#apply-hadamard-transform-interference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Applying Hadamard again on the first qubit results in:
 <span class="math display">\[
@@ -957,8 +1022,8 @@ H \frac{1}{\sqrt{2}}(|0\rangle + (-1)^{f(1) \oplus f(0)} |1\rangle)
 </ul>
 <hr />
 </div>
-<div id="measurement-1" class="section level2 hasAnchor" number="5.26">
-<h2><span class="header-section-number">5.26</span> Measurement<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="measurement-1" class="section level2 hasAnchor" number="6.26">
+<h2><span class="header-section-number">6.26</span> Measurement<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Measure the <strong>first qubit</strong>:
 <ul>
@@ -969,8 +1034,8 @@ H \frac{1}{\sqrt{2}}(|0\rangle + (-1)^{f(1) \oplus f(0)} |1\rangle)
 </ul>
 <hr />
 </div>
-<div id="the-quantum-approach" class="section level2 hasAnchor" number="5.27">
-<h2><span class="header-section-number">5.27</span> The Quantum Approach<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-quantum-approach" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-quantum-approach" class="section level2 hasAnchor" number="6.27">
+<h2><span class="header-section-number">6.27</span> The Quantum Approach<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#the-quantum-approach" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><strong>Key Idea:</strong>
 <ul>
@@ -986,10 +1051,10 @@ H \frac{1}{\sqrt{2}}(|0\rangle + (-1)^{f(1) \oplus f(0)} |1\rangle)
 </ul>
 <hr />
 </div>
-<div id="quantum-circuit-for-the-deutsch-algorithm" class="section level2 hasAnchor" number="5.28">
-<h2><span class="header-section-number">5.28</span> Quantum Circuit for the Deutsch Algorithm<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-circuit-for-the-deutsch-algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="explanation" class="section level3 hasAnchor" number="5.28.1">
-<h3><span class="header-section-number">5.28.1</span> Explanation:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#explanation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="quantum-circuit-for-the-deutsch-algorithm" class="section level2 hasAnchor" number="6.28">
+<h2><span class="header-section-number">6.28</span> Quantum Circuit for the Deutsch Algorithm<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#quantum-circuit-for-the-deutsch-algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="explanation" class="section level3 hasAnchor" number="6.28.1">
+<h3><span class="header-section-number">6.28.1</span> Explanation:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#explanation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Apply <strong>Hadamard gates</strong> to create superposition.</li>
 <li>Use the <strong>oracle <span class="math inline">\(U_f\)</span></strong> to introduce a phase based on <span class="math inline">\(f(x)\)</span>.</li>
@@ -999,24 +1064,24 @@ H \frac{1}{\sqrt{2}}(|0\rangle + (-1)^{f(1) \oplus f(0)} |1\rangle)
 <hr />
 </div>
 </div>
-<div id="multi-qubit-systems-quantum-entanglement-and-higher-dimensional-extensions" class="section level2 hasAnchor" number="5.29">
-<h2><span class="header-section-number">5.29</span> Multi-Qubit Systems, Quantum Entanglement, and Higher-Dimensional Extensions<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#multi-qubit-systems-quantum-entanglement-and-higher-dimensional-extensions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="two-qubit-state-space" class="section level3 hasAnchor" number="5.29.1">
-<h3><span class="header-section-number">5.29.1</span> Two-Qubit State Space<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#two-qubit-state-space" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="multi-qubit-systems-quantum-entanglement-and-higher-dimensional-extensions" class="section level2 hasAnchor" number="6.29">
+<h2><span class="header-section-number">6.29</span> Multi-Qubit Systems, Quantum Entanglement, and Higher-Dimensional Extensions<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#multi-qubit-systems-quantum-entanglement-and-higher-dimensional-extensions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="two-qubit-state-space" class="section level3 hasAnchor" number="6.29.1">
+<h3><span class="header-section-number">6.29.1</span> Two-Qubit State Space<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#two-qubit-state-space" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>A <strong>single qubit state</strong> is a unit vector in <span class="math inline">\(\mathbb{C}^2\)</span>.</li>
 <li>Two-qubit states reside in <span class="math inline">\(\mathbb{C}^2 \otimes \mathbb{C}^2\)</span> (denoted as <span class="math inline">\(\mathbb{C}^4\)</span>).</li>
 </ul>
 </div>
-<div id="basis-elements" class="section level3 hasAnchor" number="5.29.2">
-<h3><span class="header-section-number">5.29.2</span> Basis Elements:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#basis-elements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="basis-elements" class="section level3 hasAnchor" number="6.29.2">
+<h3><span class="header-section-number">6.29.2</span> Basis Elements:<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#basis-elements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><span class="math inline">\(|00\rangle, |01\rangle, |10\rangle, |11\rangle\)</span>.</li>
 </ul>
 <hr />
 </div>
-<div id="entanglement-and-physical-interpretation" class="section level3 hasAnchor" number="5.29.3">
-<h3><span class="header-section-number">5.29.3</span> Entanglement and Physical Interpretation<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#entanglement-and-physical-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="entanglement-and-physical-interpretation" class="section level3 hasAnchor" number="6.29.3">
+<h3><span class="header-section-number">6.29.3</span> Entanglement and Physical Interpretation<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#entanglement-and-physical-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>Entanglement:</strong>
 <ul>
@@ -1041,10 +1106,10 @@ H \frac{1}{\sqrt{2}}(|0\rangle + (-1)^{f(1) \oplus f(0)} |1\rangle)
 </ul>
 <hr />
 </div>
-<div id="measurement-effects" class="section level3 hasAnchor" number="5.29.4">
-<h3><span class="header-section-number">5.29.4</span> Measurement Effects<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-effects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="entangled-state" class="section level4 hasAnchor" number="5.29.4.1">
-<h4><span class="header-section-number">5.29.4.1</span> <strong>Entangled State:</strong><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#entangled-state" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="measurement-effects" class="section level3 hasAnchor" number="6.29.4">
+<h3><span class="header-section-number">6.29.4</span> Measurement Effects<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#measurement-effects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="entangled-state" class="section level4 hasAnchor" number="6.29.4.1">
+<h4><span class="header-section-number">6.29.4.1</span> <strong>Entangled State:</strong><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#entangled-state" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li>Example: <span class="math inline">\(|\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)\)</span>.</li>
 <li>Measurement on the first qubit:
@@ -1055,8 +1120,8 @@ H \frac{1}{\sqrt{2}}(|0\rangle + (-1)^{f(1) \oplus f(0)} |1\rangle)
 <li><strong>Conclusion:</strong> Measurement on one qubit determines the state of the other.</li>
 </ul>
 </div>
-<div id="separable-state" class="section level4 hasAnchor" number="5.29.4.2">
-<h4><span class="header-section-number">5.29.4.2</span> <strong>Separable State:</strong><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#separable-state" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="separable-state" class="section level4 hasAnchor" number="6.29.4.2">
+<h4><span class="header-section-number">6.29.4.2</span> <strong>Separable State:</strong><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#separable-state" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li>Example: <span class="math inline">\(|\psi\rangle = |0\rangle \otimes \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)\)</span>.</li>
 <li>Measurement on the first qubit:
@@ -1072,24 +1137,24 @@ H \frac{1}{\sqrt{2}}(|0\rangle + (-1)^{f(1) \oplus f(0)} |1\rangle)
 </div>
 </div>
 </div>
-<div id="summary-of-measurement-effects" class="section level2 hasAnchor" number="5.30">
-<h2><span class="header-section-number">5.30</span> Summary of Measurement Effects<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#summary-of-measurement-effects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="entangled-state-1" class="section level3 hasAnchor" number="5.30.1">
-<h3><span class="header-section-number">5.30.1</span> <strong>Entangled State:</strong><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#entangled-state-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="summary-of-measurement-effects" class="section level2 hasAnchor" number="6.30">
+<h2><span class="header-section-number">6.30</span> Summary of Measurement Effects<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#summary-of-measurement-effects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="entangled-state-1" class="section level3 hasAnchor" number="6.30.1">
+<h3><span class="header-section-number">6.30.1</span> <strong>Entangled State:</strong><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#entangled-state-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Measurement on one qubit <strong>affects</strong> the state of the other.</li>
 <li>Shows strong <strong>correlations</strong>.</li>
 </ul>
 </div>
-<div id="separable-state-1" class="section level3 hasAnchor" number="5.30.2">
-<h3><span class="header-section-number">5.30.2</span> <strong>Separable State:</strong><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#separable-state-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="separable-state-1" class="section level3 hasAnchor" number="6.30.2">
+<h3><span class="header-section-number">6.30.2</span> <strong>Separable State:</strong><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#separable-state-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Measurement on one qubit <strong>does not affect</strong> the other.</li>
 <li>No correlations between outcomes.</li>
 </ul>
 </div>
-<div id="physical-interpretation-1" class="section level3 hasAnchor" number="5.30.3">
-<h3><span class="header-section-number">5.30.3</span> <strong>Physical Interpretation:</strong><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#physical-interpretation-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="physical-interpretation-1" class="section level3 hasAnchor" number="6.30.3">
+<h3><span class="header-section-number">6.30.3</span> <strong>Physical Interpretation:</strong><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#physical-interpretation-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Entanglement exhibits <strong>“action at a distance”</strong>.</li>
 <li>Separable states behave independently.</li>
@@ -1104,7 +1169,7 @@ H \frac{1}{\sqrt{2}}(|0\rangle + (-1)^{f(1) \oplus f(0)} |1\rangle)
           </div>
         </div>
       </div>
-<a href="deutschs.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="quantum-computing-with-qiskit.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -1136,7 +1201,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/04-wqw.Rmd",
+"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/05-wqw.Rmd",
 "text": "Edit"
 },
 "history": {
