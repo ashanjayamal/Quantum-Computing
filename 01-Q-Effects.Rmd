@@ -206,7 +206,7 @@ Then,
 
 
 The time evolution of a closed quantum system is governed by the Schrödinger equation:
-$$i\hbar \frac{d}{dt}|\psi(t)⟩ = H|\psi(t)⟩$$
+$$i\hbar \frac{d}{dt}|\psi(t)\rangle = H|\psi(t)\rangle$$
 where:
 - \( \hbar \) is the reduced Planck's constant.
 - \( H \) is the Hamiltonian of the system (a Hermitian operator).
@@ -244,6 +244,134 @@ Consider a quantum system consisting of two components; one in a Hilbert space $
 - \(|e_{1,j}\rangle\):  Orthonormal basis for \(\mathcal{H}_1\) 
 - \(|e_{2,j}\rangle\): Orthonormal basis for  \(\mathcal{H}_2\) 
 
-|single qubit|![](fig/fig6.png)|\(|\uparrow\rangle=|0\rangle=\begin{pmatrix}1\\0\end{pmatrix}\)|\(|\downarrow\rangle=|1\rangle=\begin{pmatrix}0\\1\end{pmatrix}\)|
-|-----------------|-----------------------------------------------------|-------------------------------------------------------|
+
+|No of bits|   |Picture|   |Orthonormal Basis|
+|:--------:|:-:|:-----:|:-:|:---------------:|
+|Single qubit|\(\mathcal{H_1}\)|![](fig/fig6.png)|\(|\uparrow\rangle=|0\rangle=\begin{pmatrix}1\\0\end{pmatrix}\)<br><br>\(|\downarrow\rangle=|1\rangle=\begin{pmatrix}0\\1\end{pmatrix}\)|\(|0\rangle,|1\rangle\)|\\
+|Two qubits |\(\mathcal{H}_1\)<br> <br> <br> \(\mathcal{H}_2\)|![](fig/fig6.png)<br>![](fig/fig6.png)|\(\longleftarrow|0\rangle,|1\rangle\) <br> <br> <br> \(\longleftarrow|0\rangle,|1\rangle\)|\[\begin{eqnarray}
+\mathcal{H}=
+\mathcal{H}_1& \otimes & \mathcal{H}_2\\
+|0\rangle  & \otimes & |0\rangle\\
+|0\rangle  & \otimes & |1\rangle\\
+|1\rangle  & \otimes & |0\rangle\\
+|1\rangle  & \otimes & |1\rangle
+\end{eqnarray}
+\]|
+
+Consider a quantum system composed of two components; one in a Hilbert space \( \mathcal{H}_1 \) and the other in another Hilbert space \( \mathcal{H}_2 \). 
+
+Then, the system as a whole is in the Hilbert space \( \mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2 \).
+
+
+\[\begin{eqnarray}
+|00 \rangle &:=& |0 \rangle \otimes |0 \rangle =\begin{pmatrix} 1 \\0 \end{pmatrix}\otimes \begin{pmatrix} 1 \\0 \end{pmatrix}=\begin{pmatrix} 1\\0\\0\\0 \end{pmatrix}\\\\ 
+|01 \rangle &:=& |0 \rangle \otimes |1 \rangle =\begin{pmatrix} 1 \\0 \end{pmatrix}\otimes \begin{pmatrix} 0 \\1 \end{pmatrix} =\begin{pmatrix} 0\\1\\0\\0 \end{pmatrix}\\\\ 
+|10 \rangle &:=& |1 \rangle \otimes |0 \rangle =\begin{pmatrix} 0 \\1 \end{pmatrix}\otimes \begin{pmatrix} 0 \\1 \end{pmatrix}=\begin{pmatrix} 0\\0\\1\\0 \end{pmatrix}\\\\ 
+|11 \rangle &:=& |1 \rangle \otimes |1 \rangle =\begin{pmatrix} 0 \\1 \end{pmatrix}\otimes \begin{pmatrix} 0 \\1 \end{pmatrix}=\begin{pmatrix} 0\\0\\0\\1 \end{pmatrix}\\\\ 
+\end{eqnarray}\]
+
+```{example}
+**Example of Two-qubit state**
+\[
+|\psi\rangle = \frac{1}{2}|00\rangle + \frac{1}{2}|01\rangle + \frac{1}{2}|10\rangle + \frac{1}{2}|11\rangle
+\]
+
+A composite state that can be written as a tensor product of 
+two vectors as \(|\psi\rangle = |\psi_1  \rangle \otimes |\psi_2\) \rangle is called a **separable state**
+\[\begin{eqnarray}
+\psi\rangle &=& \frac{1}{2}|00\rangle + \frac{1}{2}|01\rangle + \frac{1}{2}|10\rangle + \frac{1}{2}|11\rangle \\
+&=& \underbrace{\frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle}_{|\psi_1\rangle}  \otimes  \underbrace{\frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle}_{|\psi_2\rangle}  \\
+&=& |\psi_1\rangle \otimes |\psi_2\rangle
+\end{eqnarray}\]
+
+|   |   |
+|:-:|:-:|
+|\(|\psi_1\rangle\)|![](fig/fig6.png){height=10%}|\\
+|\(|\psi_2\rangle\)|![](fig/fig6.png){height=10%}|
+```
+
+
+There are quantum states in the Hilbert space \(\mathcal{H}_1\otimes \mathcal{H}_2\) that cannot be stated as a product!
+
+```{exercise}
+Show that the following is such a state:
+\[
+|\psi\rangle = \frac{1}{\sqrt{2}}|00\rangle + \frac{1}{\sqrt{2}}|11\rangle
+\]
+```
+
+
+
+
+
+
+
+
+A product state for a quantum system in \( H_1 \otimes H_2 \) can be written as:
+\[
+|\psi\rangle = |\psi_1\rangle \otimes |\psi_2\rangle
+\]
+where
+\[
+|\psi_1\rangle = a|0\rangle + b|1\rangle, \quad |\psi_2\rangle = c|0\rangle + d|1\rangle
+\]
+with \( a, b, c, d \) being complex coefficients satisfying the normalization conditions:
+\[
+|a|^2 + |b|^2 = 1 \quad \text{and} \quad |c|^2 + |d|^2 = 1.
+\]
+
+
+Expanding the tensor product \( |\psi_1\rangle \otimes |\psi_2\rangle \):
+\[
+|\psi_1\rangle \otimes |\psi_2\rangle = (a|0\rangle + b|1\rangle) \otimes (c|0\rangle + d|1\rangle)
+\]
+\[
+= ac|00\rangle + ad|01\rangle + bc|10\rangle + bd|11\rangle
+\]
+
+This means that any product state must have coefficients \( ac, ad, bc, bd \) for the respective basis states \( |00\rangle, |01\rangle, |10\rangle, |11\rangle \), which are all factorizable in terms of \( a, b, c, d \).
+
+
+For the given state:
+\[
+|\psi\rangle = \frac{1}{\sqrt{2}}|00\rangle + \frac{1}{\sqrt{2}}|11\rangle
+\]
+
+The coefficients are:
+\[
+\text{Coefficient of } |00\rangle = \frac{1}{\sqrt{2}}, \quad \text{Coefficient of } |11\rangle = \frac{1}{\sqrt{2}}
+\]
+\[
+\text{Coefficient of } |01\rangle = 0, \quad \text{Coefficient of } |10\rangle = 0
+\]
+
+
+For the state to be a product state, there must exist \( a, b, c, d \) such that:
+\[
+ac = \frac{1}{\sqrt{2}}, \quad ad = 0, \quad bc = 0, \quad bd = \frac{1}{\sqrt{2}}
+\]
+
+From \( ad = 0 \), either \( a = 0 \) or \( d = 0 \). Similarly, from \( bc = 0 \), either \( b = 0 \) or \( c = 0 \). However:
+1. If \( a = 0 \), then \( ac \neq \frac{1}{\sqrt{2}} \), which is a contradiction.
+2. If \( b = 0 \), then \( bd \neq \frac{1}{\sqrt{2}} \), which is also a contradiction.
+
+Thus, no combination of \( a, b, c, d \) can satisfy all the conditions simultaneously.
+
+
+Since the given state cannot be written as \( |\psi_1\rangle \otimes |\psi_2\rangle \), it is **not a product state**. Therefore, the state 
+\[
+|\psi\rangle = \frac{1}{\sqrt{2}}|00\rangle + \frac{1}{\sqrt{2}}|11\rangle
+\]
+is an **entangled state**.
+
+
+
+
+
+
+
+
+
+
+
 

@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Deutsch’s | Introduction to Quantum Computing</title>
+  <title>Chapter 7 hi | Introduction to Quantum Computing</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
 The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Deutsch’s | Introduction to Quantum Computing" />
+  <meta property="og:title" content="Chapter 7 hi | Introduction to Quantum Computing" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Deutsch’s | Introduction to Quantum Computing" />
+  <meta name="twitter:title" content="Chapter 7 hi | Introduction to Quantum Computing" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
@@ -29,15 +29,15 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-10" />
+<meta name="date" content="2025-03-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="quantum-gates.html"/>
-<link rel="next" href="quantum-computing-with-qiskit.html"/>
+<link rel="prev" href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -160,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#pauli-gates"><i class="fa fa-check"></i><b>3.2</b> Pauli gates</a></li>
 <li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.3</b> CNOT gate</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="deutschs.html"><a href="deutschs.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s</a></li>
+<li class="chapter" data-level="4" data-path="deutschs-algorithm.html"><a href="deutschs-algorithm.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s Algorithm</a></li>
 <li class="chapter" data-level="5" data-path="quantum-computing-with-qiskit.html"><a href="quantum-computing-with-qiskit.html"><i class="fa fa-check"></i><b>5</b> Quantum Computing with Qiskit</a></li>
 <li class="chapter" data-level="6" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><i class="fa fa-check"></i><b>6</b> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour</a>
 <ul>
@@ -303,106 +303,154 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="deutschs" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Deutsch’s<a href="deutschs.html#deutschs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="float">
-<img src="https://www.daviddeutsch.org.uk/wp-content/uploads/2013/12/david-home-e1594943580574.jpg" style="width:30.0%" alt="David Deutach (Resource: Offical site)" />
-<div class="figcaption">David Deutach (Resource: Offical site)</div>
+<div id="hi" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> hi<a href="hi.html#hi" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="composite-quantum-system" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Composite Quantum System<a href="hi.html#composite-quantum-system" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Consider a quantum system of two components; one in a Hilbert space <span class="math inline">\(\mathcal{H}_1\)</span> and the other in another Hilbert space <span class="math inline">\(\mathcal{H}_2\)</span>. Then the system as a whole is in Hilbert space:
+$
+= _1 _2.
+$</p>
+<p>The state of the system is given by:
+$
+|= <em>{i,j} c</em>{ij} |e_{1,i}|e_{2,j}
+$</p>
+<div id="composite-state" class="section level4 hasAnchor" number="7.1.0.1">
+<h4><span class="header-section-number">7.1.0.1</span> Composite State<a href="hi.html#composite-state" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+For example:
+$
+| =
+<span class="math display">\[\begin{pmatrix}
+1 \\
+0
+\end{pmatrix}\]</span>
+,
+| =
+<span class="math display">\[\begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\]</span>
+<p>$</p>
+<hr />
 </div>
-<p>An early stage quantum algorithm that demonstrates the computational power of quantum computers is the algorithm invented by David Deutsch in 1985.</p>
-<p>Deutsch’s algorithm is based on quantum parallelism - in this context, the ability to evaluate a function <span class="math inline">\(f(x)\)</span> at different <span class="math inline">\(x\)</span> values simultaneously</p>
-<p>Consider functions from a one-bit domain <span class="math inline">\(\{0, 1\}\)</span> to the same one-bit co-domain. There are two types of functions: constant and balanced.</p>
-<p>We are given a function:<br />
-<span class="math display">\[f : \{0,1\} \to \{0,1\}\]</span></p>
-<p>Our goal is to determine whether <strong>f</strong> is:<br />
-- <strong>Constant</strong>: <span class="math inline">\(f(0) = f(1)\)</span> (same output for both inputs)?<br />
-- <strong>Balanced</strong>: <span class="math inline">\(f(0) \neq f(1)\)</span> (different outputs for each input)?</p>
-<p><img src="fig/fig19.jpg" /></p>
-<div id="classical-solution" class="section level4 hasAnchor" number="4.0.0.1">
-<h4><span class="header-section-number">4.0.0.1</span> Classical Solution,<a href="deutschs.html#classical-solution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>*Algorithm 1: Classical Algorithm for the Deutsch Problem (<span class="math inline">\(n = 1\)</span>)**</p>
-<p><strong>Require</strong>: A black-box function <span class="math inline">\(f : \{0,1\} \rightarrow \{0,1\}\)</span></p>
-<p>1: <strong>Evaluate</strong>: Compute <span class="math inline">\(f(0)\)</span> and <span class="math inline">\(f(1)\)</span>.<br />
-2: <strong>if</strong> <span class="math inline">\(f(0) = f(1)\)</span> <strong>then</strong><br />
-3: <span class="math inline">\(~~~~~~\)</span> Output: “Constant”<br />
-4: <strong>else</strong><br />
-5: <span class="math inline">\(~~~~~~\)</span> Output: “Balanced”<br />
-6: <strong>end if</strong></p>
-<p><strong>Explanation</strong></p>
-<ul>
-<li>Line 1: Input is a black-box function <span class="math inline">\(f : \{0,1\} → \{0,1\}\)</span>.</li>
-<li>Line 2: Evaluate the function at both possible inputs <span class="math inline">\((0\)</span> and <span class="math inline">\(1)\)</span>.</li>
-<li>Line 3–6: Compare the outputs:
-<ul>
-<li>If <span class="math inline">\(f (0) = f(1)\)</span>, then the function is constant.</li>
-<li>If <span class="math inline">\(f (0)= f(1),\)</span> then the function is balanced.</li>
-</ul></li>
-</ul>
-<p>Classically, two queries to the function are necessary to determine this. Deutsch’s algorithm provides a quantum protocol to do this with a single query to the function</p>
-<div class="exercise">
-<p><span id="exr:unnamed-chunk-11" class="exercise"><strong>Exercise 4.1  </strong></span>Let <span class="math inline">\(x, y \in \{0, 1\}\)</span> and <span class="math inline">\(f : \{0, 1\} \to \{0, 1\}\)</span>. Show that the transformation:</p>
-<p><span class="math display">\[
-U_f |x, y\rangle = |x, y \oplus f(x)\rangle
-\]</span></p>
-<p>where <span class="math inline">\(\oplus\)</span> denotes addition modulo 2,
-is unitary.</p>
 </div>
-<p><strong>Solution</strong><br />
-</p>
-<p>The above transformation can be implemented in a quantum circuit by querying an oracle.</p>
-<p><strong>Diagram</strong>: <img src="fig/fig20.png" /></p>
-<p>This quantum circuit queries an oracle, and implements <span class="math inline">\(U_f\)</span></p>
-<p>Note that the transformation can be written as:</p>
-<p><span class="math display">\[
-U_f \big(|+\rangle , |0\rangle\big) = \frac{1}{\sqrt{2}} \big(|0, f(0)\rangle + |1, f(1)\rangle\big).
-\]</span></p>
-<p>This contains information about both <span class="math inline">\(f(0)\)</span> and <span class="math inline">\(f(1)\)</span>. That is like evaluating the function <span class="math inline">\(f\)</span> at two different points in the domain. This is called Quantum parallelism.</p>
-<p><span class="math display">\[
-\begin{eqnarray}
-U_f |x, -\rangle
-&amp;=&amp; U_f \left( |x\rangle \otimes \left( \frac{1}{\sqrt{2}} |0\rangle - \frac{1}{\sqrt{2}} |1\rangle \right) \right)\\
-&amp;=&amp; \frac{1}{\sqrt{2}} U_f (|x\rangle \otimes |0\rangle) - \frac{1}{\sqrt{2}} U_f (|x\rangle \otimes |1\rangle)\\
-&amp;=&amp; \frac{1}{\sqrt{2}} |x, f(x)\rangle - \frac{1}{\sqrt{2}} |x, 1 \oplus f(x)\rangle.
-\end{eqnarray}
-\]</span></p>
-<ul>
-<li>When <span class="math inline">\(f(x) = 0\)</span>:</li>
-</ul>
-<p><span class="math display">\[
-U_f |x, -\rangle = \frac{1}{\sqrt{2}} |x, 0\rangle - \frac{1}{\sqrt{2}} |x, 1\rangle.
-\]</span></p>
-<ul>
-<li>When <span class="math inline">\(f(x) = 1\)</span>:</li>
-</ul>
-<p><span class="math display">\[
-U_f |x, -\rangle = -\frac{1}{\sqrt{2}} |x, 0\rangle + \frac{1}{\sqrt{2}} |x, 1\rangle.
-\]</span></p>
-<p>Then we can summarize,</p>
-<p><span class="math display">\[
-U_f |x, -\rangle = (-1)^{f(x)} |x, -\rangle.
-\]</span>
-This is called <strong>Phase kickback</strong>.</p>
-<p>Deutsch’s algorithm is a black box algorithm, that uses quantum parallelism, and can be implemented efficiently using a quantum computer.</p>
-<div class="float">
-<img src="fig/fig21.png" alt="Circuit implementation of Deutsch’s algorithm" />
-<div class="figcaption">Circuit implementation of Deutsch’s algorithm</div>
+<div id="single-qubit" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Single Qubit<a href="hi.html#single-qubit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+The orthonormal basis for a single qubit is:
+$
+|0=
+<span class="math display">\[\begin{pmatrix} 1 \\ 0 \end{pmatrix}\]</span>
+,
+|1=
+<span class="math display">\[\begin{pmatrix} 0 \\ 1 \end{pmatrix}\]</span>
+<p>$</p>
 </div>
-<p>Given a function <span class="math inline">\(f :\ {0,1\} \rightarrow \{0,1\}\)</span>, Deutsch’s algorithm determines whether <span class="math inline">\(f\)</span> is constant or balanced, with a single query to the function</p>
-<p><img src="fig/fig22.png" /></p>
-<p><span class="math display">\[\begin{eqnarray}
-|\psi_0\rangle &amp;=&amp; |00\rangle\\
-|\psi_1\rangle &amp;=&amp; |0\rangle X|0\rangle = |01\rangle\\
-|\psi_2\rangle &amp;=&amp; H|0\rangle H|1\rangle = |+\rangle|−\rangle\\
-|\psi_3\rangle &amp;=&amp; U_f| +,−\rangle\\
-&amp;=&amp; U_f \left( \frac{1}{\sqrt{2}} |0, -\rangle + \frac{1}{\sqrt{2}} |1, -\rangle \right)\\
-&amp;=&amp; \frac{1}{\sqrt{2}} U_f |0, -\rangle + \frac{1}{\sqrt{2}} U_f |1, -\rangle
-&amp;=&amp;
-\end{eqnarray}
-\]</span></p>
-<p>Then, <span class="math display">\[\text{Phase kickback }
-U_f |x, -\rangle = (-1)^{f(x)} |x, -\rangle \quad \text{for } x \in \{0, 1\}.
-\]</span></p>
+<div id="two-qubits" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Two Qubits<a href="hi.html#two-qubits" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The orthonormal basis for two qubits is:
+$
+|00,  |01,  |10,  |11
+$</p>
+<hr />
+</div>
+<div id="two-qubits-composite-system" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Two Qubits Composite System<a href="hi.html#two-qubits-composite-system" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For a composite system of two qubits, the combined Hilbert space is represented as:
+$
+= _1 _2
+$</p>
+<p>The orthonormal basis states for this composite system are:
+$
+|00= |0|0,
+|01= |0|1
+$
+$
+|10= |1|0,
+|11= |1|1
+$</p>
+<hr />
+</div>
+<div id="basis-states-for-a-two-qubit-system" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Basis States for a Two-Qubit System<a href="hi.html#basis-states-for-a-two-qubit-system" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+The orthonormal basis states for this system are:
+$
+|00=
+<span class="math display">\[\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}\]</span>
+,
+|01=
+<span class="math display">\[\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}\]</span>
+,
+|10=
+<span class="math display">\[\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \end{pmatrix}\]</span>
+,
+|11=
+<span class="math display">\[\begin{pmatrix} 0 \\ 0 \\ 0 \\ 1 \end{pmatrix}\]</span>
+<p>$</p>
+</div>
+<div id="example-two-qubit-state" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Example Two-Qubit State<a href="hi.html#example-two-qubit-state" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>An example of a two-qubit state:
+$
+|= |00+ |01+ |10+ |11
+$</p>
+<hr />
+</div>
+<div id="individual-qubit-states" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> Individual Qubit States<a href="hi.html#individual-qubit-states" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The individual states for each component are:
+$
+|_1= |0+ |1,
+|_2= |0+ |1
+$</p>
+</div>
+<div id="combined-state-representation" class="section level2 hasAnchor" number="7.8">
+<h2><span class="header-section-number">7.8</span> Combined State Representation<a href="hi.html#combined-state-representation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The combined state <span class="math inline">\(|\psi\rangle\)</span> can also be expressed as:
+$
+|= |_1|_2
+$</p>
+<hr />
+</div>
+<div id="separable-state-2" class="section level2 hasAnchor" number="7.9">
+<h2><span class="header-section-number">7.9</span> Separable State<a href="hi.html#separable-state-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A composite state that can be written as a tensor product of two vectors:
+$
+|= |_1|_2
+$
+is called a <strong>separable state</strong>.</p>
+<hr />
+</div>
+<div id="entangled-states" class="section level2 hasAnchor" number="7.10">
+<h2><span class="header-section-number">7.10</span> Entangled States<a href="hi.html#entangled-states" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are quantum states in the Hilbert space <span class="math inline">\(\mathcal{H}_1 \otimes \mathcal{H}_2\)</span> that cannot be written as a product! For instance:
+$
+|= |00+ |11
+$</p>
+<p>These are called <strong>entangled states</strong>. It is possible to start with two quantum particles and evolve unitarily into such states. Then the particles are said to be entangled.</p>
+<div id="examples-of-entangled-states" class="section level4 hasAnchor" number="7.10.0.1">
+<h4><span class="header-section-number">7.10.0.1</span> Examples of Entangled States<a href="hi.html#examples-of-entangled-states" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><p><strong><span class="math inline">\(\Phi^+\)</span></strong>:
+$
+|^+= |00+ |11
+$</p></li>
+<li><p><strong><span class="math inline">\(\Phi^-\)</span></strong>:
+$
+|^-= |00- |11
+$</p></li>
+<li><p><strong><span class="math inline">\(\Psi^+\)</span></strong>:
+$
+|^+= |01+ |10
+$</p></li>
+<li><p><strong><span class="math inline">\(\Psi^-\)</span></strong>:
+$
+|^-= |01- |10
+$</p></li>
+</ul>
+<hr />
+<p>This markdown organizes your lecture material into clear sections, keeping mathematical clarity intact. Let me know if there’s anything you’d like to improve or add! 😊</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -410,8 +458,8 @@ U_f |x, -\rangle = (-1)^{f(x)} |x, -\rangle \quad \text{for } x \in \{0, 1\}.
           </div>
         </div>
       </div>
-<a href="quantum-gates.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="quantum-computing-with-qiskit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -442,7 +490,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/03-QC-Alg.Rmd",
+"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/06-eee.Rmd",
 "text": "Edit"
 },
 "history": {

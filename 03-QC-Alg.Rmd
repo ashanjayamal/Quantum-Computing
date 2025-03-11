@@ -1,4 +1,4 @@
-# Deutsch’s 
+# Deutsch’s Algorithm
 
 ![David Deutach (Resource: Offical site)](https://www.daviddeutsch.org.uk/wp-content/uploads/2013/12/david-home-e1594943580574.jpg){width=30%}
 
@@ -110,7 +110,7 @@ Deutsch’s algorithm is a black box algorithm, that uses quantum parallelism, a
 
 ![Circuit implementation of Deutsch’s algorithm](fig/fig21.png)
 
-Given a function \(f :\ {0,1\} \rightarrow \{0,1\}\),  Deutsch’s algorithm determines whether $f$ is constant or balanced, with a single query to the function
+Given a function \(f :\{0,1\} \rightarrow \{0,1\}\),  Deutsch’s algorithm determines whether $f$ is constant or balanced, with a single query to the function
 
 
 ![](fig/fig22.png) 
@@ -130,3 +130,47 @@ Given a function \(f :\ {0,1\} \rightarrow \{0,1\}\),  Deutsch’s algorithm det
 Then, \[\text{Phase kickback }
 U_f |x, -\rangle = (-1)^{f(x)} |x, -\rangle \quad \text{for } x \in \{0, 1\}.
 \]
+
+
+Then,
+
+
+\[
+U_f | +, - \rangle = \frac{1}{\sqrt{2}} (-1)^{f(0)} | 0, - \rangle + \frac{1}{\sqrt{2}} (-1)^{f(1)} | 1, - \rangle
+\]
+
+
+
+
+\[
+= \left( \frac{1}{\sqrt{2}} (-1)^{f(0)} | 0 \rangle + \frac{1}{\sqrt{2}} (-1)^{f(1)} | 1 \rangle \right) | - \rangle
+\]
+
+
+![](fig/fig28.png)
+
+
+| If $f$ is constant  | If $f$ is balanced |
+|:--------------------|:-------------------|
+|\(f(0) = f(1) = 0     \quad \rightarrow \quad\)<span style="background-color: #fed2cc;"> \( | + \rangle\)</span><span style="background-color: #fce9b0;"> \( | - \rangle\)</span>|\(f(0) = 0, f(1) = 1  \quad \rightarrow \quad\)<span style="background-color: #fed2cc;">\(   | - \rangle\)</span><span style="background-color: #fce9b0;">\( | - \rangle\)</span>| \\
+|\(f(0) = f(1) = 1     \quad \rightarrow \quad\)<span style="background-color: #fed2cc;"> \( - | + \rangle\)</span><span style="background-color: #fce9b0;">\( | - \rangle\) </span>|\(f(0) = 1, f(1) = 0  \quad \rightarrow \quad\)<span style="background-color: #fed2cc;">\( - | - \rangle \)</span><span style="background-color: #fce9b0;">\(| - \rangle\)</span>| 
+
+\(|\psi_4\rangle\) becomes one of the following states, depending on \(f\). 
+![](fig/fig29.png)
+
+
+
+| If $f$ is constant  | If $f$ is balanced |
+|:--------------------|:-------------------|
+|\(f(0) = f(1) = 0     \quad \rightarrow \quad\)<span style="background-color: #fed2cc;"> \( | 0 \rangle\)</span><span style="background-color: #fce9b0;"> \( | - \rangle\)</span>|\(f(0) = 0, f(1) = 1  \quad \rightarrow \quad\)<span style="background-color: #fed2cc;">\(   | 1 \rangle\)</span><span style="background-color: #fce9b0;">\( | - \rangle\)</span>| \\
+|\(f(0) = f(1) = 1     \quad \rightarrow \quad\)<span style="background-color: #fed2cc;"> \( - | 0 \rangle\)</span><span style="background-color: #fce9b0;">\( | - \rangle\) </span>|\(f(0) = 1, f(1) = 0  \quad \rightarrow \quad\)<span style="background-color: #fed2cc;">\( - | 1 \rangle \)</span><span style="background-color: #fce9b0;">\(| - \rangle\)</span>|  
+
+Therefore, the measurement outcome of the first qubit is \(0\) if the function \(f\) is constant, and \(1\) if it is balanced. Later on, Deutsch generalized his algorithm with Richard Jozsa to apply to constant or balanced functions of any input size. 
+
+**Problem**:
+Given an unknown function \(f : \{0, 1, \dots, 2^n-1\} \to \{0, 1\}\), which is either constant or balanced, determine whether \(f\) is constant or balanced. 
+
+Classically, this requires \(2^{n-1} + 1\) queries to the function in the worst case. The Deutsch-Jozsa algorithm accomplishes this with a single query.
+
+
+

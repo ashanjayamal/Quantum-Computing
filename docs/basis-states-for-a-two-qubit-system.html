@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Deutsch’s | Introduction to Quantum Computing</title>
+  <title>Chapter 10 Basis States for a Two-Qubit System | Introduction to Quantum Computing</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
 The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Deutsch’s | Introduction to Quantum Computing" />
+  <meta property="og:title" content="Chapter 10 Basis States for a Two-Qubit System | Introduction to Quantum Computing" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Deutsch’s | Introduction to Quantum Computing" />
+  <meta name="twitter:title" content="Chapter 10 Basis States for a Two-Qubit System | Introduction to Quantum Computing" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
@@ -36,8 +36,8 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="quantum-gates.html"/>
-<link rel="next" href="quantum-computing-with-qiskit.html"/>
+<link rel="prev" href="two-qubits-composite-system.html"/>
+<link rel="next" href="example-two-qubit-state.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -60,70 +60,6 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -158,7 +94,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.1" data-path="quantum-gates.html"><a href="quantum-gates.html#hadamard-gate"><i class="fa fa-check"></i><b>3.1</b> Hadamard gate</a></li>
 <li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#pauli-gates"><i class="fa fa-check"></i><b>3.2</b> Pauli gates</a></li>
-<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.3</b> CNOT gate</a></li>
+<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#phase-flip"><i class="fa fa-check"></i><b>3.3</b> Phase flip</a></li>
+<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.4</b> CNOT gate</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="deutschs.html"><a href="deutschs.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s</a></li>
 <li class="chapter" data-level="5" data-path="quantum-computing-with-qiskit.html"><a href="quantum-computing-with-qiskit.html"><i class="fa fa-check"></i><b>5</b> Quantum Computing with Qiskit</a></li>
@@ -269,19 +206,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.30.2" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#separable-state-1"><i class="fa fa-check"></i><b>6.30.2</b> <strong>Separable State:</strong></a></li>
 <li class="chapter" data-level="6.30.3" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#physical-interpretation-1"><i class="fa fa-check"></i><b>6.30.3</b> <strong>Physical Interpretation:</strong></a></li>
 </ul></li>
+<li class="chapter" data-level="6.31" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#composite-quantum-system"><i class="fa fa-check"></i><b>6.31</b> Composite Quantum System</a></li>
+<li class="chapter" data-level="6.32" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html#composite-state"><i class="fa fa-check"></i><b>6.32</b> Composite State</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="hi.html"><a href="hi.html"><i class="fa fa-check"></i><b>7</b> hi</a>
+<li class="chapter" data-level="7" data-path="single-qubit.html"><a href="single-qubit.html"><i class="fa fa-check"></i><b>7</b> Single Qubit</a></li>
+<li class="chapter" data-level="8" data-path="two-qubits.html"><a href="two-qubits.html"><i class="fa fa-check"></i><b>8</b> Two Qubits</a></li>
+<li class="chapter" data-level="9" data-path="two-qubits-composite-system.html"><a href="two-qubits-composite-system.html"><i class="fa fa-check"></i><b>9</b> Two Qubits Composite System</a></li>
+<li class="chapter" data-level="10" data-path="basis-states-for-a-two-qubit-system.html"><a href="basis-states-for-a-two-qubit-system.html"><i class="fa fa-check"></i><b>10</b> Basis States for a Two-Qubit System</a></li>
+<li class="chapter" data-level="11" data-path="example-two-qubit-state.html"><a href="example-two-qubit-state.html"><i class="fa fa-check"></i><b>11</b> Example Two-Qubit State</a></li>
+<li class="chapter" data-level="12" data-path="individual-qubit-states.html"><a href="individual-qubit-states.html"><i class="fa fa-check"></i><b>12</b> Individual Qubit States</a></li>
+<li class="chapter" data-level="13" data-path="combined-state-representation.html"><a href="combined-state-representation.html"><i class="fa fa-check"></i><b>13</b> Combined State Representation</a></li>
+<li class="chapter" data-level="14" data-path="separable-state-2.html"><a href="separable-state-2.html"><i class="fa fa-check"></i><b>14</b> Separable State</a></li>
+<li class="chapter" data-level="15" data-path="entangled-states.html"><a href="entangled-states.html"><i class="fa fa-check"></i><b>15</b> Entangled States</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="hi.html"><a href="hi.html#composite-quantum-system"><i class="fa fa-check"></i><b>7.1</b> Composite Quantum System</a></li>
-<li class="chapter" data-level="7.2" data-path="hi.html"><a href="hi.html#single-qubit"><i class="fa fa-check"></i><b>7.2</b> Single Qubit</a></li>
-<li class="chapter" data-level="7.3" data-path="hi.html"><a href="hi.html#two-qubits"><i class="fa fa-check"></i><b>7.3</b> Two Qubits</a></li>
-<li class="chapter" data-level="7.4" data-path="hi.html"><a href="hi.html#two-qubits-composite-system"><i class="fa fa-check"></i><b>7.4</b> Two Qubits Composite System</a></li>
-<li class="chapter" data-level="7.5" data-path="hi.html"><a href="hi.html#basis-states-for-a-two-qubit-system"><i class="fa fa-check"></i><b>7.5</b> Basis States for a Two-Qubit System</a></li>
-<li class="chapter" data-level="7.6" data-path="hi.html"><a href="hi.html#example-two-qubit-state"><i class="fa fa-check"></i><b>7.6</b> Example Two-Qubit State</a></li>
-<li class="chapter" data-level="7.7" data-path="hi.html"><a href="hi.html#individual-qubit-states"><i class="fa fa-check"></i><b>7.7</b> Individual Qubit States</a></li>
-<li class="chapter" data-level="7.8" data-path="hi.html"><a href="hi.html#combined-state-representation"><i class="fa fa-check"></i><b>7.8</b> Combined State Representation</a></li>
-<li class="chapter" data-level="7.9" data-path="hi.html"><a href="hi.html#separable-state-2"><i class="fa fa-check"></i><b>7.9</b> Separable State</a></li>
-<li class="chapter" data-level="7.10" data-path="hi.html"><a href="hi.html#entangled-states"><i class="fa fa-check"></i><b>7.10</b> Entangled States</a></li>
+<li class="chapter" data-level="15.1" data-path="entangled-states.html"><a href="entangled-states.html#examples-of-entangled-states"><i class="fa fa-check"></i><b>15.1</b> Examples of Entangled States</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://ashanjayamal.github.io/academicpages/" target="blank">Ashan Jayamal</a></li>
@@ -303,115 +241,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="deutschs" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Deutsch’s<a href="deutschs.html#deutschs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="float">
-<img src="https://www.daviddeutsch.org.uk/wp-content/uploads/2013/12/david-home-e1594943580574.jpg" style="width:30.0%" alt="David Deutach (Resource: Offical site)" />
-<div class="figcaption">David Deutach (Resource: Offical site)</div>
-</div>
-<p>An early stage quantum algorithm that demonstrates the computational power of quantum computers is the algorithm invented by David Deutsch in 1985.</p>
-<p>Deutsch’s algorithm is based on quantum parallelism - in this context, the ability to evaluate a function <span class="math inline">\(f(x)\)</span> at different <span class="math inline">\(x\)</span> values simultaneously</p>
-<p>Consider functions from a one-bit domain <span class="math inline">\(\{0, 1\}\)</span> to the same one-bit co-domain. There are two types of functions: constant and balanced.</p>
-<p>We are given a function:<br />
-<span class="math display">\[f : \{0,1\} \to \{0,1\}\]</span></p>
-<p>Our goal is to determine whether <strong>f</strong> is:<br />
-- <strong>Constant</strong>: <span class="math inline">\(f(0) = f(1)\)</span> (same output for both inputs)?<br />
-- <strong>Balanced</strong>: <span class="math inline">\(f(0) \neq f(1)\)</span> (different outputs for each input)?</p>
-<p><img src="fig/fig19.jpg" /></p>
-<div id="classical-solution" class="section level4 hasAnchor" number="4.0.0.1">
-<h4><span class="header-section-number">4.0.0.1</span> Classical Solution,<a href="deutschs.html#classical-solution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>*Algorithm 1: Classical Algorithm for the Deutsch Problem (<span class="math inline">\(n = 1\)</span>)**</p>
-<p><strong>Require</strong>: A black-box function <span class="math inline">\(f : \{0,1\} \rightarrow \{0,1\}\)</span></p>
-<p>1: <strong>Evaluate</strong>: Compute <span class="math inline">\(f(0)\)</span> and <span class="math inline">\(f(1)\)</span>.<br />
-2: <strong>if</strong> <span class="math inline">\(f(0) = f(1)\)</span> <strong>then</strong><br />
-3: <span class="math inline">\(~~~~~~\)</span> Output: “Constant”<br />
-4: <strong>else</strong><br />
-5: <span class="math inline">\(~~~~~~\)</span> Output: “Balanced”<br />
-6: <strong>end if</strong></p>
-<p><strong>Explanation</strong></p>
-<ul>
-<li>Line 1: Input is a black-box function <span class="math inline">\(f : \{0,1\} → \{0,1\}\)</span>.</li>
-<li>Line 2: Evaluate the function at both possible inputs <span class="math inline">\((0\)</span> and <span class="math inline">\(1)\)</span>.</li>
-<li>Line 3–6: Compare the outputs:
-<ul>
-<li>If <span class="math inline">\(f (0) = f(1)\)</span>, then the function is constant.</li>
-<li>If <span class="math inline">\(f (0)= f(1),\)</span> then the function is balanced.</li>
-</ul></li>
-</ul>
-<p>Classically, two queries to the function are necessary to determine this. Deutsch’s algorithm provides a quantum protocol to do this with a single query to the function</p>
-<div class="exercise">
-<p><span id="exr:unnamed-chunk-11" class="exercise"><strong>Exercise 4.1  </strong></span>Let <span class="math inline">\(x, y \in \{0, 1\}\)</span> and <span class="math inline">\(f : \{0, 1\} \to \{0, 1\}\)</span>. Show that the transformation:</p>
-<p><span class="math display">\[
-U_f |x, y\rangle = |x, y \oplus f(x)\rangle
+<div id="basis-states-for-a-two-qubit-system" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Basis States for a Two-Qubit System<a href="basis-states-for-a-two-qubit-system.html#basis-states-for-a-two-qubit-system" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The orthonormal basis states for this system are:
+<span class="math display">\[
+|00\rangle = \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}, \quad
+|01\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \quad
+|10\rangle = \begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \end{pmatrix}, \quad
+|11\rangle = \begin{pmatrix} 0 \\ 0 \\ 0 \\ 1 \end{pmatrix}
 \]</span></p>
-<p>where <span class="math inline">\(\oplus\)</span> denotes addition modulo 2,
-is unitary.</p>
-</div>
-<p><strong>Solution</strong><br />
-</p>
-<p>The above transformation can be implemented in a quantum circuit by querying an oracle.</p>
-<p><strong>Diagram</strong>: <img src="fig/fig20.png" /></p>
-<p>This quantum circuit queries an oracle, and implements <span class="math inline">\(U_f\)</span></p>
-<p>Note that the transformation can be written as:</p>
-<p><span class="math display">\[
-U_f \big(|+\rangle , |0\rangle\big) = \frac{1}{\sqrt{2}} \big(|0, f(0)\rangle + |1, f(1)\rangle\big).
-\]</span></p>
-<p>This contains information about both <span class="math inline">\(f(0)\)</span> and <span class="math inline">\(f(1)\)</span>. That is like evaluating the function <span class="math inline">\(f\)</span> at two different points in the domain. This is called Quantum parallelism.</p>
-<p><span class="math display">\[
-\begin{eqnarray}
-U_f |x, -\rangle
-&amp;=&amp; U_f \left( |x\rangle \otimes \left( \frac{1}{\sqrt{2}} |0\rangle - \frac{1}{\sqrt{2}} |1\rangle \right) \right)\\
-&amp;=&amp; \frac{1}{\sqrt{2}} U_f (|x\rangle \otimes |0\rangle) - \frac{1}{\sqrt{2}} U_f (|x\rangle \otimes |1\rangle)\\
-&amp;=&amp; \frac{1}{\sqrt{2}} |x, f(x)\rangle - \frac{1}{\sqrt{2}} |x, 1 \oplus f(x)\rangle.
-\end{eqnarray}
-\]</span></p>
-<ul>
-<li>When <span class="math inline">\(f(x) = 0\)</span>:</li>
-</ul>
-<p><span class="math display">\[
-U_f |x, -\rangle = \frac{1}{\sqrt{2}} |x, 0\rangle - \frac{1}{\sqrt{2}} |x, 1\rangle.
-\]</span></p>
-<ul>
-<li>When <span class="math inline">\(f(x) = 1\)</span>:</li>
-</ul>
-<p><span class="math display">\[
-U_f |x, -\rangle = -\frac{1}{\sqrt{2}} |x, 0\rangle + \frac{1}{\sqrt{2}} |x, 1\rangle.
-\]</span></p>
-<p>Then we can summarize,</p>
-<p><span class="math display">\[
-U_f |x, -\rangle = (-1)^{f(x)} |x, -\rangle.
-\]</span>
-This is called <strong>Phase kickback</strong>.</p>
-<p>Deutsch’s algorithm is a black box algorithm, that uses quantum parallelism, and can be implemented efficiently using a quantum computer.</p>
-<div class="float">
-<img src="fig/fig21.png" alt="Circuit implementation of Deutsch’s algorithm" />
-<div class="figcaption">Circuit implementation of Deutsch’s algorithm</div>
-</div>
-<p>Given a function <span class="math inline">\(f :\ {0,1\} \rightarrow \{0,1\}\)</span>, Deutsch’s algorithm determines whether <span class="math inline">\(f\)</span> is constant or balanced, with a single query to the function</p>
-<p><img src="fig/fig22.png" /></p>
-<p><span class="math display">\[\begin{eqnarray}
-|\psi_0\rangle &amp;=&amp; |00\rangle\\
-|\psi_1\rangle &amp;=&amp; |0\rangle X|0\rangle = |01\rangle\\
-|\psi_2\rangle &amp;=&amp; H|0\rangle H|1\rangle = |+\rangle|−\rangle\\
-|\psi_3\rangle &amp;=&amp; U_f| +,−\rangle\\
-&amp;=&amp; U_f \left( \frac{1}{\sqrt{2}} |0, -\rangle + \frac{1}{\sqrt{2}} |1, -\rangle \right)\\
-&amp;=&amp; \frac{1}{\sqrt{2}} U_f |0, -\rangle + \frac{1}{\sqrt{2}} U_f |1, -\rangle
-&amp;=&amp;
-\end{eqnarray}
-\]</span></p>
-<p>Then, <span class="math display">\[\text{Phase kickback }
-U_f |x, -\rangle = (-1)^{f(x)} |x, -\rangle \quad \text{for } x \in \{0, 1\}.
-\]</span></p>
-
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="quantum-gates.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="quantum-computing-with-qiskit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="two-qubits-composite-system.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="example-two-qubit-state.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -442,7 +288,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/03-QC-Alg.Rmd",
+"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/06-eee.Rmd",
 "text": "Edit"
 },
 "history": {
