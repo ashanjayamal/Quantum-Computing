@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Quantum Gates | Introduction to Quantum Computing</title>
+  <title>Chapter 5 Quantum Fourier Trasnform (QFT) | Introduction to Quantum Computing</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
 The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Quantum Gates | Introduction to Quantum Computing" />
+  <meta property="og:title" content="Chapter 5 Quantum Fourier Trasnform (QFT) | Introduction to Quantum Computing" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Quantum Gates | Introduction to Quantum Computing" />
+  <meta name="twitter:title" content="Chapter 5 Quantum Fourier Trasnform (QFT) | Introduction to Quantum Computing" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
@@ -36,8 +36,8 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="quntum-effects.html"/>
-<link rel="next" href="deutschs-algorithm.html"/>
+<link rel="prev" href="deutschs-algorithm.html"/>
+<link rel="next" href="quantum-computing-with-qiskit.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -184,214 +184,105 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="quantum-gates" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Quantum Gates<a href="quantum-gates.html#quantum-gates" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Action of an arbitrary single qubit quantum gate:</p>
-<p><img src="fig/fig7.png" /></p>
-<p><strong>Notation</strong>:
-<img src="fig/fig8.png" /></p>
-<p><strong>Outer Product Notation</strong>:</p>
-<p>Suppose a single-qubit quantum gate <span class="math inline">\(A\)</span> transforms <span class="math inline">\(|0\rangle\)</span> into <span class="math inline">\(|\psi_0\rangle\)</span> and <span class="math inline">\(|1\rangle\)</span> into <span class="math inline">\(|\psi_1\rangle\)</span>. Then the outer product representation of <span class="math inline">\(A\)</span> is given by:</p>
+<div id="quantum-fourier-trasnform-qft" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Quantum Fourier Trasnform (QFT)<a href="quantum-fourier-trasnform-qft.html#quantum-fourier-trasnform-qft" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Quantum Fourier transformation (QFT) is one of the major quantum algorithms, and plays a key role in several quantum algorithms.</p>
+<p>It is the quantum counterpart of the classical discrete Fourier transformation (DFT).</p>
+<p>DFT transforms a vector of complex numbers <span class="math inline">\(x_0, x_1, \ldots, x_{N-1}\)</span></p>
+<p>into <span class="math inline">\(y_0, y_1, \ldots, y_{N-1}\)</span> such that:</p>
 <p><span class="math display">\[
-A = |\psi_0\rangle\langle 0| + |\psi_1\rangle\langle 1|.
+y_k \equiv \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} x_j e^{2\pi ijk/N}
 \]</span></p>
-<div id="hadamard-gate" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Hadamard gate<a href="quantum-gates.html#hadamard-gate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Hadamard gate is of particular importance, as it enables Hadamard transformation.</p>
-<p>The Hadamard gate is represented as:</p>
-<p><span class="math display">\[
-H = \frac{1}{\sqrt{2}}
-\begin{pmatrix}
-1 &amp; 1 \\
-1 &amp; -1
-\end{pmatrix}
-\]</span></p>
-<p>The Hadamard gate transforms basis states as follows:</p>
-<p><span class="math display" id="eq:eq2" id="eq:eq1">\[
-\begin{eqnarray}
-H|0\rangle &amp;=&amp; \frac{1}{\sqrt{2}}
-\begin{pmatrix}
-1 &amp; 1 \\
-1 &amp; -1
-\end{pmatrix}
-\begin{pmatrix}
-1 \\
-0
-\end{pmatrix}
-= \frac{1}{\sqrt{2}}
-\begin{pmatrix}
-1 \\
-1
-\end{pmatrix}
-= \frac{1}{\sqrt{2}} (|0\rangle + |1\rangle)\tag{3.1}\\
-H|1\rangle &amp;=&amp; \frac{1}{\sqrt{2}}
-\begin{pmatrix}
-1 &amp; 1 \\
-1 &amp; -1
-\end{pmatrix}
-\begin{pmatrix}
-0 \\
-1
-\end{pmatrix}
-= \frac{1}{\sqrt{2}}
-\begin{pmatrix}
-1 \\
--1
-\end{pmatrix}
-= \frac{1}{\sqrt{2}} (|0\rangle - |1\rangle)\tag{3.2}
-\end{eqnarray}
-\]</span></p>
-<p>The computational basis <span class="math inline">\(\{|0\rangle, |1\rangle\}\)</span> is mapped to the Hadamard basis ({|+,|-)</p>
-<p><img src="fig/fig9.png" /></p>
-<p>Hadamard gate is often used in quantum algorithms to make equal superposition of states.</p>
-<p><img src="fig/fig10.png" /></p>
-<div class="exercise">
-<p><span id="exr:unnamed-chunk-8" class="exercise"><strong>Exercise 3.1  </strong></span>What is the outer product representation of the Hadamard gate?</p>
+<p><img src="fig/fig30.png" /></p>
+<div class="example">
+<p><span id="exm:unnamed-chunk-14" class="example"><strong>Example 5.1  </strong></span>Suppose you have a data set <span class="math inline">\(x_j=\sqrt{2},2\)</span>. Compute the DFT of this set.</p>
 </div>
-<p><strong>Solution</strong><br />
+<p><strong>Solution:</strong><br />
 </p>
-<p>The outer product representation of the Hadamard gate can be expressible as:</p>
+<p>Thus, and Here <span class="math inline">\(x_0 = \sqrt{2}\)</span> and <span class="math inline">\(N = 2\)</span>.</p>
 <p><span class="math display">\[
-H|x\rangle=|+\rangle + \langle 0| + |-\rangle\langle 1|
+y_k = \frac{1}{\sqrt{2}} \sum_{j=0}^{1} x_j e^{\frac{2 \pi i j k}{2}} = \frac{1}{\sqrt{2}} \left( \sqrt{2} + 2 e^{i \pi k} \right)
 \]</span></p>
-<p>Further, By <a href="quantum-gates.html#eq:eq1">(3.1)</a> and <a href="quantum-gates.html#eq:eq2">(3.2)</a> we get,</p>
-<p><span class="math display">\[
-H|x\rangle=\frac{1}{\sqrt{2}} \big(|0\rangle + (-1)^x |1\rangle\big)
-\]</span></p>
-<p>In compact form, the action of Hadamard gate can be
-expressed as
+<p>Thus,
 <span class="math display">\[
-H=\frac{1}{\sqrt{2}}\sum_{x,y\in\{0,1\}}(-1)^{xy} |x\rangle  \langle y|.
-\]</span></p>
-</div>
-<div id="pauli-gates" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Pauli gates<a href="quantum-gates.html#pauli-gates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As in classical gates, there is a in quantum computing.</p>
-<p>The role of a quantum NOT gate is transforming <span class="math inline">\(|0\rangle\)</span> into <span class="math inline">\(|1\rangle\)</span> and <span class="math inline">\(|1\rangle\)</span> to <span class="math inline">\(|0\rangle\)</span>.</p>
-<p>It turns out that the Pauli x-matrix does this task. Therefore, the corresponding gate is called as well.</p>
-<p><span class="math display">\[
-X = \sigma_x = \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix}
-\]</span></p>
-<div class="exercise">
-<p><span id="exr:unnamed-chunk-9" class="exercise"><strong>Exercise 3.2  </strong></span>What is the Outer-product representation of the Pauli <span class="math inline">\(X\)</span>-gate?</p>
-</div>
-<p><strong>Solution</strong>:<br />
+y_0 = \frac{1}{\sqrt{2}} \left( \sqrt{2} + 2 \right) = 1 + \sqrt{2},
+\]</span>
+and
 <span class="math display">\[
-\sigma_x= |0\rangle\langle 1| + |1\rangle\langle 0|.
+y_1 = \frac{1}{\sqrt{2}} \left( \sqrt{2} + 2 e^{i \pi} \right) = \frac{1}{\sqrt{2}} \left( \sqrt{2} - 2 \right) = 1 - \sqrt{2}.
 \]</span></p>
-<p>The other Pauli matrices are also used as quantum gates, defining the Pauli Y-gate and Pauli Z-gate as follows:</p>
+<p>Resource: <em>Pathak, A., 2013. Elements of quantum computation and quantum communication (pp. 92-98). Boca Raton: CRC Press</em></p>
+<div class="example">
+<p><span id="exm:unnamed-chunk-15" class="example"><strong>Example 5.2  </strong></span>Find <span class="math inline">\(y_0\)</span> for <span class="math inline">\(x_j = \{1 + i, \sqrt{2}, 3 - 2i, 4\}\)</span>.</p>
+</div>
+<p><strong>Solution</strong> :<br />
+Here <span class="math inline">\(N = 4\)</span> and
+<span class="math display">\[
+y_0 = \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} x_j = \frac{1}{2} \left( (1 + i) + (\sqrt{2}) + (3 - 2i) + 4 \right) = 4 + \frac{\sqrt{2} - i}{2}.
+\]</span></p>
+<p>Resource: <em>Pathak, A., 2013. Elements of quantum computation and quantum communication (pp. 92-98). Boca Raton: CRC Press</em></p>
+<div class="float">
+<img src="fig/fig31.png" alt="nth root of unity (Resource: BYJU.com)" />
+<div class="figcaption">nth root of unity (Resource: BYJU.com)</div>
+</div>
 <p><span class="math display">\[
-Y = \sigma_y =
-\begin{pmatrix}
-0 &amp; -i \\
-i &amp; 0
-\end{pmatrix}
+\text{Primitive } n \text{ th root of unity }:\omega=e^{\frac{2\pi i}{n}}
+\]</span></p>
+<p></p>
+<p><span class="math display">\[
+\frac{1}{\sqrt{N}}
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; \cdots &amp; 1 \\
+1 &amp; \omega^1 &amp; \omega^2 &amp; \cdots &amp; \omega^{(N-1)} \\
+1 &amp; \omega^2 &amp; \omega^4 &amp; \cdots &amp; \omega^{2(N-1)} \\
+1 &amp; \omega^3 &amp; \omega^6 &amp; \cdots &amp; \omega^{3(N-1)} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; \omega^{(N-1)} &amp; \omega^{2(N-2)} &amp; \cdots &amp; \omega^{(N-1)(N-1)}
+\end{bmatrix}
 \]</span>
-<img src="fig/fig12.png" /></p>
-<p><span class="math display">\[
-Z = \sigma_z =
-\begin{pmatrix}
-1 &amp; 0 \\
-0 &amp; -1
-\end{pmatrix}
-\]</span></p>
-<p><img src="fig/fig11.png" />
-## Phase flip</p>
-<p>Recall that the global phase is not physically significant, and we are interested in changing the local phase. It is possible to define a phase flip gate performing the following operations:</p>
-<p><span class="math display">\[
-\begin{aligned}
-|0\rangle &amp;\rightarrow |0\rangle \\
-|1\rangle &amp;\rightarrow e^{i\phi} |1\rangle
-\end{aligned}
-\]</span></p>
-<p>That is:</p>
-<p><span class="math display">\[
-P(\phi) = \begin{pmatrix}
-1 &amp; 0 \\
-0 &amp; e^{i\phi}
-\end{pmatrix}.
-\]</span></p>
-<p>Two commonly used phase flip gates are:</p>
-<p><span class="math display">\[
-S = P\left(\frac{\pi}{2}\right) = \begin{pmatrix}
-1 &amp; 0 \\
-0 &amp; e^{\frac{pi}{2}}
-\end{pmatrix}=
-\begin{pmatrix}
-1 &amp; 0 \\
-0 &amp; i
-\end{pmatrix}
+where <span class="math inline">\(\omega\)</span> is the primitive <span class="math inline">\(n\)</span>-th root of unity.</p>
+<p><strong>Runtime Analysis for Fourier Transforms</strong>:</p>
+<ul>
+<li><strong>Naive Runtime</strong>: <span class="math inline">\(O(N^2)\)</span>
+<ul>
+<li>naive computation of the Discrete Fourier Transform (DFT) involves a double summation loop over <span class="math inline">\(N\)</span> elements, resulting in a runtime complexity of <span class="math inline">\(O(N^2)\)</span>.</li>
+</ul></li>
+<li><strong>Fast Fourier Transform (FFT) Runtime</strong>: <span class="math inline">\(O(N \log N)\)</span>
+<ul>
+<li>In practical applications, the DFT is computed using the FFT algorithm, which optimizes the process by reducing redundant calculations. This leads to a significant improvement in runtime complexity to <span class="math inline">\(O(N \log N)\)</span>.</li>
+</ul></li>
+<li><strong>Quantum Fourier Transform (QFT) Runtime</strong>: <span class="math inline">\(O(\mathrm{polylog} N)\)</span>
+<ul>
+<li>The QFT, implemented on quantum computers, provides an exponential speedup over classical algorithms with a runtime complexity of <span class="math inline">\(O(\mathrm{polylog} N)\)</span>. This represents an exponential gain compared to both naive and FFT approaches.</li>
+</ul></li>
+</ul>
+<div class="float">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/DIT-FFT-butterfly.svg/420px-DIT-FFT-butterfly.svg.png" alt="Resource: wikiwand" />
+<div class="figcaption">Resource: wikiwand</div>
+</div>
+<p>Quantum version of DFT:</p>
+<p><span class="math display">\[\text{QFT_N}
+\frac{1}{\sqrt{N}}
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; \cdots &amp; 1 \\
+1 &amp; \omega^1 &amp; \omega^2 &amp; \cdots &amp; \omega^{(N-1)} \\
+1 &amp; \omega^2 &amp; \omega^4 &amp; \cdots &amp; \omega^{2(N-1)} \\
+1 &amp; \omega^3 &amp; \omega^6 &amp; \cdots &amp; \omega^{3(N-1)} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; \omega^{(N-1)} &amp; \omega^{2(N-2)} &amp; \cdots &amp; \omega^{(N-1)(N-1)}
+\end{bmatrix}
 \]</span>
-<img src="fig/fig13.png" /></p>
-<p><span class="math display">\[
-T = P\left(\frac{\pi}{4}\right) = \begin{pmatrix}
-1 &amp; 0 \\
-0 &amp; e^{i\frac{\pi}{4}}
-\end{pmatrix}
-\]</span></p>
-<p><img src="fig/fig14.png" /></p>
-</div>
-<div id="cnot-gate" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> CNOT gate<a href="quantum-gates.html#cnot-gate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>CNOT is a two-qubit gate. Controlled operations play a key role in multi-qubit gates.</p>
-<p>The CNOT gate is the most commonly used two-qubit controlled operation. The state of the first qubit controls whether the second qubit will be flipped or not. The first qubit is referred to as the , and the second qubit is called the .</p>
-<p>The required transformation can be written in Dirac notation as follows:</p>
-<p><span class="math display">\[
-\begin{eqnarray}
-|0\rangle|0\rangle &amp; \rightarrow &amp; |0\rangle|0\rangle, \\
-|0\rangle|1\rangle &amp; \rightarrow &amp; |0\rangle|1\rangle, \\
-|1\rangle|0\rangle &amp; \rightarrow &amp; |1\rangle|1\rangle, \\
-|1\rangle|1\rangle &amp; \rightarrow &amp; |1\rangle|0\rangle.
-\end{eqnarray}
-\]</span></p>
-<p><strong>Diagram</strong>:<br />
-<img src="fig/fig15.png" /></p>
-<p>The matrix representation of the CNOT gate is:</p>
-<p><span class="math display">\[
-\text{CNOT} =
-\begin{pmatrix}
-1 &amp; 0 &amp; 0 &amp; 0 \\
-0 &amp; 1 &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1 \\
-0 &amp; 0 &amp; 1 &amp; 0
-\end{pmatrix}.
-\]</span></p>
-<p>The CNOT gate helps to create entangled states.</p>
-<div class="exercise">
-<p><span id="exr:unnamed-chunk-10" class="exercise"><strong>Exercise 3.3  </strong></span><img src="fig/fig16.png" /></p>
-<p>Show that the output state of the above circuit is the entangled state:</p>
-<p><span class="math display">\[
-\frac{1}{\sqrt{2}} \big(|00\rangle + |11\rangle\big).
-\]</span></p>
-</div>
-<p>Note that the action on separable states is as follows:</p>
-<p><span class="math display">\[
-(A \otimes B)(|a\rangle \otimes |b\rangle) = (A|a\rangle) \otimes (B|b\rangle
-\]</span></p>
-<p><strong>Solution</strong><br />
-</p>
-<div class="exercise">
-<p><span id="exr:unnamed-chunk-11" class="exercise"><strong>Exercise 3.4  </strong></span>Find the output
-<img src="fig/fig17.png" /></p>
-</div>
-<p><strong>Solution</strong><br />
-<img src="fig/fig23.jpg" /></p>
-<div class="exercise">
-<p><span id="exr:unnamed-chunk-12" class="exercise"><strong>Exercise 3.5  </strong></span>Find the output
-<img src="fig/fig18.png" /></p>
-</div>
-<p><strong>Solution</strong><br />
-<img src="fig/fig24.jpg" /></p>
+where <span class="math inline">\(\omega\)</span> is the primitive <span class="math inline">\(n\)</span>-th root of unity.</p>
+<p><strong>Recall</strong>:</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="quntum-effects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="deutschs-algorithm.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="deutschs-algorithm.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="quantum-computing-with-qiskit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -422,7 +313,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/02-QC-Gates.Rmd",
+"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/04-Fourier.Rmd",
 "text": "Edit"
 },
 "history": {
