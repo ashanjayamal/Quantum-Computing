@@ -103,5 +103,61 @@ Quantum version of DFT:
 where \( \omega \) is the primitive \( n \)-th root of unity.
 
 **Recall**: 
+Suppose a single qubit quantum gate **$A$** transforms \(|0\rangle\) into \(|\psi_0\rangle \) and \(|1\rangle \) into \(|\psi_1\rangle \). Then the outer product representation of $A$ is given by,
+\[
+A=|\psi_0\rangle \langle 0|+|\psi_1\rangle \langle 1|
+\]
 
 
+Quantum Fourier Transform (QFT) in Dirac notation:
+
+\[
+QFT_N = \frac{1}{\sqrt{N}} \sum_{x=0}^{N-1} \sum_{y=0}^{N-1} \omega_N^{xy} |y\rangle \langle x|
+\]
+
+
+```{example}
+Examples
+Lets take a look at \(QFT_2\). Because \(M =2,\omega=e^{i\pi}\).
+Therefore we have,
+\[
+QFT_2=\frac{1}{\sqrt{2}} \begin{pmatrix}
+1 & 1\\
+1 & \omega
+\end{pmatrix}=\frac{1}{\sqrt{2}} \begin{pmatrix}
+1 & 1\\
+1 & -1
+\end{pmatrix}\\\\
+\]
+
+
+As you can see, \(QFT_2\) is simply equal to \(H^\otimes 2\)
+How about \(QFT_4\)? The primitive 4th root of unity is \(i\), so that
+
+\[
+QFT_4 = 
+\frac{1}{\sqrt{4}} \begin{pmatrix}
+1 & 1 & 1 & 1\\
+1 & i & -1 & -i\\
+1 & -1 & 1 & -1\\
+1 & -i & -1 & -i\\
+\end{pmatrix}
+\]
+```
+
+
+```{exercise}
+Find QFT of following vectors.
+\[
+\begin{eqnarray}
+| \psi_1 \rangle &=& | 00 \rangle\\
+| \psi_2 \rangle &=& | 01 \rangle \\
+| \psi_3 \rangle &=& \frac{1}{2} \left( | 00 \rangle + | 01 \rangle + | 10 \rangle + | 11 \rangle \right)
+\end{eqnarray}
+\]
+```
+
+![](fig/fig32.jpg)
+![](fig/fig33.jpg)
+
+![](fig/fig34.jpg)

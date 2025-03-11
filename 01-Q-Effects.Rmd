@@ -198,6 +198,7 @@ Then,
 
 
 ## Unitary Evolution
+
 <!---
 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Erwin_Schr%C3%B6dinger_%281933%29.jpg" alt="Erwin Schrödinger (Resource:Wikipidia)" style="float: right; width: 20%;" />
 --->
@@ -223,7 +224,7 @@ The following is **a** solution to the Schrödinger equation:
 Note that \( e^{\frac{i H}{\hbar} (t_1 - t_2)} \) is a unitary.
 
 **Verfication**\
-![](fig/fig3.jpg){width=50%}
+)![](fig/fig3.jpg{width=50%}
 ![](fig/fig4.jpg){width=50%}
 
 This leads to the notion of unitary evolution of a quantum system. The gate model of quantum computing is based on this idea. A quantum gate is a unitary matrix, acting on a quantum state, called a qubit.

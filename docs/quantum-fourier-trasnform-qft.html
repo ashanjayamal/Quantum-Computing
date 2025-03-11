@@ -273,7 +273,53 @@ where <span class="math inline">\(\omega\)</span> is the primitive <span class="
 \end{bmatrix}
 \]</span>
 where <span class="math inline">\(\omega\)</span> is the primitive <span class="math inline">\(n\)</span>-th root of unity.</p>
-<p><strong>Recall</strong>:</p>
+<p><strong>Recall</strong>:
+Suppose a single qubit quantum gate <strong><span class="math inline">\(A\)</span></strong> transforms <span class="math inline">\(|0\rangle\)</span> into <span class="math inline">\(|\psi_0\rangle\)</span> and <span class="math inline">\(|1\rangle\)</span> into <span class="math inline">\(|\psi_1\rangle\)</span>. Then the outer product representation of <span class="math inline">\(A\)</span> is given by,
+<span class="math display">\[
+A=|\psi_0\rangle \langle 0|+|\psi_1\rangle \langle 1|
+\]</span></p>
+<p>Quantum Fourier Transform (QFT) in Dirac notation:</p>
+<p><span class="math display">\[
+QFT_N = \frac{1}{\sqrt{N}} \sum_{x=0}^{N-1} \sum_{y=0}^{N-1} \omega_N^{xy} |y\rangle \langle x|
+\]</span></p>
+<div class="example">
+<p><span id="exm:unnamed-chunk-16" class="example"><strong>Example 5.3  </strong></span>Examples
+Lets take a look at <span class="math inline">\(QFT_2\)</span>. Because <span class="math inline">\(M =2,\omega=e^{i\pi}\)</span>.
+Therefore we have,
+<span class="math display">\[
+QFT_2=\frac{1}{\sqrt{2}} \begin{pmatrix}
+1 &amp; 1\\
+1 &amp; \omega
+\end{pmatrix}=\frac{1}{\sqrt{2}} \begin{pmatrix}
+1 &amp; 1\\
+1 &amp; -1
+\end{pmatrix}\\\\
+\]</span></p>
+<p>As you can see, <span class="math inline">\(QFT_2\)</span> is simply equal to <span class="math inline">\(H^\otimes 2\)</span>
+How about <span class="math inline">\(QFT_4\)</span>? The primitive 4th root of unity is <span class="math inline">\(i\)</span>, so that</p>
+<p><span class="math display">\[
+QFT_4 =
+\frac{1}{\sqrt{4}} \begin{pmatrix}
+1 &amp; 1 &amp; 1 &amp; 1\\
+1 &amp; i &amp; -1 &amp; -i\\
+1 &amp; -1 &amp; 1 &amp; -1\\
+1 &amp; -i &amp; -1 &amp; -i\\
+\end{pmatrix}
+\]</span></p>
+</div>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-17" class="exercise"><strong>Exercise 5.1  </strong></span>Find QFT of following vectors.
+<span class="math display">\[
+\begin{eqnarray}
+| \psi_1 \rangle &amp;=&amp; | 00 \rangle\\
+| \psi_2 \rangle &amp;=&amp; | 01 \rangle \\
+| \psi_3 \rangle &amp;=&amp; \frac{1}{2} \left( | 00 \rangle + | 01 \rangle + | 10 \rangle + | 11 \rangle \right)
+\end{eqnarray}
+\]</span></p>
+</div>
+<p><img src="fig/fig32.jpg" />
+<img src="fig/fig33.jpg" /></p>
+<p><img src="fig/fig34.jpg" /></p>
 
 </div>
             </section>
