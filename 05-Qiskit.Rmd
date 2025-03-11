@@ -13,20 +13,20 @@ You can find more details in the following PDF file:
 **Installing Qiskit and Required Packages**
 
 **Install Qiskit with Visualization Capabilities**
-```{python}
+```python
 # Uncomment and run the following line to install Qiskit with visualization capabilities
 # !pip install qiskit[visualization]
 ```
 
 **Check Qiskit Version**
-```{python}
+```python
 import qiskit
 print("Qiskit version:", qiskit.__version__)
 ```
 
 **Install Additional Required Packages**
 
-```{python}
+```python
 # Uncomment the following lines to install other required packages
 
 # %pip install qiskit_aer
@@ -44,7 +44,7 @@ Create an account on [IBM Quantum](https://quantum.ibm.com/) and retrieve your A
 
 **Configuring the Environment**
 
-```{python}
+```python
 from qiskit_ibm_runtime import QiskitRuntimeService
 
 # Initialize the service with your IBM Quantum token
@@ -53,7 +53,7 @@ from qiskit_ibm_runtime import QiskitRuntimeService
 #    token="YourActualTokenHere"  # Replace with your actual token
 #)
 
-service = QiskitRuntimeService(channel="ibm_quantum",token = "33e6d21f4cc3ec730b896fc9aa77138a84bb48ed8bc6d24eff8bcbfffabd472e2869fce68f46978880d8ecf738531c002ce81809b9cf1ffd8995b00e0f9b24d0")
+service = QiskitRuntimeService(channel="ibm_quantum",token = "33")
 
 # Access a specific backend
 backend = service.backend(name='ibm_brisbane')
@@ -62,7 +62,7 @@ print(f"Number of qubits: {backend.num_qubits}")
 ```
 
 
-```{python}
+```python
 #Importing QuantumCircuit from qiskit
 
 from qiskit import QuantumCircuit
@@ -80,7 +80,7 @@ qc.measure_all()
 qc.draw(output='mpl')
 ```
 
-```{python}
+```python
 from qiskit import transpile
 from qiskit_aer import AerSimulator
 
@@ -100,7 +100,7 @@ Let's try to make this in qiskit.
 ```{example}
 ![](fig/fig17.png)
 ```
-```{python}
+```python
 qc2=QuantumCircuit(2)
 qc2.x(0)
 qc2.cx(0,1)
@@ -110,7 +110,7 @@ qc2.measure_all()
 qc2.draw(output='mpl')
 ```
 
-```{python}
+```python
 # Importing necessary packages to simulate results
 
 from qiskit import transpile
@@ -131,7 +131,7 @@ plot_histogram(counts)
 ```
 
 
-```{python}
+```python
 qc3=QuantumCircuit(2)
 qc3.h(0)
 qc3.cx(0,1)
@@ -142,7 +142,7 @@ qc3.draw(output='mpl')
 ```
 
 
-```{python}
+```python
 # Importing necessary packages to simulate results
 
 from qiskit import transpile
