@@ -1,0 +1,107 @@
+# Quantum Fourier Trasnform (QFT)
+
+Quantum Fourier transformation (QFT) is one of the major quantum algorithms, and plays a key role in several quantum algorithms. 
+
+It is the quantum counterpart of the classical discrete Fourier transformation (DFT). 
+
+DFT transforms a vector of complex numbers \( x_0, x_1, \ldots, x_{N-1} \) 
+
+into \( y_0, y_1, \ldots, y_{N-1} \) such that:
+
+
+
+\[
+y_k \equiv \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} x_j e^{2\pi ijk/N}
+\]
+
+
+![](fig/fig30.png)
+
+```{example}
+Suppose you have a data set \(x_j=\sqrt{2},2\). Compute the DFT of this set.
+```
+**Solution:**\
+
+Thus, and Here \(x_0 = \sqrt{2}\) and \(N = 2\).
+
+\[
+y_k = \frac{1}{\sqrt{2}} \sum_{j=0}^{1} x_j e^{\frac{2 \pi i j k}{2}} = \frac{1}{\sqrt{2}} \left( \sqrt{2} + 2 e^{i \pi k} \right)
+\]
+
+
+Thus,
+\[
+y_0 = \frac{1}{\sqrt{2}} \left( \sqrt{2} + 2 \right) = 1 + \sqrt{2},
+\]
+and
+\[
+y_1 = \frac{1}{\sqrt{2}} \left( \sqrt{2} + 2 e^{i \pi} \right) = \frac{1}{\sqrt{2}} \left( \sqrt{2} - 2 \right) = 1 - \sqrt{2}.
+\]
+
+Resource: _Pathak, A., 2013. Elements of quantum computation and quantum communication (pp. 92-98). Boca Raton: CRC Press_
+
+```{example}
+Find \( y_0 \) for \( x_j = \{1 + i, \sqrt{2}, 3 - 2i, 4\} \).
+```
+
+**Solution** :\
+Here \( N = 4 \) and
+\[
+y_0 = \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} x_j = \frac{1}{2} \left( (1 + i) + (\sqrt{2}) + (3 - 2i) + 4 \right) = 4 + \frac{\sqrt{2} - i}{2}.
+\]
+
+Resource: _Pathak, A., 2013. Elements of quantum computation and quantum communication (pp. 92-98). Boca Raton: CRC Press_
+
+![nth root of unity (Resource: BYJU.com)](fig/fig31.png)
+
+\[
+\text{Primitive } n \text{ th root of unity }:\omega=e^{\frac{2\pi i}{n}}
+\]
+
+\textbf{Matrix Form of Discrete Fourier Transform (DFT):}
+
+
+
+\[
+\frac{1}{\sqrt{N}}
+\begin{bmatrix}
+1 & 1 & 1 & \cdots & 1 \\
+1 & \omega^1 & \omega^2 & \cdots & \omega^{(N-1)} \\
+1 & \omega^2 & \omega^4 & \cdots & \omega^{2(N-1)} \\
+1 & \omega^3 & \omega^6 & \cdots & \omega^{3(N-1)} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & \omega^{(N-1)} & \omega^{2(N-2)} & \cdots & \omega^{(N-1)(N-1)}
+\end{bmatrix}
+\]
+where \( \omega \) is the primitive \( n \)-th root of unity.
+
+
+**Runtime Analysis for Fourier Transforms**:
+
+- **Naive Runtime**: \( O(N^2) \)
+  -  naive computation of the Discrete Fourier Transform (DFT) involves a double summation loop over \( N \) elements, resulting in a runtime complexity of \( O(N^2) \).
+- **Fast Fourier Transform (FFT) Runtime**: \( O(N \log N) \)
+  - In practical applications, the DFT is computed using the FFT algorithm, which optimizes the process by reducing redundant calculations. This leads to a significant improvement in runtime complexity to \( O(N \log N) \).
+- **Quantum Fourier Transform (QFT) Runtime**: \( O(\mathrm{polylog} N) \)
+  - The QFT, implemented on quantum computers, provides an exponential speedup over classical algorithms with a runtime complexity of \( O(\mathrm{polylog} N) \). This represents an exponential gain compared to both naive and FFT approaches.
+
+![Resource: wikiwand](https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/DIT-FFT-butterfly.svg/420px-DIT-FFT-butterfly.svg.png)
+
+Quantum version of DFT:
+
+\[\text{QFT_N}
+\frac{1}{\sqrt{N}}
+\begin{bmatrix}
+1 & 1 & 1 & \cdots & 1 \\
+1 & \omega^1 & \omega^2 & \cdots & \omega^{(N-1)} \\
+1 & \omega^2 & \omega^4 & \cdots & \omega^{2(N-1)} \\
+1 & \omega^3 & \omega^6 & \cdots & \omega^{3(N-1)} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & \omega^{(N-1)} & \omega^{2(N-2)} & \cdots & \omega^{(N-1)(N-1)}
+\end{bmatrix}
+\]
+where \( \omega \) is the primitive \( n \)-th root of unity.
+
+**Recall**: 
+
+

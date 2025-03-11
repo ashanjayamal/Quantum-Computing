@@ -1,0 +1,761 @@
+# An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour
+
+ The problem setting
+
+I order to design quantum algorithms we need to know how to execute
+functions on a quantum computer. In particular, we are interested in
+functions that take a (binary) number, and output a truth value (i.e.,
+\({0, 1}\). That is, functions of the form \(f : {0, 1}n → {0, 1}\)
+
+Let us consider the following problem: There is a univariate function $f$, defined over the binary alphabet $0,1,$ with output range in the same alphabet $0,1$. I.e., $f:\{0,1\}\rightarrow \{0,1\}$.
+
+
+
+We are given a function:  
+**\[f : \{0,1\} \to \{0,1\}\]**
+
+Our goal is to determine whether **f** is:  
+- **Constant**: \( f(0) = f(1) \) (same output for both inputs)?  
+- **Balanced**: \( f(0) \neq f(1) \) (different outputs for each input)?
+
+
+ Classical Solution
+
+ Classical Algorithm for the Deutsch Problem (\( n = 1 \))
+
+**Algorithm 1: Classical Algorithm for the Deutsch Problem (\( n = 1 \))**
+
+**Require**: A black-box function \( f : {0,1} → {0,1} \)  
+
+1. **Evaluate**: Compute \( f(0) \) and \( f(1) \).  
+2. **if** \( f(0) = f(1) \) **then**  
+   - Output: "Constant"  
+3. **else**  
+   - Output: "Balanced"  
+4. **end if**
+
+
+**Explanation**
+
+- **Line 1**: Input is a black-box function \( f : {0,1} → {0,1} \).  
+- **Line 2**: Evaluate the function at both possible inputs (0 and 1).  
+- **Line 3–6**: Compare the outputs:  
+  - If \( f(0) = f(1) \), then the function is constant.  
+  - If \( f(0) \neq f(1) \), then the function is balanced.
+
+---
+
+
+ Classical Algorithm for the Deutsch Problem (General Case)
+
+Suppose we are given a black-box function:  
+\[f : \{0,1\}ⁿ → \{0,1\}\]  
+
+The function \( f \) is promised to be either:  
+- **Constant**: The output is the same for all inputs.  
+  \( f(x) = f(y), \forall x, y ∈ {0,1}ⁿ \)  
+- **Balanced**: The output is \( 0 \) for exactly half the inputs and \( 1 \) for the other half.  
+  \[ | \{x ∈ {0,1}ⁿ : f(x) = 0 \} | = 2ⁿ⁻¹ \]  
+  \[ | \{x ∈ {0,1}ⁿ : f(x) = 1 \} | = 2ⁿ⁻¹ \]  
+
+**Goal**: Determine whether \( f \) is constant or balanced **using the fewest possible queries** (function evaluations).
+
+
+
+ Quantum Computing: A High-Level Interpretation
+
+ The Process of Computing
+
+**Key Idea**: Computing is about encoding information and transforming it under the rules of physics.
+
+ Classical Computing
+- **Data Encoding**: Information stored as bits (0s and 1s).  
+- **Processing**: Logical gates manipulate bits according to classical physics.
+
+ Quantum Computing
+- **Data Encoding**: Information stored in quantum states.  
+- **Processing**: Quantum operations transform qubits according to quantum mechanics.  
+- **Information Extraction**: Quantum measurement provides probabilistic (in general) information and collapses the quantum state.
+
+
+ The Quantum Twist – A New Way to Compute
+
+
+ Qubits vs. Bits
+
+- **Classical Bit**: A classical bit is either 0 or 1.  
+- **Qubit**:  
+  - A qubit is the quantum version of a bit and behaves differently.  
+  - A qubit can exist in a **state of superposition** (a combination of 0 and 1).  
+  - Qubits in a superposition state exhibit **quantum interference**.  
+  - Multiple qubits can **entangle**, linking in special ways.  
+  - **Measurement affects the outcome**!  
+
+ Takeaway  
+- The challenge and goal is to harness quantum properties for efficient computation.  
+- Quantum computing isn’t just “faster,” it’s a **fundamentally different way to compute**!
+
+
+ Mathematical Background and Notations
+
+ Complex Hilbert Space \( \mathbb{C}^2 \)
+
+-  Let \( \mathbb{C}^2 \) be the set of all \( 2 \times 1 \) complex vectors:  
+\[
+\mathbb{C}^2 = \left\{ \begin{bmatrix} a \\ b \end{bmatrix} : a, b \in \mathbb{C} \right\}.
+\]
+
+
+- **Dirac Notation** (Ket):  
+  \[ |v\rangle  = \begin{bmatrix} a \\ b \end{bmatrix} .\]  
+
+- **Inner Product**:  
+  The standard inner product on \( \mathbb{C}^2 \) is  the function   \( \langle \cdot|\cdot \rangle :\mathbb{C}^2\to\mathbb{C}\) defined by:
+  \[ \langle v|w\rangle  = \overline{a}c + \overline{b}d \]
+  for all \( |v\rangle  = \begin{bmatrix} a \\ b \end{bmatrix} \) and \( |w\rangle  = \begin{bmatrix} c \\ d \end{bmatrix}\).  
+
+- **Norm**:  
+  \( \| |v\rangle  \| = \sqrt{\langle v|v\rangle } \).
+  
+  
+
+ Properties and Terminologies
+
+1. **Inner Product Properties**:  
+   - Conjugate linear in the first entry:  
+     \[ \langle v + \lambda v'|w\rangle  = \langle v|w\rangle  + \overline{\lambda}\langle v'|w\rangle  .\]  
+   - Linear in the second entry:  
+     \[ \langle v|w + \lambda w'\rangle  = \langle v|w\rangle  + \lambda\langle v|w'\rangle  .\]  
+
+2. **Orthogonality**:  
+   Vectors \( |v\rangle , |w\rangle  ∈ \mathbb{C}^2 \) are orthogonal if \( \langle v|w\rangle  = 0 \).  
+
+3. **Orthonormal Basis**:  
+   A set of vectors \( \{|e_1\rangle , |e_2\rangle \} \) is an orthonormal basis if \[ \langle e_i|e_j\rangle  = δ_{ij}=
+   \begin{cases}
+   1 & \text{ if } i \neq j\\
+   0 & \text{ if } i = j\
+   \end{cases}.\]  
+   For any \( |v\rangle  ∈ \mathbb{C}^2 \), \[ |v\rangle  = a|e_1\rangle  + b|e_2\rangle , \]
+   for some \(a,b \in  \mathbb{C}^2\) and moreover \( a = \langle e_1|v\rangle  \) and \( b = \langle e_2|v\rangle  \).  
+
+
+
+```{example,name='Orthonormal Basis'}
+
+1. **Standard Basis**:  
+   \( |0\rangle  = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \), \( |1\rangle  = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \).  
+
+2. **Hadamard Basis**:  
+   \( |+\rangle  = \frac{1}{\sqrt{2}}(|0\rangle  + |1\rangle ) \), \( |−\rangle  = \frac{1}{\sqrt{2}}(|0\rangle  − |1\rangle ) \).  
+```
+
+- Consider  \( |w\rangle  = \begin{bmatrix}1 \\ 2 \end{bmatrix} \), and now if \( \langle +|w\rangle  = x \), \( \langle −|w\rangle  = y \), then \[ |w\rangle  = x|+\rangle  + y|−\rangle  .\]  
+
+
+
+ Matrices as Linear Operators
+
+- A \( 2 \times 2 \) complex matrix \( A \) acts on \( \mathbb{C}^2 \) as a linear operator via multiplication:  
+  \[ A|v\rangle  = |w\rangle .\]  
+
+- **Properties**:  
+  - Linearity:  
+    - \( A(|v\rangle  + |w\rangle ) = A|v\rangle  + A|w\rangle  \),  
+    - \( A(c|v\rangle ) = cA|v\rangle  \) (for scalar \( c \)).  
+
+- **Hermitian Adjoint (Conjugate Transpose)**:  
+  Given \[ A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} ,\]  
+  \[ A^\dagger = \begin{bmatrix} \overline{a} & \overline{c} \\ \overline{b} & \overline{d} \end{bmatrix}. \]  
+
+
+
+ Types of Matrices Considered in Quantum Computing
+
+1. **Self-Adjoint Matrix**: \( H^\dagger = H \).  
+   Example:  
+   \( H = \begin{bmatrix} 2 & i \\ -i & 3 \end{bmatrix} \).  
+
+2. **Unitary Matrix**: \( U^\dagger U = UU^\dagger = I \).  
+   Example:  
+   \( U = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ -1 & 1 \end{bmatrix} \),  
+   \( U^\dagger = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix} \).Then,
+   \[U U^\dagger=  \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ -1 & 1 \end{bmatrix} \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix}=I\]
+
+3. **Projection Matrix**: \( P^2 = P \) and \( P^\dagger = P \).  
+   Example:  
+   \( P = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} \).  
+Then,
+\[ P^2=\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}=\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}=P \]
+and,
+\[ P^\dagger=\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}=P \]
+Thus, \(P\) is projection
+
+ Linear Functionals and Bra Notation
+
+```{definition}
+A linear functional is a map \( f : \mathbb{C}^2 → \mathbb{C} \) satisfying:  
+  \[ f(α|v\rangle  + |w\rangle ) = αf(|v\rangle ) + f(|w\rangle ). \]  
+```
+
+```{definition}
+ \(\{f : \mathbb{C}^2 →\mathbb{C}: f is linear\}\) is called the dual space of \(\mathbb{C}^2\).  
+```
+
+
+- **Bra Notation**:  
+  Each \( |w\rangle  ∈ \mathbb{C}^2 \) has an associated **bra** \( \langle w| \), defined as:  
+  \( |v\rangle  → \langle w|v\rangle  \) for all \( |v\rangle  ∈ \mathbb{C}^2 \).  
+
+```{example}
+If \( |+\rangle  = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix} \), its corresponding bra is:  
+  \[ \langle +| = \frac{1}{\sqrt{2}} (1, 1) .\]  
+```
+
+
+ Outer Product and Projection Operators
+
+- **Outer Product**:  
+  Given \( |ϕ\rangle , |ψ\rangle  ∈ \mathbb{C}^2 \), the outer product \( |ϕ\rangle \langle ψ| \) is the operator defined by:  
+  \[ (|ϕ\rangle \langle ψ|)|v\rangle  = \langle ψ|v\rangle |ϕ\rangle.\]  
+
+  In matrix form, if \( |ϕ\rangle  = \begin{bmatrix} a \\ b \end{bmatrix} \), \( |ψ\rangle  = \begin{bmatrix} c \\ d \end{bmatrix} \):  
+  \[ |ϕ\rangle \langle ψ| = \begin{bmatrix} a \\ b \end{bmatrix} \begin{bmatrix} \overline{c} & \overline{d} \end{bmatrix} = \begin{bmatrix} a\overline{c} & a\overline{d} \\ b\overline{c} & b\overline{d} \end{bmatrix} .\]  
+
+- **Projection**:  
+  If \( |ϕ\rangle  = |ψ\rangle  \), we get a projection:  
+  \( P = |ψ\rangle \langle ψ| \), satisfying \( P^2 = P \).  
+
+````{example} For the plus state \( |+\rangle  = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix} \):  
+  \( |+\rangle \langle +| = \frac{1}{2} \begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix} \).
+
+
+
+- **Outer Product**: When taking the outer product of a ket with the bra of itself (i.e., \(|\phi\rangle = |\psi\rangle\)), the result is a **projection** on the space spanned by the vector.
+  
+  \[
+  P = |\psi\rangle \langle \psi|\text{ This satisfies: }  P^2 = P
+  \]
+
+```{example}
+For \(|+\rangle = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}\),
+
+  \[
+  |+\rangle \langle +| = \frac{1}{2} 
+  \begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix}
+  \]
+```
+
+ Takeaways:
+1. Outer products generalize linear maps of rank one.
+2. Special case: \(|\psi\rangle \langle \psi|\) defines a **one-dimensional projection operator**.
+3. Projections play a fundamental role in the mathematical formulation of quantum measurements.
+
+---
+
+
+
+ Qubits: Data in Quantum Computing
+
+ Intuitive Notion:
+- **Classical Computing**: Bits encode information as \(0\) or \(1\).
+- **Quantum Computing**: Qubits encode information as a **superposition** of \(0\) and \(1\), enabling the processing of multiple possibilities simultaneously.
+
+ Mathematical Definition:
+A qubit is a **unit vector** in \(\mathbb{C}^2\):
+\[
+|\psi\rangle = \alpha|0\rangle + \beta|1\rangle, \quad \alpha, \beta \in \mathbb{C}, \quad |\alpha|^2 + |\beta|^2 = 1
+\]
+
+Where:
+- \(|0\rangle = \begin{bmatrix} 1 \\ 0 \end{bmatrix}\)
+- \(|1\rangle = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\)
+
+
+
+ Why Unit Vectors?
+
+ A Probabilistic System:
+- A qubit represents a **superposition** of classical outcomes.
+- Measurement outcomes are **probabilistic**, not deterministic.
+
+ Normalization Condition:
+Probabilities must sum to \(1\). For a qubit:
+\[
+|\alpha|^2 + |\beta|^2 = 1
+\]
+
+ The Born Rule:
+
+- Upon measurement:
+
+\[(\text{Pr}(\text{Outcome } |0\rangle) = |\alpha|^2\)~,~
+(\text{Pr}(\text{Outcome } |1\rangle) = |\beta|^2\]
+
+The qubit collapses to the observed basis state with these  probabilitie
+
+
+ Bloch Sphere Representation of Qubit States
+
+-  A general single-qubit state is a unit vector in \(\mathbb{C}^2\):
+\[ |ψ\rangle = α|0\rangle+β|\rangle\], 
+where \(α,β ∈\mathbb{C}, |α|^2 +|β|^2 = 1.\)
+- Any such state can be written in the form:
+\[
+|\psi\rangle = \cos\frac{\theta}{2} |0\rangle + e^{i\phi} \sin\frac{\theta}{2} |1\rangle
+\]
+
+Where:
+
+  - \(\theta \in [0, \pi]\): Weight of \(|0\rangle\) and \(|1\rangle\)
+  - \(\phi \in [0, 2\pi)\): Relative phase between \(|0\rangle\) and \(|1\rangle\)
+
+- The angles \((θ,ϕ)\) define a unique point on the unit sphere in \(\mathbb{R}^3.\)
+
+
+The state \(|\psi\rangle\) maps to a point \(\mathbf{r}\) on the unit sphere:
+\[
+\mathbf{r} = (\langle \sigma_x \rangle, \langle \sigma_y \rangle, \langle \sigma_z \rangle)
+\]
+
+Where:
+
+- \(\langle \sigma_x \rangle = \sin\theta \cos\phi\)
+- \(\langle \sigma_y \rangle = \sin\theta \sin\phi\)
+- \(\langle \sigma_z \rangle = \cos\theta\)
+
+This defines a one-to-one correspondence between quantum states
+ (up to a global phase) (\(e^{i\gamma}|\psi\)) and points on the unit sphere.
+ 
+```{remark}
+The global phase does not change the Bloch sphere  representation. That is, states differing by a global phase represent 
+ the same physical qubit state.
+```
+
+
+![source: Wikipedia ](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Bloch_sphere.svg/800px-Bloch_sphere.svg.png){width=60%}
+
+
+
+ Quantum Gates: Processing Quantum Data
+
+ Classical vs. Quantum:
+- **Classical Gates**: Perform logical operations (e.g., AND, OR, NOT).
+- **Quantum Gates**: Perform transformations on qubits using **unitary operations**.
+
+ Why Unitary Matrices?
+- **Reversible**: Quantum mechanics laws are reversible.
+- **Norm-Preserving**: Probabilities must sum to \(1\).
+
+```{definition}
+A quantum gate is a \(2 \times 2\) **unitary matrix** \(U\) satisfying:
+\[
+U^\dagger U = I
+\]
+```
+
+Here’s the updated table with two columns, focusing on the Classical NOT Gate and Quantum Phase Gate (\(R_\phi\)):
+
+| **Classical NOT Gate**                                         | **Quantum Phase Gate (\(R_\phi\))**                                                                 |
+|----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+|**Input**:|
+| **Matrix:** \(\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\)   | **Matrix:** \(\begin{bmatrix} 1 & 0 \\ 0 & e^{i\phi} \end{bmatrix}\)                               |
+| **Action:** \(\text{NOT}(|0\rangle) = |1\rangle\), \(\text{NOT}(|1\rangle) = |0\rangle\) | **Action:** \(R_\phi (\alpha|0\rangle + \beta|1\rangle) = \alpha|0\rangle + \beta e^{i\phi} |1\rangle\) |
+
+
+
+
+
+
+
+
+
+ Classical NOT Gate:
+Matrix:
+\[
+\text{NOT} = 
+\begin{bmatrix} 
+0 & 1 \\ 
+1 & 0 
+\end{bmatrix}
+\]
+
+Action:
+- \(\text{NOT}(|0\rangle) = |1\rangle\)
+- \(\text{NOT}(|1\rangle) = |0\rangle\)
+
+ Quantum Phase Gate (\(R_\phi\)):
+Matrix:
+\[
+R_\phi = 
+\begin{bmatrix} 
+1 & 0 \\ 
+0 & e^{i\phi} 
+\end{bmatrix}
+\]
+
+Action:
+\[
+R_\phi (\alpha|0\rangle + \beta|1\rangle) = \alpha|0\rangle + \beta e^{i\phi} |1\rangle
+\]
+
+---
+
+ Universal Gate Sets
+
+ Classical Universal Gates:
+- **Definition**: A set of gates is universal if it can implement any Boolean function.
+- Example: AND, OR, NOT (or NAND alone).
+
+ Quantum Universal Gates:
+- **Definition**: A set of quantum gates is universal if any unitary operation can be approximated to arbitrary accuracy.
+
+ Why is Universality Important?
+- Just like classical computing can be built from a small set of universal
+ gates, quantum computing relies on universal gates to perform any
+ computation.
+- The ability to approximate any unitary transformation is crucial for
+ building general-purpose quantum computers
+
+ Examples (Single-Qubit Case):
+1. \(\{H, S, X\}\): Hadamard, Phase, Bit flip
+2. \(\{H, R_z(\theta), X\}\): Hadamard, Z-axis rotation, Bit flip
+3. \(\{H, R_y(\theta)\}\): Hadamard, Y-axis rotation
+4. \(\{X, Y, Z, H\}\): Pauli-X, Y, Z, Hadamard
+5. \(\{H, T, X\}\): Hadamard, T gate, Bit flip
+
+
+
+Later, we disscued each gate separetely.
+
+
+ Hadamard Gate
+
+The Hadamard gate creates superposition by transforming basis states.
+
+**Matrix Representation**:  
+\[ H = \frac{1}{\sqrt{2}}  
+\begin{pmatrix}  
+1 & 1 \\  
+1 & -1  
+\end{pmatrix} \]  
+
+**Action on Basis States**:  
+\[ H|0\rangle  = \frac{|0\rangle  + |1\rangle }{\sqrt{2}}, \quad H|1\rangle  = \frac{|0\rangle  - |1\rangle }{\sqrt{2}} \]
+
+---
+
+ Phase Gate (S Gate)
+The phase gate introduces a phase shift of \( \pi/2 \).
+
+**Matrix Representation**:  
+\[ S =  
+\begin{pmatrix}  
+1 & 0 \\  
+0 & i  
+\end{pmatrix} \]  
+
+**Action on Basis States**:  
+\[ S|0\rangle  = |0\rangle , \quad S|1\rangle  = i|1\rangle  \]
+
+---
+
+ Arbitrary Phase Shift: \( R_z(\theta) \) Gate
+This gate applies an arbitrary phase rotation around the z-axis.
+
+**Matrix Representation**:  
+\[ R_z(\theta) =  
+\begin{pmatrix}  
+e^{-i\theta/2} & 0 \\  
+0 & e^{i\theta/2}  
+\end{pmatrix} \]  
+
+**Action on Basis States**:  
+\[ R_z(\theta)|0\rangle  = e^{-i\theta/2}|0\rangle  \]  
+\[ R_z(\theta)|1\rangle  = e^{i\theta/2}|1\rangle  \]
+
+---
+
+ \( R_y(\theta) \) Gate
+The \( R_y(\theta) \) gate represents a rotation by an angle \( \theta \) around the y-axis on the Bloch sphere.
+
+**Matrix Representation**:  
+\[ R_y(\theta) =  
+\begin{pmatrix}  
+\cos(\theta/2) & -\sin(\theta/2) \\  
+\sin(\theta/2) & \cos(\theta/2)  
+\end{pmatrix} \]  
+
+**Action on Basis States**:  
+\[ R_y(\theta)|0\rangle  = \cos(\theta/2)|0\rangle  + \sin(\theta/2)|1\rangle  \]  
+\[ R_y(\theta)|1\rangle  = -\sin(\theta/2)|0\rangle  + \cos(\theta/2)|1\rangle  \]
+
+---
+
+ Pauli Gates: X, Y, and Z
+
+ Pauli-X (Bit-Flip Gate)
+Swaps \( |0\rangle  \) and \( |1\rangle  \), analogous to a classical NOT gate.
+
+**Matrix Representation**:  
+\[ X =  
+\begin{pmatrix}  
+0 & 1 \\  
+1 & 0  
+\end{pmatrix} \]  
+
+**Action on Basis States**:  
+\[ X|0\rangle  = |1\rangle , \quad X|1\rangle  = |0\rangle  \]
+
+ Pauli-Y Gate
+Combines bit-flip and phase-flip operations.
+
+**Matrix Representation**:  
+\[ Y =  
+\begin{pmatrix}  
+0 & -i \\  
+i & 0  
+\end{pmatrix} \]  
+
+**Action on Basis States**:  
+\[ Y|0\rangle  = i|1\rangle , \quad Y|1\rangle  = -i|0\rangle  \]
+
+ Pauli-Z (Phase-Flip Gate)
+Leaves \( |0\rangle  \) unchanged but flips the phase of \( |1\rangle  \).
+
+**Matrix Representation**:  
+\[ Z =  
+\begin{pmatrix}  
+1 & 0 \\  
+0 & -1  
+\end{pmatrix} \]  
+
+**Action on Basis States**:  
+\[ Z|0\rangle  = |0\rangle , \quad Z|1\rangle  = -|1\rangle  \]
+
+---
+
+ Quantum Measurement: Capturing Information
+ Key Idea
+- In quantum computing, measurement extracts information from a quantum state, but the process is **probabilistic** and alters the state.
+- Classical measurement gives a deterministic outcome without changing the system.
+- Quantum measurement is inherently probabilistic and collapses the quantum state to a definite outcome.
+
+---
+
+ Nature of Quantum Measurement
+ Physical Interpretation
+- Measurement corresponds to observing a physical property (e.g., spin direction, polarization).
+- Before measurement, the system exists in a superposition of states.
+- Measurement collapses the superposition to one of the possible outcomes.
+
+ Mathematical Representation
+- Measurement is modeled using **projection operators** \( P_i \).  
+- Each \( P_i \) corresponds to a possible measurement outcome.  
+- Probabilities and post-measurement states follow from these operators.
+
+---
+
+ Formal Definition of Quantum Measurement
+Let \( |ψ\rangle  \) be a quantum state and \( \{P_i\} \) a set of projection operators:
+
+1. **Probability of Outcome \( i \)**:  
+   \[ p(i) = \langle ψ|P_i|ψ\rangle  \]
+
+2. **Post-Measurement State (if Outcome \( i \) Occurs)**:  
+   \[ |ψ_i\rangle  = \frac{P_i |ψ\rangle }{\sqrt{p(i)}} \]
+
+3. **Projection Operators**:  
+   \[ P_i = |ϕ_i\rangle \langle ϕ_i|, \quad \sum_i P_i = I \]
+
+---
+
+ Example: Measurement in an Orthogonal Basis
+ Initial State:
+\[ |ψ\rangle  = α|0\rangle  + β|1\rangle  \]
+
+ Measurement in Computational Basis (\( |0\rangle , |1\rangle  \)):
+- **Projection Operators**:  
+  \[ P_0 = |0\rangle \langle 0|, \quad P_1 = |1\rangle \langle 1| \]
+
+- **Probability of Measuring \( |0\rangle  \)**:  
+  \[ p(0) = |α|^2 \]  
+  Post-Measurement State: \( |0\rangle  \)
+
+- **Probability of Measuring \( |1\rangle  \)**:  
+  \[ p(1) = |β|^2 \]  
+  Post-Measurement State: \( |1\rangle  \)
+
+---
+
+ Measurement in the \( |+\rangle  \) and \( |-\rangle  \) Basis
+ Given State:  
+\[ |ψ\rangle  = \sqrt{0.75}|0\rangle  + \sqrt{0.25}|1\rangle  \]
+
+ Overlaps:
+- \( \langle+|ψ\rangle  = \frac{1}{\sqrt{2}}(\sqrt{0.75} + \sqrt{0.25}) \approx 0.96 \)  
+- \( \langle-|ψ\rangle  = \frac{1}{\sqrt{2}}(\sqrt{0.75} - \sqrt{0.25}) \approx 0.25 \)
+
+ Measurement Probabilities:
+- \( P(|+\rangle ) = |\langle+|ψ\rangle |^2 \approx 0.93 \)  
+- \( P(|-\rangle ) = |\langle-|ψ\rangle |^2 \approx 0.07 \)
+
+ The Deutsch Problem
+
+ Problem:
+- **Given:** A function \( f : \{0,1\} \to \{0,1\} \).
+- **Task:** Determine if \( f \) is constant or balanced.
+
+ Classical Approach:
+- Requires **two function evaluations** in the worst case.
+
+ Quantum Goal:
+- Use quantum computing to determine this in **a single function call**!
+
+---
+
+ Deutsch Algorithm: Key Steps
+
+1. **Input:**
+   - Two qubits:
+     - **First qubit:** \( |x\rangle \) (input qubit).
+     - **Second qubit:** \( |y\rangle \) (auxiliary qubit, used for function evaluation).
+
+2. **Prepare a Superposition:**
+   - Apply Hadamard gates to each qubit to create a superposition:
+     - First qubit: \( H |0\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle) \).
+     - Second qubit: \( H |1\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle) \).
+
+3. **Apply the Oracle \( U_f \):**
+   - The oracle applies the transformation:
+     \[
+     U_f |x, y\rangle = |x, y \oplus f(x)\rangle
+     \]
+   - This encodes \( f(x) \) in the second qubit.
+
+---
+
+ Encoding Function Behavior via Phase Change
+
+- Rewrite the second qubit in terms of a phase:
+  \[
+  U_f (H \otimes H)|0,1\rangle = \frac{1}{\sqrt{2}}(|0\rangle + (-1)^{f(1) \oplus f(0)} |1\rangle)|-\rangle
+  \]
+- The **first qubit** now contains information about \( f(x) \).
+
+---
+
+ Apply Hadamard Transform (Interference)
+
+- Applying Hadamard again on the first qubit results in:
+  \[
+  H \frac{1}{\sqrt{2}}(|0\rangle + (-1)^{f(1) \oplus f(0)} |1\rangle)
+  \]
+- This step extracts **global information** about \( f(x) \).
+
+---
+
+ Measurement
+
+- Measure the **first qubit**:
+  - \( |0\rangle \): \( f(x) \) is **constant**.
+  - \( |1\rangle \): \( f(x) \) is **balanced**.
+- The **second qubit** is ignored in the measurement.
+
+---
+
+ The Quantum Approach
+
+- **Key Idea:**
+  - Encode inputs into qubits.
+  - Apply a quantum oracle representing \( f(x) \).
+
+- **Quantum Advantage:**
+  - By preparing a **superposition of inputs**, evaluate the function on **both inputs in a single query**.
+  - Interference allows extraction of the relevant information.
+
+- Measurement at the end gives the **answer deterministically**.
+
+---
+
+ Quantum Circuit for the Deutsch Algorithm
+
+
+ Explanation:
+1. Apply **Hadamard gates** to create superposition.
+2. Use the **oracle \( U_f \)** to introduce a phase based on \( f(x) \).
+3. Perform a **final Hadamard** to extract interference information.
+4. Measure the **first qubit** to determine whether \( f \) is constant or balanced.
+
+---
+
+ Multi-Qubit Systems, Quantum Entanglement, and Higher-Dimensional Extensions
+
+ Two-Qubit State Space
+- A **single qubit state** is a unit vector in \( \mathbb{C}^2 \).
+- Two-qubit states reside in \( \mathbb{C}^2 \otimes \mathbb{C}^2 \) (denoted as \( \mathbb{C}^4 \)).
+
+ Basis Elements:
+- \( |00\rangle, |01\rangle, |10\rangle, |11\rangle \).
+
+---
+
+ Entanglement and Physical Interpretation
+
+- **Entanglement:**
+  - A state \( |\psi\rangle \) is entangled if it **cannot** be written as a tensor product of two single-qubit states:
+    \[
+    |\psi\rangle \neq |\psi_1\rangle \otimes |\psi_2\rangle
+    \]
+  - Example of an **entangled state:**
+    \[
+    |\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)
+    \]
+  - Example of a **non-entangled state:**
+    \[
+    |\psi\rangle = |0\rangle \otimes \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)
+    \]
+
+- **Physical Interpretation:**
+  - Entangled states exhibit correlations that cannot be explained classically.
+  - Measurement outcomes of entangled qubits are correlated, regardless of distance.
+
+---
+
+ Measurement Effects
+
+ **Entangled State:**
+- Example: \( |\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle) \).
+- Measurement on the first qubit:
+  - If \( |0\rangle \): Collapse to \( |00\rangle \).
+  - If \( |1\rangle \): Collapse to \( |11\rangle \).
+- **Conclusion:** Measurement on one qubit determines the state of the other.
+
+ **Separable State:**
+- Example: \( |\psi\rangle = |0\rangle \otimes \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle) \).
+- Measurement on the first qubit:
+  - The first qubit is always \( |0\rangle \).
+- Measurement on the second qubit:
+  - \( |0\rangle \) or \( |1\rangle \) with equal probability.
+
+---
+
+ Summary of Measurement Effects
+
+ **Entangled State:**
+- Measurement on one qubit **affects** the state of the other.
+- Shows strong **correlations**.
+
+ **Separable State:**
+- Measurement on one qubit **does not affect** the other.
+- No correlations between outcomes.
+
+ **Physical Interpretation:**
+- Entanglement exhibits **"action at a distance"**.
+- Separable states behave independently.
+
+---
+
+
+
+
