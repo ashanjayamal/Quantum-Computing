@@ -24,7 +24,7 @@ github-repo: "rstudio/bookdown-demo"
 
 # Quantum Computing: A Journey into the Atomic World
 
-![Resourse: www.information-age.com](https://informationage-production.s3.amazonaws.com/uploads/2024/09/GettyImages-2156615862.jpg)
+![Resourse: www.science.org](https://www.science.org/do/10.1126/science.adh2923/abs/_20230224_nid_quantumcomputing_sq.jpg)
 
 
 

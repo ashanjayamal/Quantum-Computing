@@ -146,7 +146,7 @@ QFT_4 =
 ```
 
 
-```{exercise}
+```{exercise,label="ex-F"}
 Find QFT of following vectors.
 \[
 \begin{eqnarray}
@@ -157,10 +157,66 @@ Find QFT of following vectors.
 \]
 ```
 
-![](fig/fig33.jpg)
+**Solution**
+
+First note that QFT$_N$. We have to deal with 2 qubits. Then $N = 2^2 = 4$
+
+
+
+\[
+\text{QFT}_4 = \frac{1}{\sqrt{4}}
+\begin{pmatrix}
+1 & 1 & 1 & 1 \\
+1 & i & -1 & -i \\
+1 & -1 & 1 & -1 \\
+1 & -i & -1 & i
+\end{pmatrix}
+\]
+
+
+
+
+
+\[
+\begin{eqnarray}
+\text{QFT}_4 |\psi_1\rangle &=&\text{QFT}_4 |00\rangle\\
+&=& \frac{1}{\sqrt{4}}\begin{pmatrix}
+1 & 1 & 1 & 1 \\
+1 & i & -1 & -i \\
+1 & -1 & 1 & -1 \\
+1 & -i & -1 & i
+\end{pmatrix} \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix} \\
+&=&\frac{1}{2}\begin{pmatrix} 1\\1\\1\\1 \end{pmatrix}\\
+&=&\frac{1}{2}\begin{pmatrix} 1\\0\\0\\0 \end{pmatrix}+\frac{1}{2}\begin{pmatrix} 0\\1\\0\\0 \end{pmatrix}+\frac{1}{2}\begin{pmatrix} 0\\0\\1\\0 \end{pmatrix}+\frac{1}{2}\begin{pmatrix} 0\\0\\0\\1 \end{pmatrix}\\
+&=& \frac{1}{2} |00\rangle + \frac{1}{2} |01\rangle + \frac{1}{2} |10\rangle + \frac{1}{2} |11\rangle\\\\
+\text{QFT}_4 |\psi_2\rangle &=&\text{QFT}_4 |01\rangle\\
+&=& \frac{1}{\sqrt{4}}\begin{pmatrix}
+1 & 1 & 1 & 1 \\
+1 & i & -1 & -i \\
+1 & -1 & 1 & -1 \\
+1 & -i & -1 & i
+\end{pmatrix} \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix} \\
+&=&\frac{1}{2}\begin{pmatrix} 1\\i\\-1\\i \end{pmatrix}\\
+&=&\frac{1}{2}\begin{pmatrix} 1\\0\\0\\0 \end{pmatrix}+\frac{i}{2}\begin{pmatrix} 0\\1\\0\\0 \end{pmatrix}+\frac{(-1)}{2}\begin{pmatrix} 0\\0\\1\\0 \end{pmatrix}+\frac{(-i)}{2}\begin{pmatrix} 0\\0\\0\\1 \end{pmatrix}\\
+&=& \frac{1}{2} |00\rangle + \frac{i}{2} |01\rangle + \frac{(-1)}{2} |10\rangle + \frac{(-i)}{2} |11\rangle\\\\
+\text{QFT}_4 |\psi_3\rangle &=&\text{QFT}_4 \big(\frac{1}{2}|00\rangle+\frac{1}{2}|01\rangle+\frac{1}{2}|10\rangle+\frac{1}{2}|11\rangle\big)\\
+&=& \frac{1}{\sqrt{4}}\begin{pmatrix}
+1 & 1 & 1 & 1 \\
+1 & i & -1 & -i \\
+1 & -1 & 1 & -1 \\
+1 & -i & -1 & i
+\end{pmatrix} \frac{1}{2}\begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix} \\
+&=&\frac{1}{4}\begin{pmatrix} 4\\0\\0\\0 \end{pmatrix}\\
+&=& \begin{pmatrix} 1\\0\\0\\0 \end{pmatrix}\\
+&=& |00\rangle
+\end{eqnarray}
+\]
+
+
+<!-- !(fig/fig33.jpg)
 ![](fig/fig32.jpg)
 ![](fig/fig34.jpg)
-
+-->
 
 QFT needs to be restated in a particular form to implement it on a quantum circuit. This requires some results.
 
@@ -304,16 +360,14 @@ This demonstrates the exponential speedup of the QFT over the classical Fast Fou
 \begin{eqnarray}
 \text{Naive runtime}&:& O(  N^2 )\\
 \text{(FFT) runtime}&:& O(N logN)\\
-\text{QFT runtime}  &:& O( polylog N )
- \end{eqnarray}
-\]
-
-\[
-\begin{eqnarray}
+\text{QFT runtime}  &:& O( polylog N )\\\\
 \text{Classical FFT}&:&n 2^n\\
 \text{QFT} &:& n^2
 \end{eqnarray}
 \]
+
+
+
 ```{example}
 - **Converting a time-domain vector with 15000 variables to frequency domain**: 
   - Classical computation time: 64 hours 
@@ -321,6 +375,5 @@ This demonstrates the exponential speedup of the QFT over the classical Fast Fou
 - **Converting a time-domain vector with 100000 variables to frequency domain**: 
   - Classical computation time: 25 days 
   - Quantum computation time: 5 minutes
-
 ```
 

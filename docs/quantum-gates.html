@@ -29,7 +29,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-13" />
+<meta name="date" content="2025-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -369,8 +369,8 @@ T = P\left(\frac{\pi}{4}\right) = \begin{pmatrix}
 \]</span></p>
 <p>The CNOT gate helps to create entangled states.</p>
 <div class="exercise">
-<p><span id="exr:ex-1" class="exercise"><strong>Exercise 3.3  </strong></span>.<br />
-<img src="fig/fig16.png" /></p>
+<p><span id="exr:ex-1" class="exercise"><strong>Exercise 3.3  </strong></span>.</p>
+<p><img src="fig/fig16.png" />{center}</p>
 <p>Show that the output state of the above circuit is the entangled state:</p>
 <p><span class="math display">\[
 \frac{1}{\sqrt{2}} \big(|00\rangle + |11\rangle\big).
@@ -378,10 +378,15 @@ T = P\left(\frac{\pi}{4}\right) = \begin{pmatrix}
 </div>
 <p>Note that the action on separable states is as follows:</p>
 <p><span class="math display">\[
-(A \otimes B)(|a\rangle \otimes |b\rangle) = (A|a\rangle) \otimes (B|b\rangle
+(A \otimes B)(|a\rangle \otimes |b\rangle) = (A|a\rangle) \otimes (B|b\rangle)
 \]</span></p>
 <p><strong>Solution</strong><br />
-</p>
+<span class="math display">\[
+|0\rangle|0\rangle
+\longrightarrow  |+\rangle |0\rangle=\frac{1}{\sqrt{2}}\big(|0\rangle +|1\rangle\big)|0\rangle
+\longrightarrow \frac{1}{\sqrt{2}}\big(|00\rangle +|10\rangle\big)
+\longrightarrow \frac{1}{\sqrt{2}}\big(|00\rangle +|11\rangle\big)
+\]</span></p>
 </div>
 <div id="exercises" class="section level2 hasAnchor" number="3.5">
 <h2><span class="header-section-number">3.5</span> Exercises<a href="quantum-gates.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>

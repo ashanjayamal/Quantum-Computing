@@ -29,7 +29,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-13" />
+<meta name="date" content="2025-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -317,7 +317,7 @@ QFT_4 =
 \]</span></p>
 </div>
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-14" class="exercise"><strong>Exercise 5.1  </strong></span>Find QFT of following vectors.
+<p><span id="exr:ex-F" class="exercise"><strong>Exercise 5.1  </strong></span>Find QFT of following vectors.
 <span class="math display">\[
 \begin{eqnarray}
 | \psi_1 \rangle &amp;=&amp; | 00 \rangle\\
@@ -326,9 +326,55 @@ QFT_4 =
 \end{eqnarray}
 \]</span></p>
 </div>
-<p><img src="fig/fig33.jpg" />
-<img src="fig/fig32.jpg" />
-<img src="fig/fig34.jpg" /></p>
+<p><strong>Solution</strong></p>
+<p>First note that QFT<span class="math inline">\(_N\)</span>. We have to deal with 2 qubits. Then <span class="math inline">\(N = 2^2 = 4\)</span></p>
+<p><span class="math display">\[
+\text{QFT}_4 = \frac{1}{\sqrt{4}}
+\begin{pmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; i &amp; -1 &amp; -i \\
+1 &amp; -1 &amp; 1 &amp; -1 \\
+1 &amp; -i &amp; -1 &amp; i
+\end{pmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\begin{eqnarray}
+\text{QFT}_4 |\psi_1\rangle &amp;=&amp;\text{QFT}_4 |00\rangle\\
+&amp;=&amp; \frac{1}{\sqrt{4}}\begin{pmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; i &amp; -1 &amp; -i \\
+1 &amp; -1 &amp; 1 &amp; -1 \\
+1 &amp; -i &amp; -1 &amp; i
+\end{pmatrix} \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix} \\
+&amp;=&amp;\frac{1}{2}\begin{pmatrix} 1\\1\\1\\1 \end{pmatrix}\\
+&amp;=&amp;\frac{1}{2}\begin{pmatrix} 1\\0\\0\\0 \end{pmatrix}+\frac{1}{2}\begin{pmatrix} 0\\1\\0\\0 \end{pmatrix}+\frac{1}{2}\begin{pmatrix} 0\\0\\1\\0 \end{pmatrix}+\frac{1}{2}\begin{pmatrix} 0\\0\\0\\1 \end{pmatrix}\\
+&amp;=&amp; \frac{1}{2} |00\rangle + \frac{1}{2} |01\rangle + \frac{1}{2} |10\rangle + \frac{1}{2} |11\rangle\\\\
+\text{QFT}_4 |\psi_2\rangle &amp;=&amp;\text{QFT}_4 |01\rangle\\
+&amp;=&amp; \frac{1}{\sqrt{4}}\begin{pmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; i &amp; -1 &amp; -i \\
+1 &amp; -1 &amp; 1 &amp; -1 \\
+1 &amp; -i &amp; -1 &amp; i
+\end{pmatrix} \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix} \\
+&amp;=&amp;\frac{1}{2}\begin{pmatrix} 1\\i\\-1\\i \end{pmatrix}\\
+&amp;=&amp;\frac{1}{2}\begin{pmatrix} 1\\0\\0\\0 \end{pmatrix}+\frac{i}{2}\begin{pmatrix} 0\\1\\0\\0 \end{pmatrix}+\frac{(-1)}{2}\begin{pmatrix} 0\\0\\1\\0 \end{pmatrix}+\frac{(-i)}{2}\begin{pmatrix} 0\\0\\0\\1 \end{pmatrix}\\
+&amp;=&amp; \frac{1}{2} |00\rangle + \frac{i}{2} |01\rangle + \frac{(-1)}{2} |10\rangle + \frac{(-i)}{2} |11\rangle\\\\
+\text{QFT}_4 |\psi_3\rangle &amp;=&amp;\text{QFT}_4 \big(\frac{1}{2}|00\rangle+\frac{1}{2}|01\rangle+\frac{1}{2}|10\rangle+\frac{1}{2}|11\rangle\big)\\
+&amp;=&amp; \frac{1}{\sqrt{4}}\begin{pmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; i &amp; -1 &amp; -i \\
+1 &amp; -1 &amp; 1 &amp; -1 \\
+1 &amp; -i &amp; -1 &amp; i
+\end{pmatrix} \frac{1}{2}\begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix} \\
+&amp;=&amp;\frac{1}{4}\begin{pmatrix} 4\\0\\0\\0 \end{pmatrix}\\
+&amp;=&amp; \begin{pmatrix} 1\\0\\0\\0 \end{pmatrix}\\
+&amp;=&amp; |00\rangle
+\end{eqnarray}
+\]</span></p>
+<!-- !(fig/fig33.jpg)
+![](fig/fig32.jpg)
+![](fig/fig34.jpg)
+-->
 <p>QFT needs to be restated in a particular form to implement it on a quantum circuit. This requires some results.</p>
 <div class="float">
 <img src="fig/fig34.png" alt="An example quantum circuit (not QFT circuit)" />
@@ -435,23 +481,26 @@ This demonstrates the exponential speedup of the QFT over the classical Fast Fou
 \begin{eqnarray}
 \text{Naive runtime}&amp;:&amp; O(  N^2 )\\
 \text{(FFT) runtime}&amp;:&amp; O(N logN)\\
-\text{QFT runtime}  &amp;:&amp; O( polylog N )
-\end{eqnarray}
-\]</span></p>
-<p><span class="math display">\[
-\begin{eqnarray}
+\text{QFT runtime}  &amp;:&amp; O( polylog N )\\\\
 \text{Classical FFT}&amp;:&amp;n 2^n\\
 \text{QFT} &amp;:&amp; n^2
 \end{eqnarray}
-\]</span>
-::: {.example #unnamed-chunk-15}
-- <strong>Converting a time-domain vector with 15000 variables to frequency domain</strong>:
-- Classical computation time: 64 hours
-- Quantum computation time: 3 minutes
-- <strong>Converting a time-domain vector with 100000 variables to frequency domain</strong>:
-- Classical computation time: 25 days
-- Quantum computation time: 5 minutes</p>
-<p>:::</p>
+\]</span></p>
+<div class="example">
+<p><span id="exm:unnamed-chunk-14" class="example"><strong>Example 5.4  </strong></span></p>
+<ul>
+<li><strong>Converting a time-domain vector with 15000 variables to frequency domain</strong>:
+<ul>
+<li>Classical computation time: 64 hours</li>
+<li>Quantum computation time: 3 minutes</li>
+</ul></li>
+<li><strong>Converting a time-domain vector with 100000 variables to frequency domain</strong>:
+<ul>
+<li>Classical computation time: 25 days</li>
+<li>Quantum computation time: 5 minutes</li>
+</ul></li>
+</ul>
+</div>
 
 </div>
 </div>

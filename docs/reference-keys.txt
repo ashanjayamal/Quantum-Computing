@@ -1,6 +1,8 @@
 exm:unnamed-chunk-2
 exm:unnamed-chunk-3
 exr:unnamed-chunk-4
+eq:eq2-1
+eq:eq2-2
 exm:unnamed-chunk-6
 exr:unnamed-chunk-7
 eq:eq1
@@ -14,8 +16,10 @@ exr:unnamed-chunk-10
 exm:unnamed-chunk-11
 exm:unnamed-chunk-12
 exm:unnamed-chunk-13
-exr:unnamed-chunk-14
-thm:unnamed-chunk-17
+exr:ex-F
+exm:unnamed-chunk-14
+thm:unnamed-chunk-16
+exm:unnamed-chunk-17
 exm:unnamed-chunk-18
 exm:unnamed-chunk-19
 exm:unnamed-chunk-20

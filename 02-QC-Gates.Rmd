@@ -272,8 +272,10 @@ The CNOT gate helps to create entangled states.
 
 
 ```{exercise,label="ex-1"}
-.\
-![](fig/fig16.png)
+.
+
+
+![](fig/fig16.png){center}
 
 Show that the output state of the above circuit is the entangled state:
 
@@ -290,12 +292,20 @@ Show that the output state of the above circuit is the entangled state:
 Note that the action on separable states is as follows:
 
 
+
+
 \[
-(A \otimes B)(|a\rangle \otimes |b\rangle) = (A|a\rangle) \otimes (B|b\rangle
+(A \otimes B)(|a\rangle \otimes |b\rangle) = (A|a\rangle) \otimes (B|b\rangle)
 \]
 
 
 **Solution**\
+\[
+|0\rangle|0\rangle 
+\longrightarrow  |+\rangle |0\rangle=\frac{1}{\sqrt{2}}\big(|0\rangle +|1\rangle\big)|0\rangle 
+\longrightarrow \frac{1}{\sqrt{2}}\big(|00\rangle +|10\rangle\big)
+\longrightarrow \frac{1}{\sqrt{2}}\big(|00\rangle +|11\rangle\big)
+\]
 
 ## Exercises
 

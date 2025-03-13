@@ -224,9 +224,70 @@ The following is **a** solution to the Schrödinger equation:
 
 Note that \( e^{\frac{i H}{\hbar} (t_1 - t_2)} \) is a unitary.
 
-**Verfication**\
-)![](fig/fig3.jpg{width=50%}
-![](fig/fig4.jpg){width=50%}
+**Verification**:
+
+
+Let say, 
+
+\[
+U(t_1, t_2) = e^{-\frac{i}{\hbar} H(t_1 - t_2)} (\#eq:eq2-1)
+\]
+
+
+
+Then,
+
+
+\[
+\begin{eqnarray}
+U^\dagger(t_1, t_2) 
+&=& \left( e^{-\frac{i}{\hbar} H(t_1 - t_2)} \right)^\dagger\\
+&=& e^{\frac{i}{\hbar} H^\dagger (t_1 - t_2)}\\
+&=& e^{\frac{i}{\hbar} H(t_1 - t_2)} (\#eq:eq2-2)
+\end{eqnarray}
+\]
+
+
+(Since \( H^\dagger = H \), assuming \( H \) is Hermitian)
+
+From equations \@ref(eq:eq2-1) and \@ref(eq:eq2-2), we have:
+
+
+\[
+U U^\dagger = e^{-\frac{i}{\hbar} H(t_1 - t_2)} \cdot e^{\frac{i}{\hbar} H(t_1 - t_2)}\\
+= e^0 = I
+\]
+
+
+
+Similarly, it follows that:
+
+
+\[
+U U^\dagger = U^\dagger U = I
+\]
+
+Here, note that for any operator \( A \):
+
+
+
+\[
+e^A = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \cdots
+\]
+
+
+
+So,
+
+
+
+\[
+e^0 = I + 0 + \frac{0^2}{2!} + \cdots = I
+\]
+
+<!-- ![](fig/fig3.jpg){width=50%}
+![](fig/fig4.jpg){width=50%}-->
+
 
 This leads to the notion of unitary evolution of a quantum system. The gate model of quantum computing is based on this idea. A quantum gate is a unitary matrix, acting on a quantum state, called a qubit.
 ![](fig/fig5.png)

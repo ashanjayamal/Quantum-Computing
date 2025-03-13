@@ -29,7 +29,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-13" />
+<meta name="date" content="2025-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -378,9 +378,40 @@ where:</p>
 <span class="math display">\[|\psi(t_2)\rangle = e^{\frac{i H}{\hbar} (t_1 - t_2)} |\psi(t_1)\rangle.\]</span></p>
 </div>
 <p>Note that <span class="math inline">\(e^{\frac{i H}{\hbar} (t_1 - t_2)}\)</span> is a unitary.</p>
-<p><strong>Verfication</strong><br />
-)![](fig/fig3.jpg{width=50%}
-<img src="fig/fig4.jpg" style="width:50.0%" /></p>
+<p><strong>Verification</strong>:</p>
+<p>Let say,</p>
+<p><span class="math display" id="eq:eq2-1">\[
+U(t_1, t_2) = e^{-\frac{i}{\hbar} H(t_1 - t_2)} \tag{2.1}
+\]</span></p>
+<p>Then,</p>
+<p><span class="math display" id="eq:eq2-2">\[
+\begin{eqnarray}
+U^\dagger(t_1, t_2)
+&amp;=&amp; \left( e^{-\frac{i}{\hbar} H(t_1 - t_2)} \right)^\dagger\\
+&amp;=&amp; e^{\frac{i}{\hbar} H^\dagger (t_1 - t_2)}\\
+&amp;=&amp; e^{\frac{i}{\hbar} H(t_1 - t_2)} \tag{2.2}
+\end{eqnarray}
+\]</span></p>
+<p>(Since <span class="math inline">\(H^\dagger = H\)</span>, assuming <span class="math inline">\(H\)</span> is Hermitian)</p>
+<p>From equations <a href="quntum-effects.html#eq:eq2-1">(2.1)</a> and <a href="quntum-effects.html#eq:eq2-2">(2.2)</a>, we have:</p>
+<p><span class="math display">\[
+U U^\dagger = e^{-\frac{i}{\hbar} H(t_1 - t_2)} \cdot e^{\frac{i}{\hbar} H(t_1 - t_2)}\\
+= e^0 = I
+\]</span></p>
+<p>Similarly, it follows that:</p>
+<p><span class="math display">\[
+U U^\dagger = U^\dagger U = I
+\]</span></p>
+<p>Here, note that for any operator <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[
+e^A = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \cdots
+\]</span></p>
+<p>So,</p>
+<p><span class="math display">\[
+e^0 = I + 0 + \frac{0^2}{2!} + \cdots = I
+\]</span></p>
+<!-- ![](fig/fig3.jpg){width=50%}
+![](fig/fig4.jpg){width=50%}-->
 <p>This leads to the notion of unitary evolution of a quantum system. The gate model of quantum computing is based on this idea. A quantum gate is a unitary matrix, acting on a quantum state, called a qubit.
 <img src="fig/fig5.png" /></p>
 </div>
