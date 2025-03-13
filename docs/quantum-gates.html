@@ -29,7 +29,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-11" />
+<meta name="date" content="2025-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -158,12 +158,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.1" data-path="quantum-gates.html"><a href="quantum-gates.html#hadamard-gate"><i class="fa fa-check"></i><b>3.1</b> Hadamard gate</a></li>
 <li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#pauli-gates"><i class="fa fa-check"></i><b>3.2</b> Pauli gates</a></li>
-<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.3</b> CNOT gate</a></li>
+<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#phase-flip"><i class="fa fa-check"></i><b>3.3</b> Phase flip</a></li>
+<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.4</b> CNOT gate</a></li>
+<li class="chapter" data-level="3.5" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="deutschs-algorithm.html"><a href="deutschs-algorithm.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s Algorithm</a></li>
-<li class="chapter" data-level="5" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html"><i class="fa fa-check"></i><b>5</b> Quantum Fourier Trasnform (QFT)</a></li>
-<li class="chapter" data-level="6" data-path="quantum-computing-with-qiskit.html"><a href="quantum-computing-with-qiskit.html"><i class="fa fa-check"></i><b>6</b> Quantum Computing with Qiskit</a></li>
-<li class="chapter" data-level="7" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><i class="fa fa-check"></i><b>7</b> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour</a></li>
+<li class="chapter" data-level="5" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html"><i class="fa fa-check"></i><b>5</b> Quantum Fourier Trasnform (QFT)</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html#i-will-update-this-part-asap."><i class="fa fa-check"></i><b>5.1</b> I will update this part ASAP.</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html#complexity"><i class="fa fa-check"></i><b>5.1.1</b> Complexity</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="shors-algorithm.html"><a href="shors-algorithm.html"><i class="fa fa-check"></i><b>6</b> Shor’s Algorithm</a></li>
+<li class="chapter" data-level="7" data-path="quantum-computing-with-qiskit.html"><a href="quantum-computing-with-qiskit.html"><i class="fa fa-check"></i><b>7</b> Quantum Computing with Qiskit</a></li>
+<li class="chapter" data-level="8" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><i class="fa fa-check"></i><b>8</b> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour</a></li>
 <li class="divider"></li>
 <li><a href="https://ashanjayamal.github.io/academicpages/" target="blank">Ashan Jayamal</a></li>
 
@@ -252,7 +261,7 @@ H|1\rangle &amp;=&amp; \frac{1}{\sqrt{2}}
 </p>
 <p>The outer product representation of the Hadamard gate can be expressible as:</p>
 <p><span class="math display">\[
-H|x\rangle=|+\rangle + \langle 0| + |-\rangle\langle 1|
+H|x\rangle=|+\rangle \langle 0| + |-\rangle\langle 1|
 \]</span></p>
 <p>Further, By <a href="quantum-gates.html#eq:eq1">(3.1)</a> and <a href="quantum-gates.html#eq:eq2">(3.2)</a> we get,</p>
 <p><span class="math display">\[
@@ -295,8 +304,10 @@ Z = \sigma_z =
 0 &amp; -1
 \end{pmatrix}
 \]</span></p>
-<p><img src="fig/fig11.png" />
-## Phase flip</p>
+<p><img src="fig/fig11.png" /></p>
+</div>
+<div id="phase-flip" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Phase flip<a href="quantum-gates.html#phase-flip" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Recall that the global phase is not physically significant, and we are interested in changing the local phase. It is possible to define a phase flip gate performing the following operations:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -331,8 +342,8 @@ T = P\left(\frac{\pi}{4}\right) = \begin{pmatrix}
 \]</span></p>
 <p><img src="fig/fig14.png" /></p>
 </div>
-<div id="cnot-gate" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> CNOT gate<a href="quantum-gates.html#cnot-gate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="cnot-gate" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> CNOT gate<a href="quantum-gates.html#cnot-gate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>CNOT is a two-qubit gate. Controlled operations play a key role in multi-qubit gates.</p>
 <p>The CNOT gate is the most commonly used two-qubit controlled operation. The state of the first qubit controls whether the second qubit will be flipped or not. The first qubit is referred to as the , and the second qubit is called the .</p>
 <p>The required transformation can be written in Dirac notation as follows:</p>
@@ -358,7 +369,8 @@ T = P\left(\frac{\pi}{4}\right) = \begin{pmatrix}
 \]</span></p>
 <p>The CNOT gate helps to create entangled states.</p>
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-10" class="exercise"><strong>Exercise 3.3  </strong></span><img src="fig/fig16.png" /></p>
+<p><span id="exr:ex-1" class="exercise"><strong>Exercise 3.3  </strong></span>.<br />
+<img src="fig/fig16.png" /></p>
 <p>Show that the output state of the above circuit is the entangled state:</p>
 <p><span class="math display">\[
 \frac{1}{\sqrt{2}} \big(|00\rangle + |11\rangle\big).
@@ -370,15 +382,18 @@ T = P\left(\frac{\pi}{4}\right) = \begin{pmatrix}
 \]</span></p>
 <p><strong>Solution</strong><br />
 </p>
+</div>
+<div id="exercises" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Exercises<a href="quantum-gates.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-11" class="exercise"><strong>Exercise 3.4  </strong></span>Find the output
+<p><span id="exr:ex-X" class="exercise"><strong>Exercise 3.4  </strong></span>Find the output
 <img src="fig/fig17.png" /></p>
 </div>
 <p><strong>Solution</strong><br />
 <img src="fig/fig23.jpg" /></p>
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-12" class="exercise"><strong>Exercise 3.5  </strong></span>Find the output
-<img src="fig/fig18.png" /></p>
+<p><span id="exr:ex-H" class="exercise"><strong>Exercise 3.5  </strong></span>Find the output</p>
+<p><img src="fig/fig18.png" /></p>
 </div>
 <p><strong>Solution</strong><br />
 <img src="fig/fig24.jpg" /></p>

@@ -29,7 +29,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-11" />
+<meta name="date" content="2025-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -158,12 +158,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.1" data-path="quantum-gates.html"><a href="quantum-gates.html#hadamard-gate"><i class="fa fa-check"></i><b>3.1</b> Hadamard gate</a></li>
 <li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#pauli-gates"><i class="fa fa-check"></i><b>3.2</b> Pauli gates</a></li>
-<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.3</b> CNOT gate</a></li>
+<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#phase-flip"><i class="fa fa-check"></i><b>3.3</b> Phase flip</a></li>
+<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.4</b> CNOT gate</a></li>
+<li class="chapter" data-level="3.5" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="deutschs-algorithm.html"><a href="deutschs-algorithm.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s Algorithm</a></li>
-<li class="chapter" data-level="5" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html"><i class="fa fa-check"></i><b>5</b> Quantum Fourier Trasnform (QFT)</a></li>
-<li class="chapter" data-level="6" data-path="quantum-computing-with-qiskit.html"><a href="quantum-computing-with-qiskit.html"><i class="fa fa-check"></i><b>6</b> Quantum Computing with Qiskit</a></li>
-<li class="chapter" data-level="7" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><i class="fa fa-check"></i><b>7</b> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour</a></li>
+<li class="chapter" data-level="5" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html"><i class="fa fa-check"></i><b>5</b> Quantum Fourier Trasnform (QFT)</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html#i-will-update-this-part-asap."><i class="fa fa-check"></i><b>5.1</b> I will update this part ASAP.</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html#complexity"><i class="fa fa-check"></i><b>5.1.1</b> Complexity</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="shors-algorithm.html"><a href="shors-algorithm.html"><i class="fa fa-check"></i><b>6</b> Shor’s Algorithm</a></li>
+<li class="chapter" data-level="7" data-path="quantum-computing-with-qiskit.html"><a href="quantum-computing-with-qiskit.html"><i class="fa fa-check"></i><b>7</b> Quantum Computing with Qiskit</a></li>
+<li class="chapter" data-level="8" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><i class="fa fa-check"></i><b>8</b> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour</a></li>
 <li class="divider"></li>
 <li><a href="https://ashanjayamal.github.io/academicpages/" target="blank">Ashan Jayamal</a></li>
 
@@ -221,7 +230,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Classically, two queries to the function are necessary to determine this. Deutsch’s algorithm provides a quantum protocol to do this with a single query to the function</p>
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-13" class="exercise"><strong>Exercise 4.1  </strong></span>Let <span class="math inline">\(x, y \in \{0, 1\}\)</span> and <span class="math inline">\(f : \{0, 1\} \to \{0, 1\}\)</span>. Show that the transformation:</p>
+<p><span id="exr:unnamed-chunk-10" class="exercise"><strong>Exercise 4.1  </strong></span>Let <span class="math inline">\(x, y \in \{0, 1\}\)</span> and <span class="math inline">\(f : \{0, 1\} \to \{0, 1\}\)</span>. Show that the transformation:</p>
 <p><span class="math display">\[
 U_f |x, y\rangle = |x, y \oplus f(x)\rangle
 \]</span></p>

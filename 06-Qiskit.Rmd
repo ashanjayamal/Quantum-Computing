@@ -62,6 +62,18 @@ print(f"Number of qubits: {backend.num_qubits}")
 ```
 
 
+
+
+
+Let's try to make the follwing circuits in qiskit.
+
+
+
+```{example}
+.\
+![](fig/fig16.png)
+```
+
 ```python
 #Importing QuantumCircuit from qiskit
 
@@ -79,6 +91,7 @@ qc.measure_all()
 
 qc.draw(output='mpl')
 ```
+![](fig/fig43.png)
 
 ```python
 from qiskit import transpile
@@ -96,10 +109,16 @@ from qiskit.visualization import plot_histogram
 plot_histogram(counts)
 ```
 
-Let's try to make this in qiskit.
+![](fig/fig44.png)
+
+We can verify this result by \@ref(exr:ex-1).
+
 ```{example}
+.\
 ![](fig/fig17.png)
 ```
+
+
 ```python
 qc2=QuantumCircuit(2)
 qc2.x(0)
@@ -109,6 +128,8 @@ qc2.x(1)
 qc2.measure_all()
 qc2.draw(output='mpl')
 ```
+
+![](fig/fig39.png)
 
 ```python
 # Importing necessary packages to simulate results
@@ -126,7 +147,12 @@ from qiskit.visualization import plot_histogram
 plot_histogram(counts)
 ```
 
+![](fig/fig40.png)
+
+We can verify this result by exercise \@ref(exr:ex-X)
+
 ```{example}
+.\
 ![](fig/fig18.png)
 ```
 
@@ -140,7 +166,7 @@ qc3.h(1)
 qc3.measure_all()
 qc3.draw(output='mpl')
 ```
-
+![](fig/fig41.png)
 
 ```python
 # Importing necessary packages to simulate results
@@ -157,3 +183,8 @@ print(counts)
 from qiskit.visualization import plot_histogram
 plot_histogram(counts)
 ```
+
+![](fig/fig42.png)
+
+We can verify this result by exercise \@ref(exr:ex-H)
+

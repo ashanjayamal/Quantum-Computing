@@ -209,6 +209,7 @@ Then,
 The time evolution of a closed quantum system is governed by the Schrödinger equation:
 $$i\hbar \frac{d}{dt}|\psi(t)\rangle = H|\psi(t)\rangle$$
 where:
+
 - \( \hbar \) is the reduced Planck's constant.
 - \( H \) is the Hamiltonian of the system (a Hermitian operator).
 

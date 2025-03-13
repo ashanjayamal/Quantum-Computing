@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to Quantum Computing</title>
+  <title>Chapter 6 Shor’s Algorithm | Introduction to Quantum Computing</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
 The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to Quantum Computing" />
+  <meta property="og:title" content="Chapter 6 Shor’s Algorithm | Introduction to Quantum Computing" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to Quantum Computing" />
+  <meta name="twitter:title" content="Chapter 6 Shor’s Algorithm | Introduction to Quantum Computing" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
@@ -36,8 +36,8 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="quntum-effects.html"/>
+<link rel="prev" href="quantum-fourier-trasnform-qft.html"/>
+<link rel="next" href="quantum-computing-with-qiskit.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -193,24 +193,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introduction to Quantum Computing</h1>
-<p class="author"><em>Ashan Jayamal</em></p>
-<p class="date"><em>2025-03-13</em></p>
-</div>
-<div id="quantum-computing-a-journey-into-the-atomic-world" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Quantum Computing: A Journey into the Atomic World<a href="index.html#quantum-computing-a-journey-into-the-atomic-world" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="shors-algorithm" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Shor’s Algorithm<a href="shors-algorithm.html#shors-algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div class="float">
-<img src="https://informationage-production.s3.amazonaws.com/uploads/2024/09/GettyImages-2156615862.jpg" alt="Resourse: www.information-age.com" />
-<div class="figcaption">Resourse: www.information-age.com</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Peter_Shor_2017_Dirac_Medal_Award_Ceremony.png/330px-Peter_Shor_2017_Dirac_Medal_Award_Ceremony.png" alt="Peter Williston Shor (Resource: Wikipiedia )" />
+<div class="figcaption">Peter Williston Shor (Resource: Wikipiedia )</div>
 </div>
-<p>As circuit components continue to shrink, reaching the atomic realm of energy and matter, the influence of quantum effects has become increasingly significant. Rather than viewing these effects as challenges, researchers recognized their potential to enable more efficient computations.</p>
-<p>In the early 1980s, both Paul Benioff and Richard Feynman independently proposed quantum models of computation. These pioneering ideas demonstrated how quantum mechanics could be applied to computing, laying the groundwork for a new paradigm.</p>
-<p>The limitations of classical computers, bound by conventional models, drove researchers to explore quantum computing more deeply. Over the decades, this unconventional approach has garnered significant attention due to remarkable theoretical and experimental advancements.</p>
-<p>Quantum computing aims to solve complex computational problems efficiently by harnessing the power of quantum effects, such as superposition and entanglement. Today, it represents a bold step forward in the quest for revolutionary technologies that transcend the boundaries of classical computation.</p>
-<div class="float">
-<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*N3CWuTrxr-tg27I2_9Xrmw.png" alt="Resource: Quantumpedia" />
-<div class="figcaption">Resource: Quantumpedia</div>
+<p>Shor’s algorithm factorises a number <span class="math inline">\(N\)</span> in <span class="math inline">\(\mathcal{O}((\log N)^3)\)</span> time and <span class="math inline">\(\mathcal{O}(\log N)\)</span> space. This algorithm was devised by Peter Shor in 1994.</p>
+<p>This algorithm revolutionised the field of computing, as prime factoring has no polynomial time classical algorithm. An implication was that RSA cryptosystems, which use prime factoring as a key ingredient, would not be safe in the future, with the advent of large quantum computers.</p>
+<p>Given an integer <span class="math inline">\(N\)</span>, Shor’s algorithm is about finding <span class="math inline">\(b\)</span> such that <span class="math inline">\(b^2 \equiv 1 \pmod{N}\)</span>.</p>
+<p>This idea can be formalised as follows:</p>
+<blockquote>
+<p><strong>Result</strong><br />
+Suppose <span class="math inline">\(b^2 \equiv 1 \pmod{N}\)</span> and <span class="math inline">\(b \not\equiv \pm 1 \pmod{N}\)</span>. Then
+<span class="math inline">\(\gcd(b + 1, N)\)</span> and <span class="math inline">\(\gcd(b - 1, N)\)</span> are non-trivial factors of <span class="math inline">\(N\)</span>.</p>
+</blockquote>
+<div class="proof">
+<p><span id="unlabeled-div-3" class="proof"><em>Proof</em>. </span>(<em>Proof Idea</em>)<br />
+We are going to use proof by contraditction.
+Let <span class="math inline">\(d = \gcd(b - 1, N)\)</span>. Then <span class="math inline">\(d\)</span> is a divisor of <span class="math inline">\(N\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(d = N\)</span>, then <span class="math inline">\(N \mid (b - 1)\)</span> (contradiction).</p></li>
+<li><p>If <span class="math inline">\(d = 1\)</span>, then there exist integers <span class="math inline">\(k_1, k_2\)</span> such that:
+<span class="math display">\[
+\begin{eqnarray}
+(b - 1)k_1 + Nk_2 &amp;=&amp; 1\\
+(b + 1)(b - 1)k_1 + N(b + 1)k_2 &amp;=&amp; b + 1\\
+(b^2 - 1)k_1 + N(b + 1)k_2 &amp;=&amp; b + 1\\
+\frac{(b^2 - 1)}{N}k_1 + (b + 1)k_2 &amp;=&amp; \frac{b + 1}{N}
+\end{eqnarray}
+\]</span></p>
+<p>Since <span class="math inline">\(N|(b-1)\)</span>, then <span class="math inline">\(\frac{(b^2 - 1)}{N}k_1\)</span> is an integer, and <span class="math inline">\((b+1)k_2\)</span>, implies <span class="math inline">\(\frac{b + 1}{N}\)</span> is an integer.
+This a contrdiction.</p></li>
+</ul>
+</div>
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-17" class="theorem"><strong>Theorem 6.1  (Eulers Theorem) </strong></span>Let <span class="math inline">\(\alpha\)</span> be an integer (<span class="math inline">\(\alpha &lt; N\)</span>) such that <span class="math inline">\(\gcd(\alpha, N) = 1\)</span>. Then there exists some <span class="math inline">\(s\)</span> (<span class="math inline">\(1 &lt; s &lt; N\)</span>) such that:
+<span class="math display">\[
+\alpha^s \equiv 1 \pmod{N}.
+\]</span></p>
 </div>
 
 </div>
@@ -219,8 +240,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="quntum-effects.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="quantum-fourier-trasnform-qft.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="quantum-computing-with-qiskit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -251,7 +272,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/index.Rmd",
+"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/05-Shor.Rmd",
 "text": "Edit"
 },
 "history": {

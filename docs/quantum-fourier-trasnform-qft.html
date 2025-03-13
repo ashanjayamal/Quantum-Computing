@@ -29,7 +29,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-11" />
+<meta name="date" content="2025-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -37,7 +37,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   
   
 <link rel="prev" href="deutschs-algorithm.html"/>
-<link rel="next" href="quantum-computing-with-qiskit.html"/>
+<link rel="next" href="shors-algorithm.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -158,12 +158,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.1" data-path="quantum-gates.html"><a href="quantum-gates.html#hadamard-gate"><i class="fa fa-check"></i><b>3.1</b> Hadamard gate</a></li>
 <li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#pauli-gates"><i class="fa fa-check"></i><b>3.2</b> Pauli gates</a></li>
-<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.3</b> CNOT gate</a></li>
+<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#phase-flip"><i class="fa fa-check"></i><b>3.3</b> Phase flip</a></li>
+<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.4</b> CNOT gate</a></li>
+<li class="chapter" data-level="3.5" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="deutschs-algorithm.html"><a href="deutschs-algorithm.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s Algorithm</a></li>
-<li class="chapter" data-level="5" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html"><i class="fa fa-check"></i><b>5</b> Quantum Fourier Trasnform (QFT)</a></li>
-<li class="chapter" data-level="6" data-path="quantum-computing-with-qiskit.html"><a href="quantum-computing-with-qiskit.html"><i class="fa fa-check"></i><b>6</b> Quantum Computing with Qiskit</a></li>
-<li class="chapter" data-level="7" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><i class="fa fa-check"></i><b>7</b> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour</a></li>
+<li class="chapter" data-level="5" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html"><i class="fa fa-check"></i><b>5</b> Quantum Fourier Trasnform (QFT)</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html#i-will-update-this-part-asap."><i class="fa fa-check"></i><b>5.1</b> I will update this part ASAP.</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html#complexity"><i class="fa fa-check"></i><b>5.1.1</b> Complexity</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="shors-algorithm.html"><a href="shors-algorithm.html"><i class="fa fa-check"></i><b>6</b> Shor’s Algorithm</a></li>
+<li class="chapter" data-level="7" data-path="quantum-computing-with-qiskit.html"><a href="quantum-computing-with-qiskit.html"><i class="fa fa-check"></i><b>7</b> Quantum Computing with Qiskit</a></li>
+<li class="chapter" data-level="8" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><i class="fa fa-check"></i><b>8</b> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour</a></li>
 <li class="divider"></li>
 <li><a href="https://ashanjayamal.github.io/academicpages/" target="blank">Ashan Jayamal</a></li>
 
@@ -195,7 +204,7 @@ y_k \equiv \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} x_j e^{2\pi ijk/N}
 \]</span></p>
 <p><img src="fig/fig30.png" /></p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-14" class="example"><strong>Example 5.1  </strong></span>Suppose you have a data set <span class="math inline">\(x_j=\sqrt{2},2\)</span>. Compute the DFT of this set.</p>
+<p><span id="exm:unnamed-chunk-11" class="example"><strong>Example 5.1  </strong></span>Suppose you have a data set <span class="math inline">\(x_j=\sqrt{2},2\)</span>. Compute the DFT of this set.</p>
 </div>
 <p><strong>Solution:</strong><br />
 </p>
@@ -213,7 +222,7 @@ y_1 = \frac{1}{\sqrt{2}} \left( \sqrt{2} + 2 e^{i \pi} \right) = \frac{1}{\sqrt{
 \]</span></p>
 <p>Resource: <em>Pathak, A., 2013. Elements of quantum computation and quantum communication (pp. 92-98). Boca Raton: CRC Press</em></p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-15" class="example"><strong>Example 5.2  </strong></span>Find <span class="math inline">\(y_0\)</span> for <span class="math inline">\(x_j = \{1 + i, \sqrt{2}, 3 - 2i, 4\}\)</span>.</p>
+<p><span id="exm:unnamed-chunk-12" class="example"><strong>Example 5.2  </strong></span>Find <span class="math inline">\(y_0\)</span> for <span class="math inline">\(x_j = \{1 + i, \sqrt{2}, 3 - 2i, 4\}\)</span>.</p>
 </div>
 <p><strong>Solution</strong> :<br />
 Here <span class="math inline">\(N = 4\)</span> and
@@ -283,7 +292,7 @@ A=|\psi_0\rangle \langle 0|+|\psi_1\rangle \langle 1|
 QFT_N = \frac{1}{\sqrt{N}} \sum_{x=0}^{N-1} \sum_{y=0}^{N-1} \omega_N^{xy} |y\rangle \langle x|
 \]</span></p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-16" class="example"><strong>Example 5.3  </strong></span>Examples
+<p><span id="exm:unnamed-chunk-13" class="example"><strong>Example 5.3  </strong></span>Examples
 Lets take a look at <span class="math inline">\(QFT_2\)</span>. Because <span class="math inline">\(M =2,\omega=e^{i\pi}\)</span>.
 Therefore we have,
 <span class="math display">\[
@@ -308,7 +317,7 @@ QFT_4 =
 \]</span></p>
 </div>
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-17" class="exercise"><strong>Exercise 5.1  </strong></span>Find QFT of following vectors.
+<p><span id="exr:unnamed-chunk-14" class="exercise"><strong>Exercise 5.1  </strong></span>Find QFT of following vectors.
 <span class="math display">\[
 \begin{eqnarray}
 | \psi_1 \rangle &amp;=&amp; | 00 \rangle\\
@@ -317,10 +326,135 @@ QFT_4 =
 \end{eqnarray}
 \]</span></p>
 </div>
-<p><img src="fig/fig32.jpg" />
-<img src="fig/fig33.jpg" /></p>
-<p><img src="fig/fig34.jpg" /></p>
+<p><img src="fig/fig33.jpg" />
+<img src="fig/fig32.jpg" />
+<img src="fig/fig34.jpg" /></p>
+<p>QFT needs to be restated in a particular form to implement it on a quantum circuit. This requires some results.</p>
+<div class="float">
+<img src="fig/fig34.png" alt="An example quantum circuit (not QFT circuit)" />
+<div class="figcaption">An example quantum circuit (not QFT circuit)</div>
+</div>
+<p>Quantum Fourier Transform (QFT) in Dirac notation:
+<span class="math display">\[
+   QFT_N = \frac{1}{\sqrt{N}} \sum_{x=0}^{N-1} \sum_{y=0}^{N-1} \omega_N^{xy} |y\rangle \langle x|
+   \]</span></p>
+<p>QFT on <span class="math inline">\(|x\rangle\)</span> as a superposition:
+<span class="math display">\[
+   QFT|x\rangle = \frac{1}{\sqrt{N}} \sum_{y=0}^{N-1} \omega_N^{xy} |y\rangle
+   \]</span></p>
+<p>Binary representation of <span class="math inline">\(y\)</span>:
+<span class="math display">\[
+   y = y_n + 2y_{n-1} + \cdots + 2^{n-1}y_1
+   \]</span></p>
+<p>QFT on <span class="math inline">\(|x\rangle\)</span> as a product:
+<span class="math display">\[
+   QFT|x\rangle = \frac{1}{\sqrt{2^n}} \sum_{y_k \in \{0,1\}} \bigotimes_{k=1}^n e^{\frac{2\pi i}{2^n} 2^{n-k} xy_k} |y_k\rangle
+   \]</span></p>
+<div id="i-will-update-this-part-asap." class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> I will update this part ASAP.<a href="quantum-fourier-trasnform-qft.html#i-will-update-this-part-asap." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADSCAMAAABD772dAAAA8FBMVEX/////AADu7u7t7e0BAQH09PT6+vr19fX7+/vx8fH6eHj8Xl7++Pj59/f7///4///+FRXy6+v48fH1///+CwtmZmZQUFD+HR3d3d39gIC0tLSOjo7+TEz+LCz+JCT9yMj4p6f80tL95+f8cnL9Z2f9VFT7sbF5eXn0yMj9mZn/Q0P94uL9RUX4g4P5kJD56+v+urry3Nybm5vNzc1bW1v+oaH5bGwzMzP+2toeHh78WVnrzMymnZ08Pj7Rv7/6YWH8NTXyvLxkJiavlZXAoKBxXl51cXHe0NDhu7vPs7NaT0+RiYkTExOSfn44LS2YmJjtgglvAAARNUlEQVR4nO2dDXubOBLHMQoItTY4OE3SNolj56VpnMRJX91uu2nudru3d7vX7/9tzjYgBOg/vBjHNr15dp9utRrQzxJopJkRhiHFMiOx4kIWlTFbljlxYVyRy0IRF5oLaQtZkesa5MgyWxaaudrxf/8feHnAFhcdh3ORo90UYMsbn18/eXJ9PnZ/CmDDP9lrzWXvpP0zAA+uWlIuB80HHh+2FDkaNB24/bmVkKfthgPftlLyeoXALBIVWIoKLEUFjkQFTmu307ytVhtqC1moNllzb1uWmbnahiXFjkVXyGUZ11XUFqa13Zss8I1bVDtVWPLeYaH2RWrrxqwVFSa7sMSIZ1Y/y9tq9S2mH7NJ7aAs0YVlR/xcuziwrFnVdmTuvQ74yi0OXOAhzXvEHxHYO9fxtlrnXkOBtw/0wN+GoonAzD3W887eW00EtsaIt9VSlhHNAebXGPhDXLExwJ52Soqkv47Ai83DbfDGCuRALhSXPg8/kqVlwDdWIMduaUsrp0HI0lK7cHm2tLC/0cCHQ/FItrQCLEd37asl8o0VyHV4gUYsDxkfdvOAu8PgCo0ANj3yjRXIgdecHtavktLS91hTgMcFOnjaxWPRDGDm5UxJkRy7rBHAVq8Y79Sk5o0Adp8UBX7uNWETT4wO81ED2RmI5RsehYni30OoF8jXvsonjeQKEMW/Zj5RJOoAUC8pB8OyVkuD4ryt1vk6rZaqAXdKdPC0i31304ELTkmRHG868LAcb6s1FJp7bxDwSVngE2+jgQsZ0Um55RsM3PlQHvhze2OBGbFx9/o1/F/HHlsm8BIND+FDqKPRGO/5+NYyDQ+51eUom2KOLKT3+IRO24q03feQ6cbzNJ7TUN576XvHDbJF9t625t5QO/5tlH3YhRYP8QAYQKRvPSF6uIsHUReSYzYuS+7DGqS2CixHek2rJfzGepiOUY4f8NARsWnLwwkEOvVn9fxTWOF2E4HT8Tqx7EzmUy2f7KAaQWzPhgFn4nWkRMaUh3cGzjcPuANhjvzQlrLaR7BSZ+OAsWHxPqrKiHnr+aYBD+DzGezGBtruGarVHTzGnlZUI7GnVRY4mIfx49n3WKyN3+Rny5qHC7sfC/skpxXdCwhy76raLnayXbgV7p3vTV2KLS1s6GrYGyge2uloGEAv2+VQHT712dJy9Ne4WuLYTr7pJbRZD28B3egC5tdyeci39yCFLZLaAk9f3TgMYs2BvacQYrrWTWoz9wFWfrohwNSU5Ge1ffjz7EQJAmsO7MPJtdW3s9o2XjWd+RsBjI3oJz2m8ab28Jx9uxHA0HfWnQit9gROTUfeKoGzK3ytNjYljtMxDaEq4TC/dmsH1pkOyZlaAmsMj0xSg4Gdozumqdc2O7CLu5MQuB7DQ7WkF/CHKm2i4nUGmUtK5QFUOvBMRBSXrS4wjdl4NXDfxtoOfm89TJ+DNV4ebuN9nQGlfQGn7qvpanJtgRnKamgFK3qsTcSBvLbXF5hwNez4pLY9hl3c8sXaAnvElJSjbRNTk2euKbDVx0+in9DOvuNNCz/9fWs9gZmjzcOay4OhaDNhO1OxEynxfACV7531BPZwkz+7irbt8Lsfb978uOOqtunCLm6da5NeVh2YZvrQxtqbqE/h23dbobx7GwMzcwS9a4fxA1FjdmkwzpxgsMlCWebwqFDwuDDW5i41JYXaQtjt71uKfG/P7zW/pPEcXuDYDW8uLOXemgap3tRsy62pdm1ZLc4INrfbiwwx0/7jH1tJeTufwINOwGHzo3DTdbGsllqXhx7un3MjMsS48ynFu/Wpbckm4zFyKjezFWD9Q/pIwBY2op/6Etj4nubd2nrmyCY7OMjpIYpmWhdgwtk7N6LnA9d+m+WdDmpbvlfu4EUOxmsFzLwHPBoNCWzs6oB3jfhFin+2h3BQrwewcKCNdTSWwMLQ8W5tGbGxPIYO1B1XrBGwhf2ewbEVAfCdHviFHTcZe1lvgi5eC2COt+EuXQnMnDcA2Imb7F6iK+0FgRKPCIzmYcawm1fdaGXGKz3wK0NpMvY7nrlpU6oscCq7tIw/NFHRxVvpn9uKtvFMD/zMUC7Zxn6avpu49+qyS/WnVcxkp89VbQisbEsSjoh716jBllaA5eguuVoiIjV6TNUGQ/pZMmCCiA7JG7OPtDzEJrAvEtrFgPHhCN21AHaxPXgrExgCbfCW/pEKiSEivNYBGLsaDtoiqQ2AX6aA8XEBe5M1ACb20NNzHgB+kw56wivNz8pvuCJgMia2IjARh9uPn5IVAUPLaBZalgJ+0AN/yYa1YcvNk+/B+gLTygDjOeS1mwZ2R3rgfjZwkbDNo4XxsiLxSGBziMPaZzVTPQyAR5p4enjZ7rAosN7yXDAwjYzXSXtT+RgA84w/lPCR38dEWlMqkqUEplGv06T2bPHAbT2wz7PmPw4vl+f2rGJ5iDco+jwDPP2rHtixsk0mMiLuOysDfoCNOvVS2hSwoTsTzyN2e1YGjAPah2nt0sDmEDtQVwVMbMd09MDvdLwf9cBe3rbRowNjX9C3cJWUAdbuWr7TA5sC5pZ3BysBJlwN+nTJAtu0apPzMrkeGxhPSWcdkdEOgP9ZqocdPDWNqgNXNTzahBEtstrzPRzjNx3wbwYKxJrAt+Jlu7LhofpDI1H8obIs4U0VwqVW6YpHM3FJ44UO+IWh3lv1h3rU3kLCH6rT1uPEv00ZW5oJ6pDKWDv9vOh9S4Y2N3XahZaHd4/GoqItrQBLrXxgIvv3RrlkeeDEWTyMExkRvcdcDxMngp2NFe0FgU0xJoLN44rLB+7gfZ0Lj4gu3v+Y5f1rHwMzDzsiTh6vh6k8rAOXlQT+SACbpoujcy8eDdjh0Mbam65t6wRmfARTgg5lMNOygYnzdZ5bZMC8/3vZHmY2fj2+fixg/KPvDWngsQb49zYFPLUwofVxFCXrLRSYNouDTDvTzKQhhn/z+b5OMsbfTJhxmqCWCDi8U+bEtAK7PbZsZdqZZmYMsfLZpS6OPDlrc4v0aOq8S68MdO+gkLfx1HTn4pbXll1K+JL6WDvwh+qAvxvIGo5KCPfzONuFebZ0+jELashCBTh8IHD02Ifo59JoBw+po+thByU1yCIchn2uxPGltGtaHlo9nDk6rAiMmiyL8Ep0r2ctGZiIMDx2c4FtzXLphZ0LTMQkzo7CXCYwcUjlYTRJLAHYx5HFo7JJL6WAmYNdDedRxSUAE6HJT8smvZQBpuL0T2VFApj/kQX+VwFg7hKhnODDJ3UACxyQtROv1ijgYRZ4xAsAE/kjB77+wyd1BKYRuTbKCQVEph73s8A+z52WDG4SOw7H9tJ6eBtu3LW24+vrgcMbZoENOLGoP5fQfIsrlO64StKLUSS7lPB+F/yEmA44IIrE1GnPiIhdQ9fUaNcQmIaP8j8YF/1IHATWaCfXOx24Sz1fo2W6sIblIXG+Ts5XAGLgTPThp6LAhEn9tC1vVCMwsa9zhppcAPhZYWADr5ouiueAFAY2bfjG2pkUB874D0sA4yPlduzae5gR3ssb2OQscMa79K44MLHz8D7q4tqAxQSukrrj4sDOn2ng30oA20Syn6gXmFr2H+MmZ3s4sxX/awlgcmpitQJz7Es6ID63WgD4bRlg6tQbXh5YztSZiHizk+vyKGh47P+VAt7H2hrTAcckfu7oNvE0hgfyh4YSFBBZDfde2ieZ0VY8mhb7muT9uG9BbY0/1MM52X0XuXdjb6ooml3qwtu0RsFoLHpGoEjNS//ezo46rM34NnagtpPaCy0eqMNyWFqbAmbGyyTwf9plgKcvTzojoiZgvK9zFR3aX7SHeWrP441dCpgK/JjH9tQDjDfuohTI4sAs8db6646XAzaJ8L/ruoCJ0zZdjTYJzIyEA/Fj0MIywIRJ/Us9wNhF253ED1dh4MSYflEBGE9NB24twNRhBjrtnKNr23/HvLsiDNkrA0w8Ye/rAMYpvS23CrDFZDzeLgutu3LAeJI8GktzsfqJaWSMZ9aUKvD9KevFx09T+fhCyKo5J4SldoDwmDvxZE10YhqPJfY0SrEI5+jVWK2pOirJMh5neHKrirZt46MwWwO34L0NYEsL/MDcesW/XaoGTMzvMJVcbRhbyPGq6bmbo60Cy5GuAONLf56d3aY2OdIu98EtQhtGjzIPh53e5mjnAeMPvE2s/CYvCZg6NeRwIWDCiXU9PxdrRcDUKQs3tDYNPMYbd/O94JUBC3yi87fhAsBUvE6RJiPgYI5YALhAbE8VYBxqcNAu1Ed6YGbazuwgsQWATZPwVI8qAxMfU+GVgQ1hiP1fvnz5ZV/kaJPA/AE27rQosFwIhMCEQWNr01aKAW+/Cc+Y+vSGkdp0UkPFD5+owKkedrBz9E6TxSG1dcBmDPzjv8rq8AelLZusPeZR4C8MzjIikDYOTOvh6Kg46B1qA2tYiFTg0q6wytvSYQcRc2avQmDaHYycuYyzGnTaxLxjZTOXdos5xOWNFGA8aXYHVtnlIaPysOKblgQWL9O8W1sv8wPTwIHaxEm4H5ySwNS5yVfKKZOlgJm9n+VNnJhWDlh4+EOwE16yhwXeORoorSsHbHzVAX81KvYwE9iBemiXAyZGy5MOkbZCAluaGJ6ZtDUZ4kWAp+9f4rmLx2EBYIGD3ltjq6KxzJwveuAvTlVgC/v49kZlgIlzk2/ItBUSGB8vVRWYudjavy4B7N5RJ5hXBTYxsP4A6XxgU4xxmo+cPPM38Sgj2qv8kQBTnyA+i3owqxge8z0cC4fanEavrdzsUioPy8jxhyYzPOOK89N2YQ+Xyg9N+kOpTC63UHYpE3jfNwjnKPrt0syIh4cAguxSWUjFFo6xA9WdXyFv8cB6hI1q5APj1ZKjCR6eSfa0pRBYapPBlERGRK8IMBGvE+6eVAXWBR7OBGkXBHagvbU3sfKBqdTg0IiuDvxDx/v3gsDEuv1m5q6ngZlNuBqIj48UA05HeMzkK1sUGB8p17qw08HYmR628Re9oqD36sDGr1ngX6F24WMccLj8vZvXw9YtVJZZDQsAG5lIvFdYuzAwcaTcOWc0MD7KvzWpA7id6uM/Ce3iB3Vsw0YfdixiE49M5Yz3dXL9oTGwxhDbVzY9dvcp7ZyDOpR7UyZ1MuklkV3KuT2EU9LlEDkvSxYaxtuXu9OX19fdl28NZ4FLqmVD4pRmN1EzZQ0TU5Kn64QytrSizdj+/uzHln1Y2ZaOtImpidrEG0C1yzLfLi3/iFddLcXaVEwiXh7iCa2/7sA4GvRA2aJONRl7v6/ddQcm3lvyKMwUsOPjDh6W+hzvKoANnMl1OVa145sScZuzAyTWHZhII/ugJr3EGNhXM/8eVuz+0e1amlWAhUZbC2zT2gEwcThCFAKbACayGs6N9ky2/em/838Umf7N91OFYcHsj0xhvnZYS6udLExqO324FXDiZoCZ/QB5u88/PN0EOcV7Hw/hGFF6mGO3RQOk66bfAMSU1AgJz+2JzTfsemyGhC7e2DTF03ZD5DoJjKekxsgwAYxN78bIpQrc8DdWILcxMGGjNEj2xhIYL60aJccSuOFTUiTfImCch9ws2RsF2aXWAMc3NEq6Az7LLmXiAhvdzZJbPl88WD8LcHdgzYFF5yd5hg/n8UczByney2qUHPSCfWlmD1bdlMeRgR1tAFh4d6dB8sFhEbDwceJTY+TAt+ItHmu78db02TzX2Yh8V6J93ui5qXvsWyyZXer6tzfXTxop1ze3vmFns0s9YXcswTtqfJ3T6QhrWjr9QykUYb1ORy0M6yknhjiynqod1etYqnZYz+oktOf1eFI7rJfQDuup2nZUTygB7fV8u3QuhbNaimvTWS1qyEN8n1zt+oDLpOIV0674MRZa+3+tCQ6lMM1jwgAAAABJRU5ErkJggg==" /></p>
+<p>Now, we state the QFT in a way that supports an efficient
+quantum circuit implementation.</p>
+<p><span class="math display">\[
+QFT|x\rangle = \frac{1}{\sqrt{2}} \left( |0\rangle + e^{2\pi i (0 \cdot x_n)} |1\rangle \right) \otimes \frac{1}{\sqrt{2}} \left( |0\rangle + e^{2\pi i (0 \cdot x_{n-1} x_n)} |1\rangle \right) \otimes \cdots \otimes \frac{1}{\sqrt{2}} \left( |0\rangle + e^{2\pi i (0 \cdot x_1 x_2 \ldots x_{n-1} x_n)} |1\rangle \right)
+\]</span></p>
+<p><strong>Recall</strong>:</p>
+<p>We apply ‘controlled’ rotations. It’s like <strong>CNOT</strong> gate,</p>
+<p><img src="fig/fig35.png" /></p>
+<p><span class="math display">\[
+\begin{eqnarray}
+\text{Controlled rotation:} &amp;&amp;\\
+&amp;&amp;CR_k|0x_j\rangle = |0\rangle |x_j\rangle\\
+&amp;&amp;CR_k|1x_j\rangle = |1\rangle |e^{\frac{2\pi i}{2^k} x_j}\rangle
+\end{eqnarray}
+\]</span></p>
+<p>The circuit implementation of <span class="math inline">\(QFT\)</span> on <span class="math inline">\(4\)</span> qubits is as follows:</p>
+<p><img src="fig/fig36.png" /></p>
+<p>It is possible to generalise this and design the quantum
+circuit for <span class="math inline">\(QFT_{2^n}\)</span> for an arbitrary <span class="math inline">\(n\)</span>.</p>
+<p><img src="fig/fig37.png" /></p>
+<p><span class="math display">\[
+\begin{eqnarray}
+|\psi_0\rangle &amp;=&amp; |x_1\rangle |x_2\rangle |x_3\rangle |x_4\rangle\\
+|\psi_1\rangle &amp;=&amp; H|x_1\rangle |x_2\rangle |x_3\rangle |x_4\rangle \\
+&amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2} x_1} |1\rangle \big) |x_2\rangle |x_3\rangle |x_4\rangle\\
+|\psi_2\rangle &amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i \cdot x_1}|1\rangle\big)|x_2\rangle |x_3\rangle |x_4\rangle\\
+|\psi_3\rangle &amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(x_1 + \frac{x_2}{2})}|1\rangle \big) |x_3\rangle |x_4\rangle\\
+|\psi_4\rangle &amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(x_1 + \frac{x_2}{2} + \frac{x_3}{4})}|1\rangle \big) |x_4\rangle\\
+|\psi_5\rangle &amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(x_1 + \frac{x_2}{2} + \frac{x_3}{4} + \frac{x_4}{8})}|1\rangle \big) H|x_2\rangle |x_3\rangle |x_4\rangle \\
+&amp;=&amp;\frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(x_1 + \frac{x_2}{2} + \frac{x_3}{4} + \frac{x_4}{8})}|1\rangle \big)
+\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2} x_2} |1\rangle \big) |x_3\rangle |x_4\rangle \\
+|\psi_6\rangle &amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(x_1 + \frac{x_2}{2} + \frac{x_3}{4} + \frac{x_4}{8})}|1\rangle \big)\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2} \left(x_2+\frac{x_3}{2}\right)} |1\rangle \big) |x_3\rangle |x_4\rangle \\
+|\psi_7\rangle &amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(x_1 + \frac{x_2}{2} + \frac{x_3}{4} + \frac{x_4}{8})}|1\rangle \big)\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2} \left(x_2+\frac{x_3}{2}+\frac{x_4}{4}\right)} |1\rangle \big) |x_3\rangle |x_4\rangle \\
+&amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(x_1 + \frac{x_2}{2} + \frac{x_3}{4} + \frac{x_4}{8})}|1\rangle \big)
+\frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i \left(\frac{x_2}{2}\frac{x_3}{4}+\frac{x_4}{8}\right)} |1\rangle \big) |x_3\rangle |x_4\rangle \\
+&amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i (.x_1x_2x_3x_4)}|1\rangle \big)\frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i\left(0.x_2x_3x_4\right)} |1\rangle \big) |x_3\rangle |x_4\rangle \\
+|\psi_8\rangle &amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(0.x_1x_2x_3x_4)}|1\rangle \big)\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2}  \left(0.x_2x_3x_4\right)} |1\rangle \big) H|x_3\rangle |x_4\rangle \\
+&amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(0.x_1x_2x_3x_4)}|1\rangle \big)\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2}  \left(0.x_2x_3x_4\right)} |1\rangle \big) \frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2} \left(x_3\right)} |1\rangle \big)|x_4\rangle\\
+|\psi_9\rangle  &amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(0.x_1x_2x_3x_4)}|1\rangle \big)\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2}  \left(0.x_2x_3x_4\right)} |1\rangle \big) \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i \left(\frac{x_3}{2}+\frac{x_4}{4}\right)} |1\rangle \big)|x_4\rangle\\
+&amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(0.x_1x_2x_3x_4)}|1\rangle \big)\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2}  \left(0.x_2x_3x_4\right)} |1\rangle \big) \frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2} \left(0.x_3x_4\right)} |1\rangle \big)|x_4\rangle\\
+|\psi_{10}\rangle  &amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(0.x_1x_2x_3x_4)}|1\rangle \big)\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2}  \left(0.x_2x_3x_4\right)} |1\rangle \big) \frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2} \left(0.x_3x_4\right)} |1\rangle \big)H|x_4\rangle\\
+&amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(0.x_1x_2x_3x_4)}|1\rangle \big)\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2}  \left(0.x_2x_3x_4\right)} |1\rangle \big)\\
+&amp;&amp;~~\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2} \left(0.x_3x_4\right)} |1\rangle \big)\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2} x_4} |1\rangle \big)\\
+&amp;=&amp; \frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(0.x_1x_2x_3x_4)}|1\rangle \big)\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2}  \left(0.x_2x_3x_4\right)} |1\rangle \big)\\
+&amp;&amp;~~\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2} \left(0.x_3x_4\right)} |1\rangle \big)\frac{1}{\sqrt{2}} \big(|0\rangle + e^{0.x_4} |1\rangle \big)\\
+\end{eqnarray}
+\]</span></p>
+<p>Now, apply a SWAP operation to interchange the 1st and 4th quantum registers and the 2nd and 3rd as well, to obtain the QFT of the input as the output of the circuit.</p>
+<p><span class="math display">\[
+\begin{eqnarray}
+|\psi_{11}\rangle
+&amp;=&amp;
+\frac{1}{\sqrt{2}} \big(|0\rangle + e^{0.x_4} |1\rangle \big)
+\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2} \left(0.x_3x_4\right)} |1\rangle \big)\\
+&amp;&amp;~~\frac{1}{\sqrt{2}} \big(|0\rangle + e^{\frac{2\pi i}{2}  \left(0.x_2x_3x_4\right)} |1\rangle \big)
+\frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(0.x_1x_2x_3x_4)}|1\rangle \big) \\
+&amp;=&amp;\frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(0.x_4)}|1\rangle \big) \otimes
+\frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(0.x_3 x_4)}|1\rangle \big) \otimes \\
+&amp;&amp;~~\frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(0.x_2 x_3 x_4)}|1\rangle \big) \otimes
+\frac{1}{\sqrt{2}} \big(|0\rangle + e^{2\pi i(0.x_1 x_2 x_3 x_4)}|1\rangle \big)
+\end{eqnarray}
+\]</span></p>
+<p>This is the same as <span class="math inline">\(QFT_n\)</span>
+<span class="math display">\[\begin{eqnarray}
+QFT|x\rangle &amp;=&amp; \frac{1}{\sqrt{2}} \left( |0\rangle + e^{2\pi i (0 \cdot x_n)} |1\rangle \right) \otimes \frac{1}{\sqrt{2}} \left( |0\rangle + e^{2\pi i (0 \cdot x_{n-1} x_n)} |1\rangle \right) \otimes\\
+&amp;&amp;~~~~\cdots \otimes \frac{1}{\sqrt{2}} \left( |0\rangle + e^{2\pi i (0 \cdot x_1 x_2 \ldots x_{n-1} x_n)} |1\rangle \right)
+\end{eqnarray}
+\]</span></p>
+<div id="complexity" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Complexity<a href="quantum-fourier-trasnform-qft.html#complexity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Complexity of quantum algorithms is generally measured by number of gates, number of qubits or the depth of the circuit.</p>
+<div class="float">
+<img src="fig/fig38.png" alt="QFT circuit on 4 qubits" />
+<div class="figcaption">QFT circuit on 4 qubits</div>
+</div>
+<p>It is clearly seen that the most significant contribution to the runtime in the QFT circuit is the number of gates. Considering an <span class="math inline">\(n\)</span> qubit QFT circuit, number of gates is given by
+<span class="math display">\[n +(n−1)+\cdots+2+1 = \frac{n(n+1)}{2}\]</span>
+This demonstrates the exponential speedup of the QFT over the classical Fast Fourier Transform (FFT).</p>
+<p><span class="math display">\[
+\begin{eqnarray}
+\text{Naive runtime}&amp;:&amp; O(  N^2 )\\
+\text{(FFT) runtime}&amp;:&amp; O(N logN)\\
+\text{QFT runtime}  &amp;:&amp; O( polylog N )
+\end{eqnarray}
+\]</span></p>
+<p><span class="math display">\[
+\begin{eqnarray}
+\text{Classical FFT}&amp;:&amp;n 2^n\\
+\text{QFT} &amp;:&amp; n^2
+\end{eqnarray}
+\]</span>
+::: {.example #unnamed-chunk-15}
+- <strong>Converting a time-domain vector with 15000 variables to frequency domain</strong>:
+- Classical computation time: 64 hours
+- Quantum computation time: 3 minutes
+- <strong>Converting a time-domain vector with 100000 variables to frequency domain</strong>:
+- Classical computation time: 25 days
+- Quantum computation time: 5 minutes</p>
+<p>:::</p>
 
+</div>
+</div>
 </div>
             </section>
 
@@ -328,7 +462,7 @@ QFT_4 =
         </div>
       </div>
 <a href="deutschs-algorithm.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="quantum-computing-with-qiskit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="shors-algorithm.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

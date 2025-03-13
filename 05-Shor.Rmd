@@ -1,0 +1,44 @@
+#  Shor’s Algorithm
+![Peter Williston Shor (Resource: Wikipiedia ) ](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Peter_Shor_2017_Dirac_Medal_Award_Ceremony.png/330px-Peter_Shor_2017_Dirac_Medal_Award_Ceremony.png)
+
+Shor's algorithm factorises a number $N$ in $\mathcal{O}((\log N)^3)$ time and $\mathcal{O}(\log N)$ space. This algorithm was devised by Peter Shor in 1994.
+
+This algorithm revolutionised the field of computing, as prime factoring has no polynomial time classical algorithm. An implication was that RSA cryptosystems, which use prime factoring as a key ingredient, would not be safe in the future, with the advent of large quantum computers.
+
+Given an integer $N$, Shor's algorithm is about finding $b$ such that $b^2 \equiv 1 \pmod{N}$.
+
+This idea can be formalised as follows:
+
+> **Result**\
+> Suppose $b^2 \equiv 1 \pmod{N}$ and $b \not\equiv \pm 1 \pmod{N}$. Then
+\(\gcd(b + 1, N)\) and \(\gcd(b - 1, N)\) are non-trivial factors of $N$.
+
+```{proof}
+(_Proof Idea_)\
+We are going to use proof by contraditction.
+Let $d = \gcd(b - 1, N)$. Then $d$ is a divisor of $N$.
+
+- If $d = N$, then $N \mid (b - 1)$ (contradiction).
+- If $d = 1$, then there exist integers $k_1, k_2$ such that:
+  \[
+  \begin{eqnarray}
+  (b - 1)k_1 + Nk_2 &=& 1\\
+  (b + 1)(b - 1)k_1 + N(b + 1)k_2 &=& b + 1\\
+  (b^2 - 1)k_1 + N(b + 1)k_2 &=& b + 1\\
+  \frac{(b^2 - 1)}{N}k_1 + (b + 1)k_2 &=& \frac{b + 1}{N}
+  \end{eqnarray}
+  \]
+  
+  
+  Since $N|(b-1)$, then \(\frac{(b^2 - 1)}{N}k_1\) is an integer, and \((b+1)k_2\), implies \(\frac{b + 1}{N}\) is an integer.
+  This a contrdiction.
+```
+
+
+
+```{theorem,name='Eulers Theorem'}
+Let $\alpha$ be an integer ($\alpha < N$) such that $\gcd(\alpha, N) = 1$. Then there exists some $s$ ($1 < s < N$) such that:
+\[
+\alpha^s \equiv 1 \pmod{N}.
+\]
+```

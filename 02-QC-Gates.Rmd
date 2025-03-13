@@ -94,7 +94,7 @@ The outer product representation of the Hadamard gate can be expressible as:
 
 
 \[
-H|x\rangle=|+\rangle + \langle 0| + |-\rangle\langle 1|
+H|x\rangle=|+\rangle \langle 0| + |-\rangle\langle 1|
 \]
 
 Further, By \@ref(eq:eq1) and \@ref(eq:eq2) we get,
@@ -168,6 +168,10 @@ Z = \sigma_z =
 \] 
 
 ![](fig/fig11.png)
+
+
+
+
 ## Phase flip
 
 
@@ -265,7 +269,10 @@ The matrix representation of the CNOT gate is:
 
 The CNOT gate helps to create entangled states.
 
-```{exercise}
+
+
+```{exercise,label="ex-1"}
+.\
 ![](fig/fig16.png)
 
 Show that the output state of the above circuit is the entangled state:
@@ -290,7 +297,9 @@ Note that the action on separable states is as follows:
 
 **Solution**\
 
-```{exercise}
+## Exercises
+
+```{exercise,label="ex-X"}
 Find the output
 ![](fig/fig17.png)
 ```
@@ -299,9 +308,12 @@ Find the output
 ![](fig/fig23.jpg)
 
 
-```{exercise}
+
+```{exercise,label="ex-H"}
 Find the output
+
 ![](fig/fig18.png)
+
 ```
 
 **Solution**\
