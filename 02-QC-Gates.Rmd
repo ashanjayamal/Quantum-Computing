@@ -1,4 +1,7 @@
 # Quantum Gates
+
+## Single Qubit Gates 
+
 Action of an arbitrary single qubit quantum gate:
 
 ![](fig/fig7.png)
@@ -16,7 +19,7 @@ A = |\psi_0\rangle\langle 0| + |\psi_1\rangle\langle 1|.
 \]
 
 
-## Hadamard gate
+### Hadamard gate
 
 Hadamard gate is of particular importance, as it enables Hadamard transformation.
 
@@ -75,8 +78,9 @@ H|1\rangle &=& \frac{1}{\sqrt{2}}
 The computational basis \(\{|0\rangle, |1\rangle\}\) is mapped to the Hadamard basis \(\{|+\rangle,|-\rangle)
 
 
-
+<center>
 ![](fig/fig9.png)
+</center>
 
 
 Hadamard gate is often used in quantum algorithms to make equal superposition of states.
@@ -111,6 +115,64 @@ H=\frac{1}{\sqrt{2}}\sum_{x,y\in\{0,1\}}(-1)^{xy} |x\rangle  \langle y|.
 \]
 
 
+The effect of \( H \) on a 1-qubit basis state \( |x\rangle \) (where \( x = 0 \) or \( 1 \)) can be summarized as follows:
+
+
+\[
+H|x\rangle = \frac{1}{\sqrt{2}} \left( |0\rangle + (-1)^x |1\rangle \right) = \frac{1}{\sqrt{2}} \sum_{k=0}^1 (-1)^{k x} |k\rangle
+\]
+
+
+This is consistent with our previous definition. If we apply \( H^{\otimes q} \) on a \( q \)-qubit basis state \( |x_q\rangle \), we obtain:
+
+
+\[
+\begin{eqnarray}
+H^{\otimes q} |\vec{x}\rangle_q &=& \frac{1}{\sqrt{2^q}} \sum_{k_1=0}^1 \cdots \sum_{k_q=0}^1 (-1)^{\sum_{h=1}^q k_h \vec{x_h}} |k_1 \rangle_1\otimes  \cdots |k_q\rangle_1\\
+&=& \frac{1}{\sqrt{2^q}} \sum_{k \in \{0,1\}^q} (-1)^{\vec{k} \bullet \vec{x}} |\vec{k}\rangle_q
+\end{eqnarray}
+\]
+
+,where \(\bullet\)is the bit wise dot product.
+
+
+
+
+When considering multiple Hadamard gates in parallel, we will also make use of the following relationship, which can be easily verified using the definition:
+
+\[H^{\otimes q} = \frac{1}{2} \begin{pmatrix} H^{\otimes q-1} & H^{\otimes q-1} \\ H^{\otimes q-1} & -H^{\otimes q-1} \end{pmatrix}\]
+
+The next proposition shows one of the reasons why the Hadamard gate is frequently employed in many quantum algorithms.
+
+
+```{proposition}
+Given a $q$-qubit quantum computing device initially in the state $|0\rangle_q$, applying the Hadamard gate to all qubits, or equivalently the matrix $H^{\otimes q}$, yields the uniform superposition of basis states $\frac{1}{\sqrt{2^q}} \sum_{\vec{j}\in\{0,1\}^q} |\vec{j}\rangle$.
+```
+
+```{proof}
+We have:
+\begin{eqnarray}
+H^{\otimes q}|0\rangle_q 
+&=& H^{\otimes q}|0\rangle^{\otimes q}\\
+&=&(H \otimes \cdots \otimes H)(|0\rangle \otimes |0\rangle)\\
+&=& (H|0\rangle ) \otimes \cdots \otimes (H|0\rangle)\\
+&=& (H|0\rangle)^{\otimes q} \\
+&=& \left(\frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle\right)^{\otimes q}\\ 
+&=& \frac{1}{\sqrt{2^q}} \sum_{\vec{j}\in\{0,1\}^q} |\vec{j}\rangle.
+\end{eqnarray}
+```
+
+
+```{remark}
+The uniform superposition of the $2^q$ basis states on $q$ qubits can be obtained from the initial state $|0\rangle_q$ by applying $q$ gates only.
+```
+
+
+
+![Two representations for multiple Hadamard gates.](fig/fig53.png)
+
+
+The multiple Hadamard can be represented by one of the equivalent circuits given in the figure above.
 
 
 
@@ -119,7 +181,8 @@ H=\frac{1}{\sqrt{2}}\sum_{x,y\in\{0,1\}}(-1)^{xy} |x\rangle  \langle y|.
 
 
 
-## Pauli gates 
+
+### Pauli gates 
 
 As in classical gates, there is a \textbf{NOT gate} in quantum computing.
 
@@ -154,7 +217,10 @@ Y = \sigma_y =
 i & 0
 \end{pmatrix}
 \]
+
+<center>
 ![](fig/fig12.png)
+</center>
 
 
 
@@ -167,12 +233,89 @@ Z = \sigma_z =
 \end{pmatrix}
 \] 
 
+<center>
 ![](fig/fig11.png)
+</center>
 
 
+```{proposition}
+The Pauli gates form a basis for \(\mathbb{C}^{2\times 2}\), they are Hermitian, and they satisfy the relationship \(XYZ=iI\).
+```
+
+```{proof}
+**Claim 1: The Pauli matrices form a basis for $\mathbb{C}^{2\times 2}$ **
+
+**Linear Independece**\
+Suppose there exist scalars \(\alpha,\beta,\gamma,\delta\in\mathbb{C}\) such that
+$\alpha I + \beta X + \gamma Y + \delta Z = 0$.
 
 
-## Phase flip
+Then,
+\[
+\begin{eqnarray}
+\alpha I + \beta X + \gamma Y + \delta Z &=& 0 \\
+\alpha\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} + \beta\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} + \gamma\begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} + \delta\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} &=& \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}\\
+\begin{pmatrix} \alpha + \delta & \beta - i\gamma \\ \beta + i\gamma & \alpha - \delta \end{pmatrix} &=& \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}
+\end{eqnarray}
+\]
+
+This implies  $\alpha = \beta = \gamma = \delta = 0$ is the only solution, proving that the Pauli matrices are linearly independent.
+
+**Spaning**\
+  
+Let $A = \begin{pmatrix} a & b \ c & d \end{pmatrix}$ be an arbitrary matrix in $\mathbb{C}^{2\times 2}$.
+
+I need to find coefficients $\alpha, \beta, \gamma, \delta$ such that: $A = \alpha I + \beta X + \gamma Y + \delta Z$
+
+\begin{eqnarray}
+A &=& \alpha I + \beta X + \gamma Y + \delta Z \\
+\begin{pmatrix} a & b \\ c & d \end{pmatrix} &=& \alpha\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} + \beta\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} + \gamma\begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} + \delta\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \\
+\begin{pmatrix} a & b \\ c & d \end{pmatrix}
+&=& \begin{pmatrix} \alpha + \delta & \beta - i\gamma \\ \beta + i\gamma & \alpha - \delta \end{pmatrix}
+\end{eqnarray}
+
+
+This gives,
+\[\alpha = \frac{a + d}{2},\delta = \frac{a - d}{2},\beta = \frac{b + c}{2},\gamma = \frac{c - b}{2i}\]
+
+These equations always have a unique solution for any complex values of $a, b, c, d$. Therefore, any $2 \times 2$ complex matrix can be expressed as a linear combination of the Pauli matrices, proving they form a basis for $\mathbb{C}^{2\times 2}$.
+
+Therefore, the Pauli matrices form a basis for $\mathbb{C}^{2\times 2}$.
+
+**Claiam 2: The Pauli matrices are Hermitian**
+
+
+\[
+\begin{align}
+I^{\dagger} &= \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}^{\dagger} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I\\
+X^{\dagger} &= \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}^{\dagger} = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = X\\
+Y^{\dagger} &= \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}^{\dagger} = \begin{pmatrix} 0 & \overline{i} \\ \overline{-i} & 0 \end{pmatrix} = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} = Y\\
+Z^{\dagger} &= \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}^{\dagger} = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} = Z
+\end{align}
+\]
+Therefore, all four Pauli matrices are Hermitian.
+
+**Claim 3: The Pauli matrices satisfy $XYZ = iI$**
+
+\[
+\begin{eqnarray}
+(XY)Z &=& \left(\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}\right)\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\\
+&=& \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\\ 
+&=& \begin{pmatrix} i & 0 \\ 0 & i \end{pmatrix}\\
+&=& i\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \\
+&=& iI
+\end{eqnarray}
+\]
+
+
+Thus, we have proven all three properties:
+  
+1. The Pauli matrices form a basis for $\mathbb{C}^{2\times 2}$
+2. The Pauli matrices are Hermitian
+3. The Pauli matrices satisfy $XYZ = iI$
+```
+
+### Phase flip
 
 
 Recall that the global phase is not physically significant, and we are interested in changing the local phase. It is possible to define a phase flip gate performing the following operations:
@@ -217,8 +360,10 @@ S = P\left(\frac{\pi}{2}\right) = \begin{pmatrix}
 0 & i
 \end{pmatrix}
 \]
-![](fig/fig13.png)
 
+<center>
+![](fig/fig13.png)
+</center>
 
 
 
@@ -229,9 +374,27 @@ T = P\left(\frac{\pi}{4}\right) = \begin{pmatrix}
 \end{pmatrix}
 \]
 
-![](fig/fig14.png)
 
-## CNOT gate
+<center>
+![](fig/fig14.png)
+</center>
+
+All single-qubit gates can be represented by a parameterized unitary matrix of the form:
+     \[
+     U(\theta, \phi, \lambda) =
+     \begin{bmatrix}
+     e^{i(\phi + \lambda)/2} \cos(\theta/2) & -e^{i(\phi - \lambda)/2} \sin(\theta/2) \\
+     e^{i(-\phi + \lambda)/2} \sin(\theta/2) & e^{i(-\phi - \lambda)/2} \cos(\theta/2)
+     \end{bmatrix}
+     \]
+- Here:
+  - \( \theta, \phi, \lambda \) are parameters that define the gate.
+  - \( e^{i\phi} \) terms introduce **phase factors**, which are essential for quantum operations.
+  - Cosine and sine terms dictate the rotation of the qubit in the state space.
+  
+## Multi-qubit gates.
+
+### CNOT gate
 
 CNOT is a two-qubit gate. Controlled operations play a key role in multi-qubit gates. 
 
@@ -249,8 +412,12 @@ The required transformation can be written in Dirac notation as follows:
 \end{eqnarray}
 \]
 
-**Diagram**:\
+**Diagram**:
+
+<center>
 ![](fig/fig15.png)
+</center>
+
 
 The matrix representation of the CNOT gate is:
 
@@ -266,16 +433,84 @@ The matrix representation of the CNOT gate is:
 \]
 
 
+An interesting feature of the CNOT gate is that it can be used to swap two qubits. A SWAP operation between two qubits \( Q_i \) and \( Q_j \) is defined as the operation that maps a quantum state into a new quantum state where the \( i \)-th and \( j \)-th digits of every basis state are permuted. For instance, if two qubits are in a product state \( |\phi_1\rangle |\phi_2\rangle \), then:
+
+
+\[
+\text{SWAP}(|\phi_1\rangle |\phi_2\rangle) = |\phi_2\rangle |\phi_1\rangle
+\]
+
+
+
+Considering that the CNOT gate, like all quantum gates, is a linear map, it might seem surprising that it can implement a SWAP. However, the SWAP gate can indeed be constructed from three CNOT gates, as shown in the following circuit diagram:
+
+
+<center>
+![ A circuit that swaps two qubits](fig/fig54.png)
+</center>
+
+```{proposition}
+The above circuit constructed with three CNOT gates swaps qubits 1 and 2.
+```
+
+
+```{proof}
+  By linearity, it suffices to verify that the circuit maps the following basis states correctly:
+
+
+\[
+\begin{align}
+& \text{CNOT}_{12} \text{CNOT}_{21} \text{CNOT}_{12} |00\rangle = |00\rangle, \\
+& \text{CNOT}_{12} \text{CNOT}_{21} \text{CNOT}_{12} |01\rangle = |10\rangle, \\
+& \text{CNOT}_{12} \text{CNOT}_{21} \text{CNOT}_{12} |10\rangle = |01\rangle, \\
+& \text{CNOT}_{12} \text{CNOT}_{21} \text{CNOT}_{12} |11\rangle = |11\rangle.
+\end{align}
+\]
+
+
+
+Therefore, the SWAP circuit maps:
+
+
+\[
+\alpha_{00}|00\rangle +
+\alpha_{01}|01\rangle + 
+\alpha_{10}|10\rangle +
+\alpha_{11}|11\rangle 
+\longrightarrow 
+\alpha_{00}|00\rangle + 
+\alpha_{01}|10\rangle + 
+\alpha_{10}|01\rangle +
+\alpha_{11}|11\rangle.
+\]
+
+```
+
+
+The SWAP circuit is crucial in quantum computing due to hardware limitations. In current quantum computers, such as those using superconducting qubits, 2-qubit gates can only operate between physically adjacent qubits. However, by using SWAP gates, qubits can be virtually "moved" to adjacent locations as needed. This ensures that, as long as the qubit connectivity forms a connected graph, 2-qubit gates can effectively be applied to any pair of qubits, making all qubits theoretically able to interact. Practically, this may require additional SWAP gates but overcomes the physical adjacency constraint.
+
+
+
+## CCNOT gates
+
+
+
+
+
+
+
+
+## Exercises 
 
 The CNOT gate helps to create entangled states.
-
-
 
 ```{exercise,label="ex-1"}
 .
 
-
-![](fig/fig16.png){center}
+<center>
+![](fig/fig16.png)
+</center>
+  
 
 Show that the output state of the above circuit is the entangled state:
 
@@ -299,33 +534,74 @@ Note that the action on separable states is as follows:
 \]
 
 
-**Solution**\
-\[
-|0\rangle|0\rangle 
-\longrightarrow  |+\rangle |0\rangle=\frac{1}{\sqrt{2}}\big(|0\rangle +|1\rangle\big)|0\rangle 
-\longrightarrow \frac{1}{\sqrt{2}}\big(|00\rangle +|10\rangle\big)
-\longrightarrow \frac{1}{\sqrt{2}}\big(|00\rangle +|11\rangle\big)
-\]
+> **Solution**\
+> \[
+> |0\rangle|0\rangle 
+> \longrightarrow  |+\rangle |0\rangle=\frac{1}{\sqrt{2}}\big(|0\rangle > +|1\rangle\big)|0\rangle 
+> \longrightarrow \frac{1}{\sqrt{2}}\big(|00\rangle +|10\rangle\big)
+> \longrightarrow \frac{1}{\sqrt{2}}\big(|00\rangle +|11\rangle\big)
+> \]
 
-## Exercises
+
+
+
+
+
+
+
 
 ```{exercise,label="ex-X"}
 Find the output
+
+<center>
 ![](fig/fig17.png)
+</center>
 ```
 
-**Solution**\
-![](fig/fig23.jpg)
+**Solution**:
 
+<center>
+![](fig/fig23-1.jpg)
+</center>
+
+> \[
+> |0\rangle| 0 \rangle
+> \longrightarrow 
+> |1\rangle| 0 \rangle
+> \longrightarrow 
+> |1\rangle| 1 \rangle
+> \longrightarrow 
+> |0\rangle| 1 \rangle
+> \longrightarrow 
+> |0\rangle| 0 \rangle
+> \]
 
 
 ```{exercise,label="ex-H"}
 Find the output
-
+<center>
 ![](fig/fig18.png)
-
+</center>
 ```
 
 **Solution**\
-![](fig/fig24.jpg)
+
+> \[
+> |0\rangle| 0 \rangle\\\\\\
+> \downarrow \\\\\\
+> |+\rangle |0\rangle = \left( \frac{1}{\sqrt{2}} |0\rangle + > \frac{1}{\sqrt{2}} |1\rangle \right) | 0\rangle
+> = \frac{1}{\sqrt{2}} |00\rangle  + \frac{1}{\sqrt{2}} |10\rangle \\\\\\
+> \downarrow\\\\\\
+> \frac{1}{\sqrt{2}} |00\rangle  + \frac{1}{\sqrt{2}} |11\rangle\\\\\\
+> \downarrow\\\\\\
+> \frac{1}{\sqrt{2}} |00\rangle  + \frac{1}{\sqrt{2}} |01\rangle
+> =|0\rangle  \otimes \underbrace{\left( \frac{1}{\sqrt{2}} |0\rangle + > \frac{1}{\sqrt{2}} |1\rangle \right)}_{|+\rangle}
+> = |0\rangle  \otimes  |+\rangle\\\\\\
+> \downarrow\\\\\\
+>  |0\rangle | 0\rangle
+> \]
+
+
+
+<!--![](fig/fig24.jpg)-->
 

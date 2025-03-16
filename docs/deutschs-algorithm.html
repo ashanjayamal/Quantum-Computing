@@ -29,7 +29,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-14" />
+<meta name="date" content="2025-03-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -146,7 +146,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Quntum Computing</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Quantum Computing: A Journey into the Atomic World</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Quantum Computing: A Journey into the Atomic World</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#basic-defnitions-and-notations"><i class="fa fa-check"></i><b>1.1</b> Basic Defnitions and Notations</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="quntum-effects.html"><a href="quntum-effects.html"><i class="fa fa-check"></i><b>2</b> Quntum Effects</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="quntum-effects.html"><a href="quntum-effects.html#superposition"><i class="fa fa-check"></i><b>2.1</b> Superposition</a></li>
@@ -156,11 +159,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="quantum-gates.html"><a href="quantum-gates.html"><i class="fa fa-check"></i><b>3</b> Quantum Gates</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="quantum-gates.html"><a href="quantum-gates.html#hadamard-gate"><i class="fa fa-check"></i><b>3.1</b> Hadamard gate</a></li>
-<li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#pauli-gates"><i class="fa fa-check"></i><b>3.2</b> Pauli gates</a></li>
-<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#phase-flip"><i class="fa fa-check"></i><b>3.3</b> Phase flip</a></li>
-<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.4</b> CNOT gate</a></li>
-<li class="chapter" data-level="3.5" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.5</b> Exercises</a></li>
+<li class="chapter" data-level="3.1" data-path="quantum-gates.html"><a href="quantum-gates.html#single-qubit-gates"><i class="fa fa-check"></i><b>3.1</b> Single Qubit Gates</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="quantum-gates.html"><a href="quantum-gates.html#hadamard-gate"><i class="fa fa-check"></i><b>3.1.1</b> Hadamard gate</a></li>
+<li class="chapter" data-level="3.1.2" data-path="quantum-gates.html"><a href="quantum-gates.html#pauli-gates"><i class="fa fa-check"></i><b>3.1.2</b> Pauli gates</a></li>
+<li class="chapter" data-level="3.1.3" data-path="quantum-gates.html"><a href="quantum-gates.html#phase-flip"><i class="fa fa-check"></i><b>3.1.3</b> Phase flip</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#multi-qubit-gates."><i class="fa fa-check"></i><b>3.2</b> Multi-qubit gates.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.2.1</b> CNOT gate</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#ccnot-gates"><i class="fa fa-check"></i><b>3.3</b> CCNOT gates</a></li>
+<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="deutschs-algorithm.html"><a href="deutschs-algorithm.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s Algorithm</a></li>
 <li class="chapter" data-level="5" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html"><i class="fa fa-check"></i><b>5</b> Quantum Fourier Trasnform (QFT)</a>
@@ -195,10 +205,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="deutschs-algorithm" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Deutsch’s Algorithm<a href="deutschs-algorithm.html#deutschs-algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="float">
-<img src="https://www.daviddeutsch.org.uk/wp-content/uploads/2013/12/david-home-e1594943580574.jpg" style="width:30.0%" alt="David Deutach (Resource: Offical site)" />
-<div class="figcaption">David Deutach (Resource: Offical site)</div>
-</div>
+<!--![David Deutach (Resource: Offical site)](https://www.daviddeutsch.org.uk/wp-content/uploads/2013/12/david-home-e1594943580574.jpg){width=30%}-->
+<figure style="float: right; width: 30%;">
+<img src="https://www.daviddeutsch.org.uk/wp-content/uploads/2013/12/david-home-e1594943580574.jpg" alt="David Deutsch (Resource: Official site)" />
+<figcaption>
+David Deutsch (Resource: Official site)
+</figcaption>
+</figure>
 <p>An early stage quantum algorithm that demonstrates the computational power of quantum computers is the algorithm invented by David Deutsch in 1985.</p>
 <p>Deutsch’s algorithm is based on quantum parallelism - in this context, the ability to evaluate a function <span class="math inline">\(f(x)\)</span> at different <span class="math inline">\(x\)</span> values simultaneously</p>
 <p>Consider functions from a one-bit domain <span class="math inline">\(\{0, 1\}\)</span> to the same one-bit co-domain. There are two types of functions: constant and balanced.</p>
@@ -207,10 +220,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Our goal is to determine whether <strong>f</strong> is:<br />
 - <strong>Constant</strong>: <span class="math inline">\(f(0) = f(1)\)</span> (same output for both inputs)?<br />
 - <strong>Balanced</strong>: <span class="math inline">\(f(0) \neq f(1)\)</span> (different outputs for each input)?</p>
-<p><img src="fig/fig19.jpg" /></p>
+<!--![](fig/fig19.jpg)-->
+<table>
+<thead>
+<tr class="header">
+<th align="center">Constant</th>
+<th align="center">Balanced</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><img src="fig/fig56.png" style="width:50.0%" /></td>
+<td align="center"><img src="fig/fig57.png" style="width:50.0%" /></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math display">\[f(0)=f(1)=0\]</span></td>
+<td align="center"><span class="math display">\[f(0)=0,f(1)=1\]</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><img src="fig/fig58.png" style="width:50.0%" /></td>
+<td align="center"><img src="fig/fig59.png" style="width:50.0%" /></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math display">\[f(0)=f(1)=1\]</span></td>
+<td align="center"><span class="math display">\[f(0)=1,f(1)=0\]</span></td>
+</tr>
+</tbody>
+</table>
 <div id="classical-solution" class="section level4 hasAnchor" number="4.0.0.1">
-<h4><span class="header-section-number">4.0.0.1</span> Classical Solution,<a href="deutschs-algorithm.html#classical-solution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>*Algorithm 1: Classical Algorithm for the Deutsch Problem (<span class="math inline">\(n = 1\)</span>)**</p>
+<h4><span class="header-section-number">4.0.0.1</span> Classical Solution<a href="deutschs-algorithm.html#classical-solution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Algorithm 1: Classical Algorithm for the Deutsch Problem (<span class="math inline">\(n = 1\)</span>)</strong></p>
 <p><strong>Require</strong>: A black-box function <span class="math inline">\(f : \{0,1\} \rightarrow \{0,1\}\)</span></p>
 <p>1: <strong>Evaluate</strong>: Compute <span class="math inline">\(f(0)\)</span> and <span class="math inline">\(f(1)\)</span>.<br />
 2: <strong>if</strong> <span class="math inline">\(f(0) = f(1)\)</span> <strong>then</strong><br />
@@ -230,7 +269,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Classically, two queries to the function are necessary to determine this. Deutsch’s algorithm provides a quantum protocol to do this with a single query to the function</p>
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-10" class="exercise"><strong>Exercise 4.1  </strong></span>Let <span class="math inline">\(x, y \in \{0, 1\}\)</span> and <span class="math inline">\(f : \{0, 1\} \to \{0, 1\}\)</span>. Show that the transformation:</p>
+<p><span id="exr:unnamed-chunk-22" class="exercise"><strong>Exercise 4.1  </strong></span>Let <span class="math inline">\(x, y \in \{0, 1\}\)</span> and <span class="math inline">\(f : \{0, 1\} \to \{0, 1\}\)</span>. Show that the transformation:</p>
 <p><span class="math display">\[
 U_f |x, y\rangle = |x, y \oplus f(x)\rangle
 \]</span></p>
@@ -240,7 +279,10 @@ is unitary.</p>
 <p><strong>Solution</strong><br />
 </p>
 <p>The above transformation can be implemented in a quantum circuit by querying an oracle.</p>
-<p><strong>Diagram</strong>: <img src="fig/fig20.png" /></p>
+<p><strong>Diagram</strong>:</p>
+<center>
+<img src="fig/fig20.png" />
+</center>
 <p>This quantum circuit queries an oracle, and implements <span class="math inline">\(U_f\)</span></p>
 <p>Note that the transformation can be written as:</p>
 <p><span class="math display">\[
@@ -273,12 +315,16 @@ U_f |x, -\rangle = (-1)^{f(x)} |x, -\rangle.
 \]</span>
 This is called <strong>Phase kickback</strong>.</p>
 <p>Deutsch’s algorithm is a black box algorithm, that uses quantum parallelism, and can be implemented efficiently using a quantum computer.</p>
+<center>
 <div class="float">
 <img src="fig/fig21.png" alt="Circuit implementation of Deutsch’s algorithm" />
 <div class="figcaption">Circuit implementation of Deutsch’s algorithm</div>
 </div>
+</center>
 <p>Given a function <span class="math inline">\(f :\{0,1\} \rightarrow \{0,1\}\)</span>, Deutsch’s algorithm determines whether <span class="math inline">\(f\)</span> is constant or balanced, with a single query to the function</p>
-<p><img src="fig/fig22.png" /></p>
+<center>
+<img src="fig/fig22.png" />
+</center>
 <p><span class="math display">\[\begin{eqnarray}
 |\psi_0\rangle &amp;=&amp; |00\rangle\\
 |\psi_1\rangle &amp;=&amp; |0\rangle X|0\rangle = |01\rangle\\
@@ -299,7 +345,9 @@ U_f | +, - \rangle = \frac{1}{\sqrt{2}} (-1)^{f(0)} | 0, - \rangle + \frac{1}{\s
 <p><span class="math display">\[
 = \left( \frac{1}{\sqrt{2}} (-1)^{f(0)} | 0 \rangle + \frac{1}{\sqrt{2}} (-1)^{f(1)} | 1 \rangle \right) | - \rangle
 \]</span></p>
-<p><img src="fig/fig28.png" /></p>
+<center>
+<img src="fig/fig28.png" />
+</center>
 <table>
 <colgroup>
 <col width="51%" />
@@ -322,8 +370,10 @@ U_f | +, - \rangle = \frac{1}{\sqrt{2}} (-1)^{f(0)} | 0, - \rangle + \frac{1}{\s
 </tr>
 </tbody>
 </table>
-<p><span class="math inline">\(|\psi_4\rangle\)</span> becomes one of the following states, depending on <span class="math inline">\(f\)</span>.
-<img src="fig/fig29.png" /></p>
+<p><span class="math inline">\(|\psi_4\rangle\)</span> becomes one of the following states, depending on <span class="math inline">\(f\)</span>.</p>
+<center>
+<img src="fig/fig29.png" />
+</center>
 <table>
 <colgroup>
 <col width="51%" />

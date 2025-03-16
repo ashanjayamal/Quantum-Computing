@@ -536,5 +536,7 @@ We are going to verify the result in exercise \@ref(exr:ex-F) that we got earlie
   ```
   
   ![](fig/fig51.png)
-  
-  
+
+
+
+

@@ -29,7 +29,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-14" />
+<meta name="date" content="2025-03-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -146,7 +146,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Quntum Computing</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Quantum Computing: A Journey into the Atomic World</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Quantum Computing: A Journey into the Atomic World</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#basic-defnitions-and-notations"><i class="fa fa-check"></i><b>1.1</b> Basic Defnitions and Notations</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="quntum-effects.html"><a href="quntum-effects.html"><i class="fa fa-check"></i><b>2</b> Quntum Effects</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="quntum-effects.html"><a href="quntum-effects.html#superposition"><i class="fa fa-check"></i><b>2.1</b> Superposition</a></li>
@@ -156,11 +159,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="quantum-gates.html"><a href="quantum-gates.html"><i class="fa fa-check"></i><b>3</b> Quantum Gates</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="quantum-gates.html"><a href="quantum-gates.html#hadamard-gate"><i class="fa fa-check"></i><b>3.1</b> Hadamard gate</a></li>
-<li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#pauli-gates"><i class="fa fa-check"></i><b>3.2</b> Pauli gates</a></li>
-<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#phase-flip"><i class="fa fa-check"></i><b>3.3</b> Phase flip</a></li>
-<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.4</b> CNOT gate</a></li>
-<li class="chapter" data-level="3.5" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.5</b> Exercises</a></li>
+<li class="chapter" data-level="3.1" data-path="quantum-gates.html"><a href="quantum-gates.html#single-qubit-gates"><i class="fa fa-check"></i><b>3.1</b> Single Qubit Gates</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="quantum-gates.html"><a href="quantum-gates.html#hadamard-gate"><i class="fa fa-check"></i><b>3.1.1</b> Hadamard gate</a></li>
+<li class="chapter" data-level="3.1.2" data-path="quantum-gates.html"><a href="quantum-gates.html#pauli-gates"><i class="fa fa-check"></i><b>3.1.2</b> Pauli gates</a></li>
+<li class="chapter" data-level="3.1.3" data-path="quantum-gates.html"><a href="quantum-gates.html#phase-flip"><i class="fa fa-check"></i><b>3.1.3</b> Phase flip</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#multi-qubit-gates."><i class="fa fa-check"></i><b>3.2</b> Multi-qubit gates.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.2.1</b> CNOT gate</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#ccnot-gates"><i class="fa fa-check"></i><b>3.3</b> CCNOT gates</a></li>
+<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="deutschs-algorithm.html"><a href="deutschs-algorithm.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s Algorithm</a></li>
 <li class="chapter" data-level="5" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html"><i class="fa fa-check"></i><b>5</b> Quantum Fourier Trasnform (QFT)</a>
@@ -196,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Introduction to Quantum Computing</h1>
 <p class="author"><em>Ashan Jayamal</em></p>
-<p class="date"><em>2025-03-14</em></p>
+<p class="date"><em>2025-03-16</em></p>
 </div>
 <div id="quantum-computing-a-journey-into-the-atomic-world" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Quantum Computing: A Journey into the Atomic World<a href="index.html#quantum-computing-a-journey-into-the-atomic-world" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -212,7 +222,143 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*N3CWuTrxr-tg27I2_9Xrmw.png" alt="Resource: Quantumpedia" />
 <div class="figcaption">Resource: Quantumpedia</div>
 </div>
+<div id="basic-defnitions-and-notations" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Basic Defnitions and Notations<a href="index.html#basic-defnitions-and-notations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A discussion on quantum computers requires working with the decimal and binary representations of integers, some bit operations, and familiarity with the properties of the tensor product. We describe here the necessary concepts and the notation, so that the reader can come back to this section at any time to clarify symbols.</p>
+<div class="definition">
+<p><span id="def:unnamed-chunk-1" class="definition"><strong>Definition 1.1  </strong></span>Given two vector spaces <span class="math inline">\(V\)</span> and <span class="math inline">\(W\)</span> over a field <span class="math inline">\(K\)</span> with bases <span class="math inline">\(e_1, \dots, e_m\)</span> and <span class="math inline">\(f_1, \dots, f_n\)</span>, respectively, the tensor product <span class="math inline">\(V \otimes W\)</span> is another vector space over <span class="math inline">\(K\)</span> of dimension <span class="math inline">\(mn\)</span>. The tensor product space is equipped with a bilinear operation <span class="math inline">\(\otimes : V \times W \to V \otimes W\)</span>. The vector space <span class="math inline">\(V \otimes W\)</span> has basis <span class="math inline">\(e_i \otimes f_j\)</span> where <span class="math inline">\(i = 1, \dots, m\)</span> and <span class="math inline">\(j = 1, \dots, n\)</span>.</p>
+</div>
+<p>If the origin vector spaces are complex Euclidean spaces of the form <span class="math inline">\(\mathbb{C}^n\)</span>, and we choose the standard basis (consisting of the orthonormal vectors that have a <span class="math inline">\(1\)</span> in a single position and <span class="math inline">\(0\)</span> elsewhere) in the origin vector spaces, then the tensor product is none other than the Kronecker product, which is itself a generalization of the outer product. This is formalized next.</p>
+<div class="definition">
+<p><span id="def:unnamed-chunk-2" class="definition"><strong>Definition 1.2  </strong></span>Given <span class="math inline">\(A \in \mathbb{C}^{m \times n}\)</span> and <span class="math inline">\(B \in \mathbb{C}^{p \times q}\)</span>, the Kronecker product <span class="math inline">\(A \otimes B\)</span> is the matrix <span class="math inline">\(D \in \mathbb{C}^{mp \times nq}\)</span> defined as</p>
+<p><span class="math display">\[
+D := A \otimes B =
+\begin{bmatrix}
+a_{11}B &amp; \dots &amp; a_{1n}B \\
+a_{21}B &amp; \dots &amp; a_{2n}B \\
+\vdots &amp; \ddots &amp; \vdots \\
+a_{m1}B &amp; \dots &amp; a_{mn}B
+\end{bmatrix}.
+\]</span></p>
+<p>If we choose the standard basis over the vector spaces <span class="math inline">\(\mathbb{C}^{m \times n}\)</span> and <span class="math inline">\(\mathbb{C}^{p \times q}\)</span>, then the bilinear operation of the tensor product <span class="math inline">\(\mathbb{C}^{m \times n} \otimes \mathbb{C}^{p \times q}\)</span> is simply the Kronecker product.</p>
+</div>
+<div class="example">
+<p><span id="exm:unnamed-chunk-3" class="example"><strong>Example 1.1  </strong></span>We provide an example of the tensor product for normalized vectors, which will link this concept to probability distributions and will hopefully provide a better understanding of some of the future material.</p>
+<p>Consider two independent discrete random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> that describe the probability of extracting numbers from two urns. The first urn contains the numbers <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>; the second urn contains the numbers <span class="math inline">\(00, 01, 10,\)</span> and <span class="math inline">\(11\)</span>.</p>
+<p><img src="fig/fig52.png" /></p>
+<p>Assume that the extraction mechanism is biased and therefore the outcomes do not have equal probability. The outcome probabilities are given below, and for convenience, we define two vectors containing them:
+<span class="math display">\[
+x = \begin{pmatrix}
+\Pr(X = 0) \\
+\Pr(X = 1)
+\end{pmatrix}
+=
+\begin{pmatrix}
+0.25 \\
+0.75
+\end{pmatrix},
+\quad
+y = \begin{pmatrix}
+\Pr(Y = 00) \\
+\Pr(Y = 01) \\
+\Pr(Y = 10) \\
+\Pr(Y = 11)
+\end{pmatrix}
+=
+\begin{pmatrix}
+0.2 \\
+0.2 \\
+0.2 \\
+0.4
+\end{pmatrix}.
+\]</span></p>
+<p>Notice that because each vector contains probabilities for all possible respective outcomes, the vectors are normalized so that their entries sum up to <span class="math inline">\(1\)</span>.</p>
+<p>The probabilities for simultaneously extracting numbers from the two urns are given by the tensor product <span class="math inline">\(x \otimes y\)</span>:
+<span class="math display">\[
+x \otimes y =
+\begin{pmatrix}
+0.25 \\
+0.75
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+0.2 \\
+0.2 \\
+0.2 \\
+0.4
+\end{pmatrix}
+=
+\begin{pmatrix}
+0.25 \\
+0.75
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+0.2 &amp;
+0.2 &amp;
+0.2 &amp;
+0.4
+\end{pmatrix}
+=
+\begin{pmatrix}
+0.05 \\
+0.05 \\
+0.05 \\
+0.10 \\
+0.15 \\
+0.15 \\
+0.15 \\
+0.30
+\end{pmatrix}.
+\]</span></p>
+<p>Equivalently, these probabilities can be written as:
+<span class="math display">\[
+x \otimes y =
+\begin{pmatrix}
+\Pr(X = 0)\Pr(Y = 00) \\
+\Pr(X = 0)\Pr(Y = 01) \\
+\Pr(X = 0)\Pr(Y = 10) \\
+\Pr(X = 0)\Pr(Y = 11) \\
+\Pr(X = 1)\Pr(Y = 00) \\
+\Pr(X = 1)\Pr(Y = 01) \\
+\Pr(X = 1)\Pr(Y = 10) \\
+\Pr(X = 1)\Pr(Y = 11)
+\end{pmatrix}
+=
+\begin{pmatrix}
+\Pr(X = 0, Y = 00) \\
+\Pr(X = 0, Y = 01) \\
+\Pr(X = 0, Y = 10) \\
+\Pr(X = 0, Y = 11) \\
+\Pr(X = 1, Y = 00) \\
+\Pr(X = 1, Y = 01) \\
+\Pr(X = 1, Y = 10) \\
+\Pr(X = 1, Y = 11)
+\end{pmatrix}.
+\]</span></p>
+<p>The last equality is due to the fact that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. The vector <span class="math inline">\(x \otimes y\)</span> is also normalized, which is easy to verify algebraically.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-4" class="proposition"><strong>Proposition 1.1  </strong></span>Let <span class="math inline">\(A, B \in \mathbb{C}^{m \times m}\)</span> and <span class="math inline">\(C, D \in \mathbb{C}^{n \times n}\)</span> be linear transformations on <span class="math inline">\(V\)</span> and <span class="math inline">\(W\)</span>, respectively. Let <span class="math inline">\(u, v \in \mathbb{C}^m\)</span>, <span class="math inline">\(w, x \in \mathbb{C}^n\)</span>, and <span class="math inline">\(a, b \in \mathbb{C}\)</span>. The tensor product satisfies the following properties:</p>
+<ul>
+<li><span class="math inline">\((A \otimes C)(B \otimes D) = (AB) \otimes (CD).\)</span></li>
+<li><span class="math inline">\((A \otimes C)(u \otimes w) = (Au) \otimes (Cw).\)</span></li>
+<li><span class="math inline">\((u + v) \otimes w = (u \otimes w) + (v \otimes w).\)</span></li>
+<li><span class="math inline">\(u \otimes (w + x) = (u \otimes w) + (u \otimes x).\)</span></li>
+<li><span class="math inline">\((au) \otimes (bw) = ab(u \otimes w).\)</span></li>
+<li><span class="math inline">\((A \otimes C)^\dagger = A^\dagger \otimes C^\dagger.\)</span></li>
+</ul>
+</div>
+<p>Above and in what follows, the notation <span class="math inline">\(A^\dagger\)</span> denotes the conjugate transpose of <span class="math inline">\(A\)</span>, which is the matrix defined as <span class="math inline">\(A^\dagger := \overline{A}^\top\)</span>.</p>
+<p>Given a matrix <span class="math inline">\(A\)</span>, the notation <span class="math inline">\(A^{\otimes n}\)</span> indicates the tensor product of <span class="math inline">\(A\)</span> with itself <span class="math inline">\(n\)</span> times, and the same notation will be used for vector spaces <span class="math inline">\(S\)</span>:</p>
+<p><span class="math display">\[
+A^{\otimes n} := \underbrace{A \otimes A \otimes \dots \otimes A}_{n \text{ times}},
+\]</span></p>
+<p><span class="math display">\[
+S^{\otimes n} := \underbrace{S \otimes S \otimes \dots \otimes S}_{n \text{ times}}.
+\]</span></p>
 
+</div>
 </div>
             </section>
 

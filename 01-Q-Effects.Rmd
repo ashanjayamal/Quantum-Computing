@@ -1,6 +1,12 @@
 # Quntum Effects
 
+
 ## Superposition
+
+<figure style="float: right; width: 15%;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Paul_Dirac%2C_1933.jpg/330px-Paul_Dirac%2C_1933.jpg" alt="Paul Dirac (Resource: Wikipedia)" />
+  <figcaption>Paul Dirac (Resource: Wikipedia)</figcaption>
+</figure>
 
 
 A pure state in quantum mechanics is represented in terms of a normalised vector is $|\psi\rangle$ in a complex inner product space $\mathcal{H}$ (called Hilbert space).
@@ -34,6 +40,42 @@ If the two states $|\psi_1\rangle$ and $|\psi_2\rangle$ are physical states of t
 
 This is called the **superposition principle**, and is extendable to any number of states, by considering appropriate basis states.
 
+
+- A single-qubit quantum state is represented as:
+     $$ |\psi\rangle = \alpha |0\rangle + \beta |1\rangle, $$
+     where \( \alpha, \beta \in \mathbb{C} \), and \( |\alpha|^2 + |\beta|^2 = 1 \) (normalization condition).
+
+- The state can also be parameterized in terms of angles:
+     $$ |\psi\rangle = \cos{\frac{\theta}{2}} |0\rangle + e^{i\phi} \sin{\frac{\theta}{2}} |1\rangle, $$
+     where:
+     - \( \theta \in [0, \pi] \): Determines the weight of \( |0\rangle \) and \( |1\rangle \).
+     - \( \phi \in [0, 2\pi) \): Defines the relative phase between \( |0\rangle \) and \( |1\rangle \).
+     
+
+- The angles \( (\theta, \phi) \) represent a unique point on the unit sphere in \( \mathbb{R}^3 \), called the **Bloch Sphere**.
+- The quantum state \( |\psi\rangle \) corresponds to a point \( \mathbf{r} \) on the Bloch sphere:
+     $$ \mathbf{r} = (\langle \sigma_x \rangle, \langle \sigma_y \rangle, \langle \sigma_z \rangle), $$
+     where the components are:
+     - \( \langle \sigma_x \rangle = \sin{\theta} \cos{\phi} \),
+     - \( \langle \sigma_y \rangle = \sin{\theta} \sin{\phi} \),
+     - \( \langle \sigma_z \rangle = \cos{\theta} \).     
+    
+<center>
+![Bloch Sphere (Resource: Wikipedia)](fig/fig55.svg)  
+</center>
+     
+ This defines a one-to-one correspondence between quantum states
+ (up to a global phase) (\(e^{i\gamma} |\psi\rangle\)) and points on the unit sphere.
+ 
+ 
+ 
+ ```{remark}
+ The global phase does not change the Bloch sphere
+ representation. That is, states differing by a global phase represent
+ the same physical qubit state.     
+ ```    
+     
+
 Consider an electron that has either spin up or down. We now state the states with respect to the basis up $|↑\rangle$ and down $|↓\rangle$ states.
 
 ![Resource: Hughes, Ciaran, et al. *Quantum computing for the quantum curious*. Springer Nature, 2021.](https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-030-61601-4_4/MediaObjects/490703_1_En_4_Fig1_HTML.png)
@@ -45,6 +87,9 @@ because
 \(
 \left| \sqrt{\frac{2}{3}} \right|^2 + \left| \frac{i}{\sqrt{3}} \right|^2 = \frac{2}{3} + \frac{1}{3} = 1
 \)
+
+
+
 
 
 
@@ -199,11 +244,11 @@ Then,
 
 ## Unitary Evolution
 
-<!---
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Erwin_Schr%C3%B6dinger_%281933%29.jpg" alt="Erwin Schrödinger (Resource:Wikipidia)" style="float: right; width: 20%;" />
---->
 
-![Erwin Schrödinger (Resource:Wikipidia)](https://upload.wikimedia.org/wikipedia/commons/2/2e/Erwin_Schr%C3%B6dinger_%281933%29.jpg)
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Erwin_Schr%C3%B6dinger_%281933%29.jpg" alt="Erwin Schrödinger (Resource:Wikipidia)" style="float: right; width: 20%;" />
+
+
+<!--![Erwin Schrödinger (Resource:Wikipidia)](https://upload.wikimedia.org/wikipedia/commons/2/2e/Erwin_Schr%C3%B6dinger_%281933%29.jpg)-->
 
 
 The time evolution of a closed quantum system is governed by the Schrödinger equation:

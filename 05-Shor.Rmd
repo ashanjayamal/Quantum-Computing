@@ -1,5 +1,12 @@
 #  Shor’s Algorithm
-![Peter Williston Shor (Resource: Wikipiedia ) ](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Peter_Shor_2017_Dirac_Medal_Award_Ceremony.png/330px-Peter_Shor_2017_Dirac_Medal_Award_Ceremony.png)
+<!--![Peter Williston Shor (Resource: Wikipiedia ) ](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Peter_Shor_2017_Dirac_Medal_Award_Ceremony.png/330px-Peter_Shor_2017_Dirac_Medal_Award_Ceremony.png)-->
+
+
+<figure style="float: right; width: 15%;">
+  <img src="fig/Peter_Shor_2017_Dirac_Medal_Award_Ceremony.png" alt="Peter Williston Shor (Resource: Wikipedia)" />
+  <figcaption>Peter Williston Shor (Resource: Wikipedia)</figcaption>
+</figure>
+
 
 Shor's algorithm factorises a number $N$ in $\mathcal{O}((\log N)^3)$ time and $\mathcal{O}(\log N)$ space. This algorithm was devised by Peter Shor in 1994.
 

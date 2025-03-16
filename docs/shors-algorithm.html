@@ -29,7 +29,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-14" />
+<meta name="date" content="2025-03-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -146,7 +146,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Quntum Computing</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Quantum Computing: A Journey into the Atomic World</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Quantum Computing: A Journey into the Atomic World</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#basic-defnitions-and-notations"><i class="fa fa-check"></i><b>1.1</b> Basic Defnitions and Notations</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="quntum-effects.html"><a href="quntum-effects.html"><i class="fa fa-check"></i><b>2</b> Quntum Effects</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="quntum-effects.html"><a href="quntum-effects.html#superposition"><i class="fa fa-check"></i><b>2.1</b> Superposition</a></li>
@@ -156,11 +159,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="quantum-gates.html"><a href="quantum-gates.html"><i class="fa fa-check"></i><b>3</b> Quantum Gates</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="quantum-gates.html"><a href="quantum-gates.html#hadamard-gate"><i class="fa fa-check"></i><b>3.1</b> Hadamard gate</a></li>
-<li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#pauli-gates"><i class="fa fa-check"></i><b>3.2</b> Pauli gates</a></li>
-<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#phase-flip"><i class="fa fa-check"></i><b>3.3</b> Phase flip</a></li>
-<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.4</b> CNOT gate</a></li>
-<li class="chapter" data-level="3.5" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.5</b> Exercises</a></li>
+<li class="chapter" data-level="3.1" data-path="quantum-gates.html"><a href="quantum-gates.html#single-qubit-gates"><i class="fa fa-check"></i><b>3.1</b> Single Qubit Gates</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="quantum-gates.html"><a href="quantum-gates.html#hadamard-gate"><i class="fa fa-check"></i><b>3.1.1</b> Hadamard gate</a></li>
+<li class="chapter" data-level="3.1.2" data-path="quantum-gates.html"><a href="quantum-gates.html#pauli-gates"><i class="fa fa-check"></i><b>3.1.2</b> Pauli gates</a></li>
+<li class="chapter" data-level="3.1.3" data-path="quantum-gates.html"><a href="quantum-gates.html#phase-flip"><i class="fa fa-check"></i><b>3.1.3</b> Phase flip</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#multi-qubit-gates."><i class="fa fa-check"></i><b>3.2</b> Multi-qubit gates.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.2.1</b> CNOT gate</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#ccnot-gates"><i class="fa fa-check"></i><b>3.3</b> CCNOT gates</a></li>
+<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="deutschs-algorithm.html"><a href="deutschs-algorithm.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s Algorithm</a></li>
 <li class="chapter" data-level="5" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html"><i class="fa fa-check"></i><b>5</b> Quantum Fourier Trasnform (QFT)</a>
@@ -195,10 +205,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="shors-algorithm" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Shor’s Algorithm<a href="shors-algorithm.html#shors-algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="float">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Peter_Shor_2017_Dirac_Medal_Award_Ceremony.png/330px-Peter_Shor_2017_Dirac_Medal_Award_Ceremony.png" alt="Peter Williston Shor (Resource: Wikipiedia )" />
-<div class="figcaption">Peter Williston Shor (Resource: Wikipiedia )</div>
-</div>
+<!--![Peter Williston Shor (Resource: Wikipiedia ) ](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Peter_Shor_2017_Dirac_Medal_Award_Ceremony.png/330px-Peter_Shor_2017_Dirac_Medal_Award_Ceremony.png)-->
+<figure style="float: right; width: 15%;">
+<img src="fig/Peter_Shor_2017_Dirac_Medal_Award_Ceremony.png" alt="Peter Williston Shor (Resource: Wikipedia)" />
+<figcaption>
+Peter Williston Shor (Resource: Wikipedia)
+</figcaption>
+</figure>
 <p>Shor’s algorithm factorises a number <span class="math inline">\(N\)</span> in <span class="math inline">\(\mathcal{O}((\log N)^3)\)</span> time and <span class="math inline">\(\mathcal{O}(\log N)\)</span> space. This algorithm was devised by Peter Shor in 1994.</p>
 <p>This algorithm revolutionised the field of computing, as prime factoring has no polynomial time classical algorithm. An implication was that RSA cryptosystems, which use prime factoring as a key ingredient, would not be safe in the future, with the advent of large quantum computers.</p>
 <p>Given an integer <span class="math inline">\(N\)</span>, Shor’s algorithm is about finding <span class="math inline">\(b\)</span> such that <span class="math inline">\(b^2 \equiv 1 \pmod{N}\)</span>.</p>
@@ -209,7 +222,7 @@ Suppose <span class="math inline">\(b^2 \equiv 1 \pmod{N}\)</span> and <span cla
 <span class="math inline">\(\gcd(b + 1, N)\)</span> and <span class="math inline">\(\gcd(b - 1, N)\)</span> are non-trivial factors of <span class="math inline">\(N\)</span>.</p>
 </blockquote>
 <div class="proof">
-<p><span id="unlabeled-div-3" class="proof"><em>Proof</em>. </span>(<em>Proof Idea</em>)<br />
+<p><span id="unlabeled-div-7" class="proof"><em>Proof</em>. </span>(<em>Proof Idea</em>)<br />
 We are going to use proof by contraditction.
 Let <span class="math inline">\(d = \gcd(b - 1, N)\)</span>. Then <span class="math inline">\(d\)</span> is a divisor of <span class="math inline">\(N\)</span>.</p>
 <ul>
@@ -228,7 +241,7 @@ This a contrdiction.</p></li>
 </ul>
 </div>
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-16" class="theorem"><strong>Theorem 6.1  (Eulers Theorem) </strong></span>Let <span class="math inline">\(\alpha\)</span> be an integer (<span class="math inline">\(\alpha &lt; N\)</span>) such that <span class="math inline">\(\gcd(\alpha, N) = 1\)</span>. Then there exists some <span class="math inline">\(s\)</span> (<span class="math inline">\(1 &lt; s &lt; N\)</span>) such that:
+<p><span id="thm:unnamed-chunk-28" class="theorem"><strong>Theorem 6.1  (Eulers Theorem) </strong></span>Let <span class="math inline">\(\alpha\)</span> be an integer (<span class="math inline">\(\alpha &lt; N\)</span>) such that <span class="math inline">\(\gcd(\alpha, N) = 1\)</span>. Then there exists some <span class="math inline">\(s\)</span> (<span class="math inline">\(1 &lt; s &lt; N\)</span>) such that:
 <span class="math display">\[
 \alpha^s \equiv 1 \pmod{N}.
 \]</span></p>

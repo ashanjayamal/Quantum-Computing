@@ -29,7 +29,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-14" />
+<meta name="date" content="2025-03-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -146,7 +146,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Quntum Computing</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Quantum Computing: A Journey into the Atomic World</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Quantum Computing: A Journey into the Atomic World</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#basic-defnitions-and-notations"><i class="fa fa-check"></i><b>1.1</b> Basic Defnitions and Notations</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="quntum-effects.html"><a href="quntum-effects.html"><i class="fa fa-check"></i><b>2</b> Quntum Effects</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="quntum-effects.html"><a href="quntum-effects.html#superposition"><i class="fa fa-check"></i><b>2.1</b> Superposition</a></li>
@@ -156,11 +159,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="quantum-gates.html"><a href="quantum-gates.html"><i class="fa fa-check"></i><b>3</b> Quantum Gates</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="quantum-gates.html"><a href="quantum-gates.html#hadamard-gate"><i class="fa fa-check"></i><b>3.1</b> Hadamard gate</a></li>
-<li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#pauli-gates"><i class="fa fa-check"></i><b>3.2</b> Pauli gates</a></li>
-<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#phase-flip"><i class="fa fa-check"></i><b>3.3</b> Phase flip</a></li>
-<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.4</b> CNOT gate</a></li>
-<li class="chapter" data-level="3.5" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.5</b> Exercises</a></li>
+<li class="chapter" data-level="3.1" data-path="quantum-gates.html"><a href="quantum-gates.html#single-qubit-gates"><i class="fa fa-check"></i><b>3.1</b> Single Qubit Gates</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="quantum-gates.html"><a href="quantum-gates.html#hadamard-gate"><i class="fa fa-check"></i><b>3.1.1</b> Hadamard gate</a></li>
+<li class="chapter" data-level="3.1.2" data-path="quantum-gates.html"><a href="quantum-gates.html#pauli-gates"><i class="fa fa-check"></i><b>3.1.2</b> Pauli gates</a></li>
+<li class="chapter" data-level="3.1.3" data-path="quantum-gates.html"><a href="quantum-gates.html#phase-flip"><i class="fa fa-check"></i><b>3.1.3</b> Phase flip</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#multi-qubit-gates."><i class="fa fa-check"></i><b>3.2</b> Multi-qubit gates.</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.2.1</b> CNOT gate</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#ccnot-gates"><i class="fa fa-check"></i><b>3.3</b> CCNOT gates</a></li>
+<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="deutschs-algorithm.html"><a href="deutschs-algorithm.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s Algorithm</a></li>
 <li class="chapter" data-level="5" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html"><i class="fa fa-check"></i><b>5</b> Quantum Fourier Trasnform (QFT)</a>
@@ -197,6 +207,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 2</span> Quntum Effects<a href="quntum-effects.html#quntum-effects" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="superposition" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Superposition<a href="quntum-effects.html#superposition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<figure style="float: right; width: 15%;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Paul_Dirac%2C_1933.jpg/330px-Paul_Dirac%2C_1933.jpg" alt="Paul Dirac (Resource: Wikipedia)" />
+<figcaption>
+Paul Dirac (Resource: Wikipedia)
+</figcaption>
+</figure>
 <p>A pure state in quantum mechanics is represented in terms of a normalised vector is <span class="math inline">\(|\psi\rangle\)</span> in a complex inner product space <span class="math inline">\(\mathcal{H}\)</span> (called Hilbert space).</p>
 <p>The notation <span class="math inline">\(|\psi\rangle\)</span> is used for quantum states, represented by column vectors, and it is called a <strong>ket</strong> vector; while the conjugate transpose of the <span class="math inline">\(|\psi\rangle\)</span> is called the <strong>bra</strong> vector <span class="math inline">\((\langle\psi|)\)</span>, leading to bra-ket, known as <strong>Dirac notation</strong>.</p>
 <p>Inner product <span class="math inline">\((\psi,\phi)\)</span> is expressed as <span class="math inline">\(\langle\psi|\phi\rangle\)</span>. Accordingly, the normalisation condition can be stated as <span class="math inline">\(\langle\psi|\psi\rangle = 1\)</span>.</p>
@@ -228,6 +244,40 @@ where <span class="math inline">\(| \psi \rangle = \begin{pmatrix} a \\ b \end{p
 <p>We refer to the Euclidean norm when defining the sizes of vectors. That is, <span class="math display">\[|| \psi || = | \langle \psi | \psi \rangle |.\]</span></p>
 <p>If the two states <span class="math inline">\(|\psi_1\rangle\)</span> and <span class="math inline">\(|\psi_2\rangle\)</span> are physical states of the system, then their linear superposition <span class="math inline">\(c_1 |\psi_1\rangle + c_2 |\psi_1\rangle\)</span> is also a possible state of the same system, where <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span> are complex numbers satisfying <span class="math inline">\(| c_1 |^2 + | c_2 |^2 = 1\)</span>.</p>
 <p>This is called the <strong>superposition principle</strong>, and is extendable to any number of states, by considering appropriate basis states.</p>
+<ul>
+<li><p>A single-qubit quantum state is represented as:
+<span class="math display">\[ |\psi\rangle = \alpha |0\rangle + \beta |1\rangle, \]</span>
+where <span class="math inline">\(\alpha, \beta \in \mathbb{C}\)</span>, and <span class="math inline">\(|\alpha|^2 + |\beta|^2 = 1\)</span> (normalization condition).</p></li>
+<li><p>The state can also be parameterized in terms of angles:
+<span class="math display">\[ |\psi\rangle = \cos{\frac{\theta}{2}} |0\rangle + e^{i\phi} \sin{\frac{\theta}{2}} |1\rangle, \]</span>
+where:</p>
+<ul>
+<li><span class="math inline">\(\theta \in [0, \pi]\)</span>: Determines the weight of <span class="math inline">\(|0\rangle\)</span> and <span class="math inline">\(|1\rangle\)</span>.</li>
+<li><span class="math inline">\(\phi \in [0, 2\pi)\)</span>: Defines the relative phase between <span class="math inline">\(|0\rangle\)</span> and <span class="math inline">\(|1\rangle\)</span>.</li>
+</ul></li>
+<li><p>The angles <span class="math inline">\((\theta, \phi)\)</span> represent a unique point on the unit sphere in <span class="math inline">\(\mathbb{R}^3\)</span>, called the <strong>Bloch Sphere</strong>.</p></li>
+<li><p>The quantum state <span class="math inline">\(|\psi\rangle\)</span> corresponds to a point <span class="math inline">\(\mathbf{r}\)</span> on the Bloch sphere:
+<span class="math display">\[ \mathbf{r} = (\langle \sigma_x \rangle, \langle \sigma_y \rangle, \langle \sigma_z \rangle), \]</span>
+where the components are:</p>
+<ul>
+<li><span class="math inline">\(\langle \sigma_x \rangle = \sin{\theta} \cos{\phi}\)</span>,</li>
+<li><span class="math inline">\(\langle \sigma_y \rangle = \sin{\theta} \sin{\phi}\)</span>,</li>
+<li><span class="math inline">\(\langle \sigma_z \rangle = \cos{\theta}\)</span>.</li>
+</ul></li>
+</ul>
+<center>
+<div class="float">
+<img src="fig/fig55.svg" alt="Bloch Sphere (Resource: Wikipedia)" />
+<div class="figcaption">Bloch Sphere (Resource: Wikipedia)</div>
+</div>
+</center>
+<p>This defines a one-to-one correspondence between quantum states
+(up to a global phase) (<span class="math inline">\(e^{i\gamma} |\psi\rangle\)</span>) and points on the unit sphere.</p>
+<p>::: {.remark}
+The global phase does not change the Bloch sphere
+representation. That is, states differing by a global phase represent
+the same physical qubit state.<br />
+:::</p>
 <p>Consider an electron that has either spin up or down. We now state the states with respect to the basis up <span class="math inline">\(|↑\rangle\)</span> and down <span class="math inline">\(|↓\rangle\)</span> states.</p>
 <div class="float">
 <img src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-030-61601-4_4/MediaObjects/490703_1_En_4_Fig1_HTML.png" alt="Resource: Hughes, Ciaran, et al. Quantum computing for the quantum curious. Springer Nature, 2021." />
@@ -258,7 +308,7 @@ because
 <p>The probability of collapsing to state <span class="math inline">\(|\lambda_i\rangle\)</span> is given by <span class="math inline">\(|c_i|^2\)</span>.</p>
 <p>Note that <span class="math inline">\(|c_1|^2 + |c_2|^2 = 1\)</span>.Therefore, <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span> are called probability amplitudes.</p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-2" class="example"><strong>Example 2.1  </strong></span><img src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-030-61601-4_4/MediaObjects/490703_1_En_4_Fig1_HTML.png" /></p>
+<p><span id="exm:unnamed-chunk-7" class="example"><strong>Example 2.1  </strong></span><img src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-030-61601-4_4/MediaObjects/490703_1_En_4_Fig1_HTML.png" /></p>
 <p>Consider
 <span class="math display">\[\psi\rangle = \frac{2}{3}|↑\rangle + \frac{i}{3}|↓\rangle\]</span></p>
 <ul>
@@ -269,7 +319,7 @@ because
 <p>This is also stated as follows in another approach: Consider an experimental setup which is described by an observable <span class="math inline">\(a\)</span> (with corresponding Hermitian operator <span class="math inline">\(A\)</span>) to be measured and state <span class="math inline">\(|\psi\rangle\)</span> of the system. Then the expectation value <span class="math inline">\(⟨A\rangle\)</span> of <span class="math inline">\(a\)</span> after measurements with respect to a state <span class="math inline">\(|\psi\rangle\)</span> is given by:
 <span class="math inline">\(⟨A\rangle =\langle\psi|A|\psi\rangle\)</span>.</p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-3" class="example"><strong>Example 2.2  </strong></span>Calculating the expectation value of <span class="math inline">\(\sigma_z\)</span> (Pauli <span class="math inline">\(z\)</span>-matrix) for the given state:
+<p><span id="exm:unnamed-chunk-8" class="example"><strong>Example 2.2  </strong></span>Calculating the expectation value of <span class="math inline">\(\sigma_z\)</span> (Pauli <span class="math inline">\(z\)</span>-matrix) for the given state:
 <span class="math display">\[
 |\psi\rangle = \sqrt{\frac{2}{3}} |0\rangle + \frac{i}{\sqrt{3}} |1\rangle.
 \]</span>
@@ -332,7 +382,7 @@ Henece, <span class="math display">\[\text{The expectation value of } \sigma_z =
 <span class="math display">\[|+\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle\]</span>
 <span class="math display">\[|−\rangle = \frac{1}{\sqrt{2}}|1 − \rangle  \frac{1}{\sqrt{2}}|1\rangle\]</span></p>
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-4" class="exercise"><strong>Exercise 2.1  </strong></span><img src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-030-61601-4_4/MediaObjects/490703_1_En_4_Fig1_HTML.png" /></p>
+<p><span id="exr:unnamed-chunk-9" class="exercise"><strong>Exercise 2.1  </strong></span><img src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-030-61601-4_4/MediaObjects/490703_1_En_4_Fig1_HTML.png" /></p>
 <p><span class="math display">\[|\psi\rangle = \frac{2}{3}|0\rangle + \frac{i}{3}|1\rangle\]</span></p>
 <p>What happens if this is measured with respect to the Hadamard basis?</p>
 </div>
@@ -359,13 +409,8 @@ Then,
 </div>
 <div id="unitary-evolution" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> Unitary Evolution<a href="quntum-effects.html#unitary-evolution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<!---
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Erwin_Schr%C3%B6dinger_%281933%29.jpg" alt="Erwin Schrödinger (Resource:Wikipidia)" style="float: right; width: 20%;" />
---->
-<div class="float">
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Erwin_Schr%C3%B6dinger_%281933%29.jpg" alt="Erwin Schrödinger (Resource:Wikipidia)" />
-<div class="figcaption">Erwin Schrödinger (<a href="Resource:Wikipidia" class="uri">Resource:Wikipidia</a>)</div>
-</div>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Erwin_Schr%C3%B6dinger_%281933%29.jpg" alt="Erwin Schrödinger (Resource:Wikipidia)" style="float: right; width: 20%;" /></p>
+<!--![Erwin Schrödinger (Resource:Wikipidia)](https://upload.wikimedia.org/wikipedia/commons/2/2e/Erwin_Schr%C3%B6dinger_%281933%29.jpg)-->
 <p>The time evolution of a closed quantum system is governed by the Schrödinger equation:
 <span class="math display">\[i\hbar \frac{d}{dt}|\psi(t)\rangle = H|\psi(t)\rangle\]</span>
 where:</p>
@@ -478,7 +523,7 @@ e^0 = I + 0 + \frac{0^2}{2!} + \cdots = I
 |11 \rangle &amp;:=&amp; |1 \rangle \otimes |1 \rangle =\begin{pmatrix} 0 \\1 \end{pmatrix}\otimes \begin{pmatrix} 0 \\1 \end{pmatrix}=\begin{pmatrix} 0\\0\\0\\1 \end{pmatrix}\\\\
 \end{eqnarray}\]</span></p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-6" class="example"><strong>Example 2.3  </strong></span><strong>Example of Two-qubit state</strong>
+<p><span id="exm:unnamed-chunk-11" class="example"><strong>Example 2.3  </strong></span><strong>Example of Two-qubit state</strong>
 <span class="math display">\[
 |\psi\rangle = \frac{1}{2}|00\rangle + \frac{1}{2}|01\rangle + \frac{1}{2}|10\rangle + \frac{1}{2}|11\rangle
 \]</span></p>
@@ -504,7 +549,7 @@ two vectors as <span class="math inline">\(|\psi\rangle = |\psi_1  \rangle \otim
 </div>
 <p>There are quantum states in the Hilbert space <span class="math inline">\(\mathcal{H}_1\otimes \mathcal{H}_2\)</span> that cannot be stated as a product!</p>
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-7" class="exercise"><strong>Exercise 2.2  </strong></span>Show that the following is such a state:
+<p><span id="exr:unnamed-chunk-12" class="exercise"><strong>Exercise 2.2  </strong></span>Show that the following is such a state:
 <span class="math display">\[
 |\psi\rangle = \frac{1}{\sqrt{2}}|00\rangle + \frac{1}{\sqrt{2}}|11\rangle
 \]</span></p>

@@ -1,6 +1,13 @@
 # Deutsch’s Algorithm
 
-![David Deutach (Resource: Offical site)](https://www.daviddeutsch.org.uk/wp-content/uploads/2013/12/david-home-e1594943580574.jpg){width=30%}
+<!--![David Deutach (Resource: Offical site)](https://www.daviddeutsch.org.uk/wp-content/uploads/2013/12/david-home-e1594943580574.jpg){width=30%}-->
+
+
+<figure style="float: right; width: 30%;">
+  <img src="https://www.daviddeutsch.org.uk/wp-content/uploads/2013/12/david-home-e1594943580574.jpg" alt="David Deutsch (Resource: Official site)" />
+  <figcaption>David Deutsch (Resource: Official site)</figcaption>
+</figure>
+
 
 An early stage quantum algorithm that demonstrates the computational power of quantum computers is the algorithm invented by David Deutsch in 1985.
 
@@ -16,10 +23,20 @@ Our goal is to determine whether **f** is:
 - **Constant**: \( f(0) = f(1) \) (same output for both inputs)?  
 - **Balanced**: \( f(0) \neq f(1) \) (different outputs for each input)?
 
-![](fig/fig19.jpg)
+<!--![](fig/fig19.jpg)-->
 
-#### Classical Solution,
-*Algorithm 1: Classical Algorithm for the Deutsch Problem (\( n = 1 \))**
+|Constant|Balanced|
+|:------:|:-----:|
+|![](fig/fig56.png){width=50%}|![](fig/fig57.png){width=50%}|
+|\[f(0)=f(1)=0\]|\[f(0)=0,f(1)=1\]|
+|![](fig/fig58.png){width=50%}|![](fig/fig59.png){width=50%}|
+|\[f(0)=f(1)=1\]|\[f(0)=1,f(1)=0\]|
+
+
+
+#### Classical Solution
+
+**Algorithm 1: Classical Algorithm for the Deutsch Problem (\( n = 1 \))**
 
 **Require**: A black-box function \( f : \{0,1\} \rightarrow \{0,1\} \)  
 
@@ -60,7 +77,11 @@ is unitary.
 The above transformation can be implemented in a quantum circuit by querying an oracle.
 
 
-**Diagram**:\ ![](fig/fig20.png)
+**Diagram**:
+
+<center>
+![](fig/fig20.png)
+</center>
 
  This quantum circuit queries an oracle, and implements $U_f$
  
@@ -108,12 +129,16 @@ This is called **Phase kickback**.
 
 Deutsch’s algorithm is a black box algorithm, that uses quantum parallelism, and can be implemented efficiently using a quantum computer.
 
+
+<center>
 ![Circuit implementation of Deutsch’s algorithm](fig/fig21.png)
+</center>
 
 Given a function \(f :\{0,1\} \rightarrow \{0,1\}\),  Deutsch’s algorithm determines whether $f$ is constant or balanced, with a single query to the function
 
-
+<center>
 ![](fig/fig22.png) 
+</center>
 
 
 \[\begin{eqnarray}
@@ -147,7 +172,9 @@ U_f | +, - \rangle = \frac{1}{\sqrt{2}} (-1)^{f(0)} | 0, - \rangle + \frac{1}{\s
 \]
 
 
+<center>
 ![](fig/fig28.png)
+</center>
 
 
 | If $f$ is constant  | If $f$ is balanced |
@@ -156,7 +183,11 @@ U_f | +, - \rangle = \frac{1}{\sqrt{2}} (-1)^{f(0)} | 0, - \rangle + \frac{1}{\s
 |\(f(0) = f(1) = 1     \quad \rightarrow \quad\)<span style="background-color: #fed2cc;"> \( - | + \rangle\)</span><span style="background-color: #fce9b0;">\( | - \rangle\) </span>|\(f(0) = 1, f(1) = 0  \quad \rightarrow \quad\)<span style="background-color: #fed2cc;">\( - | - \rangle \)</span><span style="background-color: #fce9b0;">\(| - \rangle\)</span>| 
 
 \(|\psi_4\rangle\) becomes one of the following states, depending on \(f\). 
+
+
+<center>
 ![](fig/fig29.png)
+</center>
 
 
 
