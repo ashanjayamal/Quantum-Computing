@@ -27,9 +27,9 @@ Our goal is to determine whether **f** is:
 
 |Constant|Balanced|
 |:------:|:-----:|
-|![](fig/fig56.png){width=50%}|![](fig/fig57.png){width=50%}|
+|![](fig/fig56.png){width=50%}|![](fig/fig58.png){width=50%}|
 |\[f(0)=f(1)=0\]|\[f(0)=0,f(1)=1\]|
-|![](fig/fig58.png){width=50%}|![](fig/fig59.png){width=50%}|
+|![](fig/fig57.png){width=50%}|![](fig/fig59.png){width=50%}|
 |\[f(0)=f(1)=1\]|\[f(0)=1,f(1)=0\]|
 
 

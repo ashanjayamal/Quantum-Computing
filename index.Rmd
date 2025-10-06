@@ -14,8 +14,6 @@ description: |
   The HTML output format for this example is bookdown::gitbook,
 link-citations: true
 github-repo: "rstudio/bookdown-demo"
-
-  
 ---
 
 
@@ -55,16 +53,109 @@ Given $A \in \mathbb{C}^{m \times n}$ and $B \in \mathbb{C}^{p \times q}$, the K
 
 \[
 D := A \otimes B =
-\begin{bmatrix}
+\begin{pmatrix}
 a_{11}B & \dots & a_{1n}B \\
 a_{21}B & \dots & a_{2n}B \\
 \vdots & \ddots & \vdots \\
 a_{m1}B & \dots & a_{mn}B
-\end{bmatrix}.
+\end{pmatrix}.
 \]
 
 
 If we choose the standard basis over the vector spaces $\mathbb{C}^{m \times n}$ and $\mathbb{C}^{p \times q}$, then the bilinear operation of the tensor product $\mathbb{C}^{m \times n} \otimes \mathbb{C}^{p \times q}$ is simply the Kronecker product.
+```
+
+```{example}
+- Vector example
+
+  \(
+  \begin{pmatrix}
+  a \\
+  b
+  \end{pmatrix}
+  \otimes
+  \begin{pmatrix}
+  c \\
+  d
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  ac \\
+  ad \\
+  bc \\
+  bd
+  \end{pmatrix}
+  \)
+
+
+  - \(
+    \begin{pmatrix}
+    1 \\
+    2
+    \end{pmatrix}
+    \otimes
+    \begin{pmatrix}
+    3 \\
+    4
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    1 \cdot 3 \\
+    1 \cdot 4 \\
+    2 \cdot 3 \\
+    2 \cdot 4
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    3 \\
+    4 \\
+    6 \\
+    8
+    \end{pmatrix}
+    \)
+
+
+- Matrix Example
+  
+  \(
+  \begin{pmatrix}
+  a & b \\
+  c & d
+  \end{pmatrix}
+  \otimes
+  \begin{pmatrix}
+  e & f \\
+  g & h
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  ae & af & be & bf \\
+  ag & ah & bg & bh \\
+  ce & cf & de & df \\
+  cg & ch & dg & dh
+  \end{pmatrix}
+  \)
+
+
+  - \(
+    \begin{pmatrix}
+    1 & 2 \\
+    2 & 1
+    \end{pmatrix}
+    \otimes
+    \begin{pmatrix}
+    3 & 1 \\
+    1 & 4
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    3 & 1 & 6 & 2 \\
+    1 & 4 & 2 & 8 \\
+    6 & 2 & 3 & 1 \\
+    2 & 8 & 1 & 4
+    \end{pmatrix}
+    \)
+
 ```
 
 ```{example}

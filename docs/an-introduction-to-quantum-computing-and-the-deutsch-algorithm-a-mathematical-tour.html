@@ -8,7 +8,7 @@
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
 The HTML output format for this example is bookdown::gitbook,</p>" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour | Introduction to Quantum Computing" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-16" />
+<meta name="date" content="2025-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -37,7 +37,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
   
   
 <link rel="prev" href="quantum-computing-with-qiskit.html"/>
-
+<link rel="next" href="refrences.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -61,8 +61,9 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -72,7 +73,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -156,6 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="quntum-effects.html"><a href="quntum-effects.html#measurement"><i class="fa fa-check"></i><b>2.2</b> Measurement</a></li>
 <li class="chapter" data-level="2.3" data-path="quntum-effects.html"><a href="quntum-effects.html#unitary-evolution"><i class="fa fa-check"></i><b>2.3</b> Unitary Evolution</a></li>
 <li class="chapter" data-level="2.4" data-path="quntum-effects.html"><a href="quntum-effects.html#entanglement"><i class="fa fa-check"></i><b>2.4</b> Entanglement</a></li>
+<li class="chapter" data-level="2.5" data-path="quntum-effects.html"><a href="quntum-effects.html#exercise"><i class="fa fa-check"></i><b>2.5</b> Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="quantum-gates.html"><a href="quantum-gates.html"><i class="fa fa-check"></i><b>3</b> Quantum Gates</a>
 <ul>
@@ -168,9 +170,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#multi-qubit-gates."><i class="fa fa-check"></i><b>3.2</b> Multi-qubit gates.</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.2.1</b> CNOT gate</a></li>
+<li class="chapter" data-level="3.2.2" data-path="quantum-gates.html"><a href="quantum-gates.html#ccnot-gate-toffoli-gate"><i class="fa fa-check"></i><b>3.2.2</b> CCNOT gate ( Toffoli gate)</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#ccnot-gates"><i class="fa fa-check"></i><b>3.3</b> CCNOT gates</a></li>
-<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
+<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="deutschs-algorithm.html"><a href="deutschs-algorithm.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s Algorithm</a></li>
 <li class="chapter" data-level="5" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html"><i class="fa fa-check"></i><b>5</b> Quantum Fourier Trasnform (QFT)</a>
@@ -183,6 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="shors-algorithm.html"><a href="shors-algorithm.html"><i class="fa fa-check"></i><b>6</b> Shor’s Algorithm</a></li>
 <li class="chapter" data-level="7" data-path="quantum-computing-with-qiskit.html"><a href="quantum-computing-with-qiskit.html"><i class="fa fa-check"></i><b>7</b> Quantum Computing with Qiskit</a></li>
 <li class="chapter" data-level="8" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><i class="fa fa-check"></i><b>8</b> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour</a></li>
+<li class="chapter" data-level="9" data-path="refrences.html"><a href="refrences.html"><i class="fa fa-check"></i><b>9</b> Refrences</a></li>
 <li class="divider"></li>
 <li><a href="https://ashanjayamal.github.io/academicpages/" target="blank">Ashan Jayamal</a></li>
 
@@ -328,7 +331,7 @@ For any <span class="math inline">\(|v\rangle  ∈ \mathbb{C}^2\)</span>, <span 
 for some <span class="math inline">\(a,b \in  \mathbb{C}^2\)</span> and moreover <span class="math inline">\(a = \langle e_1|v\rangle\)</span> and <span class="math inline">\(b = \langle e_2|v\rangle\)</span>.</p></li>
 </ol>
 <div class="example">
-<p><span id="exm:unnamed-chunk-33" class="example"><strong>Example 8.1  (Orthonormal Basis) </strong></span></p>
+<p><span id="exm:unnamed-chunk-40" class="example"><strong>Example 8.1  (Orthonormal Basis) </strong></span></p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Standard Basis</strong>:<br />
 <span class="math inline">\(|0\rangle  = \begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span>, <span class="math inline">\(|1\rangle  = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\)</span>.</p></li>
@@ -378,11 +381,11 @@ Thus, <span class="math inline">\(P\)</span> is projection</p></li>
 </ol>
 <p>Linear Functionals and Bra Notation</p>
 <div class="definition">
-<p><span id="def:unnamed-chunk-34" class="definition"><strong>Definition 8.1  </strong></span>A linear functional is a map <span class="math inline">\(f : \mathbb{C}^2 → \mathbb{C}\)</span> satisfying:<br />
+<p><span id="def:unnamed-chunk-41" class="definition"><strong>Definition 8.1  </strong></span>A linear functional is a map <span class="math inline">\(f : \mathbb{C}^2 → \mathbb{C}\)</span> satisfying:<br />
 <span class="math display">\[ f(α|v\rangle  + |w\rangle ) = αf(|v\rangle ) + f(|w\rangle ). \]</span></p>
 </div>
 <div class="definition">
-<p><span id="def:unnamed-chunk-35" class="definition"><strong>Definition 8.2  </strong></span><span class="math inline">\(\{f : \mathbb{C}^2 →\mathbb{C}: f is linear\}\)</span> is called the dual space of <span class="math inline">\(\mathbb{C}^2\)</span>.</p>
+<p><span id="def:unnamed-chunk-42" class="definition"><strong>Definition 8.2  </strong></span><span class="math inline">\(\{f : \mathbb{C}^2 →\mathbb{C}: f is linear\}\)</span> is called the dual space of <span class="math inline">\(\mathbb{C}^2\)</span>.</p>
 </div>
 <ul>
 <li><strong>Bra Notation</strong>:<br />
@@ -390,7 +393,7 @@ Each <span class="math inline">\(|w\rangle  ∈ \mathbb{C}^2\)</span> has an ass
 <span class="math inline">\(|v\rangle  → \langle w|v\rangle\)</span> for all <span class="math inline">\(|v\rangle  ∈ \mathbb{C}^2\)</span>.</li>
 </ul>
 <div class="example">
-<p><span id="exm:unnamed-chunk-36" class="example"><strong>Example 8.2  </strong></span>If <span class="math inline">\(|+\rangle  = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span>, its corresponding bra is:<br />
+<p><span id="exm:unnamed-chunk-43" class="example"><strong>Example 8.2  </strong></span>If <span class="math inline">\(|+\rangle  = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span>, its corresponding bra is:<br />
 <span class="math display">\[ \langle +| = \frac{1}{\sqrt{2}} (1, 1) .\]</span></p>
 </div>
 <p>Outer Product and Projection Operators</p>
@@ -413,7 +416,7 @@ P = |\psi\rangle \langle \psi|\text{ This satisfies: }  P^2 = P
 \]</span></p></li>
 </ul>
 <div class="example">
-<p><span id="exm:unnamed-chunk-37" class="example"><strong>Example 8.3  </strong></span>For <span class="math inline">\(|+\rangle = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span>,</p>
+<p><span id="exm:unnamed-chunk-44" class="example"><strong>Example 8.3  </strong></span>For <span class="math inline">\(|+\rangle = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span>,</p>
 <p><span class="math display">\[
   |+\rangle \langle +| = \frac{1}{2}
   \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 1 \end{bmatrix}
@@ -481,7 +484,7 @@ where <span class="math inline">\(α,β ∈\mathbb{C}, |α|^2 +|β|^2 = 1.\)</sp
 <p>This defines a one-to-one correspondence between quantum states
 (up to a global phase) (<span class="math inline">\(e^{i\gamma}|\psi\)</span>) and points on the unit sphere.</p>
 <div class="remark">
-<p><span id="unlabeled-div-8" class="remark"><em>Remark</em>. </span>The global phase does not change the Bloch sphere representation. That is, states differing by a global phase represent
+<p><span id="unlabeled-div-10" class="remark"><em>Remark</em>. </span>The global phase does not change the Bloch sphere representation. That is, states differing by a global phase represent
 the same physical qubit state.</p>
 </div>
 <div class="float">
@@ -496,7 +499,7 @@ the same physical qubit state.</p>
 - <strong>Reversible</strong>: Quantum mechanics laws are reversible.
 - <strong>Norm-Preserving</strong>: Probabilities must sum to <span class="math inline">\(1\)</span>.</p>
 <div class="definition">
-<p><span id="def:unnamed-chunk-39" class="definition"><strong>Definition 8.3  </strong></span>A quantum gate is a <span class="math inline">\(2 \times 2\)</span> <strong>unitary matrix</strong> <span class="math inline">\(U\)</span> satisfying:
+<p><span id="def:unnamed-chunk-46" class="definition"><strong>Definition 8.3  </strong></span>A quantum gate is a <span class="math inline">\(2 \times 2\)</span> <strong>unitary matrix</strong> <span class="math inline">\(U\)</span> satisfying:
 <span class="math display">\[
 U^\dagger U = I
 \]</span></p>
@@ -852,8 +855,8 @@ H \frac{1}{\sqrt{2}}(|0\rangle + (-1)^{f(1) \oplus f(0)} |1\rangle)
           </div>
         </div>
       </div>
-<a href="quantum-computing-with-qiskit.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="quantum-computing-with-qiskit.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="refrences.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -867,42 +870,42 @@ H \frac{1}{\sqrt{2}}(|0\rangle + (-1)^{f(1) \oplus f(0)} |1\rangle)
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/07-eee.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/07-eee.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

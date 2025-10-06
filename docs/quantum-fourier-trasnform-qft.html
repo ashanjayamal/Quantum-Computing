@@ -8,7 +8,7 @@
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
 The HTML output format for this example is bookdown::gitbook,</p>" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Quantum Fourier Trasnform (QFT) | Introduction to Quantum Computing" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-16" />
+<meta name="date" content="2025-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -61,8 +61,9 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -72,7 +73,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -156,6 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="quntum-effects.html"><a href="quntum-effects.html#measurement"><i class="fa fa-check"></i><b>2.2</b> Measurement</a></li>
 <li class="chapter" data-level="2.3" data-path="quntum-effects.html"><a href="quntum-effects.html#unitary-evolution"><i class="fa fa-check"></i><b>2.3</b> Unitary Evolution</a></li>
 <li class="chapter" data-level="2.4" data-path="quntum-effects.html"><a href="quntum-effects.html#entanglement"><i class="fa fa-check"></i><b>2.4</b> Entanglement</a></li>
+<li class="chapter" data-level="2.5" data-path="quntum-effects.html"><a href="quntum-effects.html#exercise"><i class="fa fa-check"></i><b>2.5</b> Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="quantum-gates.html"><a href="quantum-gates.html"><i class="fa fa-check"></i><b>3</b> Quantum Gates</a>
 <ul>
@@ -168,9 +170,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#multi-qubit-gates."><i class="fa fa-check"></i><b>3.2</b> Multi-qubit gates.</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.2.1</b> CNOT gate</a></li>
+<li class="chapter" data-level="3.2.2" data-path="quantum-gates.html"><a href="quantum-gates.html#ccnot-gate-toffoli-gate"><i class="fa fa-check"></i><b>3.2.2</b> CCNOT gate ( Toffoli gate)</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#ccnot-gates"><i class="fa fa-check"></i><b>3.3</b> CCNOT gates</a></li>
-<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
+<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="deutschs-algorithm.html"><a href="deutschs-algorithm.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s Algorithm</a></li>
 <li class="chapter" data-level="5" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html"><i class="fa fa-check"></i><b>5</b> Quantum Fourier Trasnform (QFT)</a>
@@ -183,6 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="shors-algorithm.html"><a href="shors-algorithm.html"><i class="fa fa-check"></i><b>6</b> Shor’s Algorithm</a></li>
 <li class="chapter" data-level="7" data-path="quantum-computing-with-qiskit.html"><a href="quantum-computing-with-qiskit.html"><i class="fa fa-check"></i><b>7</b> Quantum Computing with Qiskit</a></li>
 <li class="chapter" data-level="8" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><i class="fa fa-check"></i><b>8</b> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour</a></li>
+<li class="chapter" data-level="9" data-path="refrences.html"><a href="refrences.html"><i class="fa fa-check"></i><b>9</b> Refrences</a></li>
 <li class="divider"></li>
 <li><a href="https://ashanjayamal.github.io/academicpages/" target="blank">Ashan Jayamal</a></li>
 
@@ -214,7 +217,7 @@ y_k \equiv \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} x_j e^{2\pi ijk/N}
 \]</span></p>
 <p><img src="fig/fig30.png" /></p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-23" class="example"><strong>Example 5.1  </strong></span>Suppose you have a data set <span class="math inline">\(x_j=\sqrt{2},2\)</span>. Compute the DFT of this set.</p>
+<p><span id="exm:unnamed-chunk-25" class="example"><strong>Example 5.1  </strong></span>Suppose you have a data set <span class="math inline">\(x_j=\sqrt{2},2\)</span>. Compute the DFT of this set.</p>
 </div>
 <p><strong>Solution:</strong><br />
 </p>
@@ -232,7 +235,7 @@ y_1 = \frac{1}{\sqrt{2}} \left( \sqrt{2} + 2 e^{i \pi} \right) = \frac{1}{\sqrt{
 \]</span></p>
 <p>Resource: <em>Pathak, A., 2013. Elements of quantum computation and quantum communication (pp. 92-98). Boca Raton: CRC Press</em></p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-24" class="example"><strong>Example 5.2  </strong></span>Find <span class="math inline">\(y_0\)</span> for <span class="math inline">\(x_j = \{1 + i, \sqrt{2}, 3 - 2i, 4\}\)</span>.</p>
+<p><span id="exm:unnamed-chunk-26" class="example"><strong>Example 5.2  </strong></span>Find <span class="math inline">\(y_0\)</span> for <span class="math inline">\(x_j = \{1 + i, \sqrt{2}, 3 - 2i, 4\}\)</span>.</p>
 </div>
 <p><strong>Solution</strong> :<br />
 Here <span class="math inline">\(N = 4\)</span> and
@@ -302,7 +305,7 @@ A=|\psi_0\rangle \langle 0|+|\psi_1\rangle \langle 1|
 QFT_N = \frac{1}{\sqrt{N}} \sum_{x=0}^{N-1} \sum_{y=0}^{N-1} \omega_N^{xy} |y\rangle \langle x|
 \]</span></p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-25" class="example"><strong>Example 5.3  </strong></span>Examples
+<p><span id="exm:unnamed-chunk-27" class="example"><strong>Example 5.3  </strong></span>Examples
 Lets take a look at <span class="math inline">\(QFT_2\)</span>. Because <span class="math inline">\(M =2,\omega=e^{i\pi}\)</span>.
 Therefore we have,
 <span class="math display">\[
@@ -497,7 +500,7 @@ This demonstrates the exponential speedup of the QFT over the classical Fast Fou
 \end{eqnarray}
 \]</span></p>
 <div class="example">
-<p><span id="exm:unnamed-chunk-26" class="example"><strong>Example 5.4  </strong></span></p>
+<p><span id="exm:unnamed-chunk-28" class="example"><strong>Example 5.4  </strong></span></p>
 <ul>
 <li><strong>Converting a time-domain vector with 15000 variables to frequency domain</strong>:
 <ul>
@@ -535,42 +538,42 @@ This demonstrates the exponential speedup of the QFT over the classical Fast Fou
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/04-Fourier.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/04-Fourier.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

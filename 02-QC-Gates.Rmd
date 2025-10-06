@@ -491,12 +491,101 @@ The SWAP circuit is crucial in quantum computing due to hardware limitations. In
 
 
 
-## CCNOT gates
+### CCNOT gate ( Toffoli gate)
 
 
 
 
+\[
+\begin{eqnarray}
+|0\rangle|0\rangle|0\rangle & \rightarrow & |0\rangle|0\rangle|0\rangle, \\
+|0\rangle|0\rangle|1\rangle & \rightarrow & |0\rangle|0\rangle|1\rangle, \\
+|0\rangle|1\rangle|0\rangle & \rightarrow & |0\rangle|1\rangle|0\rangle, \\
+|0\rangle|1\rangle|1\rangle & \rightarrow & |0\rangle|1\rangle|1\rangle, \\
+|1\rangle|0\rangle|0\rangle & \rightarrow & |1\rangle|0\rangle|0\rangle, \\
+|1\rangle|0\rangle|1\rangle & \rightarrow & |1\rangle|0\rangle|1\rangle, \\
+|1\rangle|1\rangle|0\rangle & \rightarrow & |1\rangle|1\rangle|1\rangle, \\
+|1\rangle|1\rangle|1\rangle & \rightarrow & |1\rangle|1\rangle|0\rangle
+\end{eqnarray}
+\]
 
+Diagram:
+
+<center>
+![CCNOT gate](fig/fig60.png)
+</center>
+
+The matrix representation of the CCNOT gate is:
+
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0
+\end{pmatrix}
+\]
+
+**Observation 1**: The Toffoli gate can simulate AND gate
+
+<center>
+<div style="display: flex; flex-direction: row; align-items: flex-start; gap: 20px;">
+
+<div style="flex: 1;">
+<figure style="width: 100%;">
+  <img src="fig/fig61.png" style="max-width: 100%;"/>
+</figure>
+</div>
+
+<div style="flex: 2;">
+<p>
+<span style="background-color: #fed2cc;">\( |0\rangle|0\rangle\)</span>\(|0\rangle\)   \(\rightarrow  |0\rangle|0\rangle|0\rangle,\)<br/>
+\(|0\rangle|0\rangle|1\rangle  \rightarrow  |0\rangle|0\rangle|1\rangle,\)<br/>
+<span style="background-color: #fed2cc;"> \(|0\rangle|1\rangle\)</span>\(|0\rangle\) \(\rightarrow  |0\rangle|1\rangle|0\rangle,\)<br/>
+\(|0\rangle|1\rangle\)\(|1\rangle  \rightarrow  |0\rangle|1\rangle|1\rangle,\)<br/>
+<span style="background-color: #fed2cc;">\(|1\rangle|0\rangle\)</span>\(|0\rangle  \rightarrow  |1\rangle|0\rangle|0\rangle,\)<br/>
+\(|1\rangle|0\rangle\)\(|1\rangle  \rightarrow  |1\rangle|0\rangle|1\rangle,\)<br/>
+<span style="background-color: #fed2cc;">\(|1\rangle|1\rangle\)</span>\(|0\rangle  \rightarrow  |1\rangle|1\rangle|1\rangle,\)<br/>
+\(|1\rangle|1\rangle\)\(|1\rangle  \rightarrow  |1\rangle|1\rangle|0\rangle.\)
+</p>
+</div>
+
+</div>
+
+</center>
+
+
+**Observation 2**: The Toffoli gate can simulate NOT gate.
+
+<center>
+<div style="display: flex; flex-direction: row; align-items: flex-start; gap: 20px;">
+
+<div style="flex: 1;">
+<figure style="width: 100%;">
+  <img src="fig/fig62.png" style="max-width: 100%;"/>
+</figure>
+</div>
+
+<div style="flex: 2;">
+<p>
+\( |0\rangle|0\rangle\)\(|0\rangle\)   \(\rightarrow  |0\rangle|0\rangle|0\rangle,\)<br/>
+\(|0\rangle|0\rangle|1\rangle  \rightarrow  |0\rangle|0\rangle|1\rangle,\)<br/>
+\(|0\rangle|1\rangle\)\(|0\rangle\) \(\rightarrow  |0\rangle|1\rangle|0\rangle,\)<br/>
+\(|0\rangle|1\rangle\)\(|1\rangle  \rightarrow  |0\rangle|1\rangle|1\rangle,\)<br/>
+\(|1\rangle|0\rangle\)\(|0\rangle  \rightarrow  |1\rangle|0\rangle|0\rangle,\)<br/>
+\(|1\rangle|0\rangle\)\(|1\rangle  \rightarrow  |1\rangle|0\rangle|1\rangle,\)<br/>
+<span style="background-color: #fed2cc;">\(|1\rangle|1\rangle|0\rangle  \rightarrow  |1\rangle|1\rangle|1\rangle,\)</span><br/>
+<span style="background-color: #fed2cc;">\(|1\rangle|1\rangle|1\rangle  \rightarrow  |1\rangle|1\rangle|0\rangle.\)</span>
+</p>
+</div>
+
+</div>
+
+</center>
 
 
 

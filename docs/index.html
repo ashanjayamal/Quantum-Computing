@@ -8,7 +8,7 @@
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
 The HTML output format for this example is bookdown::gitbook,</p>" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Introduction to Quantum Computing" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-16" />
+<meta name="date" content="2025-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -61,8 +61,9 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -72,7 +73,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -156,6 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="quntum-effects.html"><a href="quntum-effects.html#measurement"><i class="fa fa-check"></i><b>2.2</b> Measurement</a></li>
 <li class="chapter" data-level="2.3" data-path="quntum-effects.html"><a href="quntum-effects.html#unitary-evolution"><i class="fa fa-check"></i><b>2.3</b> Unitary Evolution</a></li>
 <li class="chapter" data-level="2.4" data-path="quntum-effects.html"><a href="quntum-effects.html#entanglement"><i class="fa fa-check"></i><b>2.4</b> Entanglement</a></li>
+<li class="chapter" data-level="2.5" data-path="quntum-effects.html"><a href="quntum-effects.html#exercise"><i class="fa fa-check"></i><b>2.5</b> Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="quantum-gates.html"><a href="quantum-gates.html"><i class="fa fa-check"></i><b>3</b> Quantum Gates</a>
 <ul>
@@ -168,9 +170,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#multi-qubit-gates."><i class="fa fa-check"></i><b>3.2</b> Multi-qubit gates.</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.2.1</b> CNOT gate</a></li>
+<li class="chapter" data-level="3.2.2" data-path="quantum-gates.html"><a href="quantum-gates.html#ccnot-gate-toffoli-gate"><i class="fa fa-check"></i><b>3.2.2</b> CCNOT gate ( Toffoli gate)</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#ccnot-gates"><i class="fa fa-check"></i><b>3.3</b> CCNOT gates</a></li>
-<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
+<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="deutschs-algorithm.html"><a href="deutschs-algorithm.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s Algorithm</a></li>
 <li class="chapter" data-level="5" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html"><i class="fa fa-check"></i><b>5</b> Quantum Fourier Trasnform (QFT)</a>
@@ -183,6 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="shors-algorithm.html"><a href="shors-algorithm.html"><i class="fa fa-check"></i><b>6</b> Shor’s Algorithm</a></li>
 <li class="chapter" data-level="7" data-path="quantum-computing-with-qiskit.html"><a href="quantum-computing-with-qiskit.html"><i class="fa fa-check"></i><b>7</b> Quantum Computing with Qiskit</a></li>
 <li class="chapter" data-level="8" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><i class="fa fa-check"></i><b>8</b> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour</a></li>
+<li class="chapter" data-level="9" data-path="refrences.html"><a href="refrences.html"><i class="fa fa-check"></i><b>9</b> Refrences</a></li>
 <li class="divider"></li>
 <li><a href="https://ashanjayamal.github.io/academicpages/" target="blank">Ashan Jayamal</a></li>
 
@@ -206,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Introduction to Quantum Computing</h1>
 <p class="author"><em>Ashan Jayamal</em></p>
-<p class="date"><em>2025-03-16</em></p>
+<p class="date"><em>2025-10-05</em></p>
 </div>
 <div id="quantum-computing-a-journey-into-the-atomic-world" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Quantum Computing: A Journey into the Atomic World<a href="index.html#quantum-computing-a-journey-into-the-atomic-world" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -233,17 +236,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span id="def:unnamed-chunk-2" class="definition"><strong>Definition 1.2  </strong></span>Given <span class="math inline">\(A \in \mathbb{C}^{m \times n}\)</span> and <span class="math inline">\(B \in \mathbb{C}^{p \times q}\)</span>, the Kronecker product <span class="math inline">\(A \otimes B\)</span> is the matrix <span class="math inline">\(D \in \mathbb{C}^{mp \times nq}\)</span> defined as</p>
 <p><span class="math display">\[
 D := A \otimes B =
-\begin{bmatrix}
+\begin{pmatrix}
 a_{11}B &amp; \dots &amp; a_{1n}B \\
 a_{21}B &amp; \dots &amp; a_{2n}B \\
 \vdots &amp; \ddots &amp; \vdots \\
 a_{m1}B &amp; \dots &amp; a_{mn}B
-\end{bmatrix}.
+\end{pmatrix}.
 \]</span></p>
 <p>If we choose the standard basis over the vector spaces <span class="math inline">\(\mathbb{C}^{m \times n}\)</span> and <span class="math inline">\(\mathbb{C}^{p \times q}\)</span>, then the bilinear operation of the tensor product <span class="math inline">\(\mathbb{C}^{m \times n} \otimes \mathbb{C}^{p \times q}\)</span> is simply the Kronecker product.</p>
 </div>
 <div class="example">
-<p><span id="exm:unnamed-chunk-3" class="example"><strong>Example 1.1  </strong></span>We provide an example of the tensor product for normalized vectors, which will link this concept to probability distributions and will hopefully provide a better understanding of some of the future material.</p>
+<p><span id="exm:unnamed-chunk-3" class="example"><strong>Example 1.1  </strong></span></p>
+<ul>
+<li><p>Vector example</p>
+<p><span class="math inline">\(\begin{pmatrix}
+a \\
+b
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+c \\
+d
+\end{pmatrix}
+=
+\begin{pmatrix}
+ac \\
+ad \\
+bc \\
+bd
+\end{pmatrix}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{pmatrix}
+1 \\
+2
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+3 \\
+4
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 \cdot 3 \\
+1 \cdot 4 \\
+2 \cdot 3 \\
+2 \cdot 4
+\end{pmatrix}
+=
+\begin{pmatrix}
+3 \\
+4 \\
+6 \\
+8
+\end{pmatrix}\)</span></li>
+</ul></li>
+<li><p>Matrix Example</p>
+<p><span class="math inline">\(\begin{pmatrix}
+a &amp; b \\
+c &amp; d
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+e &amp; f \\
+g &amp; h
+\end{pmatrix}
+=
+\begin{pmatrix}
+ae &amp; af &amp; be &amp; bf \\
+ag &amp; ah &amp; bg &amp; bh \\
+ce &amp; cf &amp; de &amp; df \\
+cg &amp; ch &amp; dg &amp; dh
+\end{pmatrix}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{pmatrix}
+1 &amp; 2 \\
+2 &amp; 1
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+3 &amp; 1 \\
+1 &amp; 4
+\end{pmatrix}
+=
+\begin{pmatrix}
+3 &amp; 1 &amp; 6 &amp; 2 \\
+1 &amp; 4 &amp; 2 &amp; 8 \\
+6 &amp; 2 &amp; 3 &amp; 1 \\
+2 &amp; 8 &amp; 1 &amp; 4
+\end{pmatrix}\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div class="example">
+<p><span id="exm:unnamed-chunk-4" class="example"><strong>Example 1.2  </strong></span>We provide an example of the tensor product for normalized vectors, which will link this concept to probability distributions and will hopefully provide a better understanding of some of the future material.</p>
 <p>Consider two independent discrete random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> that describe the probability of extracting numbers from two urns. The first urn contains the numbers <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>; the second urn contains the numbers <span class="math inline">\(00, 01, 10,\)</span> and <span class="math inline">\(11\)</span>.</p>
 <p><img src="fig/fig52.png" /></p>
 <p>Assume that the extraction mechanism is biased and therefore the outcomes do not have equal probability. The outcome probabilities are given below, and for convenience, we define two vectors containing them:
@@ -339,7 +424,7 @@ x \otimes y =
 <p>The last equality is due to the fact that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. The vector <span class="math inline">\(x \otimes y\)</span> is also normalized, which is easy to verify algebraically.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unnamed-chunk-4" class="proposition"><strong>Proposition 1.1  </strong></span>Let <span class="math inline">\(A, B \in \mathbb{C}^{m \times m}\)</span> and <span class="math inline">\(C, D \in \mathbb{C}^{n \times n}\)</span> be linear transformations on <span class="math inline">\(V\)</span> and <span class="math inline">\(W\)</span>, respectively. Let <span class="math inline">\(u, v \in \mathbb{C}^m\)</span>, <span class="math inline">\(w, x \in \mathbb{C}^n\)</span>, and <span class="math inline">\(a, b \in \mathbb{C}\)</span>. The tensor product satisfies the following properties:</p>
+<p><span id="prp:unnamed-chunk-5" class="proposition"><strong>Proposition 1.1  </strong></span>Let <span class="math inline">\(A, B \in \mathbb{C}^{m \times m}\)</span> and <span class="math inline">\(C, D \in \mathbb{C}^{n \times n}\)</span> be linear transformations on <span class="math inline">\(V\)</span> and <span class="math inline">\(W\)</span>, respectively. Let <span class="math inline">\(u, v \in \mathbb{C}^m\)</span>, <span class="math inline">\(w, x \in \mathbb{C}^n\)</span>, and <span class="math inline">\(a, b \in \mathbb{C}\)</span>. The tensor product satisfies the following properties:</p>
 <ul>
 <li><span class="math inline">\((A \otimes C)(B \otimes D) = (AB) \otimes (CD).\)</span></li>
 <li><span class="math inline">\((A \otimes C)(u \otimes w) = (Au) \otimes (Cw).\)</span></li>
@@ -380,42 +465,42 @@ S^{\otimes n} := \underbrace{S \otimes S \otimes \dots \otimes S}_{n \text{ time
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/index.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/index.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

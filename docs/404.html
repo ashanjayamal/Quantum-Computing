@@ -8,7 +8,7 @@
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 set in the _output.yml file.
 The HTML output format for this example is bookdown::gitbook,</p>" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Page not found | Introduction to Quantum Computing" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <meta name="author" content="Ashan Jayamal" />
 
 
-<meta name="date" content="2025-03-16" />
+<meta name="date" content="2025-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,6 +92,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <li class="chapter" data-level="2.2" data-path="quntum-effects.html"><a href="quntum-effects.html#measurement"><i class="fa fa-check"></i><b>2.2</b> Measurement</a></li>
 <li class="chapter" data-level="2.3" data-path="quntum-effects.html"><a href="quntum-effects.html#unitary-evolution"><i class="fa fa-check"></i><b>2.3</b> Unitary Evolution</a></li>
 <li class="chapter" data-level="2.4" data-path="quntum-effects.html"><a href="quntum-effects.html#entanglement"><i class="fa fa-check"></i><b>2.4</b> Entanglement</a></li>
+<li class="chapter" data-level="2.5" data-path="quntum-effects.html"><a href="quntum-effects.html#exercise"><i class="fa fa-check"></i><b>2.5</b> Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="quantum-gates.html"><a href="quantum-gates.html"><i class="fa fa-check"></i><b>3</b> Quantum Gates</a>
 <ul>
@@ -104,9 +105,9 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <li class="chapter" data-level="3.2" data-path="quantum-gates.html"><a href="quantum-gates.html#multi-qubit-gates."><i class="fa fa-check"></i><b>3.2</b> Multi-qubit gates.</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="quantum-gates.html"><a href="quantum-gates.html#cnot-gate"><i class="fa fa-check"></i><b>3.2.1</b> CNOT gate</a></li>
+<li class="chapter" data-level="3.2.2" data-path="quantum-gates.html"><a href="quantum-gates.html#ccnot-gate-toffoli-gate"><i class="fa fa-check"></i><b>3.2.2</b> CCNOT gate ( Toffoli gate)</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#ccnot-gates"><i class="fa fa-check"></i><b>3.3</b> CCNOT gates</a></li>
-<li class="chapter" data-level="3.4" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
+<li class="chapter" data-level="3.3" data-path="quantum-gates.html"><a href="quantum-gates.html#exercises"><i class="fa fa-check"></i><b>3.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="deutschs-algorithm.html"><a href="deutschs-algorithm.html"><i class="fa fa-check"></i><b>4</b> Deutsch’s Algorithm</a></li>
 <li class="chapter" data-level="5" data-path="quantum-fourier-trasnform-qft.html"><a href="quantum-fourier-trasnform-qft.html"><i class="fa fa-check"></i><b>5</b> Quantum Fourier Trasnform (QFT)</a>
@@ -119,6 +120,7 @@ The HTML output format for this example is bookdown::gitbook,</p>" />
 <li class="chapter" data-level="6" data-path="shors-algorithm.html"><a href="shors-algorithm.html"><i class="fa fa-check"></i><b>6</b> Shor’s Algorithm</a></li>
 <li class="chapter" data-level="7" data-path="quantum-computing-with-qiskit.html"><a href="quantum-computing-with-qiskit.html"><i class="fa fa-check"></i><b>7</b> Quantum Computing with Qiskit</a></li>
 <li class="chapter" data-level="8" data-path="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><a href="an-introduction-to-quantum-computing-and-the-deutsch-algorithm-a-mathematical-tour.html"><i class="fa fa-check"></i><b>8</b> An Introduction to Quantum Computing and the Deutsch Algorithm: A Mathematical Tour</a></li>
+<li class="chapter" data-level="9" data-path="refrences.html"><a href="refrences.html"><i class="fa fa-check"></i><b>9</b> Refrences</a></li>
 <li class="divider"></li>
 <li><a href="https://ashanjayamal.github.io/academicpages/" target="blank">Ashan Jayamal</a></li>
 
@@ -165,42 +167,42 @@ the table of contents to find the page you are looking for.</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/%s",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/ashanjayamal/Quantum-Computing/edit/BRANCH/%s",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

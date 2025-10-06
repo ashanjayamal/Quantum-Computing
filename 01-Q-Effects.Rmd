@@ -18,7 +18,7 @@ Inner product $(\psi,\phi)$ is expressed as $\langle\psi|\phi\rangle$. According
 |ket vector|bra vector|
 |:--------:|:--------:|
 |$| \psi \rangle = \begin{pmatrix} a \\ b \end{pmatrix}$|$\langle\psi| = \begin{pmatrix} \bar{a} & \bar{b} \end{pmatrix}$
-
+| Column vector|Row vector|
 
 
 
@@ -219,7 +219,10 @@ What happens if this is measured with respect to the Hadamard basis?
 ```
 
 
-![](fig/fig2.jpg)
+<!--![](fig/fig2.jpg)-->
+
+![](fig/fig2-1.png)
+
 **Solution**: \
 We can obtain easily 
 \[
@@ -476,6 +479,25 @@ is an **entangled state**.
 
 
 
+## Exercise
+
+```{exercise}
+Which of the following states:
+  
+  a. \( \frac{1}{\sqrt{2}} (|0\rangle + |1\rangle) \)  
+  a. \( |00101\rangle \)  
+  a. \( |++\rangle =\frac{1}{\sqrt{2}} (|00\rangle + |01\rangle + |10\rangle + |11\rangle) \)  
+  a. \( \frac{1}{\sqrt{2}} (|01\rangle + |10\rangle) \)  
+  a. \( |w_4\rangle = \frac{1}{\sqrt{2}} (|0001\rangle + |0010\rangle + |0100\rangle + |1000\rangle) \)  
+
+
+1. Are these states superpositions in the standard basis?
+2. Are these states superpositions in the Hadamard basis \( \{ |+\rangle, |-\rangle \} \), where: \( |+\rangle = \frac{1}{\sqrt{2}} (|0\rangle + |1\rangle) \) and \( |-\rangle = \frac{1}{\sqrt{2}} (|0\rangle - |1\rangle) \)?
+3. Are these states entangled?
+
+
+
+```
 
 
 
